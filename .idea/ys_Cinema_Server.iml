@@ -8,5 +8,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="groovy-4.0.0" level="project" />
+    <orderEntry type="library" name="databasejar" level="project" />
   </component>
 </module>
