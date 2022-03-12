@@ -10,7 +10,7 @@ public class JDBCTest {
         PreparedStatement pstmt = null;
 
         try {
-            String url = "jdbc:oracle:thin:@DB202203091416_high?TNS_ADMIN=C://Wallet_DB202203091416";
+            String url = "jdbc:oracle:thin:@DB202203091416_high?TNS_ADMIN=./common/Wallet_DB202203091416";
             String id = "admin";
             String pwd = "Cloudoracle123";
 
