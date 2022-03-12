@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="oraclepki">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/main/resources/oraclepki.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

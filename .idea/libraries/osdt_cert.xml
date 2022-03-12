@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="osdt_cert">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/main/resources/osdt_cert.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
