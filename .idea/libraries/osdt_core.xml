@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="osdt_core">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/main/resources/osdt_core.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
