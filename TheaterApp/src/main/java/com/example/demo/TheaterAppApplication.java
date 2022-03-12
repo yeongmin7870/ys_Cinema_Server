@@ -30,4 +30,6 @@ public class TheaterAppApplication implements CommandLineRunner {
 
 		memberList.forEach(System.out :: println);
 	}
+
+	//https://www.youtube.com/watch?v=CCqVKz6RRLs 을 참조하여 이해가 잘안되지만 알던 구현해보았음 프로젝트를 진행하기에는 부족해보여 더많은 자료를 찾아볼 예정
 }
