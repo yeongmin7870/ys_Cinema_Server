@@ -10,14 +10,14 @@ public class JDBCTest {
         PreparedStatement pstmt = null;
 
         try {
-            String url = "jdbc:oracle:thin:@DB202203091416_high?TNS_ADMIN=./src/main/resources/Wallet/";
+            String url = "jdbc:oracle:thin:@DB202203091416_high?TNS_ADMIN=/Users/ymgood/intellijPro/Wallet_DB202203091416";
             String id = "admin";
             String pwd = "Cloudoracle123";
 
             Class.forName("oracle.jdbc.OracleDriver");
             conn = DriverManager.getConnection(url,id,pwd);
 
-            String sql="insert into user1 (id,name) values(11,'1')";
+            String sql="insert into user1 (id,name) values(150,'1')";
             pstmt = conn.prepareStatement(sql);
             pstmt.executeUpdate();
             pstmt.close();
