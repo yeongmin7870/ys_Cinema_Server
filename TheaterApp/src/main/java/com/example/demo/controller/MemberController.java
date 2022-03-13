@@ -17,11 +17,7 @@ public class MemberController {
 
     @Autowired
     private MemberService service;
-//    @PostConstruct
-//    public void init(){
-//        memberMap = new HashMap<String,Member>();
-//        memberMap.put("1",new Member(1,"박영민"));
-//    }
+
 
     @GetMapping("/member/{id}")
     public Member getMember(@PathVariable("id") int id){
