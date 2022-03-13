@@ -2,21 +2,33 @@ package com.example.demo.controller;
 
 import com.example.demo.model.Member;
 import com.example.demo.service.MemberService;
+import com.google.gson.JsonObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 import java.util.Map;
 
 
 @RestController
+@Controller
 public class MemberController {
 
     private Map<String, Member> memberMap;
 
     @Autowired
     private MemberService service;
+
+    @ResponseBody
+    @RequestMapping("/test3")
+    public String test3(){
+        JsonObject obj = new JsonObject();
+
+        obj.addProperty("member","라라라");
+
+        return obj.toString();
+    }
 
 
     @GetMapping("/member/{id}")
