@@ -45,9 +45,40 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.oracle.database.jdbc</groupId>
+			<groupId>ojdbc8</groupId>
 			<artifactId>ojdbc8</artifactId>
-			<version>21.1.0.0</version>
+			<version>21.5.0.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/common/jdbc/ojdbc8.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>ojdbc8</groupId>
+			<artifactId>ojdbc8</artifactId>
+			<version>21.5.0.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/common/jdbc/ojdbc8.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>oraclepki</groupId>
+			<artifactId>oraclepki</artifactId>
+			<version>21.5.0.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/common/jdbc/oraclepki.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>osdtcert</groupId>
+			<artifactId>osdtcert</artifactId>
+			<version>21.5.0.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/common/jdbc/osdt_cert.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>osdtcore</groupId>
+			<artifactId>osdtcore</artifactId>
+			<version>21.5.0.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/common/jdbc/osdt_core.jar</systemPath>
 		</dependency>
 
 
