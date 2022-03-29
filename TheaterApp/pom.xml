@@ -52,13 +52,7 @@
 			<scope>system</scope>
 			<systemPath>${project.basedir}/common/jdbc/ojdbc8.jar</systemPath>
 		</dependency>
-		<dependency>
-			<groupId>ojdbc8</groupId>
-			<artifactId>ojdbc8</artifactId>
-			<version>21.5.0.0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/common/jdbc/ojdbc8.jar</systemPath>
-		</dependency>
+
 		<dependency>
 			<groupId>oraclepki</groupId>
 			<artifactId>oraclepki</artifactId>
