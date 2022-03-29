@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@DB202203091416_high?TNS_ADMIN=./common/Wallet_DB202203091416
+    username: admin
+    password: Cloudoracle123
+    driver-class-name: oracle.jdbc.OracleDriver
+
+server:
+  port: 8088
