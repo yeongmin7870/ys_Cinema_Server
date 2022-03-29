@@ -60,6 +60,7 @@
 			<scope>system</scope>
 			<systemPath>${project.basedir}/common/jdbc/oraclepki.jar</systemPath>
 		</dependency>
+
 		<dependency>
 			<groupId>osdtcert</groupId>
 			<artifactId>osdtcert</artifactId>
