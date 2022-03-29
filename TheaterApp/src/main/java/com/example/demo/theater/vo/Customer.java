@@ -11,7 +11,7 @@ import javax.persistence.Id;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class customer {
+public class Customer {
     @Id
     @GeneratedValue
     private Integer c_No;  // 회원번호

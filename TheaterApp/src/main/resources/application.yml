@@ -4,6 +4,16 @@ spring:
     username: admin
     password: Cloudoracle123
     driver-class-name: oracle.jdbc.OracleDriver
-
+  jpa:
+    properties:
+      hibernate:
+        ddl-auto: create-drop
+        show_sql: true
+        format_sql: true
+logging:
+  level:
+    org.springframework: DEBUG
 server:
   port: 8088
+
+

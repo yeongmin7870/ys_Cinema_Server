@@ -3,17 +3,17 @@ package com.example.demo.theater.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-
 @Entity
-@AllArgsConstructor
 @NoArgsConstructor
-public class memberShip {
+@AllArgsConstructor
+public class FoodKind {
     @Id
     @GeneratedValue
-    private Integer m_No;
-    private String m_Tier;
+    private Integer food_Kind_No;
+    private String food_Kind_Name;
 }

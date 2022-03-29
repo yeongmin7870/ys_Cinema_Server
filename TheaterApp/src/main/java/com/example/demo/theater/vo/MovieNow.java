@@ -12,7 +12,7 @@ import javax.persistence.Id;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class movieEnd {
+public class MovieNow {
     @Id
     @GeneratedValue
     private  Integer m_No;

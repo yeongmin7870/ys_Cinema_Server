@@ -10,7 +10,7 @@ import javax.persistence.Id;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class foodPayment {
+public class FoodPayment {
     @Id
     @GeneratedValue
     private Integer fp_No;

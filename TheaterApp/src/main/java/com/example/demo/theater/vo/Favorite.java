@@ -1,6 +1,5 @@
 package com.example.demo.theater.vo;
 
-
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
@@ -9,11 +8,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-@NoArgsConstructor
 @AllArgsConstructor
-public class foodKind {
+@NoArgsConstructor
+public class Favorite {
     @Id
     @GeneratedValue
-    private Integer food_Kind_No;
-    private String food_Kind_Name;
+    private Integer fm_No;
+    private String fm_CustNO;
+    private  String m_Name;
 }
