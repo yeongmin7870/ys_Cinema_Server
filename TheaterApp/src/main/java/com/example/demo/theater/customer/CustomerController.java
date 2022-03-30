@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/test")
+@RequestMapping("/theater")
 public class CustomerController {
 
     @Autowired
