@@ -5,14 +5,12 @@ spring:
     password: Cloudoracle123
     driver-class-name: oracle.jdbc.OracleDriver
   jpa:
-    properties:
-      hibernate:
-        ddl-auto: create-drop
-        show_sql: true
-        format_sql: true
-logging:
-  level:
-    org.springframework: DEBUG
+    show-sql: true
+    database-platform: org.hibernate.dialect.Oracle10gDialect
+    hibernate:
+      ddl-auto: none
+      format-sql: true
+
 server:
   port: 8088
 
