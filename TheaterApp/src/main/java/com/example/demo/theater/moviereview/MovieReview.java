@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.Date;
 
 @Entity
 @AllArgsConstructor
@@ -19,8 +20,10 @@ public class MovieReview {
     @Column(columnDefinition = "varchar2(20)")
     private String mr_Movie;
     private Integer mr_Writer;
-    private TIMESTAMP mr_Uptime;
+    private Long mr_Content;
+    private Date mr_Uptime;
     private Integer mr_Thumbs;
     private Integer mr_Bullshit;
+
 
 }

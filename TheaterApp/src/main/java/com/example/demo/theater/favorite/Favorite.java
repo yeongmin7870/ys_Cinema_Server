@@ -16,6 +16,5 @@ public class Favorite {
     @GeneratedValue
     private Integer fm_No;
     private Integer c_No;
-    @Column(columnDefinition = "varchar2(51)")
-    private  String m_Name;
+    private Integer m_No;
 }

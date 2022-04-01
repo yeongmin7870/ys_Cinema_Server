@@ -1,4 +1,4 @@
-package com.example.demo.theater.movienow;
+package com.example.demo.theater.movie;
 
 
 import lombok.AllArgsConstructor;
@@ -9,11 +9,13 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.sql.Blob;
+import java.util.Date;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class MovieNow {
+public class Movie {
     @Id
     @GeneratedValue
     private  Integer m_No;
@@ -32,6 +34,9 @@ public class MovieNow {
     private Long m_Content;
     private float m_StarScore;
     private Integer m_Rating;
-    private TIMESTAMP m_Hour;
+    private Date m_Hour;
+    private Blob m_Img;
+    private Date m_StartDate;
+    private Date m_EndDate;
 
 }

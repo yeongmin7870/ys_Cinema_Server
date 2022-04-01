@@ -9,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.sql.Blob;
 
 @Data
 @Entity
@@ -24,12 +25,15 @@ public class Customer {
     private String c_Pw; //회원 비밀번호
     @Column(columnDefinition = "varchar2(51)")
     private String c_Name; //회원명
+    @Column(columnDefinition = "varchar2(24)")
+    private String c_Nikname;
     @Column(columnDefinition = "varchar2(11)")
     private String c_Phone; // 회원 전화번호
     @Column(columnDefinition = "varchar2(105)")
     private String c_Address; //회원 주소
     private Integer c_Total;
     private Integer c_Point;
+    private Blob c_Profile;
 
 
 }

@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.sql.Blob;
 import java.util.Date;
 
 
@@ -26,4 +27,6 @@ public class FoodMenu {
     private String food_Limit;
     private Date food_Date;
     private Integer food_Price;
+    private Blob food_Img;
+    private Integer food_Kind_No;
 }
