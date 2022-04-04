@@ -33,7 +33,8 @@ public class Customer {
     private String c_Address; //회원 주소
     private Integer c_Total;
     private Integer c_Point;
-    private Blob c_Profile;
+    @Column(columnDefinition = "varchar2(30)")
+    private String c_Profile;
 
 
 }

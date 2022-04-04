@@ -27,6 +27,7 @@ public class FoodMenu {
     private String food_Limit;
     private Date food_Date;
     private Integer food_Price;
-    private Blob food_Img;
+    @Column(columnDefinition = "varchar2(30)")
+    private String food_Img;
     private Integer food_Kind_No;
 }

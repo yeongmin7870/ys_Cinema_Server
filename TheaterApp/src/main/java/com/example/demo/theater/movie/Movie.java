@@ -35,7 +35,8 @@ public class Movie {
     private float m_StarScore;
     private Integer m_Rating;
     private Date m_Hour;
-    private Blob m_Img;
+    @Column(columnDefinition = "varchar2(30)")
+    private String m_Img;
     private Date m_StartDate;
     private Date m_EndDate;
 
