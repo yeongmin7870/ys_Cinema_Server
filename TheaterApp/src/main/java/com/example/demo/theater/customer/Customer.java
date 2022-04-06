@@ -17,9 +17,8 @@ import java.sql.Blob;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Customer {
+
     @Id
-    @GeneratedValue
-    private Integer c_No;  // 회원번호
     @Column(name = "c_Id",columnDefinition = "varchar2(10)")
     private String customerId; //회원아이디
     @Column(columnDefinition = "varchar2(16)")
