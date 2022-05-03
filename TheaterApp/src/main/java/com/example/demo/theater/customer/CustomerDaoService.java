@@ -5,6 +5,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.function.EntityResponse;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,10 +28,12 @@ public class CustomerDaoService {
         return customer;
     }
 
-//    로그인 하기위한 메소드
-    public String checkedCustomer(String id, String passwd) {
+    //    로그인 하기위한 메소드
+    public String checkedCustomer(String id, String passwd, HttpServletRequest request) {
+        HttpSession session = request.getSession();
         Customer customer1 = repository.findByCustomerId(id);
         if (id.equals(customer1.getCustomerId()) && passwd.equals(customer1.getC_Pw())) {
+            session.setAttribute(id, id);
             return "finish";
         } else {
             return "fail";
@@ -47,10 +51,12 @@ public class CustomerDaoService {
         return customer;
     }
 
-    public Customer updateCustomer(Customer newCustomer,String id){
+    public Customer updateCustomer(Customer newCustomer, String id) {
         Customer customer = repository.findByCustomerId(id);
 
-        if(customer == null){return null;}
+        if (customer == null) {
+            return null;
+        }
 
         customer.setC_Pw(newCustomer.getC_Pw());
         customer.setC_Name(newCustomer.getC_Name());

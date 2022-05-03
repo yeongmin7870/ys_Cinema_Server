@@ -5,6 +5,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.net.URI;
 import java.util.List;
 
@@ -33,9 +35,33 @@ public class CustomerController {
     }
 
     @GetMapping("/customers/login")
-    public String checkedLogin(@RequestParam String id, String passwd) {
-        return service.checkedCustomer(id, passwd);
+    public String checkedLogin(@RequestParam String id, String passwd, HttpServletRequest request) {
+        return service.checkedCustomer(id, passwd, request);
     }
+
+    @GetMapping("/customers/session")
+    public String createSession(@RequestParam String id, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        String result = (String) session.getAttribute(id);
+        if (!id.equals(result)) {
+            return "fail";
+        } else {
+            return result;
+        }
+    }
+
+    @GetMapping("/customers/logout")
+    public String customerLogout(@RequestParam String id, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        String result = (String) session.getAttribute(id);
+        if (!id.equals(result)) {
+            return "fail";
+        } else {
+            session.removeAttribute(result);
+            return "finish";
+        }
+    }
+
 
     // 회원가입
     @PostMapping("/customers")

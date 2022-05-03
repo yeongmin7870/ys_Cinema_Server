@@ -31,10 +31,10 @@ public class Customer {
     private String c_Phone; // 회원 전화번호
     @Column(columnDefinition = "varchar2(105)")
     private String c_Address; //회원 주소
-    private Integer c_Total;
-    private Integer c_Point;
+    private Integer c_Total; // 총소비금액
+    private Integer c_Point; // 적립포인트
     @Column(columnDefinition = "varchar2(30)")
-    private String c_Profile;
+    private String c_Profile; // 프로필이미지
 
 
 }
