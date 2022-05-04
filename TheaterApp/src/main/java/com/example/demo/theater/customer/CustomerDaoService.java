@@ -1,5 +1,7 @@
 package com.example.demo.theater.customer;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -9,9 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class CustomerDaoService {
+
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     private CustomerRepository repository;
@@ -24,7 +29,6 @@ public class CustomerDaoService {
 
     public Customer findById(String customerId) {
         Customer customer = repository.findByCustomerId(customerId);
-
         return customer;
     }
 
@@ -32,9 +36,11 @@ public class CustomerDaoService {
     public String checkedCustomer(String id, String passwd, HttpServletRequest request) {
         HttpSession session = request.getSession();
         Customer customer1 = repository.findByCustomerId(id);
+
         if (id.equals(customer1.getCustomerId()) && passwd.equals(customer1.getC_Pw())) {
-            session.setAttribute(id, id);
-            return "finish";
+            String SessionID = String.valueOf(System.currentTimeMillis()) + UUID.randomUUID().toString();
+            session.setAttribute(SessionID, id);
+            return SessionID;
         } else {
             return "fail";
         }

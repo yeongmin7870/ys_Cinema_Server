@@ -1,5 +1,7 @@
 package com.example.demo.theater.customer;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,10 +11,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.net.URI;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/theater")
 public class CustomerController {
+
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
 
     @Autowired
     private CustomerDaoService service;
@@ -42,21 +48,22 @@ public class CustomerController {
     @GetMapping("/customers/session")
     public String createSession(@RequestParam String id, HttpServletRequest request) {
         HttpSession session = request.getSession();
-        String result = (String) session.getAttribute(id);
-        if (!id.equals(result)) {
-            return "fail";
-        } else {
+        if (!id.equals("")) {
+            String result = session.getAttribute(id).toString();
+            logger.info(result);
             return result;
+        } else {
+            return "fail";
         }
     }
 
     @GetMapping("/customers/logout")
     public String customerLogout(@RequestParam String id, HttpServletRequest request) {
         HttpSession session = request.getSession();
-        String result = (String) session.getAttribute(id);
-        if (!id.equals(result)) {
+        if (id.equals("")) {
             return "fail";
         } else {
+            String result = session.getAttribute(id).toString();
             session.removeAttribute(result);
             return "finish";
         }
