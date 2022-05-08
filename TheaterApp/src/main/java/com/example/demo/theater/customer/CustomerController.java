@@ -39,7 +39,7 @@ public class CustomerController {
 
 
 
-    @PostMapping("/upload/local")
+    @PostMapping("/customer/image/upload")
     public String uploadLocal(@RequestParam String id,@RequestParam("file")MultipartFile multipartFile){
         return service.uploadToLocal(id,multipartFile);
     }

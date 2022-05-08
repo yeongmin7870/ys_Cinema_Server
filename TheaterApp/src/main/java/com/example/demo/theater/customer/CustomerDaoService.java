@@ -66,7 +66,7 @@ public class CustomerDaoService {
         return customer;
     }
 
-    private String uploadFolderPath = "/Users/ymgood/ServerImage/";
+    private String uploadFolderPath = "../../serverImage/";
 
     public String uploadToLocal(String id, MultipartFile file) {
         try {
@@ -89,7 +89,7 @@ public class CustomerDaoService {
             return "finish";
         } catch (IOException e) {
             e.printStackTrace();
-            return "faill";
+            return "fail";
         }
     }
 
