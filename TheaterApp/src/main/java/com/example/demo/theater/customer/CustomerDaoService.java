@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -66,7 +67,7 @@ public class CustomerDaoService {
         return customer;
     }
 
-    private String uploadFolderPath = "./serverImage/";
+    private String uploadFolderPath = "./";
 
     public String uploadToLocal(String id, MultipartFile file) {
         try {
@@ -75,6 +76,7 @@ public class CustomerDaoService {
                 return "fail";
             }
 
+            uploadFolderPath = URLEncoder.encode(uploadFolderPath,"UTF-8");
             byte[] data = file.getBytes();
             String fileName = id + LocalDate.now() + LocalTime.now() + file.getOriginalFilename();
             Path path = Paths.get(uploadFolderPath + fileName);
