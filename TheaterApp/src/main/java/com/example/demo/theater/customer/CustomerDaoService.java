@@ -67,7 +67,7 @@ public class CustomerDaoService {
         return customer;
     }
 
-    private String uploadFolderPath = "./";
+    private String uploadFolderPath = "./serverImage/";
 
     public String uploadToLocal(String id, MultipartFile file) {
         try {
@@ -76,7 +76,6 @@ public class CustomerDaoService {
                 return "fail";
             }
 
-            uploadFolderPath = URLEncoder.encode(uploadFolderPath,"UTF-8");
             byte[] data = file.getBytes();
             String fileName = id + LocalDate.now() + LocalTime.now() + file.getOriginalFilename();
             Path path = Paths.get(uploadFolderPath + fileName);
