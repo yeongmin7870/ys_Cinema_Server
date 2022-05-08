@@ -1,4 +1,4 @@
-package com.example.demo.theater.normaltheaterseat;
+package com.example.demo.theater.orderList;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -11,9 +11,10 @@ import javax.persistence.Id;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class NormalTheaterSeat {
+public class OrderList {
     @Id
-    @Column(columnDefinition = "varchar2(4)")
-    private  String normalTS_No;
-    private Integer normal_No;
+    @Column(columnDefinition = "VARCHAR2(10)")
+    private Integer c_Id;
+    private Integer fp_No;
+    private Integer r_No;
 }

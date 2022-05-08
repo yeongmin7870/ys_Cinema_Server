@@ -23,5 +23,10 @@ public class Reservation {
     private Integer r_Theat;
     @Column(columnDefinition = "varchar2(4)")
     private String r_Seat;
+    @Column(columnDefinition = "varchar2(7)")
+    private String r_TotalPrice;
+    private Integer r_Coupon;
+    @Column(columnDefinition = "varchar2(30)")
+    private String c_Photo;
 
 }

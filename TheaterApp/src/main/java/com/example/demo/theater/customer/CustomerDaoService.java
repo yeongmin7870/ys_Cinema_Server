@@ -1,15 +1,24 @@
 package com.example.demo.theater.customer;
 
+import oracle.sql.TIMESTAMP;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.function.EntityResponse;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -56,6 +65,34 @@ public class CustomerDaoService {
         repository.save(customer);
         return customer;
     }
+
+    private String uploadFolderPath = "/Users/ymgood/ServerImage/";
+
+    public String uploadToLocal(String id, MultipartFile file) {
+        try {
+            Customer customer = repository.findByCustomerId(id);
+            if (customer == null) {
+                return "fail";
+            }
+
+            byte[] data = file.getBytes();
+            String fileName = id + LocalDate.now() + LocalTime.now() + file.getOriginalFilename();
+            Path path = Paths.get(uploadFolderPath + fileName);
+            Files.write(path, data);
+            // 여기까지는 이미지를 폴더에 저장함
+
+
+            customer.setC_Profile(fileName);
+            customer.setC_Profile_Path(path.toString());
+            repository.save(customer);
+            // 여기까지 디비에 이미지 이름과 경로 저장
+            return "finish";
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "faill";
+        }
+    }
+
 
     public Customer updateCustomer(Customer newCustomer, String id) {
         Customer customer = repository.findByCustomerId(id);

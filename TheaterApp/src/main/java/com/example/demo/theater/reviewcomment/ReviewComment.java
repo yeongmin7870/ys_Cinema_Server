@@ -19,7 +19,6 @@ public class ReviewComment {
     @GeneratedValue
     private Integer rc_No;
     private Integer mr_No;
-    private Integer rc_Writer;
     private Long rc_Content;
     private Date rc_Uptime;
     private Integer rc_Thumbs;

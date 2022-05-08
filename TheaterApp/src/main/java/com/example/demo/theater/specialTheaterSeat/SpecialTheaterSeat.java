@@ -1,4 +1,4 @@
-package com.example.demo.theater.normaltheaterseat;
+package com.example.demo.theater.specialTheaterSeat;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -11,9 +11,9 @@ import javax.persistence.Id;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class NormalTheaterSeat {
+public class SpecialTheaterSeat {
     @Id
     @Column(columnDefinition = "varchar2(4)")
-    private  String normalTS_No;
-    private Integer normal_No;
+    private String normalTS_No;
+    private  Integer special_No;
 }

@@ -1,4 +1,4 @@
-package com.example.demo.theater.reviewgrade;
+package com.example.demo.theater.ncOrderList;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -11,12 +11,10 @@ import javax.persistence.Id;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class ReviewGrade {
+public class NcOrderList {
     @Id
     @GeneratedValue
-    private Integer rg_No;
-    @Column(columnDefinition = "varchar2(9)")
-    private String rg_Tier;
-
-
+    private Integer nc_No;
+    private Integer fp_No;
+    private Integer r_No;
 }

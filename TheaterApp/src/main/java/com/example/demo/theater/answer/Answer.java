@@ -11,7 +11,9 @@ public class Answer {
     @Id
     @GeneratedValue
     private Integer a_No;
-    private Integer a_Writer;
+    private Integer q_No;
+    @Column(columnDefinition = "varchar2(10)")
+    private String ad_ID;
     @Column(columnDefinition = "varchar2(60)")
     private String a_Title;
     private Long a_Content;

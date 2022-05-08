@@ -33,8 +33,9 @@ public class Customer {
     private String c_Address; //회원 주소
     private Integer c_Total; // 총소비금액
     private Integer c_Point; // 적립포인트
-    @Column(columnDefinition = "varchar2(30)")
+    @Column(columnDefinition = "varchar2(70)")
     private String c_Profile; // 프로필이미지
-
+    @Column(columnDefinition = "varchar2(70)")
+    private String c_Profile_Path;
 
 }

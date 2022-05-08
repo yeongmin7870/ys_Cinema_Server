@@ -1,9 +1,8 @@
-package com.example.demo.theater.normaltheaterseat;
+package com.example.demo.theater.oftenQuestion;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -11,9 +10,10 @@ import javax.persistence.Id;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class NormalTheaterSeat {
+public class OftenQuestion {
     @Id
-    @Column(columnDefinition = "varchar2(4)")
-    private  String normalTS_No;
-    private Integer normal_No;
+    @GeneratedValue
+    private Integer often_ID;
+    private Integer often_subject;
+    private Integer often_Content;
 }

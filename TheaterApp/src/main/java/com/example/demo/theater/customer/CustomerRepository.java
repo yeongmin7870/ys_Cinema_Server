@@ -2,6 +2,7 @@ package com.example.demo.theater.customer;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.List;
 public interface CustomerRepository extends JpaRepository<Customer, String> {
 
     Customer findByCustomerId(String id);
+
 
 }
 
