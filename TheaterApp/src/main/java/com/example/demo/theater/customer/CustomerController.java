@@ -1,30 +1,25 @@
 package com.example.demo.theater.customer;
 
-import org.apache.commons.io.IOUtils;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.UrlResource;
-import org.springframework.http.MediaType;
+
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.StringUtils;
+
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.function.EntityResponse;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import org.springframework.web.servlet.view.RedirectView;
 
-import javax.annotation.Resource;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.awt.*;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
+
 import java.net.URI;
 import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+
 
 @RestController
 @RequestMapping("/theater")

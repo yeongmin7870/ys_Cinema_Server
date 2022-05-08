@@ -66,7 +66,7 @@ public class CustomerDaoService {
         return customer;
     }
 
-    private String uploadFolderPath = "../../serverImage/";
+    private String uploadFolderPath = "./serverImage/";
 
     public String uploadToLocal(String id, MultipartFile file) {
         try {
