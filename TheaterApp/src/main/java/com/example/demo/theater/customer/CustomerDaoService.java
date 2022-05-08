@@ -1,6 +1,7 @@
 package com.example.demo.theater.customer;
 
 import oracle.sql.TIMESTAMP;
+import org.apache.tomcat.jni.Local;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URLEncoder;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -67,17 +69,34 @@ public class CustomerDaoService {
         return customer;
     }
 
-    private String uploadFolderPath = "./serverImage/";
-
+    //이미지 업로드
     public String uploadToLocal(String id, MultipartFile file) {
         try {
+            String uploadFolderPath = "./serverImage/";
+
             Customer customer = repository.findByCustomerId(id);
             if (customer == null) {
                 return "fail";
             }
 
+            File folder = new File(uploadFolderPath);
+
+            if (!folder.exists()) {
+                try {
+                    folder.mkdir();
+                    logger.info("폴더가 생성되었습니다.");
+                } catch (Exception e) {
+                    e.getStackTrace();
+                }
+            } else {
+                logger.info("이미 폴더가 생성되어 있습니다.");
+            }
+            //여기까지는 디렉토리 유무 확인 후 생성
+
+
+            LocalTime time = LocalTime.now();
             byte[] data = file.getBytes();
-            String fileName = id + LocalDate.now() + LocalTime.now() + file.getOriginalFilename();
+            String fileName = id + LocalDate.now() + time.getHour() + time.getMinute() + time.getSecond() + file.getOriginalFilename();
             Path path = Paths.get(uploadFolderPath + fileName);
             Files.write(path, data);
             // 여기까지는 이미지를 폴더에 저장함
