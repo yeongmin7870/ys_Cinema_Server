@@ -72,7 +72,7 @@ public class CustomerDaoService {
     //이미지 업로드
     public String uploadToLocal(String id, MultipartFile file) {
         try {
-            String uploadFolderPath = "./serverImage/";
+            String uploadFolderPath = "./src/main/resources/serverImage/";
 
             Customer customer = repository.findByCustomerId(id);
             if (customer == null) {
