@@ -116,6 +116,9 @@ public class CustomerDaoService {
 
         Customer customer = repository.findByCustomerId(id);
         String path = customer.getC_Profile_Path();
+        if(path==null){
+            return new ResponseEntity<Resource>(HttpStatus.NOT_FOUND);
+        }
 
         final ByteArrayResource inputStream = new ByteArrayResource(Files.readAllBytes(Paths.get(path)));
 
