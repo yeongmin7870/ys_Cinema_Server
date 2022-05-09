@@ -4,7 +4,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -14,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.FileSystem;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -116,18 +119,15 @@ public class CustomerDaoService {
 
         Customer customer = repository.findByCustomerId(id);
         String path = customer.getC_Profile_Path();
-        if(path==null){
+        HttpHeaders headers = new HttpHeaders();
+        Path filePath = Paths.get(path);
+        Resource resource = new FileSystemResource(path);
+        if (path == null) {
             return new ResponseEntity<Resource>(HttpStatus.NOT_FOUND);
         }
 
-        final ByteArrayResource inputStream = new ByteArrayResource(Files.readAllBytes(Paths.get(path)));
-
-        return ResponseEntity
-                .status(HttpStatus.OK)
-                .contentLength(inputStream.contentLength())
-                .body(inputStream);
-
-
+        headers.add("Content-Type", Files.probeContentType(filePath));
+        return new ResponseEntity<Resource>(resource, headers, HttpStatus.OK);
     }
 
 
