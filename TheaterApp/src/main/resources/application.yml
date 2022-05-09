@@ -1,4 +1,8 @@
 spring:
+  servlet:
+    multipart:
+      max-file-size: 1024KB
+      max-request-size: 1024KB
   datasource:
     url: jdbc:oracle:thin:@DB202203091416_high?TNS_ADMIN=./common/Wallet_DB202203091416
     username: admin

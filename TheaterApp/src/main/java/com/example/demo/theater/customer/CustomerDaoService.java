@@ -1,28 +1,25 @@
 package com.example.demo.theater.customer;
 
-import oracle.sql.TIMESTAMP;
-import org.apache.tomcat.jni.Local;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-import java.net.URISyntaxException;
-import java.net.URLEncoder;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
-import java.util.Map;
-import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -111,6 +108,23 @@ public class CustomerDaoService {
             e.printStackTrace();
             return "fail";
         }
+    }
+
+    // 이미지 가져오기
+
+    public ResponseEntity<Resource> getImage(String id) throws IOException {
+
+        Customer customer = repository.findByCustomerId(id);
+        String path = customer.getC_Profile_Path();
+
+        final ByteArrayResource inputStream = new ByteArrayResource(Files.readAllBytes(Paths.get(path)));
+
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .contentLength(inputStream.contentLength())
+                .body(inputStream);
+
+
     }
 
 
