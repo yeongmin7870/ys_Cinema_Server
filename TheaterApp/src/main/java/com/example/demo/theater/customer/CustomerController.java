@@ -19,6 +19,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.util.List;
@@ -44,7 +45,7 @@ public class CustomerController {
 
 
     @GetMapping("/customer/image/display")
-    public ResponseEntity<Resource> getImage(@RequestParam String id) throws IOException {
+    public File getImage(@RequestParam String id) throws IOException {
         return service.getImage(id);
     }
 
