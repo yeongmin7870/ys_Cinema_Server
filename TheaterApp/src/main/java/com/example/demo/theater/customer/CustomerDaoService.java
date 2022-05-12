@@ -1,5 +1,7 @@
 package com.example.demo.theater.customer;
 
+import io.jsonwebtoken.Claims;
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +13,9 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -32,6 +36,7 @@ public class CustomerDaoService {
     public List<Customer> findAll() {
         return repository.findAll();
     }
+
 
 
     public Customer findById(String customerId) {
@@ -110,14 +115,16 @@ public class CustomerDaoService {
 
     // 이미지 가져오기
 
-    public File getImage(String id) throws IOException {
+    public ResponseEntity<byte[]> getImage(String id) throws IOException {
 
         Customer customer = repository.findByCustomerId(id);  // 회원 정보 가져오기
         String path = customer.getC_Profile_Path(); //경로
-        Path filePath = Paths.get(path);
-        File file = new File(path);
 
-        return file;
+        InputStream imageStream = new FileInputStream(path);
+        byte[] imageByteArray = IOUtils.toByteArray(imageStream);
+        imageStream.close();
+
+        return new ResponseEntity<byte[]>(imageByteArray, HttpStatus.OK);
     }
 
 

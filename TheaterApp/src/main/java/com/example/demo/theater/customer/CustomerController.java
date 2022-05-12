@@ -1,12 +1,14 @@
 package com.example.demo.theater.customer;
 
 
+import io.jsonwebtoken.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 
 import org.springframework.web.bind.annotation.*;
@@ -15,13 +17,18 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 
-
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
+import java.security.Key;
+import java.time.Duration;
+import java.util.Date;
 import java.util.List;
 
 
@@ -36,20 +43,42 @@ public class CustomerController {
     @Autowired
     private CustomerDaoService service;
 
+    // 토큰 생성
+    @GetMapping("/customer/token/generate/{id}")
+    public String makeJwtToken(@PathVariable String id) {
+
+        Customer customer = service.findById(id);
+        if (customer == null) {
+            return "fail";
+        } else {
+
+            Date now = new Date();
+
+            String compact = Jwts.builder()
+                    .setHeaderParam(Header.TYPE, Header.JWT_TYPE)
+                    .setIssuer("fresh")
+                    .setIssuedAt(now)
+                    .setExpiration(new Date(now.getTime() + Duration.ofMinutes(30).toMillis()))
+                    .claim("id", id)
+                    .signWith(SignatureAlgorithm.HS256, "secret")
+                    .compact();
+
+            return compact;
+        }
+    }
+
 
 
     @PutMapping("/customer/image/upload")
-    public String uploadLocal(@RequestParam String id,@RequestParam("file")MultipartFile multipartFile){
-        return service.uploadToLocal(id,multipartFile);
+    public String uploadLocal(@RequestParam String id, @RequestParam("file") MultipartFile multipartFile) {
+        return service.uploadToLocal(id, multipartFile);
     }
 
 
     @GetMapping("/customer/image/display")
-    public File getImage(@RequestParam String id) throws IOException {
+    public ResponseEntity<byte[]> getImage(@RequestParam String id) throws IOException {
         return service.getImage(id);
     }
-
-
 
 
     @GetMapping("/customers")
