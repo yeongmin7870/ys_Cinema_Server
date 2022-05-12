@@ -76,7 +76,7 @@ public class CustomerController {
 
 
     @GetMapping("/customer/image/display")
-    public ResponseEntity<byte[]> getImage(@RequestParam String id) throws IOException {
+    public byte[] getImage(@RequestParam String id) throws IOException {
         return service.getImage(id);
     }
 

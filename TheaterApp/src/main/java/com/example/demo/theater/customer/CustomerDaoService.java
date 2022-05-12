@@ -115,7 +115,7 @@ public class CustomerDaoService {
 
     // 이미지 가져오기
 
-    public ResponseEntity<byte[]> getImage(String id) throws IOException {
+    public byte[] getImage(String id) throws IOException {
 
         Customer customer = repository.findByCustomerId(id);  // 회원 정보 가져오기
         String path = customer.getC_Profile_Path(); //경로
@@ -123,8 +123,8 @@ public class CustomerDaoService {
         InputStream imageStream = new FileInputStream(path);
         byte[] imageByteArray = IOUtils.toByteArray(imageStream);
         imageStream.close();
-
-        return new ResponseEntity<byte[]>(imageByteArray, HttpStatus.OK);
+        logger.info(imageByteArray.getClass().getSimpleName());
+        return imageByteArray;
     }
 
 
