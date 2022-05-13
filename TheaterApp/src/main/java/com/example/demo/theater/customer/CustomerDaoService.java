@@ -5,6 +5,9 @@ import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -115,16 +118,20 @@ public class CustomerDaoService {
 
     // 이미지 가져오기
 
-    public byte[] getImage(String id) throws IOException {
+    public ResponseEntity<Resource> getImage(String id) throws IOException {
 
         Customer customer = repository.findByCustomerId(id);  // 회원 정보 가져오기
         String path = customer.getC_Profile_Path(); //경로
+        HttpHeaders headers = new HttpHeaders();
+        Path filePath = Paths.get(path);
+        Resource resource = (Resource) new FileSystemResource(path);
+        if (path == null) {
+            return new ResponseEntity<Resource>(HttpStatus.NOT_FOUND);
+        }
+        headers.add("Content-Type", Files.probeContentType(filePath));
+        return new ResponseEntity<Resource>(resource, headers, HttpStatus.OK);
 
-        InputStream imageStream = new FileInputStream(path);
-        byte[] imageByteArray = IOUtils.toByteArray(imageStream);
-        imageStream.close();
-        logger.info(imageByteArray.getClass().getSimpleName());
-        return imageByteArray;
+//        logger.info(imageByteArray.getClass().getSimpleName());
     }
 
 
