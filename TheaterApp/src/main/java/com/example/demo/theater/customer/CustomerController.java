@@ -3,6 +3,7 @@ package com.example.demo.theater.customer;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
+import org.hibernate.annotations.Parameter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.xml.bind.DatatypeConverter;
 
 import java.io.IOException;
 import java.net.URI;
@@ -33,6 +35,7 @@ import java.util.List;
 public class CustomerController {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    private static final String secretKey = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoaSJ9.GY_JamNllFTbrZ1qd2LVM1CcKp45bHKYFnHkWELr__U";
 
 
     @Autowired
@@ -46,33 +49,41 @@ public class CustomerController {
         if (customer == null) {
             return "fail";
         } else {
+            Date ext = new Date();
 
-            Date now = new Date();
+            Long expiredTime = 1000 * 60L *60L *2L; //2시간
+            ext.setTime(ext.getTime() + expiredTime);
 
-            Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
-            String jws = Jwts.builder()
-                    .setSubject(id)
-                    .signWith(key)
+            Claims claims = Jwts.claims()
+                    .setSubject("hi")
+                    .setIssuedAt(new Date())
+                    .setExpiration(ext);
+            claims.put("hi", "123");
+
+            String jwt = Jwts.builder()
+                    .setHeaderParam("typ", "JWT")
+                    .setClaims(claims)
+                    .signWith(SignatureAlgorithm.HS256, secretKey.getBytes())
                     .compact();
 
-            return jws;
+            return jwt;
         }
     }
 
-    @GetMapping("/customer/token/parser/{jws}")
-    public void decodeToken(@PathVariable String jws) {
-
-        Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+    @GetMapping("/customer/token/parser")
+    public boolean decodeToken(@RequestParam String jwt ) {
         try {
-            assert Jwts.parserBuilder()
-                    .setSigningKey(key)
-                    .build()
-                    .parseClaimsJws(jws)
-                    .getBody()
-                    .getSubject()
-                    .equals("joe");
-        } catch (Exception e) {
-            e.getStackTrace();
+            Claims claims = Jwts.parser()
+                    .setSigningKey(secretKey.getBytes())
+                    .parseClaimsJws(jwt).getBody();
+            logger.info(claims.toString());
+            return true;
+        } catch (ExpiredJwtException e) {
+            logger.error("Token Expired");
+            return false;
+        } catch (JwtException e) {
+            logger.error("Token Error");
+            return false;
         }
 
     }
