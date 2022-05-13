@@ -2,13 +2,12 @@ package com.example.demo.theater.customer;
 
 
 import io.jsonwebtoken.*;
+import io.jsonwebtoken.security.Keys;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 
 import org.springframework.web.bind.annotation.*;
@@ -17,13 +16,9 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.security.Key;
@@ -54,19 +49,33 @@ public class CustomerController {
 
             Date now = new Date();
 
-            String compact = Jwts.builder()
-                    .setHeaderParam(Header.TYPE, Header.JWT_TYPE)
-                    .setIssuer("fresh")
-                    .setIssuedAt(now)
-                    .setExpiration(new Date(now.getTime() + Duration.ofMinutes(30).toMillis()))
-                    .claim("id", id)
-                    .signWith(SignatureAlgorithm.HS256, "secret")
+            Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+            String jws = Jwts.builder()
+                    .setSubject(id)
+                    .signWith(key)
                     .compact();
 
-            return compact;
+            return jws;
         }
     }
 
+    @GetMapping("/customer/token/parser/{jws}")
+    public void decodeToken(@PathVariable String jws) {
+
+        Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+        try {
+            assert Jwts.parserBuilder()
+                    .setSigningKey(key)
+                    .build()
+                    .parseClaimsJws(jws)
+                    .getBody()
+                    .getSubject()
+                    .equals("joe");
+        } catch (Exception e) {
+            e.getStackTrace();
+        }
+
+    }
 
 
     @PutMapping("/customer/image/upload")
