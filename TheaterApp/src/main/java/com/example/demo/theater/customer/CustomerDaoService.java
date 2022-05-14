@@ -1,6 +1,6 @@
 package com.example.demo.theater.customer;
 
-import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.*;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,6 +11,8 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,6 +26,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -31,6 +34,8 @@ import java.util.UUID;
 public class CustomerDaoService {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    private static final String secretKey = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoaSJ9.GY_JamNllFTbrZ1qd2LVM1CcKp45bHKYFnHkWELr__U";
+
 
     @Autowired
     private CustomerRepository repository;
@@ -39,7 +44,6 @@ public class CustomerDaoService {
     public List<Customer> findAll() {
         return repository.findAll();
     }
-
 
 
     public Customer findById(String customerId) {
@@ -53,14 +57,54 @@ public class CustomerDaoService {
         Customer customer1 = repository.findByCustomerId(id);
 
         if (id.equals(customer1.getCustomerId()) && passwd.equals(customer1.getC_Pw())) {
-            String SessionID = String.valueOf(System.currentTimeMillis()) + UUID.randomUUID().toString();
-            session.setAttribute(SessionID, id);
-            return SessionID;
+            String token = makeJwtToken(id, passwd);
+            return token;
         } else {
+            return "fail";
+        }
+    }
+
+    // 토큰생성
+    public String makeJwtToken(@PathVariable String id, String passwd) {
+
+
+        Date ext = new Date();
+
+        Long expiredTime = 1000 * 60L * 60L * 2L; //2시간
+        ext.setTime(ext.getTime() + expiredTime);
+
+        Claims claims = Jwts.claims()
+                .setSubject(id)
+                .setIssuedAt(new Date())
+                .setExpiration(ext);
+        claims.put(id, passwd);
+
+        String jwt = Jwts.builder()
+                .setHeaderParam("typ", "JWT")
+                .setClaims(claims)
+                .signWith(SignatureAlgorithm.HS256, secretKey.getBytes())
+                .compact();
+
+        return jwt;
+    }
+
+    // 토큰 파서
+    public String decodeToken(@RequestParam String token ) {
+        try {
+            Claims claims = Jwts.parser()
+                    .setSigningKey(secretKey.getBytes())
+                    .parseClaimsJws(token).getBody();
+            return claims.toString();
+        } catch (ExpiredJwtException e) {
+            logger.error("Token Expired");
+            return "fail";
+        } catch (JwtException e) {
+            logger.error("Token Error");
             return "fail";
         }
 
     }
+
 
     // 아이디 삭제
     public void deleteCustomer(String id) {

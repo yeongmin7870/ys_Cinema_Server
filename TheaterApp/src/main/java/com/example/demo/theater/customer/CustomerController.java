@@ -35,57 +35,16 @@ import java.util.List;
 public class CustomerController {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
-    private static final String secretKey = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoaSJ9.GY_JamNllFTbrZ1qd2LVM1CcKp45bHKYFnHkWELr__U";
 
 
     @Autowired
     private CustomerDaoService service;
 
-    // 토큰 생성
-    @GetMapping("/customer/token/generate/{id}")
-    public String makeJwtToken(@PathVariable String id) {
 
-        Customer customer = service.findById(id);
-        if (customer == null) {
-            return "fail";
-        } else {
-            Date ext = new Date();
-
-            Long expiredTime = 1000 * 60L *60L *2L; //2시간
-            ext.setTime(ext.getTime() + expiredTime);
-
-            Claims claims = Jwts.claims()
-                    .setSubject("hi")
-                    .setIssuedAt(new Date())
-                    .setExpiration(ext);
-            claims.put("hi", "123");
-
-            String jwt = Jwts.builder()
-                    .setHeaderParam("typ", "JWT")
-                    .setClaims(claims)
-                    .signWith(SignatureAlgorithm.HS256, secretKey.getBytes())
-                    .compact();
-
-            return jwt;
-        }
-    }
 
     @GetMapping("/customer/token/parser")
-    public boolean decodeToken(@RequestParam String jwt ) {
-        try {
-            Claims claims = Jwts.parser()
-                    .setSigningKey(secretKey.getBytes())
-                    .parseClaimsJws(jwt).getBody();
-            logger.info(claims.toString());
-            return true;
-        } catch (ExpiredJwtException e) {
-            logger.error("Token Expired");
-            return false;
-        } catch (JwtException e) {
-            logger.error("Token Error");
-            return false;
-        }
-
+    public String decodeToken(@RequestParam String token ) {
+        return decodeToken(token);
     }
 
 
