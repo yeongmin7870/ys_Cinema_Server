@@ -77,7 +77,7 @@ public class CustomerDaoService {
                 .setSubject(id)
                 .setIssuedAt(new Date())
                 .setExpiration(ext);
-        claims.put(id, passwd);
+        claims.put("id", id);
 
         String jwt = Jwts.builder()
                 .setHeaderParam("typ", "JWT")

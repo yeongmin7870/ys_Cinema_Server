@@ -44,7 +44,7 @@ public class CustomerController {
 
     @GetMapping("/customer/token/parser")
     public String decodeToken(@RequestParam String token ) {
-        return decodeToken(token);
+        return service.decodeToken(token);
     }
 
 
