@@ -1,5 +1,6 @@
 package com.example.demo.theater.customer;
 
+import com.google.gson.JsonParser;
 import io.jsonwebtoken.*;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
@@ -94,7 +95,8 @@ public class CustomerDaoService {
             Claims claims = Jwts.parser()
                     .setSigningKey(secretKey.getBytes())
                     .parseClaimsJws(token).getBody();
-            return claims.toString();
+
+            return JsonParser.parseString(claims.toString()).toString();
         } catch (ExpiredJwtException e) {
             logger.error("Token Expired");
             return "fail";
