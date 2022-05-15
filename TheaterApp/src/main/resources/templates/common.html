@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" th:fragment="menu">
+        <a class="navbar-brand" href="#">TheaterApp</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">홈 <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+                        aria-expanded="false">회원관리</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="#">회원 조회</a>
+                        <a class="dropdown-item" href="#">회원 등록</a>
+                        <a class="dropdown-item" href="#">회원 수정</a>
+                        <a class="dropdown-item" href="#">회원 삭제</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+                        aria-expanded="false">영화관리</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="#">영화 조회</a>
+                        <a class="dropdown-item" href="#">영화 등록</a>
+                        <a class="dropdown-item" href="#">영화 수정</a>
+                        <a class="dropdown-item" href="#">영화 삭제</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+                        aria-expanded="false">이벤트관리</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="#">이벤트 조회</a>
+                        <a class="dropdown-item" href="#">이벤트 등록</a>
+                        <a class="dropdown-item" href="#">이벤트 수정</a>
+                        <a class="dropdown-item" href="#">이벤트 삭제</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+                        aria-expanded="false">쿠폰관리</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="#">쿠폰 조회</a>
+                        <a class="dropdown-item" href="#">쿠폰 등록</a>
+                        <a class="dropdown-item" href="#">쿠폰 수정</a>
+                        <a class="dropdown-item" href="#">쿠폰 삭제</a>
+                    </div>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Q&A </a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+</body>
+
+</html>
