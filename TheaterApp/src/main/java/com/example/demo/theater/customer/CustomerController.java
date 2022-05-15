@@ -79,7 +79,9 @@ public class CustomerController {
 
     @GetMapping("/customers/login")
     public String checkedLogin(@RequestParam String id, String passwd, HttpServletRequest request) {
-        return service.checkedCustomer(id, passwd, request);
+        String s = service.checkedCustomer(id, passwd, request);
+        logger.info(s.getClass().getSimpleName());
+        return s;
     }
 
     @GetMapping("/customers/session")

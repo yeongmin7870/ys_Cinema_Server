@@ -15,11 +15,17 @@ spring:
       ddl-auto: none
       format-sql: true
 
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
 server:
   port: 8088
   error:
     include-message: always
     include-binding-errors: always
+
 
 logging:
   level:
