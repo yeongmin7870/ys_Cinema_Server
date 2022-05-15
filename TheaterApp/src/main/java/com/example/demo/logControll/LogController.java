@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequestWrapper;
 
 public class LogController {
 
-
+    // client 아이피를 가져오는 메소드
     public static String clientIp(HttpServletRequest request){
 
         String ip = request.getHeader("X-Forwarded-For");
