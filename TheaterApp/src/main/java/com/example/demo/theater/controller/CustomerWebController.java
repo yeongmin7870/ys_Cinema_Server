@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/customer")
-public class CutomerController {
+public class CustomerWebController {
 
     @GetMapping("/custInsert")
     public String insert() {
