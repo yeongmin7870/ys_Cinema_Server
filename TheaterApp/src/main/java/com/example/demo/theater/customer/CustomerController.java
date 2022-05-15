@@ -1,9 +1,7 @@
 package com.example.demo.theater.customer;
 
 
-import io.jsonwebtoken.*;
-import io.jsonwebtoken.security.Keys;
-import org.hibernate.annotations.Parameter;
+import com.example.demo.logControll.LogController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,13 +17,9 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import javax.xml.bind.DatatypeConverter;
 
 import java.io.IOException;
 import java.net.URI;
-import java.security.Key;
-import java.time.Duration;
-import java.util.Date;
 import java.util.List;
 
 
@@ -36,14 +30,16 @@ public class CustomerController {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
+    private String methodName;
+
+    private LogController logController;
 
     @Autowired
     private CustomerDaoService service;
 
 
-
     @GetMapping("/customer/token/parser")
-    public String decodeToken(@RequestParam String token ) {
+    public String decodeToken(@RequestParam String token) {
         return service.decodeToken(token);
     }
 
@@ -62,6 +58,7 @@ public class CustomerController {
 
     @GetMapping("/customers")
     public List<Customer> retrieveAllCustomers() {
+
         return service.findAll();
     }
 
@@ -80,7 +77,11 @@ public class CustomerController {
     @GetMapping("/customers/login")
     public String checkedLogin(@RequestParam String id, String passwd, HttpServletRequest request) {
         String s = service.checkedCustomer(id, passwd, request);
-        logger.info(s.getClass().getSimpleName());
+
+        methodName = new Object() {
+        }.getClass().getEnclosingMethod().getName(); //메소드 명 가져오기
+
+        logger.info(methodName + " 서비스를 실행하였고 " + "IP는 " + logController.clientIp(request));
         return s;
     }
 

@@ -42,6 +42,7 @@ public class CustomerDaoService {
     private CustomerRepository repository;
 
 
+
     public List<Customer> findAll() {
         return repository.findAll();
     }
@@ -54,7 +55,6 @@ public class CustomerDaoService {
 
     //    로그인 하기위한 메소드
     public String checkedCustomer(String id, String passwd, HttpServletRequest request) {
-        HttpSession session = request.getSession();
         Customer customer1 = repository.findByCustomerId(id);
 
         if (id.equals(customer1.getCustomerId()) && passwd.equals(customer1.getC_Pw())) {
@@ -133,7 +133,7 @@ public class CustomerDaoService {
 
             // 이미지를 변경할떄 기존이미지 삭제
             if (customer.getC_Profile() != null) {
-                Files.delete(Path.of(customer.getC_Profile_Path()+customer.getC_Profile()));
+                Files.delete(Path.of(customer.getC_Profile_Path() + customer.getC_Profile()));
             }
 
 
@@ -154,8 +154,8 @@ public class CustomerDaoService {
 
             LocalTime time = LocalTime.now();
             byte[] data = file.getBytes();
-            String fileName = id + LocalDate.now() + time.getHour() + time.getMinute() + time.getSecond()+".jpeg";
-            Path path = Paths.get(uploadFolderPath+fileName);
+            String fileName = id + LocalDate.now() + time.getHour() + time.getMinute() + time.getSecond() + ".jpeg";
+            Path path = Paths.get(uploadFolderPath + fileName);
             Files.write(path, data);
             // 여기까지는 이미지를 폴더에 저장함
 
@@ -176,7 +176,7 @@ public class CustomerDaoService {
     public ResponseEntity<Resource> getImage(String id) throws IOException {
 
         Customer customer = repository.findByCustomerId(id);  // 회원 정보 가져오기
-        String path = customer.getC_Profile_Path()+customer.getC_Profile(); //경로
+        String path = customer.getC_Profile_Path() + customer.getC_Profile(); //경로
         HttpHeaders headers = new HttpHeaders();
         Path filePath = Paths.get(path);
         Resource resource = (Resource) new FileSystemResource(path);
