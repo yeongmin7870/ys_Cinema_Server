@@ -17,6 +17,7 @@ public class MovieDaoService {
     @Autowired
     private MovieRepository movieRepository;
 
+    //영화 전체 출력
     public List<Movie> findAll () {return movieRepository.findAll();}
 
     //ID값으로 해당 영화 검색

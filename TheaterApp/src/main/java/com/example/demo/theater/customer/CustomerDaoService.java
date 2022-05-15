@@ -90,7 +90,7 @@ public class CustomerDaoService {
     }
 
     // 토큰 파서
-    public String decodeToken(@RequestParam String token ) {
+    public String decodeToken(@RequestParam String token) {
         try {
             Claims claims = Jwts.parser()
                     .setSigningKey(secretKey.getBytes())
@@ -121,12 +121,21 @@ public class CustomerDaoService {
     //이미지 업로드
     public String uploadToLocal(String id, MultipartFile file) {
         try {
-            String uploadFolderPath = "./src/main/resources/serverImage/";
+            String uploadFolderPath = "./src/main/resources/serverImage/profile/";
 
             Customer customer = repository.findByCustomerId(id);
+
+            // 회원정보가 없을떄
             if (customer == null) {
                 return "fail";
             }
+
+
+            // 이미지를 변경할떄 기존이미지 삭제
+            if (customer.getC_Profile() != null) {
+                Files.delete(Path.of(customer.getC_Profile_Path()+customer.getC_Profile()));
+            }
+
 
             File folder = new File(uploadFolderPath);
 
@@ -145,14 +154,14 @@ public class CustomerDaoService {
 
             LocalTime time = LocalTime.now();
             byte[] data = file.getBytes();
-            String fileName = id + LocalDate.now() + time.getHour() + time.getMinute() + time.getSecond() + file.getOriginalFilename();
-            Path path = Paths.get(uploadFolderPath + fileName);
+            String fileName = id + LocalDate.now() + time.getHour() + time.getMinute() + time.getSecond()+".jpeg";
+            Path path = Paths.get(uploadFolderPath+fileName);
             Files.write(path, data);
             // 여기까지는 이미지를 폴더에 저장함
 
 
             customer.setC_Profile(fileName);
-            customer.setC_Profile_Path(path.toString());
+            customer.setC_Profile_Path(uploadFolderPath);
             repository.save(customer);
             // 여기까지 디비에 이미지 이름과 경로 저장
             return "finish";
@@ -167,7 +176,7 @@ public class CustomerDaoService {
     public ResponseEntity<Resource> getImage(String id) throws IOException {
 
         Customer customer = repository.findByCustomerId(id);  // 회원 정보 가져오기
-        String path = customer.getC_Profile_Path(); //경로
+        String path = customer.getC_Profile_Path()+customer.getC_Profile(); //경로
         HttpHeaders headers = new HttpHeaders();
         Path filePath = Paths.get(path);
         Resource resource = (Resource) new FileSystemResource(path);
@@ -177,7 +186,6 @@ public class CustomerDaoService {
         headers.add("Content-Type", Files.probeContentType(filePath));
         return new ResponseEntity<Resource>(resource, headers, HttpStatus.OK);
 
-//        logger.info(imageByteArray.getClass().getSimpleName());
     }
 
 

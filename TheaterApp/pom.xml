@@ -24,12 +24,6 @@
             <artifactId>spring-boot-starter-hateoas</artifactId>
         </dependency>
 
-<!--    용도는 로그인 시 인증을 위한 처리이지만 지금은 불편하니 꺼    -->
-        <!--<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>-->
-
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt-api</artifactId>
