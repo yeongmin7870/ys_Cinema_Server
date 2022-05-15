@@ -47,13 +47,13 @@ public class CustomerController {
         return service.decodeToken(token);
     }
 
-
+    //프로필 사진이라 고객이 이미지 업로드
     @PutMapping("/customer/image/upload")
     public String uploadLocal(@RequestParam String id, @RequestParam("file") MultipartFile multipartFile) {
         return service.uploadToLocal(id, multipartFile);
     }
 
-
+    //프로필 사진 이미지 보기
     @GetMapping("/customer/image/display")
     public ResponseEntity<Resource> getImage(@RequestParam String id) throws IOException {
         return service.getImage(id);
