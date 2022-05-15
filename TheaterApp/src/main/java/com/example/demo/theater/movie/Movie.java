@@ -33,7 +33,7 @@ public class Movie {
     private String m_Actor2; // 출연진2
     @Column(columnDefinition = "varchar2(51)")
     private String m_Actor3;// 출연진3
-    @Column(columnDefinition = "long")
+    @Column(columnDefinition = "varchar2(128)")
     private String m_Content;//줄거리
     @Column(columnDefinition = "float")
     private Float m_StarScore;

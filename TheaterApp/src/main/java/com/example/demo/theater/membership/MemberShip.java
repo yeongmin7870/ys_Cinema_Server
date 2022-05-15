@@ -14,6 +14,7 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MemberShip {
+    //사용 X
     @Id
     @GeneratedValue
     private Integer m_No;

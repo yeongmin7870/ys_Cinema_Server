@@ -11,6 +11,7 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PaymentList {
+    //사용안함
     @Id
     @GeneratedValue
     private Integer paymentL_No;
