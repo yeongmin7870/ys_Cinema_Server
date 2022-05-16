@@ -14,4 +14,9 @@ public class CustomerWebController {
         return "/customer/custInsert";
     }
 
+    @GetMapping("/custSelect")
+    public String select() {
+        return "/customer/custSelect";
+    }
+
 }
