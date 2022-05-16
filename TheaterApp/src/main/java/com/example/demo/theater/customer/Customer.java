@@ -2,14 +2,12 @@ package com.example.demo.theater.customer;
 
 
 import com.google.gson.annotations.SerializedName;
+import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Blob;
 
 @Data
@@ -19,6 +17,8 @@ import java.sql.Blob;
 public class Customer {
 
     @Id
+    /*@OneToMany(fetch = FetchType.LAZY, mappedBy = "WritedReview",cascade = CascadeType.ALL)*/
+    @NotNull
     @Column(name = "c_Id",columnDefinition = "varchar2(10)")
     private String customerId; //회원아이디
     @Column(columnDefinition = "varchar2(16)")

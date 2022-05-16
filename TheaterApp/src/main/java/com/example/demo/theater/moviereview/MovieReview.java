@@ -1,29 +1,27 @@
 package com.example.demo.theater.moviereview;
 
+import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import oracle.sql.TIMESTAMP;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Data
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "Movie_Review")
 public class MovieReview {
     @Id
     @GeneratedValue
-    @Column(name = "mr_No", columnDefinition = "number")
-    private Integer mrId;
+    @NotNull
+    @Column(name = "mr_No", columnDefinition = "number", unique = true)
+    private Integer movieReviewId;
     @Column(columnDefinition = "number")
     private Integer m_No;
-    @Column(columnDefinition = "varchar2(20)")
-    private String mr_Movie;
     @Column(columnDefinition = "varchar2(128)")
     private String mr_Content;
     @Column(columnDefinition = "date")

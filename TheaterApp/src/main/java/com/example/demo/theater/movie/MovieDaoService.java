@@ -122,9 +122,40 @@ public class MovieDaoService {
         return movie;
     }
 
+    //영화 입력
     public Movie save(Movie movie) {
         movieRepository.save(movie);
         return movie;
     }
 
+    //영화 삭제
+    public void deleteMovie(Integer id) {movieRepository.deleteById(id);}
+
+
+    //영화 수정
+    public Movie updateMovie(Movie newMovie, Integer id) {
+        Movie movie = movieRepository.findByMovieId(id);
+
+        if (movie == null) {
+            return null;
+        }
+        movie.setM_Actors(newMovie.getM_Actors());
+        movie.setM_Actor2(newMovie.getM_Actor2());
+        movie.setM_Actor3(newMovie.getM_Actor3());
+        movie.setM_Img(newMovie.getM_Img());
+        movie.setM_ImagePath(newMovie.getM_ImagePath());
+        movie.setM_Categories(newMovie.getM_Categories());
+        movie.setM_Name(newMovie.getM_Name());
+        movie.setM_Content(newMovie.getM_Content());
+        movie.setM_Director(newMovie.getM_Director());
+        movie.setM_StarScore(newMovie.getM_StarScore());
+        movie.setM_Rating(newMovie.getM_Rating());
+        movie.setM_Hour(newMovie.getM_Hour());
+        movie.setM_StartDate(newMovie.getM_StartDate());
+        movie.setM_EndDate(newMovie.getM_EndDate());
+
+        Movie updateMovie = movieRepository.save(movie);
+
+        return updateMovie;
+    }
 }

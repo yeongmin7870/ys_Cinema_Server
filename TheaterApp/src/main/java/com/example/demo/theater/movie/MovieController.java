@@ -29,7 +29,8 @@ public class MovieController {
 
     private String methodName; // 메소드명 가져오기위한 변수
 
-    private LogController logController;  // 찍는 이유는 여러가지 1. 악용자가 누군지 알기위한 방책, 2. 로그인 시 누가 어디서 로그인 했는지 알기위한 방책
+    private LogController logController;
+    // 찍는 이유는 여러가지 1. 악용자가 누군지 알기위한 방책, 2. 로그인 시 누가 어디서 로그인 했는지 알기위한 방책
 
 
     @Autowired
@@ -94,6 +95,21 @@ public class MovieController {
         } else {
             throw new MovieNotFoundException(String.format("ID [%s] already exist", insertMovie.getMovieId()));
         }
+    }
+    @DeleteMapping("/movies/{id}")
+    public void deleteMovie(@PathVariable Integer id) { service.deleteMovie(id);}
+
+    @PutMapping("/movies/{id}")
+    public Movie replaceMovies(@RequestBody Movie newMovie,
+                               @PathVariable Integer id) {
+
+        Movie updateMovie = service.updateMovie(newMovie, id);
+
+        if (updateMovie == null) {
+            throw new MovieNotFoundException(String.format("ID [%s] Not Found",id));
+        }
+
+        return updateMovie;
     }
 
 }
