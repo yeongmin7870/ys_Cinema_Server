@@ -45,7 +45,12 @@ public class CustomerController {
 
     //프로필 사진이라 고객이 이미지 업로드
     @PutMapping("/customer/image/upload")
-    public String uploadLocal(@RequestParam String id, @RequestParam("file") MultipartFile multipartFile) {
+    public String uploadLocal(@RequestParam String id, @RequestParam("file") MultipartFile multipartFile,HttpServletRequest request) {
+        methodName = new Object() {
+        }.getClass().getEnclosingMethod().getName(); //메소드 명 가져오기
+
+        logger.info(methodName + " 서비스를 실행하였고 " + "IP는 " + logController.clientIp(request));
+
         return service.uploadToLocal(id, multipartFile);
     }
 

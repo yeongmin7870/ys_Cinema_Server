@@ -21,7 +21,7 @@ public class Movie {
     @GeneratedValue
     @Column(name="m_No",columnDefinition = "number")
     private Integer movieId; //영화번호
-    @Column(columnDefinition = "varchar2(20)")
+    @Column(columnDefinition = "varchar2(50)")
     private String m_Name; //영화네임
     @Column(columnDefinition = "varchar2(10)")
     private String m_Categories; //영화장르
