@@ -2,6 +2,7 @@ package com.example.demo.theater.movie;
 
 
 import com.example.demo.logControll.LogController;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,14 +35,20 @@ public class MovieController {
     @Autowired
     private MovieDaoService service;
 
+    // 영화 이미지 전체 가져오기
+
+
+
     //영화 이미지 한개만 가져오기
-    @GetMapping("/movies/display")
-    public ResponseEntity<Resource> getAllMovieImages(@RequestParam String id) throws IOException {
-        return service.getAllMovieImages(id);
+    @GetMapping("/movie/display")
+    @ApiOperation(value = "영화 이미지 한개 출력" , notes = "영화 이미지 한개만 출력하는 기능이다.")   // 이걸 써주면 클라이언트 측에서 swagger-ui.html 문서로 확인할떄 편함
+    public ResponseEntity<Resource> getMovieImage(@RequestParam String id) throws IOException {
+        return service.getMovieImage(id);
     }
 
     //영화 이미지 업로드
     @PutMapping("/movies/images/upload")
+    @ApiOperation(value = "영화 이미지 업로드" , notes = "영화 이미지 업로드 기능이다.")
     public String movieIMageUpload(@RequestParam String id, @RequestParam("file") MultipartFile multipartFile, HttpServletRequest request) {
         methodName = new Object() {
         }.getClass().getEnclosingMethod().getName(); //메소드 명 가져오기
@@ -53,11 +60,13 @@ public class MovieController {
 
 
     @GetMapping("/movies")
+    @ApiOperation(value = "영화 전체 정보 리스트" , notes = "영화 전체 정보 리스트를 뽑아온다.")
     public List<Movie> retrieveAllMovies() {
         return service.findAll();
     }
 
     @GetMapping("/movie/{movieid}")
+    @ApiOperation(value = "영화 한개 정보 가져오기" , notes = "영화 한개 정보 가져온다.")
     public Movie retrieveMovies(@PathVariable Integer movieId) {
         Movie movie = service.findById(movieId);
 
@@ -70,6 +79,7 @@ public class MovieController {
 
 
     @PostMapping("/movies")
+    @ApiOperation(value = "영화 정보 삽입" , notes = "영화 정보 삽입하는 기능이다.")
     public ResponseEntity<Movie> newMovies(@RequestBody Movie newMovie) {
 
         Movie insertMovie = service.findById(newMovie.getMovieId());

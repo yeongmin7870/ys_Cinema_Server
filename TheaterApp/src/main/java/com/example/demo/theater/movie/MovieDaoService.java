@@ -36,8 +36,14 @@ public class MovieDaoService {
     private MovieRepository movieRepository;
 
 
-    // 영화 현재 상영작 전체 이미지 가져오기
-    public ResponseEntity<Resource> getAllMovieImages(String id) throws IOException {
+
+
+
+
+
+
+    // 영화 이미지 한개만 가져오기
+    public ResponseEntity<Resource> getMovieImage(String id) throws IOException {
 
         Movie movie = movieRepository.findByMovieId(Integer.valueOf(id));  // 회원 정보 가져오기
         String path = movie.getM_ImagePath() + movie.getM_Img(); //경로
@@ -50,7 +56,6 @@ public class MovieDaoService {
         headers.add("Content-Type", Files.probeContentType(filePath));
         return new ResponseEntity<Resource>(resource, headers, HttpStatus.OK);
     }
-
 
     //현재 상영작 이미지 업로드
     public String uploadToLocal(String id, MultipartFile file) {
