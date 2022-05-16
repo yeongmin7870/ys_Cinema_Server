@@ -1,6 +1,7 @@
 package com.example.demo.theater.moviereview;
 
 import com.example.demo.logControll.LogController;
+import com.example.demo.theater.customer.CustomerNotFoundException;
 import com.example.demo.theater.movie.MovieNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -56,4 +57,18 @@ public class MovieReviewController {
             throw new MovieNotFoundException(String.format("ID [%s] already exist",insertMovieReview.getMovieReviewId()));
         }
     }
+
+    @PutMapping("/MovieReview/{id}")
+    public MovieReview replaceMovieReview ( @RequestBody MovieReview newMovieReview, @PathVariable Integer id) {
+        MovieReview updateMovieReview = service.updateMovieReview(newMovieReview, id);
+
+        if(updateMovieReview == null) {
+            throw new CustomerNotFoundException(String.format("ID [%s] Not Found", id));
+        }
+
+        return updateMovieReview;
+    }
+
+    @DeleteMapping("/MovieReview/{id}")
+    public void deleteMovieReview(@PathVariable Integer id) {service.deleteMovieReview(id);}
 }

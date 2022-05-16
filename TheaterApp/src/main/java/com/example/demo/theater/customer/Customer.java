@@ -19,7 +19,7 @@ public class Customer {
     @Id
     /*@OneToMany(fetch = FetchType.LAZY, mappedBy = "WritedReview",cascade = CascadeType.ALL)*/
     @NotNull
-    @Column(name = "c_Id",columnDefinition = "varchar2(10)")
+    @Column(name = "c_Id",columnDefinition = "varchar2(10)", unique = true)
     private String customerId; //회원아이디
     @Column(columnDefinition = "varchar2(16)")
     private String c_Pw; //회원 비밀번호
