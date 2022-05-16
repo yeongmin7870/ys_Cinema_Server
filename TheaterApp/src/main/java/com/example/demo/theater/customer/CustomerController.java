@@ -2,6 +2,7 @@ package com.example.demo.theater.customer;
 
 
 import com.example.demo.logControll.LogController;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,12 +40,14 @@ public class CustomerController {
 
 
     @GetMapping("/customer/token/parser")
+    @ApiOperation(value = "고객 토큰 발급")
     public String decodeToken(@RequestParam String token) {
         return service.decodeToken(token);
     }
 
     //프로필 사진이라 고객이 이미지 업로드
     @PutMapping("/customer/image/upload")
+    @ApiOperation(value = "고객 프로필 사진 업로드 update")
     public String uploadLocal(@RequestParam String id, @RequestParam("file") MultipartFile multipartFile,HttpServletRequest request) {
         methodName = new Object() {
         }.getClass().getEnclosingMethod().getName(); //메소드 명 가져오기
@@ -56,18 +59,21 @@ public class CustomerController {
 
     //프로필 사진 이미지 보기
     @GetMapping("/customer/image/display")
+    @ApiOperation(value = "고객 프로필 사진 보기")
     public ResponseEntity<Resource> getImage(@RequestParam String id) throws IOException {
         return service.getImage(id);
     }
 
 
     @GetMapping("/customers")
+    @ApiOperation(value = "고객 정보 전부다 리스트로 가져오기")
     public List<Customer> retrieveAllCustomers() {
 
         return service.findAll();
     }
 
     @GetMapping("/customers/{customerId}")
+    @ApiOperation(value = "고객 토큰 발급")
     public Customer retrieveCustomers(@PathVariable String customerId) {
         Customer customer = service.findById(customerId);
 
@@ -80,6 +86,7 @@ public class CustomerController {
     }
 
     @GetMapping("/customers/login")
+    @ApiOperation(value = "로그인")
     public String checkedLogin(@RequestParam String id, String passwd, HttpServletRequest request) {
         String s = service.checkedCustomer(id, passwd, request);
 
@@ -91,6 +98,7 @@ public class CustomerController {
     }
 
     @GetMapping("/customers/session")
+    @ApiOperation(value = "세션")
     public String createSession(@RequestParam String id, HttpServletRequest request) {
         HttpSession session = request.getSession();
         if (!id.equals("")) {
@@ -103,13 +111,13 @@ public class CustomerController {
     }
 
     @GetMapping("/customers/logout")
+    @ApiOperation(value = "로그아웃" , notes = "토큰은 유효시간이 지나면 사라지기 떄문에 그냥 서버쪽에서 저장하고 있던 토큰을 없애는 쪽으로 구현하길 바람")
     public String customerLogout(@RequestParam String id, HttpServletRequest request) {
-        HttpSession session = request.getSession();
+
         if (id.equals("")) {
             return "fail";
         } else {
-            String result = session.getAttribute(id).toString();
-            session.removeAttribute(result);
+
             return "finish";
         }
     }
@@ -117,6 +125,7 @@ public class CustomerController {
 
     // 회원가입
     @PostMapping("/customers")
+    @ApiOperation(value = "회원가입")
     public ResponseEntity<Customer> newCustomers(@RequestBody Customer newCustomer) {
         Customer customer = service.findById(newCustomer.getCustomerId());
 
@@ -136,6 +145,7 @@ public class CustomerController {
 
 
     @PutMapping("/customers/{id}")
+    @ApiOperation(value = "고객정보 수정")
     public Customer replaceCustomers(@RequestBody Customer newCustomer,
                                      @PathVariable String id) {
 
@@ -148,6 +158,7 @@ public class CustomerController {
     }
 
     @DeleteMapping("/customers/{id}")
+    @ApiOperation(value = "고객 삭제")
     public void deleteCustomers(@PathVariable String id) {
         service.deleteCustomer(id);
     }
