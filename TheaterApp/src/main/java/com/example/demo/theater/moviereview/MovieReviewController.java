@@ -59,8 +59,9 @@ public class MovieReviewController {
     }
 
     @PutMapping("/MovieReview/{id}")
-    public MovieReview replaceMovieReview ( @RequestBody MovieReview newMovieReview, @PathVariable Integer id) {
-        MovieReview updateMovieReview = service.updateMovieReview(newMovieReview, id);
+    public MovieReview replaceMovieReview ( @RequestBody MovieReview newMovieReview,
+                                            @PathVariable Integer id, String content, Integer reviewStarScore) {
+        MovieReview updateMovieReview = service.updateMovieReview(newMovieReview, id, content, reviewStarScore);
 
         if(updateMovieReview == null) {
             throw new CustomerNotFoundException(String.format("ID [%s] Not Found", id));

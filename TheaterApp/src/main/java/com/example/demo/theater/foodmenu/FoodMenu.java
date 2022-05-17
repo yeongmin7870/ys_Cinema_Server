@@ -20,7 +20,7 @@ public class FoodMenu {
     @Id
     @GeneratedValue
     @Column(name="food_No",columnDefinition = "number")
-    private Integer foodId;
+    private Integer foodMenuId;
     @Column(columnDefinition = "varchar2(20)")
     private String food_Name;
     @Column(columnDefinition = "varchar2(30)")
