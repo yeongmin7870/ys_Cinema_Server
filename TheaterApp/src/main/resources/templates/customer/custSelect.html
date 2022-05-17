@@ -26,7 +26,7 @@
         </div>
 
         <div class="row">
-            <div class="col-md-4 mb-4">
+            <div class="col-md-2 mb-4">
                 <h4 class="d-flex justify-content-between align-items-center mb-3">
                     <span class="text-muted">회원관리</span>
                 </h4>
@@ -50,36 +50,54 @@
                         </div>
                     </li>
                 </ul>
-
-
             </div>
-            <div class="col-md-8 ">
+
+
+            <div class="col-md-10 ">
 
                 <h4 class="mb-3">회원조회 페이지</h4>
-                <div class="form-inline align-right" style="margin-left: 300px;">
-                    <select class="form-control" name="keyword" id="SearchKeyword">
+                <div class="form-inline">
+                    <select  name="keyword" id="SearchKeyword" style="height: 30px; margin-left: 555px;">
                         <option value="" selected>--검색 키워드--</option>
-                        <option name="Email" value="email">이메일</option>
+                        <option name="Email" value="id">아이디</option>
                         <option name="userName" value="userName">이름</option>
                         <option name="nickName" value="nickName">닉네임</option>
+                        <option name="phoneNumber" value="phoneNumber">전화번호</option>
                         <option name="location" value="location">거주지역</option>
                     </select>
+                    <input type="text" id="Search" placeholder="Search" style="margin-left: 10px;">
+                <input type="button"  value="검색" />
                 </div>
-                <input class="form-control" type="text" id="Search" placeholder="Search">
-                <input type="button" class="form-control" value="검색" />
-            </div>
+                
 
 
-            <form class="needs-validation" novalidate>
                 <div class="mb-3">
-                    <label for="email">회원정보 <span class="text-muted">(Optional)</span></label>
-                    <input type="email" class="form-control" id="email" placeholder="you@example.com">
-                    <div class="invalid-feedback">
-                        Please enter a valid email address for shipping updates.
-                    </div>
+                    <label >회원정보 <span class="text-muted">(Optional)</span></label>
+                    <table class="table table-striped">
+
+                        <tr>
+                            <th scope="row">아이디</th>
+                            <td>이름</td>
+                            <td>닉네임</td>
+                            <td>전화번호</td>
+                            <td>거주지역</td>
+                            <td>총 소비금액</td>
+                            <td>적립포인트</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">hanjy20129@gmail.com</th>
+                            <td>한정엽</td>
+                            <td>최단퇴</td>
+                            <td>010-0000-0000</td>
+                            <td>경기도 시흥시 목감중앙로36 803동 1501호</td>
+                            <td>120,3000원</td>
+                            <td>17092p</td>
+                        </tr>
+                    </table>
                 </div>
 
-            </form>
+
+            </div>
         </div>
     </div>
 
