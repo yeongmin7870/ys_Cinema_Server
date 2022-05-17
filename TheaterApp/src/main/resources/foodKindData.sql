@@ -1,3 +1,0 @@
-INSERT INTO Food_Kind VALUES (100, "팝콘");
-INSERT INTO Food_Kind VALUES (200, "음료");
-INSERT INTO Food_Kind VALUES (300, "콤보");
