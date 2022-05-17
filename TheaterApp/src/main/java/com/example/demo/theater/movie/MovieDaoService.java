@@ -1,7 +1,5 @@
 package com.example.demo.theater.movie;
 
-import com.example.demo.logControll.LogController;
-import com.example.demo.theater.customer.Customer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,11 +9,9 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -36,10 +32,17 @@ public class MovieDaoService {
     private MovieRepository movieRepository;
 
 
+    // 영화 이미지 한번에 여러개 가져오기
+    public ResponseBody getMoviesImages() throws IOException {
+        List<Movie> all = movieRepository.findAll();
+        String path = all.get(0).getM_ImagePath() + all.get(0).getM_Img();
+        Resource resource = (Resource) new FileSystemResource(path);
+        Path filepath = Paths.get(path);
 
-
-
-
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Type",Files.probeContentType(filepath));
+        return (ResponseBody) headers;
+    }
 
 
     // 영화 이미지 한개만 가져오기
@@ -58,11 +61,11 @@ public class MovieDaoService {
     }
 
     //현재 상영작 이미지 업로드
-    public String uploadToLocal(String id, MultipartFile file) {
+    public String uploadToLocal(Integer id, MultipartFile file) {
         try {
             String uploadFolderPath = "./src/main/resources/serverImage/movieImage/";
 
-            Movie movie = movieRepository.findByMovieId(Integer.valueOf(id));
+            Movie movie = movieRepository.findByMovieId(id);
 
             // 회원정보가 없을떄
             if (movie == null) {
@@ -71,7 +74,7 @@ public class MovieDaoService {
 
 
             // 이미지를 변경할떄 기존이미지 삭제
-            if (movie.getM_ImagePath() != null) {
+            if (movie.getM_Img() != "string" && movie.getM_Img() == null) {
                 Files.delete(Path.of(movie.getM_ImagePath() + movie.getM_Img()));
             }
 
@@ -93,7 +96,7 @@ public class MovieDaoService {
 
             LocalTime time = LocalTime.now();
             byte[] data = file.getBytes();
-            String fileName = id + LocalDate.now() + time.getHour() + time.getMinute() + time.getSecond() + ".jpeg";
+            String fileName = id.toString() + LocalDate.now() + time.getHour() + time.getMinute() + time.getSecond() + ".jpeg";
             Path path = Paths.get(uploadFolderPath + fileName);
             Files.write(path, data);
             // 여기까지는 이미지를 폴더에 저장함
@@ -129,7 +132,9 @@ public class MovieDaoService {
     }
 
     //영화 삭제
-    public void deleteMovie(Integer id) {movieRepository.deleteById(id);}
+    public void deleteMovie(Integer id) {
+        movieRepository.deleteById(id);
+    }
 
 
     //영화 수정

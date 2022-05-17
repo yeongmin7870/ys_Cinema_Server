@@ -2,20 +2,29 @@ package com.example.demo.theater.movie;
 
 
 import com.example.demo.logControll.LogController;
+import com.google.gson.JsonObject;
 import io.swagger.annotations.ApiOperation;
+import net.minidev.json.JSONObject;
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.print.attribute.standard.Media;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URI;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 
@@ -37,7 +46,11 @@ public class MovieController {
     private MovieDaoService service;
 
     // 영화 이미지 전체 가져오기
-
+    @GetMapping(value = "/movies/display")
+    @ApiOperation(value = "전체 영화 이미지 가져오기")
+    public ResponseBody getMoviesImages() throws IOException {
+        return service.getMoviesImages();
+    }
 
 
     //영화 이미지 한개만 가져오기
@@ -50,7 +63,7 @@ public class MovieController {
     //영화 이미지 업로드
     @PutMapping("/movies/images/upload")
     @ApiOperation(value = "영화 이미지 업로드" , notes = "영화 이미지 업로드 기능이다.")
-    public String movieIMageUpload(@RequestParam String id, @RequestParam("file") MultipartFile multipartFile, HttpServletRequest request) {
+    public String movieIMageUpload(@RequestParam Integer id, @RequestParam("file") MultipartFile multipartFile, HttpServletRequest request) {
         methodName = new Object() {
         }.getClass().getEnclosingMethod().getName(); //메소드 명 가져오기
 

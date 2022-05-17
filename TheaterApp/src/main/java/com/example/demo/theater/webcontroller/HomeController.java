@@ -1,4 +1,4 @@
-package com.example.demo.theater.controller;
+package com.example.demo.theater.webcontroller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,4 +1,4 @@
-package com.example.demo.theater.controller;
+package com.example.demo.theater.webcontroller;
 
 
 import com.example.demo.theater.customer.Customer;
