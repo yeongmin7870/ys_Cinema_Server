@@ -40,7 +40,7 @@ public class CustomerController {
 
 
     @GetMapping("/customer/token/parser")
-    @ApiOperation(value = "고객 토큰 발급")
+    @ApiOperation(value = "고객 토큰 해독")
     public String decodeToken(@RequestParam String token) {
         return service.decodeToken(token);
     }
@@ -73,7 +73,7 @@ public class CustomerController {
     }
 
     @GetMapping("/customers/{customerId}")
-    @ApiOperation(value = "고객 토큰 발급")
+    @ApiOperation(value = "한명의 고객 정보 가져오기")
     public Customer retrieveCustomers(@PathVariable String customerId) {
         Customer customer = service.findById(customerId);
 

@@ -124,8 +124,8 @@ public class MovieDaoService {
     }
 
     //ID값으로 해당 영화 검색
-    public Movie findById(Integer m_No) {
-        Movie movie = movieRepository.findByMovieId(m_No);
+    public Movie findById(Integer movieId) {
+        Movie movie = movieRepository.findByMovieId(movieId);
         return movie;
     }
 

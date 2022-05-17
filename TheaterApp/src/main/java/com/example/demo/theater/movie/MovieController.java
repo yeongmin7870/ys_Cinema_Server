@@ -83,7 +83,7 @@ public class MovieController {
         return service.findAll();
     }
 
-    @GetMapping("/movie/{movieid}")
+    @GetMapping("/movie/{movieId}")
     @ApiOperation(value = "영화 한개 정보 가져오기", notes = "영화 한개 정보 가져온다.")
     public Movie retrieveMovies(@PathVariable Integer movieId) {
         Movie movie = service.findById(movieId);
