@@ -9,14 +9,20 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.Blob;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
@@ -32,21 +38,19 @@ public class MovieDaoService {
     private MovieRepository movieRepository;
 
 
-    // 영화 이미지 한번에 여러개 가져오기
-    public ResponseBody getMoviesImages() throws IOException {
-        List<Movie> all = movieRepository.findAll();
-        String path = all.get(0).getM_ImagePath() + all.get(0).getM_Img();
-        Resource resource = (Resource) new FileSystemResource(path);
-        Path filepath = Paths.get(path);
-
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Type",Files.probeContentType(filepath));
-        return (ResponseBody) headers;
+    // 영화 이미지 전체 uri 뽑아오기
+    public ResponseEntity<URI[]> getMoviesImages() throws IOException {
+        List<Movie> movies= movieRepository.findAll();
+        URI[] uri = new URI[movies.size()];
+        for(int i =0; i< uri.length; i++){
+            uri[i] = URI.create("http://caramels.kro.kr:9632/theater/movie/display/"+movies.get(i).getMovieId());
+        }
+        return new ResponseEntity<URI[]>(uri,HttpStatus.OK);
     }
 
 
     // 영화 이미지 한개만 가져오기
-    public ResponseEntity<Resource> getMovieImage(String id) throws IOException {
+    public ResponseEntity<Resource> getMovieImage(Integer id) throws IOException {
 
         Movie movie = movieRepository.findByMovieId(Integer.valueOf(id));  // 회원 정보 가져오기
         String path = movie.getM_ImagePath() + movie.getM_Img(); //경로

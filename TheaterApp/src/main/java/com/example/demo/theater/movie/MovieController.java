@@ -20,6 +20,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.print.attribute.standard.Media;
 import javax.servlet.http.HttpServletRequest;
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
@@ -45,24 +47,26 @@ public class MovieController {
     @Autowired
     private MovieDaoService service;
 
-    // 영화 이미지 전체 가져오기
-    @GetMapping(value = "/movies/display")
-    @ApiOperation(value = "전체 영화 이미지 가져오기")
-    public ResponseBody getMoviesImages() throws IOException {
+    // 영화 이미지 전체 uri 뽑아오기
+    @GetMapping(value = "/movies/display"
+    )
+    @ApiOperation(value = "영화 이미지 전체 uri 뽑아오기")
+    public ResponseEntity<URI[]> getMoviesImages() throws IOException {
         return service.getMoviesImages();
     }
 
 
     //영화 이미지 한개만 가져오기
-    @GetMapping("/movie/display")
-    @ApiOperation(value = "영화 이미지 한개 출력" , notes = "영화 이미지 한개만 출력하는 기능이다.")   // 이걸 써주면 클라이언트 측에서 swagger-ui.html 문서로 확인할떄 편함
-    public ResponseEntity<Resource> getMovieImage(@RequestParam String id) throws IOException {
+    @GetMapping("/movie/display/{id}")
+    @ApiOperation(value = "영화 이미지 한개 출력", notes = "영화 이미지 한개만 출력하는 기능이다.")
+    // 이걸 써주면 클라이언트 측에서 swagger-ui.html 문서로 확인할떄 편함
+    public ResponseEntity<Resource> getMovieImage(@PathVariable Integer id) throws IOException {
         return service.getMovieImage(id);
     }
 
     //영화 이미지 업로드
     @PutMapping("/movies/images/upload")
-    @ApiOperation(value = "영화 이미지 업로드" , notes = "영화 이미지 업로드 기능이다.")
+    @ApiOperation(value = "영화 이미지 업로드", notes = "영화 이미지 업로드 기능이다.")
     public String movieIMageUpload(@RequestParam Integer id, @RequestParam("file") MultipartFile multipartFile, HttpServletRequest request) {
         methodName = new Object() {
         }.getClass().getEnclosingMethod().getName(); //메소드 명 가져오기
@@ -74,13 +78,13 @@ public class MovieController {
 
 
     @GetMapping("/movies")
-    @ApiOperation(value = "영화 전체 정보 리스트" , notes = "영화 전체 정보 리스트를 뽑아온다.")
+    @ApiOperation(value = "영화 전체 정보 리스트", notes = "영화 전체 정보 리스트를 뽑아온다.")
     public List<Movie> retrieveAllMovies() {
         return service.findAll();
     }
 
     @GetMapping("/movie/{movieid}")
-    @ApiOperation(value = "영화 한개 정보 가져오기" , notes = "영화 한개 정보 가져온다.")
+    @ApiOperation(value = "영화 한개 정보 가져오기", notes = "영화 한개 정보 가져온다.")
     public Movie retrieveMovies(@PathVariable Integer movieId) {
         Movie movie = service.findById(movieId);
 
@@ -93,7 +97,7 @@ public class MovieController {
 
 
     @PostMapping("/movies")
-    @ApiOperation(value = "영화 정보 삽입" , notes = "영화 정보 삽입하는 기능이다.")
+    @ApiOperation(value = "영화 정보 삽입", notes = "영화 정보 삽입하는 기능이다.")
     public ResponseEntity<Movie> newMovies(@RequestBody Movie newMovie) {
 
         Movie insertMovie = service.findById(newMovie.getMovieId());
@@ -109,17 +113,22 @@ public class MovieController {
             throw new MovieNotFoundException(String.format("ID [%s] already exist", insertMovie.getMovieId()));
         }
     }
+
     @DeleteMapping("/movies/{id}")
-    public void deleteMovie(@PathVariable Integer id) { service.deleteMovie(id);}
+    @ApiOperation(value = "영화 삭제하기")
+    public void deleteMovie(@PathVariable Integer id) {
+        service.deleteMovie(id);
+    }
 
     @PutMapping("/movies/{id}")
+    @ApiOperation(value = "영화 정보 수정하기")
     public Movie replaceMovies(@RequestBody Movie newMovie,
                                @PathVariable Integer id) {
 
         Movie updateMovie = service.updateMovie(newMovie, id);
 
         if (updateMovie == null) {
-            throw new MovieNotFoundException(String.format("ID [%s] Not Found",id));
+            throw new MovieNotFoundException(String.format("ID [%s] Not Found", id));
         }
 
         return updateMovie;
