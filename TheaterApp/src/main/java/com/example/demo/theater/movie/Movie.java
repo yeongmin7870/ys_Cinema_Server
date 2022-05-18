@@ -33,9 +33,9 @@ public class Movie {
     @Column(columnDefinition = "varchar2(128)")
     private String m_Content;//줄거리
     @Column(columnDefinition = "float")
-    private Float m_StarScore;
+    private Float m_StarScore; // 평점 점수
     @Column(columnDefinition = "number")
-    private Integer m_Rating;
+    private Integer m_Rating; //평점 개수
     @Column(columnDefinition = "varchar2(10)")
     private String m_Hour;
     //위의 상영시간 부분은 ~~~분이라고 출력이 되어야 하는데 그것이 DATE 타입으론 불편하여서 varchar2(7) 로 수정했습니다.

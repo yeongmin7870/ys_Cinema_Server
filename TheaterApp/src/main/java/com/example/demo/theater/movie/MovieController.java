@@ -51,7 +51,7 @@ public class MovieController {
     // 사용자가 영화 평점 입력 후 계산해서 현재 해당 영화 평점 출력
     @GetMapping("/movie/rating/{id}")
     @ApiOperation(value = "영화 평점 계산해서 보내주는 기능")
-    public float ratingScore(Integer id, Integer rating){
+    public float ratingScore(Integer id, Float rating){
         return service.ratingScore(id, rating);
     }
 

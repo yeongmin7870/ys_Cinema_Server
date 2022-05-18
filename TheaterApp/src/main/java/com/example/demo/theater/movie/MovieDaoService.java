@@ -32,13 +32,20 @@ public class MovieDaoService {
 
 
     // 영화 평점 계산
-    public float ratingScore(Integer id, Integer rating){
+    public float ratingScore(Integer id, Float rating) {
         Movie movie = movieRepository.findByMovieId(id);
 
-        float score = rating / movie.getM_StarScore() * 100;
-        movie.setM_StarScore(score);
+        Float sumScore = rating + movie.getM_StarScore();
+        Integer count = movie.getM_Rating() + 1;
+
+        movie.setM_StarScore(sumScore);
+        movie.setM_Rating(count);
         movieRepository.save(movie);
-        return score;
+
+
+        float result = sumScore / count;
+
+        return result;
     }
 
 
