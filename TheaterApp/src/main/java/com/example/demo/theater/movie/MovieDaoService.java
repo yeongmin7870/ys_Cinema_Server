@@ -1,7 +1,5 @@
 package com.example.demo.theater.movie;
 
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,21 +9,13 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.util.FileCopyUtils;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.sql.Blob;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
@@ -52,16 +42,17 @@ public class MovieDaoService {
 //    }
 
 
-
-
     // 영화 이미지 전체 uri 뽑아오기
-    public String getMoviesImages() throws IOException {
-        List<Movie> movies= movieRepository.findAll();
-        URI[] uri = new URI[movies.size()];
-        for(int i =0; i< uri.length; i++){
-            uri[i] = URI.create("http://caramels.kro.kr:9632/theater/movie/display/"+movies.get(i).getMovieId());
+    public String[] getMoviesImages() throws IOException {
+        List<Movie> movies = movieRepository.findAll();
+//        URI[] uri = new URI[movies.size()];
+        String url;
+        String[] address = new String[movies.size()];
+        for (int i = 0; i < movies.size(); i++) {
+            address[i] = "http://caramels.kro.kr:9632/theater/movie/display/" + movies.get(i).getMovieId();
         }
-        return "finish";
+
+        return address;
     }
 
 

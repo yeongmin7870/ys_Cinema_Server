@@ -56,17 +56,12 @@ public class MovieController {
 //    }
 
 
-
-
-
-
-
     // 영화 이미지 전체 uri 뽑아오기
     @GetMapping(value = "/movies/display")
     @ApiOperation(value = "영화 이미지 전체 uri 뽑아오기")
-    public String getMoviesImages() throws IOException {
-        String moviesImages = service.getMoviesImages();
-        return moviesImages;
+    public String[] getMoviesImages() throws IOException {
+
+        return service.getMoviesImages();
     }
 
 
