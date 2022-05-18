@@ -1,5 +1,7 @@
 package com.example.demo.theater.movie;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,7 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -37,15 +40,28 @@ public class MovieDaoService {
     @Autowired
     private MovieRepository movieRepository;
 
+//    public ResponseEntity<URI> saveMovieVideo(Integer id)   {
+//        Movie movie = movieRepository.findByMovieId(id);
+//        try {
+//            URI uri = URI.create("http://caramels.kro.kr:9632/")
+//
+//        } catch (URISyntaxException e) {
+//            e.printStackTrace();
+//        }
+//
+//    }
+
+
+
 
     // 영화 이미지 전체 uri 뽑아오기
-    public ResponseEntity<URI[]> getMoviesImages() throws IOException {
+    public String getMoviesImages() throws IOException {
         List<Movie> movies= movieRepository.findAll();
         URI[] uri = new URI[movies.size()];
         for(int i =0; i< uri.length; i++){
             uri[i] = URI.create("http://caramels.kro.kr:9632/theater/movie/display/"+movies.get(i).getMovieId());
         }
-        return new ResponseEntity<URI[]>(uri,HttpStatus.OK);
+        return JsonParser.parseString(uri.toString()).toString();
     }
 
 

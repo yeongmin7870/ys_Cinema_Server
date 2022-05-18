@@ -47,11 +47,24 @@ public class MovieController {
     @Autowired
     private MovieDaoService service;
 
+
+    // 영화 비디오 저장
+//    @PutMapping("/movie/video")
+//    @ApiOperation(value = "영화 비디오 저장")
+//    public String saveMovieVideo(Integer id) {
+//        return service.saveMovieVideo(id);
+//    }
+
+
+
+
+
+
+
     // 영화 이미지 전체 uri 뽑아오기
-    @GetMapping(value = "/movies/display"
-    )
+    @GetMapping(value = "/movies/display")
     @ApiOperation(value = "영화 이미지 전체 uri 뽑아오기")
-    public ResponseEntity<URI[]> getMoviesImages() throws IOException {
+    public String getMoviesImages() throws IOException {
         return service.getMoviesImages();
     }
 
