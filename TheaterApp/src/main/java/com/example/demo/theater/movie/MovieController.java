@@ -48,12 +48,28 @@ public class MovieController {
     private MovieDaoService service;
 
 
+    // 사용자가 영화 평점 입력 후 계산해서 현재 해당 영화 평점 출력
+    @GetMapping("/movie/rating/{id}")
+    @ApiOperation(value = "영화 평점 계산해서 보내주는 기능")
+    public float ratingScore(Integer id, Integer rating){
+        return service.ratingScore(id, rating);
+    }
+
+
+
+
     // 영화 비디오 저장
-//    @PutMapping("/movie/video")
-//    @ApiOperation(value = "영화 비디오 저장")
-//    public String saveMovieVideo(Integer id) {
-//        return service.saveMovieVideo(id);
-//    }
+    @PutMapping("/movie/video")
+    @ApiOperation(value = "영화 비디오 저장")
+    public String saveMovieVideo(Integer id, MultipartFile multipartFile) {
+        return service.saveMovieVideo(id,multipartFile);
+    }
+
+    @GetMapping("/movie/video/display/{id}")
+    @ApiOperation(value = "영화 비디오 한개만 불러오기")
+    public ResponseEntity<Resource> getMovieVideo(@PathVariable Integer id) throws  IOException{
+        return service.getMovieVideo(id);
+    }
 
 
     // 영화 이미지 전체 uri 뽑아오기

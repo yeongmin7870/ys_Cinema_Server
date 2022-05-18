@@ -30,23 +30,89 @@ public class MovieDaoService {
     @Autowired
     private MovieRepository movieRepository;
 
-//    public ResponseEntity<URI> saveMovieVideo(Integer id)   {
-//        Movie movie = movieRepository.findByMovieId(id);
-//        try {
-//            URI uri = URI.create("http://caramels.kro.kr:9632/")
-//
-//        } catch (URISyntaxException e) {
-//            e.printStackTrace();
-//        }
-//
-//    }
+
+    // 영화 평점 계산
+    public float ratingScore(Integer id, Integer rating){
+        Movie movie = movieRepository.findByMovieId(id);
+
+        float score = rating / movie.getM_StarScore() * 100;
+        movie.setM_StarScore(score);
+        movieRepository.save(movie);
+        return score;
+    }
+
+
+    // 영화 비디오 url 가져오기
+    public ResponseEntity<Resource> getMovieVideo(Integer id) throws IOException {
+        Movie movie = movieRepository.findByMovieId(id);
+        String url = movie.getMovieVideoPath() + movie.getMovieVideoName();
+        HttpHeaders headers = new HttpHeaders();
+        Path filePath = Paths.get(url);
+        Resource resource = new FileSystemResource(url);
+
+        if (url == null) {
+            return new ResponseEntity<Resource>(HttpStatus.NOT_FOUND);
+        }
+
+
+        headers.add("Content-Type", Files.probeContentType(filePath));
+        return new ResponseEntity<Resource>(resource, headers, HttpStatus.OK);
+    }
+
+    // 영화 비디오 저장
+
+    public String saveMovieVideo(Integer id, MultipartFile multipartFile) {
+        try {
+            String uploadFolderPath = "./src/main/resources/movieVideo/";
+
+            Movie movie = movieRepository.findByMovieId(id);
+            File folder = new File(uploadFolderPath);
+            // 회원정보가 없을떄
+            if (movie == null) {
+                return "fail";
+            }
+
+            //디렉토리 유무 확인 후 생성
+            if (!folder.exists()) {
+                try {
+                    folder.mkdir();
+                    logger.info("폴더가 생성되었습니다.");
+                } catch (Exception e) {
+                    e.getStackTrace();
+                }
+            } else {
+                logger.info("이미 폴더가 생성되어 있습니다.");
+            }
+
+            // 비디오 변경할떄 기존비디오 삭제
+            if (movie.getMovieVideoName() == folder.getName()) {
+                Files.delete(Path.of(movie.getMovieVideoPath() + movie.getMovieVideoName()));
+            }
+
+
+            LocalTime time = LocalTime.now();
+            byte[] data = multipartFile.getBytes();
+            String fileName = id.toString() + ".mp4";
+            Path path = Paths.get(uploadFolderPath + fileName);
+            Files.write(path, data);
+            // 여기까지는 이미지를 폴더에 저장함
+
+
+            movie.setMovieVideoName(fileName);
+            movie.setMovieVideoPath(uploadFolderPath);
+            movieRepository.save(movie);
+            // 여기까지 디비에 영상 이름과 경로 저장
+            return "finish";
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "fail";
+        }
+    }
 
 
     // 영화 이미지 전체 uri 뽑아오기
     public String[] getMoviesImages() throws IOException {
         List<Movie> movies = movieRepository.findAll();
-//        URI[] uri = new URI[movies.size()];
-        String url;
         String[] address = new String[movies.size()];
         for (int i = 0; i < movies.size(); i++) {
             address[i] = "http://caramels.kro.kr:9632/theater/movie/display/" + movies.get(i).getMovieId();
@@ -75,6 +141,7 @@ public class MovieDaoService {
     public String uploadToLocal(Integer id, MultipartFile file) {
         try {
             String uploadFolderPath = "./src/main/resources/serverImage/movieImage/";
+            File folder = new File(uploadFolderPath);
 
             Movie movie = movieRepository.findByMovieId(id);
 
@@ -85,12 +152,10 @@ public class MovieDaoService {
 
 
             // 이미지를 변경할떄 기존이미지 삭제
-            if (movie.getM_Img() != "string" && movie.getM_Img() == null) {
+            if (movie.getM_Img() == folder.getName()) {
                 Files.delete(Path.of(movie.getM_ImagePath() + movie.getM_Img()));
             }
 
-
-            File folder = new File(uploadFolderPath);
 
             if (!folder.exists()) {
                 try {
@@ -107,7 +172,7 @@ public class MovieDaoService {
 
             LocalTime time = LocalTime.now();
             byte[] data = file.getBytes();
-            String fileName = id.toString() + LocalDate.now() + time.getHour() + time.getMinute() + time.getSecond() + ".jpeg";
+            String fileName = id.toString() + ".jpeg";
             Path path = Paths.get(uploadFolderPath + fileName);
             Files.write(path, data);
             // 여기까지는 이미지를 폴더에 저장함

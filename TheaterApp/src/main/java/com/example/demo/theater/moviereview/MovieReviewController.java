@@ -3,6 +3,7 @@ package com.example.demo.theater.moviereview;
 import com.example.demo.logControll.LogController;
 import com.example.demo.theater.customer.CustomerNotFoundException;
 import com.example.demo.theater.movie.MovieNotFoundException;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,11 +28,13 @@ public class MovieReviewController {
     private MovieReviewDaoService service;
 
     @GetMapping("/MovieReview")
+    @ApiOperation(value = "영화 전체 리뷰 보여주기")
     public List<MovieReview> retrieveAllMovieReview() {
         return service.findAll();
     }
 
     @GetMapping("/MovieReview/{mrId}")
+    @ApiOperation(value = "해당 영화 리뷰만 보여주기")
     public MovieReview retrieveMovieReview (@PathVariable Integer mrId){
         MovieReview movieReview = service.findById(mrId);
 
@@ -43,6 +46,7 @@ public class MovieReviewController {
     }
 
     @PostMapping("/MovieReview")
+    @ApiOperation(value = "영화 리뷰 작성 삽입")
     public ResponseEntity<MovieReview> newReview(@RequestBody MovieReview newMovieReview){
         MovieReview insertMovieReview = service.findById(newMovieReview.getMovieReviewId());
 
@@ -59,6 +63,7 @@ public class MovieReviewController {
     }
 
     @PutMapping("/MovieReview/{id}")
+    @ApiOperation(value = "영화 리뷰 수정")
     public MovieReview replaceMovieReview ( @RequestBody MovieReview newMovieReview,
                                             @PathVariable Integer id, String content, Integer reviewStarScore) {
         MovieReview updateMovieReview = service.updateMovieReview(newMovieReview, id, content, reviewStarScore);
@@ -71,5 +76,6 @@ public class MovieReviewController {
     }
 
     @DeleteMapping("/MovieReview/{id}")
+    @ApiOperation(value = "리뷰 삭제하기")
     public void deleteMovieReview(@PathVariable Integer id) {service.deleteMovieReview(id);}
 }
