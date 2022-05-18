@@ -8,7 +8,7 @@ spring:
     username: admin
     password: Cloudoracle123
     driver-class-name: oracle.jdbc.OracleDriver
-    initialization-mode: always
+    initialization-mode: never
 
 
   jpa:

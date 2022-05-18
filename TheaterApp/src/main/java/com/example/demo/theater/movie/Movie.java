@@ -49,4 +49,6 @@ public class Movie {
     @Column(columnDefinition = "date")
     private Date m_EndDate;
 
+    @Column(columnDefinition = "varchar2(70)")
+    private String movieVideoPath;     // 영화 비디오 경로
 }

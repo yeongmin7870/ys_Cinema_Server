@@ -54,4 +54,4 @@ values (5,'소지물품을 분실하신 경우에는 통합콜센터 1234-1234�
 
 
 --좌석
-INSERT INTO movie ()
+--INSERT INTO movie ();
