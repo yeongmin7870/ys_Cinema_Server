@@ -130,9 +130,9 @@ public class CustomerDaoService {
                 return "fail";
             }
 
-
+            File file1 = new File(uploadFolderPath);
             // 이미지를 변경할떄 기존이미지 삭제
-            if (customer.getC_Profile() != null) {
+            if (customer.getC_Profile() == file1.getName()) {
                 Files.delete(Path.of(customer.getC_Profile_Path() + customer.getC_Profile()));
             }
 
