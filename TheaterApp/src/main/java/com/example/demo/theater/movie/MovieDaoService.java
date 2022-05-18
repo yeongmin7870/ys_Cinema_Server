@@ -61,7 +61,7 @@ public class MovieDaoService {
         for(int i =0; i< uri.length; i++){
             uri[i] = URI.create("http://caramels.kro.kr:9632/theater/movie/display/"+movies.get(i).getMovieId());
         }
-        return JsonParser.parseString(uri.toString()).toString();
+        return "finish";
     }
 
 
