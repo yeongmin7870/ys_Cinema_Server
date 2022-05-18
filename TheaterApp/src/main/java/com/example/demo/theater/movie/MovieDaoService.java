@@ -92,7 +92,7 @@ public class MovieDaoService {
             }
 
             // 비디오 변경할떄 기존비디오 삭제
-            if (movie.getMovieVideoName() == folder.getName()) {
+            if (movie.getMovieId() + ".mp4" == folder.getName()) {
                 Files.delete(Path.of(movie.getMovieVideoPath() + movie.getMovieVideoName()));
             }
 
@@ -159,7 +159,7 @@ public class MovieDaoService {
 
 
             // 이미지를 변경할떄 기존이미지 삭제
-            if (movie.getM_Img() == folder.getName()) {
+            if (movie.getMovieId() + ".jpeg" == folder.getName()) {
                 Files.delete(Path.of(movie.getM_ImagePath() + movie.getM_Img()));
             }
 
