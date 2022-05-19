@@ -123,21 +123,23 @@ public class CustomerDaoService {
         try {
             String uploadFolderPath = "./src/main/resources/serverImage/profile/";
 
+            File folder = new File(uploadFolderPath);
+
             Customer customer = repository.findByCustomerId(id);
 
             // 회원정보가 없을떄
             if (customer == null) {
-                return "fail";
+                return "회원정보가 없음";
             }
 
-            File file1 = new File(uploadFolderPath);
+            //File file1 = new File(uploadFolderPath);
             // 이미지를 변경할떄 기존이미지 삭제
-            if (customer.getC_Profile() == file1.getName()) {
-                Files.delete(Path.of(customer.getC_Profile_Path() + customer.getC_Profile()));
-            }
+     //       if (customer.getC_Profile() == file1.getName()) {
+              //  Files.delete(Path.of(customer.getC_Profile_Path() + customer.getC_Profile()));
+                //    }
 
 
-            File folder = new File(uploadFolderPath);
+
 
             if (!folder.exists()) {
                 try {
@@ -153,14 +155,15 @@ public class CustomerDaoService {
 
 
             LocalTime time = LocalTime.now();
-            byte[] data = file.getBytes();
-            String fileName = id + LocalDate.now() + time.getHour() + time.getMinute() + time.getSecond() + ".jpeg";
-            Path path = Paths.get(uploadFolderPath + fileName);
-            Files.write(path, data);
+            String imageName ="profile"+"id" +".jpeg";
+
+            File destination = new File(uploadFolderPath+imageName);
+            file.transferTo(destination);
+
             // 여기까지는 이미지를 폴더에 저장함
 
 
-            customer.setC_Profile(fileName);
+            customer.setC_Profile(imageName);
             customer.setC_Profile_Path(uploadFolderPath);
             repository.save(customer);
             // 여기까지 디비에 이미지 이름과 경로 저장
