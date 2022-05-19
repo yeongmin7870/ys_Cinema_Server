@@ -55,28 +55,27 @@ public class MovieDaoService {
             String uploadFolderPath = "./src/main/resources/movieVideo/";
 
             Movie movie = movieRepository.findByMovieId(id);
-            File folder = new File(uploadFolderPath);
-            // 회원정보가 없을떄
+            String videoName = "video"+id+".mp4";
+            File checkVideo = new File(uploadFolderPath + videoName);
+            Path path = Paths.get(uploadFolderPath + videoName);
+
+            // 영화정보가 없을떄
             if (movie == null) {
                 return "fail";
             }
 
-
             // 비디오 변경할떄 기존비디오 삭제
-            if (movie.getMovieId() + ".mp4" == folder.getName()) {
-                Files.delete(Path.of(movie.getMovieVideoPath() + movie.getMovieVideoName()));
+            if(checkVideo.exists()){
+                Files.delete(path);
             }
 
 
-            LocalTime time = LocalTime.now();
             byte[] data = multipartFile.getBytes();
-            String fileName = id.toString() + ".mp4";
-            Path path = Paths.get(uploadFolderPath + fileName);
             Files.write(path, data);
             // 여기까지는 이미지를 폴더에 저장함
 
 
-            movie.setMovieVideoName(fileName);
+            movie.setMovieVideoName(videoName);
             movie.setMovieVideoPath(uploadFolderPath);
             movieRepository.save(movie);
             // 여기까지 디비에 영상 이름과 경로 저장
