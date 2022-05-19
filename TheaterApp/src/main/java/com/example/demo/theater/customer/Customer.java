@@ -17,7 +17,6 @@ import java.sql.Blob;
 public class Customer {
 
     @Id
-    /*@OneToMany(fetch = FetchType.LAZY, mappedBy = "WritedReview",cascade = CascadeType.ALL)*/
     @NotNull
     @Column(name = "c_Id",columnDefinition = "varchar2(10)", unique = true)
     private String customerId; //회원아이디

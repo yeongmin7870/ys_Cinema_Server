@@ -34,8 +34,6 @@ public class FoodMenu {
     private Integer food_Price;
     @Column(columnDefinition = "varchar2(70) default './src/main/resources/serverImage/foodImage/food_none.png'")
     private String food_Img;
-//    @Column(columnDefinition = "varchar2(70) default 'None'")
-//    private String food_Img_Path;
     @Column(columnDefinition = "number")
     private Integer food_Kind_No;
 }

@@ -546,3 +546,9 @@ insert into normal_theater_seat (normalts_No, normal_no, normal_state) values ('
 insert into normal_theater_seat (normalts_No, normal_no, normal_state) values ('L06','5관','0');
 insert into normal_theater_seat (normalts_No, normal_no, normal_state) values ('L07','5관','0');
 insert into normal_theater_seat (normalts_No, normal_no, normal_state) values ('L08','5관','0');
+
+insert into Store_Address (store_No, store_Address, store_Owner) values (1, '서울시 강남구', '금강선')
+insert into Store_Address (store_No, store_Address, store_Owner) values (2, '안산시 단원구', '박영민')
+insert into Store_Address (store_No, store_Address, store_Owner) values (3, '안양시 동안구', '이상기')
+insert into Store_Address (store_No, store_Address, store_Owner) values (4, '부신시 서구', '사나인')
+insert into Store_Address (store_No, store_Address, store_Owner) values (5, '청주시 청원구', '정시원')
