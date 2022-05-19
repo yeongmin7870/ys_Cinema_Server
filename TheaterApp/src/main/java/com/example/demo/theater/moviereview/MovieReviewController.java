@@ -4,6 +4,7 @@ import com.example.demo.logControll.LogController;
 import com.example.demo.theater.customer.CustomerNotFoundException;
 import com.example.demo.theater.movie.MovieNotFoundException;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.java.Log;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,12 +13,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
-import java.sql.Date;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -65,10 +63,15 @@ public class MovieReviewController {
 
         MovieReview insertMovieReview = service.findById(newMovieReview.getMovieReviewId());  // 현재 해당 id 를 가지고 있는
                                                                                               //  댓글이 있는지 확인하는 확인하는 부분
+        SimpleDateFormat format1 = new SimpleDateFormat ( "yyyy-MM-dd HH:mm:ss");
+        Date today = new Date();
+
+        String time1 = format1.format(today);
 
         if (insertMovieReview == null) { // 해당 아이디를 가진 댓글이 없다면 그때부터 댓글 작성이 가능
 
             insertMovieReview.setMr_Uptime(LocalDateTime.now());
+
             service.save(newMovieReview);
 
             URI location = ServletUriComponentsBuilder.fromCurrentRequest()
