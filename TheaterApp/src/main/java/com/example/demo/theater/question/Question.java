@@ -1,5 +1,6 @@
 package com.example.demo.theater.question;
 
+import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,8 +17,9 @@ import java.util.Date;
 public class Question {
     @Id
     @GeneratedValue
-    @Column(name = "q_No", columnDefinition = "number")
-    private Integer qId;
+    @NotNull
+    @Column(name = "q_No", columnDefinition = "number", unique = true)
+    private Integer QuestionId;
     @Column(columnDefinition = "VARCHAR2(10)")
     private String c_id;
     @Column(columnDefinition = "VARCHAR2(10)")

@@ -1,5 +1,6 @@
 package com.example.demo.theater.reservation;
 
+import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,9 +17,10 @@ import java.util.Date;
 @NoArgsConstructor
 public class Reservation {
     @Id
+    @NotNull
     @GeneratedValue
-    @Column(name = "r_No", columnDefinition = "number")
-    private Integer rId;
+    @Column(name = "r_No", columnDefinition = "number", unique = true)
+    private Integer reservationId;
     @Column(columnDefinition = "number")
     private Integer m_No;
     @Column(columnDefinition = "date")
@@ -31,7 +33,7 @@ public class Reservation {
     private String r_TotalPrice;
     @Column(columnDefinition = "number")
     private Integer r_Coupon;
-    @Column(columnDefinition = "varchar2(30)")
+    @Column(columnDefinition = "varchar2(70)")
     private String c_Photo;
 
 }

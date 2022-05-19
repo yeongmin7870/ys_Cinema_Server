@@ -24,7 +24,7 @@ public class FoodMenu {
     private Integer foodMenuId;
     @Column(columnDefinition = "varchar2(30)")
     private String food_Name;
-    @Column(columnDefinition = "varchar2(40)")
+    @Column(columnDefinition = "varchar2(55)")
     private String food_Component;
     @Column(columnDefinition = "varchar2(30)")
     private String food_Limit;

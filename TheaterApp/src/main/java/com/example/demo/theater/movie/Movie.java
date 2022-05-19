@@ -18,7 +18,7 @@ public class Movie {
     @Id
     @NotNull
     @GeneratedValue
-    @Column(name="m_No",columnDefinition = "number")
+    @Column(name="m_No",columnDefinition = "number", unique = true)
     private Integer movieId; //영화번호
     @Column(columnDefinition = "varchar2(40)") //기본적으로 20 자가 넘어가기때문에 넉넉하게 40줬습니다
     private String m_Name; //영화네임
