@@ -120,47 +120,34 @@ public class CustomerDaoService {
     //이미지 업로드
     public String uploadToLocal(String id, MultipartFile file) {
         try {
-            String uploadFolderPath = "./src/main/resources/Images/";
-
-
+            String uploadFolderPath = "./src/main/resources/serverImage/profile/";
+            String imageName = "profile" + id +".jpeg";
             Customer customer = repository.findByCustomerId(id);
+            File checkFile = new File(uploadFolderPath + imageName);
+            Path path = Paths.get(uploadFolderPath + imageName);
 
             // 회원정보가 없을떄
             if (customer == null) {
                 return "회원정보가 없음";
             }
-
-            File folder = new File(uploadFolderPath);
-            if (!folder.exists()) {
-                try {
-                    folder.mkdir();
-                    logger.info("폴더가 생성되었습니다.");
-                } catch (Exception e) {
-                    e.getStackTrace();
-                }
-            } else {
-                logger.info("이미 폴더가 생성되어 있습니다.");
+            // 만약 이미지가 이미 있다면 삭제 하고 다시 넣기
+            if(checkFile.exists()){
+                Files.delete(path);
             }
-            //여기까지는 디렉토리 유무 확인 후 생성
 
-
-            String imageName = "profile" + id + file.getOriginalFilename();
-
-
-            Path path = Paths.get(uploadFolderPath + imageName);
 
             byte[] data = file.getBytes();
             Files.write(path, data);
 
-            // 여기까지는 이미지를 폴더에 저장함
 
+            // 여기까지는 이미지를 폴더에 저장함
 
             customer.setC_Profile(imageName);
             customer.setC_Profile_Path(uploadFolderPath);
             repository.save(customer);
             // 여기까지 디비에 이미지 이름과 경로 저장
             return "finish";
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return "fail";
         }

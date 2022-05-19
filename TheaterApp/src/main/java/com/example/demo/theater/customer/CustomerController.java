@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.core.io.Resource;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
 import org.springframework.web.bind.annotation.*;
@@ -46,13 +47,14 @@ public class CustomerController {
     }
 
     //프로필 사진이라 고객이 이미지 업로드
-    @PutMapping("/customer/image/upload")
+    @PutMapping(value = "/customer/image/upload"
+        )
     @ApiOperation(value = "고객 프로필 사진 업로드 update")
-    public String uploadLocal(@RequestParam String id, @RequestParam("file") MultipartFile multipartFile,HttpServletRequest request) {
-        methodName = new Object() {
-        }.getClass().getEnclosingMethod().getName(); //메소드 명 가져오기
+    public String uploadLocal(@RequestParam String id, @RequestParam("file") MultipartFile multipartFile) {
+//        methodName = new Object() {
+//        }.getClass().getEnclosingMethod().getName(); //메소드 명 가져오기
 
-        logger.info(methodName + " 서비스를 실행하였고 " + "IP는 " + logController.clientIp(request));
+//        logger.info(methodName + " 서비스를 실행하였고 " + "IP는 " + logController.clientIp(request));
 
         return service.uploadToLocal(id, multipartFile);
     }

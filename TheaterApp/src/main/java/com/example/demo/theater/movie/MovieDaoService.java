@@ -31,9 +31,6 @@ public class MovieDaoService {
     private MovieRepository movieRepository;
 
 
-
-
-
     // 영화 비디오 url 가져오기
     public ResponseEntity<Resource> getMovieVideo(Integer id) throws IOException {
         Movie movie = movieRepository.findByMovieId(id);
@@ -132,45 +129,29 @@ public class MovieDaoService {
     //현재 상영작 이미지 업로드
     public String uploadToLocal(Integer id, MultipartFile file) {
         try {
-            String uploadFolderPath = "./src/main/resources/serverImage/movieImage/";
-            File folder = new File(uploadFolderPath);
-
+            String uploadFolderPath = "./src/main/resources/serverImage/movie/";
             Movie movie = movieRepository.findByMovieId(id);
+            String imageName = id + "movie" + movie.getM_Name() + ".jpeg";
+            File checkFile = new File(uploadFolderPath + imageName);
+            Path path = Paths.get(uploadFolderPath + imageName);
 
             // 회원정보가 없을떄
             if (movie == null) {
                 return "fail";
             }
 
-
             // 이미지를 변경할떄 기존이미지 삭제
-            if (movie.getMovieId() + ".jpeg" == folder.getName()) {
-                Files.delete(Path.of(movie.getM_ImagePath() + movie.getM_Img()));
+            if (checkFile.exists()) {
+                Files.delete(path);
             }
 
-
-            if (!folder.exists()) {
-                try {
-                    folder.mkdir();
-                    logger.info("폴더가 생성되었습니다.");
-                } catch (Exception e) {
-                    e.getStackTrace();
-                }
-            } else {
-                logger.info("이미 폴더가 생성되어 있습니다.");
-            }
-            //여기까지는 디렉토리 유무 확인 후 생성
-
-
-            LocalTime time = LocalTime.now();
             byte[] data = file.getBytes();
-            String fileName = id.toString() + ".jpeg";
-            Path path = Paths.get(uploadFolderPath + fileName);
+
             Files.write(path, data);
             // 여기까지는 이미지를 폴더에 저장함
 
 
-            movie.setM_Img(fileName);
+            movie.setM_Img(imageName);
             movie.setM_ImagePath(uploadFolderPath);
             movieRepository.save(movie);
             // 여기까지 디비에 이미지 이름과 경로 저장

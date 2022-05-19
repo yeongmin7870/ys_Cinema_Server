@@ -48,10 +48,6 @@ public class MovieController {
     private MovieDaoService service;
 
 
-
-
-
-
     // 영화 비디오 저장
     @PutMapping("/movie/video")
     @ApiOperation(value = "영화 비디오 저장")
