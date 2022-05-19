@@ -62,9 +62,11 @@ public class MovieReviewController {
     @PostMapping("/MovieReview")
     @ApiOperation(value = "영화 리뷰 작성 삽입")
     public ResponseEntity<MovieReview> newReview(@RequestBody MovieReview newMovieReview){
-        MovieReview insertMovieReview = service.findById(newMovieReview.getMovieReviewId());
 
-        if (insertMovieReview == null) {
+        MovieReview insertMovieReview = service.findById(newMovieReview.getMovieReviewId());  // 현재 해당 id 를 가지고 있는
+                                                                                              //  댓글이 있는지 확인하는 확인하는 부분
+
+        if (insertMovieReview == null) { // 해당 아이디를 가진 댓글이 없다면 그때부터 댓글 작성이 가능
 
             insertMovieReview.setMr_Uptime(LocalDateTime.now());
             service.save(newMovieReview);
@@ -83,7 +85,8 @@ public class MovieReviewController {
     @ApiOperation(value = "영화 리뷰 수정")
     public MovieReview replaceMovieReview ( @RequestBody MovieReview newMovieReview,
                                             @PathVariable Integer id, String content, Integer reviewStarScore) {
-        MovieReview updateMovieReview = service.updateMovieReview(newMovieReview, id, content, reviewStarScore);
+        MovieReview updateMovieReview = service.updateMovieReview(newMovieReview);
+
 
         if(updateMovieReview == null) {
             throw new CustomerNotFoundException(String.format("ID [%s] Not Found", id));

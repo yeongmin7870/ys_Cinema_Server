@@ -37,8 +37,9 @@ public class MovieReviewDaoService {
         return movieReview;
     }
 
-    public MovieReview updateMovieReview (MovieReview newMovieReview, Integer id, String content,Integer ReviewStarScore) {
-        MovieReview movieReview = movieReviewRepository.findByMovieReviewId(id);
+    public MovieReview updateMovieReview (MovieReview newMovieReview) {
+        MovieReview movieReview = movieReviewRepository.findByMovieReviewId(newMovieReview.getMovieReviewId());
+
 
         if (movieReview == null) {
             return null;
