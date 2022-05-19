@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 import oracle.sql.TIMESTAMP;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Date;
 
 @Data
@@ -34,7 +36,7 @@ public class MovieReview {
     @Column(columnDefinition = "varchar2(128)")
     private String mr_Content; //영화 리뷰 내용 받아올 값
     @Column(columnDefinition = "date")
-    private Date mr_Uptime; // 영화 리뷰 작성 날짜 받아올 값
+    private LocalDateTime mr_Uptime; // 영화 리뷰 작성 날짜 받아올 값
 
     @Column(columnDefinition = "number default 10")
     private Integer mr_ReviewStarScore;

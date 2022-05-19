@@ -1,6 +1,7 @@
 package com.example.demo.theater.moviereview;
 
 import com.example.demo.theater.customer.Customer;
+import com.example.demo.theater.movie.Movie;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,12 @@ public class MovieReviewDaoService {
 
     @Autowired
     private MovieReviewRepository movieReviewRepository;
+
+    // 영화 평점 계산
+//    public float ratingScore(String id, Integer movieId) {
+//
+//    }
+
 
     public List<MovieReview> findAll() {
         return movieReviewRepository.findAll();

@@ -31,22 +31,7 @@ public class MovieDaoService {
     private MovieRepository movieRepository;
 
 
-    // 영화 평점 계산
-    public float ratingScore(Integer id, Float rating) {
-        Movie movie = movieRepository.findByMovieId(id);
 
-        Float sumScore = rating + movie.getM_StarScore();
-        Integer count = movie.getM_Rating() + 1;
-
-        movie.setM_StarScore(sumScore);
-        movie.setM_Rating(count);
-        movieRepository.save(movie);
-
-
-        float result = sumScore / count;
-
-        return result;
-    }
 
 
     // 영화 비디오 url 가져오기

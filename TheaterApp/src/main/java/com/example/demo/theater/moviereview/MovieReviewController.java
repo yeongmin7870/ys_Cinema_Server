@@ -12,6 +12,12 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.Calendar;
 import java.util.List;
 
 @RestController
@@ -26,6 +32,14 @@ public class MovieReviewController {
 
     @Autowired
     private MovieReviewDaoService service;
+
+    // 사용자가 영화 평점 입력 후 계산해서 현재 해당 영화 평점 출력
+//    @GetMapping("/movie/rating/{id}")
+//    @ApiOperation(value = "영화 평점 계산해서 보내주는 기능")
+//    public float ratingScore(String id, Integer movieId){
+//        return service.ratingScore(id, movieId);
+//    }
+
 
     @GetMapping("/MovieReview")
     @ApiOperation(value = "영화 전체 리뷰 보여주기")
@@ -51,7 +65,10 @@ public class MovieReviewController {
         MovieReview insertMovieReview = service.findById(newMovieReview.getMovieReviewId());
 
         if (insertMovieReview == null) {
+
+            insertMovieReview.setMr_Uptime(LocalDateTime.now());
             service.save(newMovieReview);
+
             URI location = ServletUriComponentsBuilder.fromCurrentRequest()
                     .path("/{id}")
                     .buildAndExpand(newMovieReview.getMovieReviewId())
