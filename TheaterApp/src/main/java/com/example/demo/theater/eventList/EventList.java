@@ -1,5 +1,6 @@
 package com.example.demo.theater.eventList;
 
+import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,6 +18,7 @@ import java.util.Date;
 public class EventList {
     @Id
     @GeneratedValue
+    @NotNull
     @Column(name="event_No", columnDefinition="number")
     private Integer eventId;
     @Column(columnDefinition = "VARCHAR2(10)")
@@ -27,8 +29,8 @@ public class EventList {
     private Date event_Startdate;
     @Column(columnDefinition = "date")
     private Date event_Enddate;
-    @Column(columnDefinition = "VARCHAR2(70)")
+    @Column(columnDefinition = "VARCHAR2(70) default 'None'")
     private String event_Img;
-    @Column(columnDefinition = "number")
+    @Column(columnDefinition = "number default 0")
     private Integer event_Hits;
 }

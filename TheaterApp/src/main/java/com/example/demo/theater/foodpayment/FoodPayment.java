@@ -16,7 +16,7 @@ public class FoodPayment {
     @Id
     @GeneratedValue
     @Column(name = "fp_No", columnDefinition = "number")
-    private Integer fpId;
+    private Integer foodPaymentId;
     @Column(columnDefinition = "varchar2(20)")
     private String fp_Food;
     @Column(columnDefinition = "number")

@@ -42,18 +42,20 @@ public class Movie {
 
     @Column(columnDefinition = "varchar2(70)")
     private String m_Img;
-    @Column(columnDefinition = "varchar2(70)")  // 이미지 경로컬럼
+    @Column(columnDefinition = "varchar2(70) default './src/main/resources/serverImage/movieImage/'")  // 이미지 경로컬럼
     private String m_ImagePath;
     @Column(columnDefinition = "date")
     private Date m_StartDate;
     @Column(columnDefinition = "date")
     private Date m_EndDate;
 
-    @Column(columnDefinition = "varchar2(70)")
+    @Column(columnDefinition = "varchar2(70) './src/main/resources/movieVideo/'")
     private String movieVideoPath;     // 영화 비디오 경로
     @Column(columnDefinition = "varchar2(70)")
     private String movieVideoName; // 영화 비디오 드름
 
+    @Column(columnDefinition = "varchar2(18)")
+    private String m_tier;
 
 
 }

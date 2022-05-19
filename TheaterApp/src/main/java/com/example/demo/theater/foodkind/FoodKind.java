@@ -1,6 +1,7 @@
 package com.example.demo.theater.foodkind;
 
 
+import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,7 +16,7 @@ import javax.persistence.*;
 @Table(name = "Food_Kind")
 public class FoodKind {
     @Id
-    @GeneratedValue
+    @NotNull
     @Column(name = "food_Kind_No", columnDefinition = "number")
     private Integer foodKindId;
     @Column(columnDefinition = "varchar2(16)")

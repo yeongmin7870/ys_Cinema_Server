@@ -14,7 +14,7 @@ import javax.persistence.Id;
 @NoArgsConstructor
 public class NormalTheaterSeat {
     @Id
-    @Column(name = "normalTS_No",columnDefinition = "varchar2(4)")
+    @Column(name = "normalTS_No",columnDefinition = "varchar2(5)")
     private  String normalTSId;
     @Column(columnDefinition = "number")
     private Integer normal_No;
