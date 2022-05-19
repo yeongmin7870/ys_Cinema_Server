@@ -42,7 +42,6 @@ public class CustomerDaoService {
     private CustomerRepository repository;
 
 
-
     public List<Customer> findAll() {
         return repository.findAll();
     }
@@ -121,9 +120,8 @@ public class CustomerDaoService {
     //이미지 업로드
     public String uploadToLocal(String id, MultipartFile file) {
         try {
-            String uploadFolderPath = "./src/main/resources/serverImage/profile/";
+            String uploadFolderPath = "./src/main/resources/Images/";
 
-            File folder = new File(uploadFolderPath);
 
             Customer customer = repository.findByCustomerId(id);
 
@@ -132,15 +130,7 @@ public class CustomerDaoService {
                 return "회원정보가 없음";
             }
 
-            //File file1 = new File(uploadFolderPath);
-            // 이미지를 변경할떄 기존이미지 삭제
-     //       if (customer.getC_Profile() == file1.getName()) {
-              //  Files.delete(Path.of(customer.getC_Profile_Path() + customer.getC_Profile()));
-                //    }
-
-
-
-
+            File folder = new File(uploadFolderPath);
             if (!folder.exists()) {
                 try {
                     folder.mkdir();
@@ -154,11 +144,13 @@ public class CustomerDaoService {
             //여기까지는 디렉토리 유무 확인 후 생성
 
 
-            LocalTime time = LocalTime.now();
-            String imageName ="profile"+"id" +".jpeg";
+            String imageName = "profile" + id + file.getOriginalFilename();
 
-            File destination = new File(uploadFolderPath+imageName);
-            file.transferTo(destination);
+
+            Path path = Paths.get(uploadFolderPath + imageName);
+
+            byte[] data = file.getBytes();
+            Files.write(path, data);
 
             // 여기까지는 이미지를 폴더에 저장함
 
