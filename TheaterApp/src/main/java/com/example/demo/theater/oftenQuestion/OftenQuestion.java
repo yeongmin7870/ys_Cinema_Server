@@ -1,5 +1,6 @@
 package com.example.demo.theater.oftenQuestion;
 
+import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,8 +15,9 @@ import javax.persistence.Id;
 @NoArgsConstructor
 public class OftenQuestion {
     @Id
+    @NotNull
     @GeneratedValue
-    @Column(name = "often_ID", columnDefinition = "number")
+    @Column(name = "often_ID", columnDefinition = "number",unique = true)
     private Integer oftenID;
 
     @Column(columnDefinition = "varchar2(60)")

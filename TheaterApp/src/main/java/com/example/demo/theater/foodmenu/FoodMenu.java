@@ -24,7 +24,7 @@ public class FoodMenu {
     private Integer foodMenuId;
     @Column(columnDefinition = "varchar2(30)")
     private String food_Name;
-    @Column(columnDefinition = "varchar2(40)")
+    @Column(columnDefinition = "varchar2(55)")
     private String food_Component;
     @Column(columnDefinition = "varchar2(30)")
     private String food_Limit;
@@ -34,8 +34,6 @@ public class FoodMenu {
     private Integer food_Price;
     @Column(columnDefinition = "varchar2(70) default './src/main/resources/serverImage/foodImage/food_none.png'")
     private String food_Img;
-//    @Column(columnDefinition = "varchar2(70) default 'None'")
-//    private String food_Img_Path;
     @Column(columnDefinition = "number")
     private Integer food_Kind_No;
 }

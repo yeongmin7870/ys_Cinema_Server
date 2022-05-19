@@ -18,7 +18,7 @@ public class Movie {
     @Id
     @NotNull
     @GeneratedValue
-    @Column(name="m_No",columnDefinition = "number")
+    @Column(name="m_No",columnDefinition = "number", unique = true)
     private Integer movieId; //영화번호
     @Column(columnDefinition = "varchar2(40)") //기본적으로 20 자가 넘어가기때문에 넉넉하게 40줬습니다
     private String m_Name; //영화네임
@@ -44,20 +44,20 @@ public class Movie {
 
     @Column(columnDefinition = "varchar2(70)")
     private String m_Img;
-    @Column(columnDefinition = "varchar2(70) default ./src/main/resources/serverImage/movieImage/")  // 이미지 경로컬럼
+    @Column(columnDefinition = "varchar2(70) default './src/main/resources/serverImage/movieImage/'")  // 이미지 경로컬럼
     private String m_ImagePath;
     @Column(columnDefinition = "date")
     private Date m_StartDate;
     @Column(columnDefinition = "date")
     private Date m_EndDate;
 
-    @Column(columnDefinition = "varchar2(70) default ./src/main/resources/movieVideo/")
+    @Column(columnDefinition = "varchar2(70) default './src/main/resources/movieVideo/'")
     private String movieVideoPath;     // 영화 비디오 경로
     @Column(columnDefinition = "varchar2(70)")
     private String movieVideoName; // 영화 비디오 드름
 
-//    @Column(columnDefinition = "varchar2(18)")
-//    private String m_tier;
+    @Column(columnDefinition = "varchar2(18)")
+    private String m_tier;
 
 
 }

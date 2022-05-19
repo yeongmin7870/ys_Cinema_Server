@@ -16,8 +16,10 @@ import javax.persistence.Id;
 public class NormalTheaterSeat {
     @Id
     @NotNull
-    @Column(name = "normalTS_No",columnDefinition = "varchar2(5)")
-    private  String normalTSId;
+    @Column(name = "normalTS_No",columnDefinition = "varchar2(5)",unique = true)
+    private  String normalTheaterSeatId;
     @Column(columnDefinition = "number")
     private Integer normal_No;
+    @Column(columnDefinition = "char(1)")
+    private String normal_state;
 }

@@ -1,6 +1,7 @@
 package com.example.demo.theater.storeaddress;
 
 
+import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,6 +17,7 @@ import javax.persistence.Id;
 @NoArgsConstructor
 public class StoreAddress {
     @Id
+    @NotNull
     @GeneratedValue
     @Column(name = "store_No", columnDefinition = "number")
     private Integer storeId;
