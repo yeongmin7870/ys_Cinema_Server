@@ -61,17 +61,6 @@ public class MovieDaoService {
                 return "fail";
             }
 
-            //디렉토리 유무 확인 후 생성
-            if (!folder.exists()) {
-                try {
-                    folder.mkdir();
-                    logger.info("폴더가 생성되었습니다.");
-                } catch (Exception e) {
-                    e.getStackTrace();
-                }
-            } else {
-                logger.info("이미 폴더가 생성되어 있습니다.");
-            }
 
             // 비디오 변경할떄 기존비디오 삭제
             if (movie.getMovieId() + ".mp4" == folder.getName()) {

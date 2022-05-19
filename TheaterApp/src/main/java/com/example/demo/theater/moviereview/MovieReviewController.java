@@ -47,11 +47,11 @@ public class MovieReviewController {
 
     @GetMapping("/MovieReview/{mrId}")
     @ApiOperation(value = "해당 영화 리뷰만 보여주기")
-    public MovieReview retrieveMovieReview (@PathVariable Integer mrId){
+    public MovieReview retrieveMovieReview(@PathVariable Integer mrId) {
         MovieReview movieReview = service.findById(mrId);
 
-        if (movieReview==null) {
-            throw new MovieNotFoundException(String.format("ID [%s] Not Found",mrId));
+        if (movieReview == null) {
+            throw new MovieNotFoundException(String.format("ID [%s] Not Found", mrId));
         }
 
         return movieReview;
@@ -59,39 +59,27 @@ public class MovieReviewController {
 
     @PostMapping("/MovieReview")
     @ApiOperation(value = "영화 리뷰 작성 삽입")
-    public ResponseEntity<MovieReview> newReview(@RequestBody MovieReview newMovieReview){
+    public MovieReview newReview(@RequestBody MovieReview newMovieReview) {
 
-        MovieReview insertMovieReview = service.findById(newMovieReview.getMovieReviewId());  // 현재 해당 id 를 가지고 있는
-                                                                                              //  댓글이 있는지 확인하는 확인하는 부분
-        SimpleDateFormat format1 = new SimpleDateFormat ( "yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date today = new Date();
 
         String time1 = format1.format(today);
 
-        if (insertMovieReview == null) { // 해당 아이디를 가진 댓글이 없다면 그때부터 댓글 작성이 가능
+        MovieReview movieReview = newMovieReview;
+        movieReview.setMr_Uptime(today);
 
-            insertMovieReview.setMr_Uptime(LocalDateTime.now());
-
-            service.save(newMovieReview);
-
-            URI location = ServletUriComponentsBuilder.fromCurrentRequest()
-                    .path("/{id}")
-                    .buildAndExpand(newMovieReview.getMovieReviewId())
-                    .toUri();
-            return ResponseEntity.created(location).build();
-        }else {
-            throw new MovieNotFoundException(String.format("ID [%s] already exist",insertMovieReview.getMovieReviewId()));
-        }
+        return service.save(movieReview);
     }
 
     @PutMapping("/MovieReview/{id}")
     @ApiOperation(value = "영화 리뷰 수정")
-    public MovieReview replaceMovieReview ( @RequestBody MovieReview newMovieReview,
-                                            @PathVariable Integer id, String content, Integer reviewStarScore) {
+    public MovieReview replaceMovieReview(@RequestBody MovieReview newMovieReview,
+                                          @PathVariable Integer id, String content, Integer reviewStarScore) {
         MovieReview updateMovieReview = service.updateMovieReview(newMovieReview);
 
 
-        if(updateMovieReview == null) {
+        if (updateMovieReview == null) {
             throw new CustomerNotFoundException(String.format("ID [%s] Not Found", id));
         }
 
@@ -100,5 +88,7 @@ public class MovieReviewController {
 
     @DeleteMapping("/MovieReview/{id}")
     @ApiOperation(value = "리뷰 삭제하기")
-    public void deleteMovieReview(@PathVariable Integer id) {service.deleteMovieReview(id);}
+    public void deleteMovieReview(@PathVariable Integer id) {
+        service.deleteMovieReview(id);
+    }
 }
