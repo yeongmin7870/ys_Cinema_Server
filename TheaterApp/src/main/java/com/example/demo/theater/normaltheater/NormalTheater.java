@@ -16,7 +16,7 @@ public class NormalTheater {
     @Id
     @GeneratedValue
     @Column(name = "normal_No",columnDefinition = "number")
-    private Integer normalId;
+    private Integer normalTheaterId;
     @Column(columnDefinition = "varchar2(5)")
     private String normal_Name;
 

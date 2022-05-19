@@ -1,6 +1,7 @@
 package com.example.demo.theater.foodmenu;
 
 
+import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,21 +19,23 @@ import java.util.Date;
 @NoArgsConstructor
 public class FoodMenu {
     @Id
-    @GeneratedValue
-    @Column(name="food_No",columnDefinition = "number")
+    @NotNull
+    @Column(name="food_No",columnDefinition = "number", unique = true)
     private Integer foodMenuId;
-    @Column(columnDefinition = "varchar2(20)")
-    private String food_Name;
     @Column(columnDefinition = "varchar2(30)")
+    private String food_Name;
+    @Column(columnDefinition = "varchar2(40)")
     private String food_Component;
-    @Column(columnDefinition = "varchar2(8)")
+    @Column(columnDefinition = "varchar2(30)")
     private String food_Limit;
     @Column(columnDefinition = "date")
     private Date food_Date;
     @Column(columnDefinition = "number")
     private Integer food_Price;
-    @Column(columnDefinition = "varchar2(70)")
+    @Column(columnDefinition = "varchar2(70) default './src/main/resources/serverImage/foodImage/food_none.png'")
     private String food_Img;
-    @Column(name="food_Kind_No", columnDefinition = "number")
+//    @Column(columnDefinition = "varchar2(70) default 'None'")
+//    private String food_Img_Path;
+    @Column(columnDefinition = "number")
     private Integer food_Kind_No;
 }

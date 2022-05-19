@@ -21,7 +21,7 @@ public class MovieReview {
     @Id
     @NotNull
     @GeneratedValue
-    @Column(name = "mr_No", columnDefinition = "number")
+    @Column(name = "mr_No", columnDefinition = "number", unique = true)
     private Integer movieReviewId;
 
 /*    @ManyToOne(cascade = {CascadeType.DETACH,
@@ -38,8 +38,8 @@ public class MovieReview {
     @Column(columnDefinition = "date")
     private LocalDateTime mr_Uptime; // 영화 리뷰 작성 날짜 받아올 값
 
-    @Column(columnDefinition = "number default 10")
-    private Integer mr_ReviewStarScore;
+    @Column(columnDefinition = "number default 0")
+    private Integer mr_ReviewStarScore;//별점 받아와야함
     @Column(columnDefinition = "number default 0")
     private Integer mr_Thumbs;
     @Column(columnDefinition = "number default 0")

@@ -1,5 +1,6 @@
 package com.example.demo.theater.foodpayment;
 
+import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,10 +16,11 @@ import javax.persistence.Id;
 public class FoodPayment {
     @Id
     @GeneratedValue
-    @Column(name = "fp_No", columnDefinition = "number")
-    private Integer fpId;
-    @Column(columnDefinition = "varchar2(20)")
-    private String fp_Food;
+    @NotNull
+    @Column(name = "fp_No", columnDefinition = "number",unique = true)
+    private Integer foodPaymentId;
+    @Column(columnDefinition = "number")
+    private Integer food_No;
     @Column(columnDefinition = "number")
     private Integer fp_Count;
     @Column(columnDefinition = "number")

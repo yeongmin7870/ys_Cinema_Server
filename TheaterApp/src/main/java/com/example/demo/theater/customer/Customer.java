@@ -31,11 +31,13 @@ public class Customer {
     private String c_Phone; // 회원 전화번호
     @Column(columnDefinition = "varchar2(105)")
     private String c_Address; //회원 주소
+    @Column(columnDefinition = "number default 0")
     private Integer c_Total; // 총소비금액
+    @Column(columnDefinition = "number default 0")
     private Integer c_Point; // 적립포인트
-    @Column(columnDefinition = "varchar2(70)")
+    @Column(columnDefinition = "varchar2(70) default 'None'")
     private String c_Profile; // 프로필이미지
-    @Column(columnDefinition = "varchar2(70)")
+    @Column(columnDefinition = "varchar2(70) default './src/main/resources/serverImage/profile/'")
     private String c_Profile_Path;
 
 }
