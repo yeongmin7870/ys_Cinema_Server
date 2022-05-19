@@ -19,7 +19,7 @@ public class EventList {
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name="event_No", columnDefinition="number")
+    @Column(name="event_No", columnDefinition="number", unique = true)
     private Integer eventId;
     @Column(columnDefinition = "VARCHAR2(10)")
     private String ad_ID;
@@ -29,7 +29,7 @@ public class EventList {
     private Date event_Startdate;
     @Column(columnDefinition = "date")
     private Date event_Enddate;
-    @Column(columnDefinition = "VARCHAR2(70) default 'None'")
+    @Column(columnDefinition = "VARCHAR2(70) default './src/main/resources/serverImage/eventImage/'")
     private String event_Img;
     @Column(columnDefinition = "number default 0")
     private Integer event_Hits;

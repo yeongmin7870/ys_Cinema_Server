@@ -17,7 +17,7 @@ import javax.persistence.*;
 public class FoodKind {
     @Id
     @NotNull
-    @Column(name = "food_Kind_No", columnDefinition = "number")
+    @Column(name = "food_Kind_No", columnDefinition = "number", unique = true)
     private Integer foodKindId;
     @Column(columnDefinition = "varchar2(16)")
     private String food_Kind_Name;

@@ -14,5 +14,6 @@ public interface MovieRepository extends JpaRepository<Movie,Integer> {
 
     @Query(value = "SELECT sum(m_Rating) FROM Movie")
     public Integer sumRating();  // 평저 합계
+    //매개변수가 없는 메소드임...
 
 }

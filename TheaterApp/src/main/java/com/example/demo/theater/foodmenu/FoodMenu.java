@@ -20,22 +20,22 @@ import java.util.Date;
 public class FoodMenu {
     @Id
     @NotNull
-    @Column(name="food_No",columnDefinition = "number")
+    @Column(name="food_No",columnDefinition = "number", unique = true)
     private Integer foodMenuId;
-    @Column(columnDefinition = "varchar2(20)")
-    private String food_Name;
     @Column(columnDefinition = "varchar2(30)")
+    private String food_Name;
+    @Column(columnDefinition = "varchar2(40)")
     private String food_Component;
-    @Column(columnDefinition = "varchar2(8)")
+    @Column(columnDefinition = "varchar2(30)")
     private String food_Limit;
     @Column(columnDefinition = "date")
     private Date food_Date;
     @Column(columnDefinition = "number")
     private Integer food_Price;
-    @Column(columnDefinition = "varchar2(70) default 'None'")
+    @Column(columnDefinition = "varchar2(70) default './src/main/resources/serverImage/foodImage/food_none.png'")
     private String food_Img;
 //    @Column(columnDefinition = "varchar2(70) default 'None'")
 //    private String food_Img_Path;
-    @Column(name="food_Kind_No", columnDefinition = "number")
+    @Column(columnDefinition = "number")
     private Integer food_Kind_No;
 }
