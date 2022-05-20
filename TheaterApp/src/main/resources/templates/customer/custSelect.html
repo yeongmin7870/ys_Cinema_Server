@@ -72,7 +72,7 @@
 
 
                 <div class="mb-3">
-                    <label >회원정보 <span class="text-muted">(Optional)</span></label>
+                    <label >회원정보 <span class="text-muted" th:text="${#lists.size(customer)}">(Optional)</span></label>
                     <table class="table table-striped">
 
                         <tr>
@@ -84,14 +84,14 @@
                             <td>총 소비금액</td>
                             <td>적립포인트</td>
                         </tr>
-                        <tr>
-                            <th scope="row">hanjy20129@gmail.com</th>
-                            <td>한정엽</td>
-                            <td>최단퇴</td>
-                            <td>010-0000-0000</td>
-                            <td>경기도 시흥시 목감중앙로36 803동 1501호</td>
-                            <td>120,3000원</td>
-                            <td>17092p</td>
+                        <tr th:each="list:${customer}">
+                            <th scope="row" th:text="${list.customerId}">hanjy20129@gmail.com</th>
+                            <td th:text="${list.c_Name}">한정엽</td>
+                            <td th:text="${list.c_Nikname}">최단퇴</td>
+                            <td th:text="${list.c_Phone}">010-0000-0000</td>
+                            <td th:text="${list.c_Address}">경기도 시흥시 목감중앙로36 803동 1501호</td>
+                            <td th:text="${list.c_Total}">120,3000원</td>
+                            <td th:text="${list.c_Point}">17092p</td>
                         </tr>
                     </table>
                 </div>
