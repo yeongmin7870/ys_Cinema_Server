@@ -1,3 +1,4 @@
+/*
 package com.example.demo.theater.normaltheaterseat;
 
 import com.sun.istack.NotNull;
@@ -23,3 +24,4 @@ public class NormalTheaterSeat {
     @Column(columnDefinition = "char(1)")
     private String normal_state;
 }
+*/
