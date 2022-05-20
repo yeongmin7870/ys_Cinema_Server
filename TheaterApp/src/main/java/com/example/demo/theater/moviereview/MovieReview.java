@@ -32,7 +32,7 @@ public class MovieReview {
     private String c_Id; //고객 아이디 받아올 값
 
     @Column(columnDefinition = "number")
-    private Integer m_No; //영화 코드 받아올 값
+    private Integer mno; //영화 아이디 받아올 값
     @Column(columnDefinition = "varchar2(128)")
     private String mr_Content; //영화 리뷰 내용 받아올 값
     @Column(columnDefinition = "date")

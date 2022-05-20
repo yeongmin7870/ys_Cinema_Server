@@ -17,10 +17,13 @@ public class MovieReviewDaoService {
     @Autowired
     private MovieReviewRepository movieReviewRepository;
 
+
     // 영화 평점 계산
-//    public float ratingScore(String id, Integer movieId) {
-//
-//    }
+    public Integer ratingScore(Integer mno) {
+        MovieReview movieReview = movieReviewRepository.findByMno(mno);
+
+        return movieReviewRepository.sumRating(mno);
+    }
 
 
     public List<MovieReview> findAll() {

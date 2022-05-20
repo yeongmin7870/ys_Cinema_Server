@@ -32,11 +32,11 @@ public class MovieReviewController {
     private MovieReviewDaoService service;
 
     // 사용자가 영화 평점 입력 후 계산해서 현재 해당 영화 평점 출력
-//    @GetMapping("/movie/rating/{id}")
-//    @ApiOperation(value = "영화 평점 계산해서 보내주는 기능")
-//    public float ratingScore(String id, Integer movieId){
-//        return service.ratingScore(id, movieId);
-//    }
+    @GetMapping("/movie/rating/{id}")
+    @ApiOperation(value = "영화 평점 출력")
+    public Integer ratingScore(Integer m_No){
+        return service.ratingScore(m_No);
+    }
 
 
     @GetMapping("/MovieReview")
