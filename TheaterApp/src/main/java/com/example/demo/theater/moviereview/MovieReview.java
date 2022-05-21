@@ -28,11 +28,11 @@ public class MovieReview {
             CascadeType.MERGE,
             CascadeType.PERSIST,
             CascadeType.REFRESH})*/
-    @Column(columnDefinition = "varchar2(10)")
-    private String c_Id; //고객 아이디 받아올 값
+    @Column(name = "c_id",columnDefinition = "varchar2(10)")
+    private String cId; //고객 아이디 받아올 값
 
     @Column(columnDefinition = "number")
-    private Integer mno; //영화 아이디 받아올 값
+    private Integer movieId; //영화 아이디 받아올 값
     @Column(columnDefinition = "varchar2(128)")
     private String mr_Content; //영화 리뷰 내용 받아올 값
     @Column(columnDefinition = "date")

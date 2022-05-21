@@ -7,6 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 
@@ -18,11 +20,26 @@ public class MovieReviewDaoService {
     private MovieReviewRepository movieReviewRepository;
 
 
-    // 영화 평점 계산
-    public Integer ratingScore(Integer mno) {
-        MovieReview movieReview = movieReviewRepository.findByMno(mno);
 
-        return movieReviewRepository.sumRating(mno);
+    //영화아이디로 리뷰 찾기
+    public List<MovieReview> retrieveMovieReview(Integer movieId) {
+        List<MovieReview> movieReviews = movieReviewRepository.findByMovieId(movieId);
+
+        return movieReviews;
+    }
+
+
+
+
+    // 영화 평점 출트
+    public Integer ratingScore(Integer movieId) throws IOException {
+
+        List<MovieReview> movieReview = movieReviewRepository.findByMovieId(movieId);
+
+        Integer count = movieReview.size();
+        Integer sum = movieReviewRepository.sumRating(movieId);
+
+        return sum/count;
     }
 
 
@@ -41,16 +58,18 @@ public class MovieReviewDaoService {
     }
 
     public MovieReview updateMovieReview (MovieReview newMovieReview) {
-        MovieReview movieReview = movieReviewRepository.findByMovieReviewId(newMovieReview.getMovieReviewId());
+        MovieReview movieReview = movieReviewRepository.oneReview(newMovieReview.getCId(), newMovieReview.getMovieId());
 
-
+        Date today = new Date();
         if (movieReview == null) {
             return null;
         }
-
-        movieReview.setC_Id(newMovieReview.getC_Id());
         movieReview.setMr_Content(newMovieReview.getMr_Content());
+        movieReview.setMr_Uptime(today);
         movieReview.setMr_ReviewStarScore(newMovieReview.getMr_ReviewStarScore());
+        movieReview.setMr_Thumbs(newMovieReview.getMr_Thumbs());
+        movieReview.setMr_Notgood(newMovieReview.getMr_Thumbs());
+
 
         MovieReview updateMovieReview = movieReviewRepository.save(movieReview);
 

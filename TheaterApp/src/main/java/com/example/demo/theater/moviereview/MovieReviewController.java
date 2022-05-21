@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.io.IOException;
 import java.net.URI;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -34,8 +35,8 @@ public class MovieReviewController {
     // 사용자가 영화 평점 입력 후 계산해서 현재 해당 영화 평점 출력
     @GetMapping("/movie/rating/{id}")
     @ApiOperation(value = "영화 평점 출력")
-    public Integer ratingScore(Integer m_No){
-        return service.ratingScore(m_No);
+    public Integer ratingScore(Integer movieId) throws IOException {
+        return service.ratingScore(movieId);
     }
 
 
@@ -45,13 +46,13 @@ public class MovieReviewController {
         return service.findAll();
     }
 
-    @GetMapping("/MovieReview/{mrId}")
+    @GetMapping("/MovieReview/{movieId}")
     @ApiOperation(value = "해당 영화 리뷰만 보여주기")
-    public MovieReview retrieveMovieReview(@PathVariable Integer mrId) {
-        MovieReview movieReview = service.findById(mrId);
+    public List<MovieReview> retrieveMovieReview(@PathVariable Integer movieId) {
+        List<MovieReview> movieReview = service.retrieveMovieReview(movieId);
 
         if (movieReview == null) {
-            throw new MovieNotFoundException(String.format("ID [%s] Not Found", mrId));
+            throw new MovieNotFoundException(String.format("ID [%s] Not Found", movieId));
         }
 
         return movieReview;
@@ -61,10 +62,7 @@ public class MovieReviewController {
     @ApiOperation(value = "영화 리뷰 작성 삽입")
     public MovieReview newReview(@RequestBody MovieReview newMovieReview) {
 
-        SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date today = new Date();
-
-        String time1 = format1.format(today);
 
         MovieReview movieReview = newMovieReview;
         movieReview.setMr_Uptime(today);
@@ -74,13 +72,12 @@ public class MovieReviewController {
 
     @PutMapping("/MovieReview/{id}")
     @ApiOperation(value = "영화 리뷰 수정")
-    public MovieReview replaceMovieReview(@RequestBody MovieReview newMovieReview,
-                                          @PathVariable Integer id, String content, Integer reviewStarScore) {
+    public MovieReview replaceMovieReview(@RequestBody MovieReview newMovieReview) {
         MovieReview updateMovieReview = service.updateMovieReview(newMovieReview);
 
 
         if (updateMovieReview == null) {
-            throw new CustomerNotFoundException(String.format("ID [%s] Not Found", id));
+            throw new CustomerNotFoundException(String.format("ID [%s] Not Found", newMovieReview.getCId()));
         }
 
         return updateMovieReview;
