@@ -4,18 +4,12 @@ import com.example.demo.logControll.LogController;
 import com.example.demo.theater.customer.CustomerNotFoundException;
 import com.example.demo.theater.movie.MovieNotFoundException;
 import io.swagger.annotations.ApiOperation;
-import lombok.extern.java.Log;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.io.IOException;
-import java.net.URI;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -60,14 +54,21 @@ public class MovieReviewController {
 
     @PostMapping("/MovieReview")
     @ApiOperation(value = "영화 리뷰 작성 삽입")
-    public MovieReview newReview(@RequestBody MovieReview newMovieReview) {
+    public String newReview(@RequestBody MovieReview newMovieReview) {
 
-        Date today = new Date();
+        // 해당 영화 리뷰 작성을 했니? : true  작성을 안했다면 : false
+        boolean result = service.searchMovieReivew(newMovieReview.getCId(), newMovieReview.getMovieId());
+        if (result == true) {
+            return "fail";
+        } else {
 
-        MovieReview movieReview = newMovieReview;
-        movieReview.setMr_Uptime(today);
+            Date today = new Date();
 
-        return service.save(movieReview);
+            MovieReview movieReview = newMovieReview;
+            movieReview.setMr_Uptime(today);
+            service.save(movieReview);
+        }
+        return "finish";
     }
 
     @PutMapping("/MovieReview/{id}")

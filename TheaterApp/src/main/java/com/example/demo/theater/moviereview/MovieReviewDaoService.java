@@ -20,6 +20,16 @@ public class MovieReviewDaoService {
     private MovieReviewRepository movieReviewRepository;
 
 
+    // 누가 어떤 영화에 리뷰를 작성했는지 판단여부
+    public boolean searchMovieReivew(String cId, Integer movieId){
+        MovieReview result = movieReviewRepository.oneReview(cId,movieId);
+        if(result != null){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 
     //영화아이디로 리뷰 찾기
     public List<MovieReview> retrieveMovieReview(Integer movieId) {
@@ -27,8 +37,6 @@ public class MovieReviewDaoService {
 
         return movieReviews;
     }
-
-
 
 
     // 영화 평점 출트
