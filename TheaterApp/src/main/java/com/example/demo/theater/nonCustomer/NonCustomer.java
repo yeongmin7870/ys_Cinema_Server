@@ -23,5 +23,5 @@ public class NonCustomer {
     @Column(columnDefinition = "VARCHAR2(51)")
     private String nc_Name;
     @Column(columnDefinition = "VARCHAR2(11)")
-    private String nc_Phone;
+    private String ncPhone;
 }
