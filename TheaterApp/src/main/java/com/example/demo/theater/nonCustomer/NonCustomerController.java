@@ -36,4 +36,11 @@ public class NonCustomerController {
     NonCustomer retrieveCustomer (@PathVariable String ncPhone){
         return service.retrieveCustomer(ncPhone);
     }
+
+    @GetMapping("/nonCustomer/login/")
+    @ApiOperation("로그인")
+    String loginNonCustomer(@RequestParam String name, String phone){
+        return service.loginNonCustomer(name,phone);
+    }
+
 }

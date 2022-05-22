@@ -1,5 +1,6 @@
 package com.example.demo.theater.nonCustomer;
 
+import com.example.demo.theater.customer.CustomerDaoService;
 import com.example.demo.theater.exception.CustomizeResponseEntityExceptionHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,5 +46,20 @@ public class NonCustomerDaoService {
     // 핸드폰 번호로 한명 검색하기
     NonCustomer retrieveCustomer (String ncPhone){
         return nonCustomerRepository.retrieveNonCustomer(ncPhone);
+    }
+
+
+    //로그인
+
+    String loginNonCustomer(String name, String phone){
+        NonCustomer nonCustomer = nonCustomerRepository.retrieveNonCustomer(phone);
+        logger.info(nonCustomer.toString());
+        if(nonCustomer.getNc_Name().equals(name)){
+            String token = CustomerDaoService.makeJwtToken(name, phone);
+            return token;
+        }else{
+            return "fail";
+        }
+
     }
 }

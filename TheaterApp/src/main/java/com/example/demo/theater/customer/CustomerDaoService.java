@@ -65,7 +65,7 @@ public class CustomerDaoService {
     }
 
     // 토큰생성
-    public String makeJwtToken(@PathVariable String id, String passwd) {
+    public static String makeJwtToken(String id, String passwd) {
 
 
         Date ext = new Date();
