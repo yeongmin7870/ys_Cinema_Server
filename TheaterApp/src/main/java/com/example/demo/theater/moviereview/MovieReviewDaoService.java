@@ -34,10 +34,11 @@ public class MovieReviewDaoService {
 
 
     // 누가 어떤 영화에 리뷰를 작성했는지 판단여부
-    public boolean searchMovieReivew(String cId) {
+    public boolean searchMovieReivew(String cId,MovieReview movieReview) {
 
         try {
-            WritedReview result = movieReviewRepository.oneReview(cId);
+            Integer mrNo = movieReview.getMovieId();
+            WritedReview result = movieReviewRepository.oneReview(cId,mrNo);
             if (result != null) {
                 return true;
             } else {
@@ -87,7 +88,7 @@ public class MovieReviewDaoService {
     }
 
     public MovieReview updateMovieReview(MovieReview newMovieReview, String id) {
-        WritedReview writedReview = movieReviewRepository.oneReview(id);
+
 
         MovieReview movieReview = movieReviewRepository.retrieveReview(newMovieReview.getMovieReviewId());
 

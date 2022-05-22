@@ -63,7 +63,7 @@ public class MovieReviewController {
     public String newReview(@RequestBody MovieReview newMovieReview, @RequestParam String id) {
 
         // 해당 영화 리뷰 작성을 했니? : true  작성을 안했다면 : false
-        boolean result = service.searchMovieReivew(id);
+        boolean result = service.searchMovieReivew(id,newMovieReview);
 
         if (result == true) {
             return "리뷰를 이미 작성했습니다";
