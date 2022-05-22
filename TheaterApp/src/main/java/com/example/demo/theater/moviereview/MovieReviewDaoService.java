@@ -3,6 +3,7 @@ package com.example.demo.theater.moviereview;
 import com.example.demo.theater.customer.Customer;
 import com.example.demo.theater.movie.Movie;
 import com.example.demo.theater.writedReview.WritedReview;
+import com.example.demo.theater.writedReview.WritedReviewDaoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +21,13 @@ public class MovieReviewDaoService {
     @Autowired
     private MovieReviewRepository movieReviewRepository;
 
+    @Autowired
+    private WritedReviewDaoService reviewDaoService;
+
     // WrittedReview에 집어넣기
-    public WritedReview insertWR(MovieReview movieReview, String cId){
-        return movieReviewRepository.insertWR(cId, movieReview.getMovieId());
+    public void insertWR(MovieReview movieReview, String cId){
+
+         reviewDaoService.save(cId,movieReview.getMovieId());
     }
 
 

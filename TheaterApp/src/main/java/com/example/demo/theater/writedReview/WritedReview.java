@@ -3,18 +3,18 @@ package com.example.demo.theater.writedReview;
 
 import com.example.demo.theater.customer.Customer;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-
+@Data
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 public class WritedReview {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,
-                    generator = "WritedReview_SEQ_WRNO")
+    @GeneratedValue
     @Column(name="wr_no" , columnDefinition = "Number")
     private Integer wrNo;
     @Column(name="c_Id", columnDefinition = "varchar2(16)")

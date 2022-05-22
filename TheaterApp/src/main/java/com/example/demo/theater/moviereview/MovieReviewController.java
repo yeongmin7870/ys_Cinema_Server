@@ -4,6 +4,8 @@ import com.example.demo.logControll.LogController;
 import com.example.demo.theater.customer.CustomerNotFoundException;
 import com.example.demo.theater.movie.MovieNotFoundException;
 import com.example.demo.theater.writedReview.WritedReview;
+import com.example.demo.theater.writedReview.WritedReviewDaoService;
+import com.example.demo.theater.writedReview.WritedReviewRepository;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,8 +29,8 @@ public class MovieReviewController {
     @Autowired
     private MovieReviewDaoService service;
 
-
-
+    @Autowired
+    private WritedReviewDaoService writedReviewDaoService;
 
     // 사용자가 영화 평점 입력 후 계산해서 현재 해당 영화 평점 출력
     @GetMapping("/movie/rating/{id}")
@@ -66,13 +68,11 @@ public class MovieReviewController {
         if (result == true) {
             return "리뷰를 이미 작성했습니다";
         } else {
-
-            WritedReview writedReview = service.insertWR(newMovieReview,id);
-
             Date today = new Date();
-
-            newMovieReview.setMrUptime(today);
+            newMovieReview.setMrUptime(today);  // 서버 시간
+            service.insertWR(newMovieReview,id);
             service.save(newMovieReview);
+
         }
         return "finish";
     }
