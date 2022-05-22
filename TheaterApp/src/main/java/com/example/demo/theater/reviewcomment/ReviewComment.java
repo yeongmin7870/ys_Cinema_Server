@@ -20,21 +20,21 @@ public class ReviewComment {
     @Id
     @Column(name = "rc_No",columnDefinition = "number")
     @GeneratedValue
-    private Integer rcId; // 리뷰 아이디 자식키로 받아야됨
+    private Integer reviewCommentId; // 리뷰 아이디 자식키로 받아야됨
 
     @Column(name = "mr_No", columnDefinition = "number")
     private Integer mrNo;
 
-    @Column(columnDefinition = "varchar2(128)")
-    private String rc_Content;
+    @Column(name="rc_Content",columnDefinition = "varchar2(128)")
+    private String rcContent;
 
-    @Column(columnDefinition = "date")
-    private Date rc_Uptime;
+    @Column(name="rc_Uptime",columnDefinition = "date")
+    private Date rcUptime;
 
-    @Column(columnDefinition = "number")
-    private Integer rc_Thumbs;
+    @Column(name="rc_Thumbs",columnDefinition = "number default 0")
+    private Integer rcThumbs;
 
-    @Column(columnDefinition = "number")
-    private Integer rc_Bullshit;
+    @Column(name = "rc_Bullshit",columnDefinition = "number default 0")
+    private Integer rcBullshit;
 
 }

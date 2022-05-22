@@ -57,10 +57,10 @@ public class MovieReviewController {
 
     @PostMapping("/MovieReview")
     @ApiOperation(value = "영화 리뷰 작성 삽입")
-    public String newReview(@RequestBody MovieReview newMovieReview) {
+    public String newReview(@RequestBody MovieReview newMovieReview, @RequestParam String id) {
 
         // 해당 영화 리뷰 작성을 했니? : true  작성을 안했다면 : false
-        boolean result = service.searchMovieReivew(newMovieReview.getCId(), newMovieReview.getMovieId());
+        boolean result = service.searchMovieReivew(id);
         if (result == true) {
             return "fail";
         } else {
@@ -69,7 +69,7 @@ public class MovieReviewController {
 
 
             MovieReview movieReview = newMovieReview;
-            movieReview.setMr_Uptime(today);
+            movieReview.setMrUptime(today);
             service.save(movieReview);
         }
         return "finish";
@@ -77,12 +77,12 @@ public class MovieReviewController {
 
     @PutMapping("/MovieReview")
     @ApiOperation(value = "영화 리뷰 수정")
-    public MovieReview replaceMovieReview(@RequestBody MovieReview newMovieReview) {
-        MovieReview updateMovieReview = service.updateMovieReview(newMovieReview);
+    public MovieReview replaceMovieReview(@RequestBody MovieReview newMovieReview, String id) {
+        MovieReview updateMovieReview = service.updateMovieReview(newMovieReview, id);
 
 
         if (updateMovieReview == null) {
-            throw new CustomerNotFoundException(String.format("ID [%s] Not Found", newMovieReview.getCId()));
+            throw new CustomerNotFoundException(String.format("ID [%s] Not Found", newMovieReview.getMovieReviewId()));
         }
 
         return updateMovieReview;

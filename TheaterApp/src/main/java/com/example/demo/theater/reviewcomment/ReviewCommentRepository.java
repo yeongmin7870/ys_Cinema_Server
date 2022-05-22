@@ -12,6 +12,6 @@ import java.util.List;
 @Repository
 public interface ReviewCommentRepository extends JpaRepository<ReviewComment,Integer> {
 
-    @Query(value = "SELECT m FROM ReviewComment m WHERE m.rcId = :rcId AND m.mrNo = :mrNo")
-    ReviewComment retrieveComments(@Param("rcId") Integer rcId, @Param("mrNo") Integer mrNo);
+    @Query(value = "SELECT m FROM ReviewComment m WHERE m.reviewCommentId = :reviewCommentId AND m.mrNo = :mrNo")
+    ReviewComment retrieveComments(@Param("reviewCommentId") Integer reviewCommentId, @Param("mrNo") Integer mrNo);
 }

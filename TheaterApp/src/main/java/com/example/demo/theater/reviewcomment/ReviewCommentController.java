@@ -53,7 +53,7 @@ public class ReviewCommentController {
 
 
         if (updateMovieReview == null) {
-            throw new CustomerNotFoundException(String.format("ID [%s] Not Found", comment.getRcId()));
+            throw new CustomerNotFoundException(String.format("ID [%s] Not Found", comment.getReviewCommentId()));
         }
 
         return updateMovieReview;

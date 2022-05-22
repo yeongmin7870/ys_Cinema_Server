@@ -2,6 +2,7 @@ package com.example.demo.theater.moviereview;
 
 import com.example.demo.theater.customer.Customer;
 import com.example.demo.theater.movie.Movie;
+import com.example.demo.theater.writedReview.WritedReview;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +21,8 @@ public class MovieReviewDaoService {
     private MovieReviewRepository movieReviewRepository;
 
     // 누가 어떤 영화에 리뷰를 작성했는지 판단여부
-    public boolean searchMovieReivew(String cId, Integer movieId){
-        MovieReview result = movieReviewRepository.oneReview(cId,movieId);
+    public boolean searchMovieReivew(String cId){
+        WritedReview result = movieReviewRepository.oneReview(cId);
         if(result != null){
             return true;
         }
@@ -65,18 +66,21 @@ public class MovieReviewDaoService {
         return movieReview;
     }
 
-    public MovieReview updateMovieReview (MovieReview newMovieReview) {
-        MovieReview movieReview = movieReviewRepository.oneReview(newMovieReview.getCId(), newMovieReview.getMovieId());
+    public MovieReview updateMovieReview (MovieReview newMovieReview, String id) {
+        WritedReview writedReview = movieReviewRepository.oneReview(id);
+
+        MovieReview movieReview = movieReviewRepository.retrieveReview(newMovieReview.getMovieReviewId());
+
 
         Date today = new Date();
         if (movieReview == null) {
             return null;
         }
-        movieReview.setMr_Content(newMovieReview.getMr_Content());
-        movieReview.setMr_Uptime(today);
-        movieReview.setMr_ReviewStarScore(newMovieReview.getMr_ReviewStarScore());
-        movieReview.setMr_Thumbs(newMovieReview.getMr_Thumbs());
-        movieReview.setMr_Notgood(newMovieReview.getMr_Thumbs());
+        movieReview.setMrContent(newMovieReview.getMrContent());
+        movieReview.setMrUptime(today);
+        movieReview.setMrReviewStarScore(newMovieReview.getMrReviewStarScore());
+        movieReview.setMrThumbs(newMovieReview.getMrThumbs());
+        movieReview.setMrNotGood(newMovieReview.getMrNotGood());
 
 
         MovieReview updateMovieReview = movieReviewRepository.save(movieReview);

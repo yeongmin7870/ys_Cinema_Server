@@ -13,12 +13,13 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class WritedReview {
     @Id
-    /*@ManyToOne(cascade = {CascadeType.DETACH,
-            CascadeType.MERGE,
-            CascadeType.PERSIST,
-            CascadeType.REFRESH})*/
+    @GeneratedValue
+    @Column(name="wr_No")
+    private Integer wrNo;
     @Column(name="c_Id")
     private String customerId;
-    private Integer mr_No;
-    private Integer rc_No;
+    @Column(name="mr_No")
+    private Integer mrNo;
+    @Column(name="rc_No")
+    private Integer rcNo;
 }

@@ -41,16 +41,16 @@ public class ReviewCommentDaoService {
     }
 
     public ReviewComment updateComment (ReviewComment comment) {
-        ReviewComment reviewComment = repository.retrieveComments(comment.getRcId(), comment.getMrNo());
+        ReviewComment reviewComment = repository.retrieveComments(comment.getReviewCommentId(), comment.getMrNo());
 
         Date today = new Date();
         if (reviewComment == null) {
             return null;
         }
-        reviewComment.setRc_Content(comment.getRc_Content());
-        reviewComment.setRc_Uptime(today);
-        reviewComment.setRc_Thumbs(comment.getRc_Thumbs());
-        reviewComment.setRc_Bullshit(comment.getRc_Bullshit());
+        reviewComment.setRcContent(comment.getRcContent());
+        reviewComment.setRcUptime(today);
+        reviewComment.setRcThumbs(comment.getRcThumbs());
+        reviewComment.setRcBullshit(comment.getRcBullshit());
 
 
         ReviewComment updateMovieReview = repository.save(reviewComment);

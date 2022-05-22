@@ -28,22 +28,19 @@ public class MovieReview {
             CascadeType.MERGE,
             CascadeType.PERSIST,
             CascadeType.REFRESH})*/
-    @Column(name = "c_id",columnDefinition = "varchar2(10)")
-    private String cId; //고객 아이디 받아올 값
 
-    @Column(columnDefinition = "number")
+    @Column(name="m_no" ,columnDefinition = "number")
     private Integer movieId; //영화 아이디 받아올 값
-    @Column(columnDefinition = "varchar2(128)")
-    private String mr_Content; //영화 리뷰 내용 받아올 값
-    @Column(columnDefinition = "date")
-    private Date mr_Uptime; // 영화 리뷰 작성 날짜 받아올 값
+    @Column(name="mr_content",columnDefinition = "varchar2(128)")
+    private String mrContent; //영화 리뷰 내용 받아올 값
+    @Column(name="mrUptime",columnDefinition = "date")
+    private Date mrUptime; // 영화 리뷰 작성 날짜 받아올 값
 
-    @Column(columnDefinition = "number default 0")
-    private Integer mr_ReviewStarScore;//별점 받아와야함
-    @Column(columnDefinition = "number default 0")
-    private Integer mr_Thumbs;
-    @Column(columnDefinition = "number default 0")
-    private Integer mr_Notgood;
-
+    @Column(name="mr_ReviewStarScore",columnDefinition = "number default 0")
+    private Integer mrReviewStarScore;//별점 받아와야함
+    @Column(name="mr_Thumbs",columnDefinition = "number default 0")
+    private Integer mrThumbs;
+    @Column(name = "mr_NotGood",columnDefinition = "number default 0")
+    private Integer mrNotGood;
 
 }
