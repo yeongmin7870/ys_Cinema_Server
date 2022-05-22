@@ -1,3 +1,53 @@
+--fk 작성
+
+--내가쓴 리뷰의 내역
+ALTER TABLE writed_review ADD CONSTRAINT c_wr_cid FOREIGN KEY (c_id) REFERENCES customer(c_id);
+ALTER TABLE writed_review ADD CONSTRAINT mr_wr_mrNo FOREIGN KEY (mr_no) REFERENCES movie_review(mr_no);
+ALTER TABLE writed_review ADD CONSTRAINT rc_wr_rcNo FOREIGN KEY (rc_no) REFERENCES review_comment(rc_no);
+
+--회원 주문 내역
+ALTER TABLE order_List ADD CONSTRAINT c_or_cid FOREIGN KEY (c_id) REFERENCES customer(c_id);
+ALTER TABLE order_List ADD CONSTRAINT fp_or_fpNo FOREIGN KEY (fp_No) REFERENCES food_payment(fp_no);
+ALTER TABLE order_List ADD CONSTRAINT r_or_rNo FOREIGN KEY (r_no) REFERENCES reservation(r_no);
+
+--질문 게시판
+ALTER TABLE question ADD CONSTRAINT c_q_cid FOREIGN KEY (c_id) REFERENCES customer(C_id);
+
+--답변 게시판
+ALTER TABLE answer ADD CONSTRAINT q_as_qno FOREIGN KEY (q_no) REFERENCES question(q_No);
+ALTER TABLE answer ADD CONSTRAINT ad_as_adID FOREIGN KEY (ad_id) REFERENCES ADMIN(ad_id);
+
+--이벤트 목록
+ALTER TABLE event_list ADD CONSTRAINT ad_ev_adID FOREIGN KEY (ad_ID) REFERENCES admin(ad_ID);
+
+--음식 메뉴
+ALTER TABLE food_Menu ADD CONSTRAINT fk_fo_foodkindno FOREIGN KEY (food_kind_no) REFERENCES food_kind(food_kind_no);
+
+--음식 결제 내역
+ALTER TABLE food_Payment ADD CONSTRAINT fo_fo_foodno FOREIGN KEY (food_no) REFERENCES food_menu(food_no);
+
+--비회원 주문 내역
+ALTER TABLE nc_Order_List ADD CONSTRAINT n_nc_ncNo FOREIGN KEY (nc_no) REFERENCES non_customer(nc_no);
+ALTER TABLE nc_Order_List ADD CONSTRAINT fp_ord_fpno foreign key (fp_No) REFERENCES food_payment(fp_no);
+ALTER TABLE nc_Order_List ADD CONSTRAINT r_nonor_rNo FOREIGN KEY (r_no) REFERENCES Reservation(r_no);
+
+--리뷰 댓글
+ALTER TABLE review_comment ADD CONSTRAINT mr_mo_mrNo FOREIGN KEY (mr_no) REFERENCES movie_Review(mr_no);
+
+--무비 리뷰
+ALTER TABLE movie_review ADD CONSTRAINT mo_mo_mNo FOREIGN KEY (m_no) REFERENCES movie(m_no);
+
+--예매
+ALTER TABLE reservation ADD CONSTRAINT re_mo_mNo FOREIGN KEY (m_no) REFERENCES movie(m_no);
+ALTER TABLE reservation ADD CONSTRAINT re_mos_msNo FOREIGN KEY (ms_no) REFERENCES movie_schedule(ms_no);
+
+--상영시간표
+ALTER TABLE movie_schedule ADD CONSTRAINT mos_st_storeNo FOREIGN KEY (store_no) REFERENCES store_address(store_no);
+ALTER TABLE movie_schedule ADD CONSTRAINT mos_mo_mNo FOREIGN KEY (m_no) REFERENCES movie(m_no);
+
+
+
+
 --음식 대분류
 INSERT INTO Food_Kind VALUES (100, '음식');
 INSERT INTO Food_Kind VALUES (200, '음료');
@@ -552,3 +602,4 @@ insert into Store_Address (store_No, store_Address, store_Owner) values (2, '안
 insert into Store_Address (store_No, store_Address, store_Owner) values (3, '안양시 동안구', '연성머');
 insert into Store_Address (store_No, store_Address, store_Owner) values (4, '부신시 서구', '사나인');
 insert into Store_Address (store_No, store_Address, store_Owner) values (5, '청주시 청원구', '정시원');
+

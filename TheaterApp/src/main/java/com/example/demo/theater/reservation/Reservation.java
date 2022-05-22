@@ -23,6 +23,8 @@ public class Reservation {
     private Integer reservationId;
     @Column(columnDefinition = "number")
     private Integer m_No;
+    @Column(name = "ms_no",columnDefinition = "number")
+    private Integer msNo;
     @Column(columnDefinition = "date")
     private Date r_Date;
     //@Column(columnDefinition = "varchar2(10)")

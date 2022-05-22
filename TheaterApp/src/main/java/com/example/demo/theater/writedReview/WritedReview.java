@@ -13,13 +13,14 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class WritedReview {
     @Id
-    @GeneratedValue
-    @Column(name="wr_No")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+                    generator = "WritedReview_SEQ_WRNO")
+    @Column(name="wr_no" , columnDefinition = "Number")
     private Integer wrNo;
-    @Column(name="c_Id")
-    private String customerId;
-    @Column(name="mr_No")
+    @Column(name="c_Id", columnDefinition = "varchar2(16)")
+    private String cId;
+    @Column(name="mr_No",columnDefinition = "number default 0")
     private Integer mrNo;
-    @Column(name="rc_No")
+    @Column(name="rc_No",columnDefinition = "number default 0")
     private Integer rcNo;
 }

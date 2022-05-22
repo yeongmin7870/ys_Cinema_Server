@@ -18,13 +18,15 @@ public class Answer {
     @GeneratedValue
     @Column(name="a_No", columnDefinition = "number")
     private Integer answerId;
-    private Integer q_No;
-    @Column(columnDefinition = "varchar2(10)")
-    private String ad_ID;
-    @Column(columnDefinition = "varchar2(60)")
-    private String a_Title;
-    @Column(columnDefinition = "varchar2(128)")
-    private String a_Content;
-    @Column(columnDefinition = "date")
-    private Date a_Uptime;
+
+    @Column(name = "q_No", columnDefinition = "number")
+    private Integer qNo;
+    @Column(name="ad_ID",columnDefinition = "varchar2(10)")
+    private String adminID;
+    @Column(name="a_Title",columnDefinition = "varchar2(60)")
+    private String aTitle;
+    @Column(name="a_Content",columnDefinition = "varchar2(128)")
+    private String aContent;
+    @Column(name = "a_Uptime",columnDefinition = "date")
+    private Date aUptime;
 }

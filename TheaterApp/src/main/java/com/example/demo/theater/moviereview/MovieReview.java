@@ -41,6 +41,6 @@ public class MovieReview {
     @Column(name="mr_Thumbs",columnDefinition = "number default 0")
     private Integer mrThumbs;
     @Column(name = "mr_NotGood",columnDefinition = "number default 0")
-    private Integer mrNotGood;
+    private Integer mrNotgood;
 
 }

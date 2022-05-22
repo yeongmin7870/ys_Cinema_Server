@@ -3,6 +3,7 @@ package com.example.demo.theater.moviereview;
 import com.example.demo.logControll.LogController;
 import com.example.demo.theater.customer.CustomerNotFoundException;
 import com.example.demo.theater.movie.MovieNotFoundException;
+import com.example.demo.theater.writedReview.WritedReview;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -61,16 +62,17 @@ public class MovieReviewController {
 
         // 해당 영화 리뷰 작성을 했니? : true  작성을 안했다면 : false
         boolean result = service.searchMovieReivew(id);
+
         if (result == true) {
-            return "fail";
+            return "리뷰를 이미 작성했습니다";
         } else {
+
+            WritedReview writedReview = service.insertWR(newMovieReview,id);
 
             Date today = new Date();
 
-
-            MovieReview movieReview = newMovieReview;
-            movieReview.setMrUptime(today);
-            service.save(movieReview);
+            newMovieReview.setMrUptime(today);
+            service.save(newMovieReview);
         }
         return "finish";
     }
