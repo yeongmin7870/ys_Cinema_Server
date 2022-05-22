@@ -19,8 +19,8 @@ public class ReviewComment {
 
     @Id
     @Column(name = "rc_No",columnDefinition = "number")
+    @GeneratedValue
     private Integer rcId; // 리뷰 아이디 자식키로 받아야됨
-
 
     @Column(name = "mr_No", columnDefinition = "number")
     private Integer mrNo;
