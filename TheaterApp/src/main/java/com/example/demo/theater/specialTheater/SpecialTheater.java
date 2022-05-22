@@ -1,5 +1,6 @@
 package com.example.demo.theater.specialTheater;
 
+import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,9 +16,10 @@ import javax.persistence.Id;
 @NoArgsConstructor
 public class SpecialTheater {
     @Id
+    @NotNull
     @GeneratedValue
-    @Column(name = "special_No", columnDefinition = "number")
+    @Column(name = "special_Id", columnDefinition = "varchar2(10)", unique = true)
     private  Integer specialId;
-    @Column(columnDefinition = "varchar2(10)")
-    private String special_Name;
+    @Column(columnDefinition = "char(1)")
+    private String special_state;
 }
