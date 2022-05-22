@@ -61,6 +61,7 @@ public class MovieReviewDaoService {
 
     public MovieReview save(MovieReview movieReview){
         movieReviewRepository.save(movieReview);
+
         return movieReview;
     }
 

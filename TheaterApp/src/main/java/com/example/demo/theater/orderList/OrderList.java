@@ -13,8 +13,8 @@ import javax.persistence.Id;
 @NoArgsConstructor
 public class OrderList {
     @Id
-    @Column(columnDefinition = "VARCHAR2(10)")
-    private Integer c_Id;
+    @Column(name = "c_Id",columnDefinition = "VARCHAR2(10)")
+    private String cId;
     private Integer fp_No;
     private Integer r_No;
 }

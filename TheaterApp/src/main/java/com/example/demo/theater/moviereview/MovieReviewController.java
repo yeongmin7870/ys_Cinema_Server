@@ -67,6 +67,7 @@ public class MovieReviewController {
 
             Date today = new Date();
 
+
             MovieReview movieReview = newMovieReview;
             movieReview.setMr_Uptime(today);
             service.save(movieReview);
