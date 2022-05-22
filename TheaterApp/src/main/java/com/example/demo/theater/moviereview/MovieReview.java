@@ -21,7 +21,7 @@ public class MovieReview {
     @Id
     @NotNull
     @GeneratedValue
-    @Column(name = "mr_No", columnDefinition = "number", unique = true)
+    @Column(name = "mr_no", columnDefinition = "number", unique = true)
     private Integer movieReviewId;
 
 /*    @ManyToOne(cascade = {CascadeType.DETACH,
@@ -29,7 +29,7 @@ public class MovieReview {
             CascadeType.PERSIST,
             CascadeType.REFRESH})*/
 
-    @Column(name="m_no" ,columnDefinition = "number")
+    @Column(name="movie_Id" ,columnDefinition = "number")
     private Integer movieId; //영화 아이디 받아올 값
     @Column(name="mr_content",columnDefinition = "varchar2(128)")
     private String mrContent; //영화 리뷰 내용 받아올 값
@@ -40,7 +40,7 @@ public class MovieReview {
     private Integer mrReviewStarScore;//별점 받아와야함
     @Column(name="mr_Thumbs",columnDefinition = "number default 0")
     private Integer mrThumbs;
-    @Column(name = "mr_NotGood",columnDefinition = "number default 0")
-    private Integer mrNotGood;
+    @Column(name = "mr_Notgood",columnDefinition = "number default 0")
+    private Integer mrNotgood;
 
 }

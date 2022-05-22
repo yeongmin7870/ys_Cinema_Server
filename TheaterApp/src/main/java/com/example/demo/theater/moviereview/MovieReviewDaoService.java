@@ -20,15 +20,30 @@ public class MovieReviewDaoService {
     @Autowired
     private MovieReviewRepository movieReviewRepository;
 
+    // WrittedReview에 집어넣기
+    public WritedReview insertWR(MovieReview movieReview, String cId){
+        return movieReviewRepository.insertWR(cId, movieReview.getMovieId());
+    }
+
+
+
+
     // 누가 어떤 영화에 리뷰를 작성했는지 판단여부
-    public boolean searchMovieReivew(String cId){
-        WritedReview result = movieReviewRepository.oneReview(cId);
-        if(result != null){
-            return true;
-        }
-        else{
+    public boolean searchMovieReivew(String cId) {
+
+        try {
+            WritedReview result = movieReviewRepository.oneReview(cId);
+            if (result != null) {
+                return true;
+            } else {
+                return false;
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
             return false;
         }
+
     }
 
     //영화아이디로 리뷰 찾기
@@ -47,7 +62,7 @@ public class MovieReviewDaoService {
         Integer count = movieReview.size();
         Integer sum = movieReviewRepository.sumRating(movieId);
 
-        return sum/count;
+        return sum / count;
     }
 
 
@@ -60,13 +75,13 @@ public class MovieReviewDaoService {
         return movieReview;
     }
 
-    public MovieReview save(MovieReview movieReview){
+    public MovieReview save(MovieReview movieReview) {
         movieReviewRepository.save(movieReview);
 
         return movieReview;
     }
 
-    public MovieReview updateMovieReview (MovieReview newMovieReview, String id) {
+    public MovieReview updateMovieReview(MovieReview newMovieReview, String id) {
         WritedReview writedReview = movieReviewRepository.oneReview(id);
 
         MovieReview movieReview = movieReviewRepository.retrieveReview(newMovieReview.getMovieReviewId());
@@ -80,7 +95,7 @@ public class MovieReviewDaoService {
         movieReview.setMrUptime(today);
         movieReview.setMrReviewStarScore(newMovieReview.getMrReviewStarScore());
         movieReview.setMrThumbs(newMovieReview.getMrThumbs());
-        movieReview.setMrNotGood(newMovieReview.getMrNotGood());
+        movieReview.setMrNotgood(newMovieReview.getMrNotgood());
 
 
         MovieReview updateMovieReview = movieReviewRepository.save(movieReview);
@@ -88,7 +103,7 @@ public class MovieReviewDaoService {
         return updateMovieReview;
     }
 
-    public void deleteMovieReview (Integer id) {
+    public void deleteMovieReview(Integer id) {
         movieReviewRepository.deleteById(id);
     }
 }
