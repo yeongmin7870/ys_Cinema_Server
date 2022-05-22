@@ -10,9 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
@@ -28,8 +26,16 @@ public class CustomerWebController {
 
     @GetMapping("/custInsert")
     @ApiOperation("회원정보등록 페이지")
-    public String insert() {
+    public String insert(Model model) {
+        model.addAttribute("customer", new Customer());
         return "/customer/custInsert";
+    }
+
+    @PostMapping("/custInsert")
+    @ApiOperation("회원정보등록")
+    public String insertForm(@ModelAttribute Customer customer) {
+        repository.save(customer);
+        return "redirect:/customer/custSelect";
     }
 
     @GetMapping("/custSelect")
