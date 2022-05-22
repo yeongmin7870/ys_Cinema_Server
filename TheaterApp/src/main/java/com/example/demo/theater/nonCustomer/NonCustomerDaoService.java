@@ -18,6 +18,8 @@ public class NonCustomerDaoService {
     @Autowired
     private NonCustomerRepository nonCustomerRepository;
 
+    @Autowired
+    private CustomerDaoService customerDaoService;
 
     //비회원 가입
     String registerNonCustomer(NonCustomer newCustomer) {
@@ -50,7 +52,6 @@ public class NonCustomerDaoService {
 
 
     //로그인
-
     String loginNonCustomer(String name, String phone){
         NonCustomer nonCustomer = nonCustomerRepository.retrieveNonCustomer(phone);
         logger.info(nonCustomer.toString());
@@ -60,6 +61,11 @@ public class NonCustomerDaoService {
         }else{
             return "fail";
         }
+    }
 
+    // 토큰 해독
+
+    String decodeToken(String token){
+        return customerDaoService.decodeToken(token);
     }
 }

@@ -37,10 +37,13 @@ public class NonCustomerController {
         return service.retrieveCustomer(ncPhone);
     }
 
-    @GetMapping("/nonCustomer/login/")
+    @GetMapping("/nonCustomer/login")
     @ApiOperation("로그인")
     String loginNonCustomer(@RequestParam String name, String phone){
         return service.loginNonCustomer(name,phone);
     }
 
+    @GetMapping("/nonCustomer/parser")
+    @ApiOperation("토큰 해독")
+    String decodeToken (@RequestParam String token){return service.decodeToken(token);}
 }
