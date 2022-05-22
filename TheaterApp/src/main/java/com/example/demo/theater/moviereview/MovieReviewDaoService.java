@@ -19,7 +19,6 @@ public class MovieReviewDaoService {
     @Autowired
     private MovieReviewRepository movieReviewRepository;
 
-
     // 누가 어떤 영화에 리뷰를 작성했는지 판단여부
     public boolean searchMovieReivew(String cId, Integer movieId){
         MovieReview result = movieReviewRepository.oneReview(cId,movieId);

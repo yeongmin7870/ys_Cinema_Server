@@ -18,12 +18,12 @@ import java.util.Date;
 public class ReviewComment {
 
     @Id
-    @GeneratedValue
     @Column(name = "rc_No",columnDefinition = "number")
-    private Integer rcId;
+    private Integer rcId; // 리뷰 아이디 자식키로 받아야됨
+
 
     @Column(name = "mr_No", columnDefinition = "number")
-    private Integer mr_No;
+    private Integer mrNo;
 
     @Column(columnDefinition = "varchar2(128)")
     private String rc_Content;

@@ -26,6 +26,9 @@ public class MovieReviewController {
     @Autowired
     private MovieReviewDaoService service;
 
+
+
+
     // 사용자가 영화 평점 입력 후 계산해서 현재 해당 영화 평점 출력
     @GetMapping("/movie/rating/{id}")
     @ApiOperation(value = "영화 평점 출력")
@@ -71,7 +74,7 @@ public class MovieReviewController {
         return "finish";
     }
 
-    @PutMapping("/MovieReview/{id}")
+    @PutMapping("/MovieReview")
     @ApiOperation(value = "영화 리뷰 수정")
     public MovieReview replaceMovieReview(@RequestBody MovieReview newMovieReview) {
         MovieReview updateMovieReview = service.updateMovieReview(newMovieReview);
