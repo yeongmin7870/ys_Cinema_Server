@@ -34,76 +34,70 @@
                 </h4>
                 <ul class="list-group mb-3">
                     <li class="list-group-item d-flex justify-content-between lh-condensed">
-                        <a type="button" href="custSelect.html">
-                            <div>
-                                <h6 class="my-0">회원 조회</h6>
-                                <small class="text-muted">모든 회원들의 데이터를 조건에 맞게 조회하는 페이지 입니다.</small>
-                            </div>
-                        </a>
+                        <div>
+                            <h6 class="my-0">회원 조회</h6>
+                            <small class="text-muted">모든 회원들의 데이터를 조건에 맞게 조회하는 페이지 입니다.</small>
+                        </div>
                     </li>
                     <li class="list-group-item d-flex justify-content-between lh-condensed">
-                        <a type="button" href="custInsert.html">
-                            <div>
-                                <h6 class="my-0">회원 등록</h6>
-                                <small class="text-muted">임의의 회원 정보를 등록하는 페이지입니다.</small>
-                            </div>
-                        </a>
+                        <div>
+                            <h6 class="my-0">회원 등록</h6>
+                            <small class="text-muted">임의의 회원 정보를 등록하는 페이지입니다.</small>
+                        </div>
                     </li>
                     <li class="list-group-item d-flex justify-content-between lh-condensed">
-                        <a type="button" href="custUpdate.html">
-                            <div>
-                                <h6 class="my-0">회원정보 수정</h6>
-                                <small class="text-muted">특정회원의 정보를 수정하기 위한 페이지입니다.</small>
-                            </div>
-                        </a>
-                    </li>
+                        <div>
+                            <h6 class="my-0">회원정보 수정</h6>
+                            <small class="text-muted">특정회원의 정보를 수정하기 위한 페이지입니다.</small>
+                        </div>
                 </ul>
 
 
             </div>
             <div class="col-md-10 ">
                 <h4 class="mb-3">회원등록 페이지</h4>
-                <form th:action="@{/customer/custSelect}" th:object="${customer}" method="POST" class="needs-validation"
+                <form th:action="@{/customer/custInsert}" th:object="${customer}" method="post" class="needs-validation"
                     novalidate>
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label>이름</label>
-                            <input type="text" id="c_Name" class="form-control" placeholder="이름 입력" required>
+                            <input type="text" id="c_Name" class="form-control" placeholder="이름 입력" th:field="*{c_Name}">
                         </div>
                         <div class="col-md-6 mb-3">
                             <label>닉네임</label>
-                            <input type="text" id="c_Nikname" class="form-control" placeholder="닉네임 입력" required>
+                            <input type="text" id="c_Nikname" class="form-control" placeholder="닉네임 입력" th:field="*{c_Nikname}">
                         </div>
                     </div>
 
 
                     <div class="mb-3">
-                        <label for="email">Email <span class="text-muted">(Optional)</span></label>
-                        <input type="text" class="form-control" id="customerId" placeholder="you@example.com">
+                        <label>Email <span class="text-muted">(Optional)</span></label>
+                        <input type="text" class="form-control" id="customerId" placeholder="you@example.com" th:field="*{customerId}">
                     </div>
 
                     <div class="mb-3">
-                        <label for="firstName">비밀번호</label>
-                        <input type="password" class="form-control" id="c_Pw" required>
+                        <label>비밀번호</label>
+                        <input type="password" class="form-control" id="c_Pw" th:field="*{c_Pw}" required>
                         <div class="invalid-feedback">
                             비밀번호를 입력하세요.
                         </div>
                     </div>
 
                     <div class="mb-3">
-                        <label for="address">집 주소</label>
+                        <label>집 주소</label>
                         <input type="text" class="form-control" id="c_Address" placeholder="서울특별시 은평구 은평대로12 123-123 101호"
-                            required>
+                            th:field="*{c_Address}" required>
                     </div>
 
                     <div class="mb-3">
-                        <label for="address2">전화번호</label>
-                        <input type="text" class="form-control" id="c_Phone " placeholder="+82 10-1111-1111">
+                        <label>전화번호</label>
+                        <input type="text" class="form-control" id="c_Phone " placeholder="'-'는 제외하고 입력"
+                               th:field="*{c_Phone}">
                     </div>
 
                     <hr class="mb-4">
-                    <input type="hidden" id="c_Total" value="0">
-                    <input type="hidden" id="c_Point" value="0">
+                    <!-- <input type="hidden" id="c_Total" value="0" th:field="*{c_Total}">
+                    <input type="hidden" id="c_Point" value="0" th:field="*{c_Point"> -->
                     <button class="btn btn-primary btn-lg btn-block" type="submit">회원 등록하기</button>
                 </form>
             </div>

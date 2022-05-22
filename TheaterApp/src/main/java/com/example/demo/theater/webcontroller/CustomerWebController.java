@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.net.URI;
 import java.util.ArrayList;
@@ -28,14 +29,14 @@ public class CustomerWebController {
     @ApiOperation("회원정보등록 페이지")
     public String insert(Model model) {
         model.addAttribute("customer", new Customer());
-        return "/customer/custInsert";
+        return "customer/custInsert";
     }
 
     @PostMapping("/custInsert")
     @ApiOperation("회원정보등록")
-    public String insertForm(@ModelAttribute Customer customer) {
+    public RedirectView insertForm(@ModelAttribute Customer customer) {
         repository.save(customer);
-        return "redirect:/customer/custSelect";
+        return new RedirectView( "/customer/custSelect");
     }
 
     @GetMapping("/custSelect")
@@ -44,12 +45,12 @@ public class CustomerWebController {
         List<Customer> customer = repository.findAll();;
         model.addAttribute("customer", customer);
 
-        return "/customer/custSelect";
+        return "customer/custSelect";
     }
 
     @GetMapping("/custUpdate")
     @ApiOperation("회원정보수정 페이지")
     public String update() {
-        return "/customer/custUpdate";
+        return "customer/custUpdate";
     }
 }
