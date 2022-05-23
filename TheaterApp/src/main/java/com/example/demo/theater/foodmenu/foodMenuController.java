@@ -1,5 +1,6 @@
 package com.example.demo.theater.foodmenu;
 
+import com.example.demo.theater.foodkind.FoodKind;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,22 +20,27 @@ public class foodMenuController {
     @Autowired
     private FoodMenuDaoService foodMenuDaoService;
 
+    @GetMapping("/foodMenu/kindList")
+    @ApiOperation("음식 종류 리스트로 가져오기")
+    public List<FoodKind> retrieveFoodKind() {
+        return foodMenuDaoService.findALlKind();
+    }
 
     @GetMapping("/foodMenu")
     @ApiOperation("음식메뉴와 종류 조인해서 전체 출력")
-    public List<Object> retrieveAll(){
+    public List<Object> retrieveAll() {
         return foodMenuDaoService.findAll();
     }
 
     @GetMapping("/foodMenu/kind")
     @ApiOperation("한 종류만 출력")
-    public List<Object> retrieveOneKind(@RequestParam String foodKindName){
+    public List<Object> retrieveOneKind(@RequestParam String foodKindName) {
         return foodMenuDaoService.findOneKind(foodKindName);
     }
 
     @PostMapping("/foodMenu")
     @ApiOperation("음식 메뉴 추가")
-    public List<Object> addFoodMenu(@RequestBody FoodMenu newFoodMenu,@RequestParam String newFoodKindName){
+    public List<Object> addFoodMenu(@RequestBody FoodMenu newFoodMenu, @RequestParam String newFoodKindName) {
         List<Object> objects = foodMenuDaoService.addFoodMenu(newFoodMenu, newFoodKindName);
         return objects;
     }

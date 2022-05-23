@@ -5,4 +5,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface FoodKindRepository extends JpaRepository<FoodKind,Integer> {
+
+
+    public FoodKind findByFoodKindName(String foodKindName);
 }

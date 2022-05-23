@@ -24,6 +24,13 @@ public class FoodMenuDaoService {
     private FoodKindRepository foodKindRepository;
 
 
+    public List<FoodKind> findALlKind(){
+        return foodKindRepository.findAll();
+    }
+
+
+
+
     public List<Object> findAll() {
         return foodMenuRepository.findFoodMenu();
     }
@@ -32,11 +39,11 @@ public class FoodMenuDaoService {
         return foodMenuRepository.findOneKind(foodKindName);
     }
 
-    public List<Object> addFoodMenu(FoodMenu newFoodMenu, String newFoodKind){
+    public List<Object> addFoodMenu(FoodMenu newFoodMenu, String newFoodKind) {
         List<Object> result = new ArrayList<>();
         Date today = new Date();
 
-        FoodMenu newFoodMenu2= new FoodMenu();
+        FoodMenu newFoodMenu2 = new FoodMenu();
         newFoodMenu2.setFoodName(newFoodMenu.getFoodName());
         newFoodMenu2.setFood_Component(newFoodMenu.getFood_Component());
         newFoodMenu2.setFood_Limit(newFoodMenu.getFood_Limit());
@@ -47,18 +54,24 @@ public class FoodMenuDaoService {
         // food kind 넣기
         FoodKind foodKind = new FoodKind();
         foodKind.setFoodKindName(newFoodKind);
-        FoodKind foodKind1 = foodKindRepository.save(foodKind);  // 새로운 foodkind
+
+        FoodKind foodKind1;
+        foodKind1 = foodKindRepository.findByFoodKindName(newFoodKind);
+
+        if(foodKind1 == null){ //만약 기존에 입력한 음식 종류가 없는 경우
+            foodKind1 = foodKindRepository.save(foodKind);  // 새로운 foodKind
+        }
 
         newFoodMenu2.setFood_Kind_No(foodKind1.getFoodKindId());
 
         FoodMenu foodMenu = FoodMenuSave(newFoodMenu2);
-        logger.info("foodMenu "+foodMenu.toString());
-//        result.add(foodMenu);
+        logger.info("foodMenu " + foodMenu.toString());
+        result.add(foodMenu);
         result.add(foodKind1);
         return result;
     }
 
-    FoodMenu FoodMenuSave(FoodMenu foodMenu){
+    FoodMenu FoodMenuSave(FoodMenu foodMenu) {
         return foodMenuRepository.save(foodMenu);
     }
 
