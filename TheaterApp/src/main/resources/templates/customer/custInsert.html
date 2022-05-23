@@ -35,23 +35,17 @@
                 <ul class="list-group mb-3">
                     <li class="list-group-item d-flex justify-content-between lh-condensed">
                         <div>
-                            <h6 class="my-0">회원 조회</h6>
+                            <h6 class="my-0"><a th:href="@{/customer/custSelect}">회원 조회</a></h6>
                             <small class="text-muted">모든 회원들의 데이터를 조건에 맞게 조회하는 페이지 입니다.</small>
                         </div>
                     </li>
                     <li class="list-group-item d-flex justify-content-between lh-condensed">
                         <div>
-                            <h6 class="my-0">회원 등록</h6>
-                            <small class="text-muted">임의의 회원 정보를 등록하는 페이지입니다.</small>
+                            <h6 class="my-0"><a th:href="@{/customer/custInsert}">회원등록</a></h6>
+                            <small class="text-muted">회원 정보를 등록하는 페이지입니다.</small>
                         </div>
                     </li>
-                    <li class="list-group-item d-flex justify-content-between lh-condensed">
-                        <div>
-                            <h6 class="my-0">회원정보 수정</h6>
-                            <small class="text-muted">특정회원의 정보를 수정하기 위한 페이지입니다.</small>
-                        </div>
                 </ul>
-
 
             </div>
             <div class="col-md-10 ">
@@ -96,8 +90,8 @@
                     </div>
 
                     <hr class="mb-4">
-                    <!-- <input type="hidden" id="c_Total" value="0" th:field="*{c_Total}">
-                    <input type="hidden" id="c_Point" value="0" th:field="*{c_Point"> -->
+                    <input type="hidden" id="c_Total" th:value="0" th:field="*{c_Total}">
+                    <input type="hidden" id="c_Point" th:value="0" th:field="*{c_Point}">
                     <button class="btn btn-primary btn-lg btn-block" type="submit">회원 등록하기</button>
                 </form>
             </div>

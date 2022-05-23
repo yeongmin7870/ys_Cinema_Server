@@ -33,20 +33,14 @@
                 <ul class="list-group mb-3">
                     <li class="list-group-item d-flex justify-content-between lh-condensed">
                         <div>
-                            <h6 class="my-0">회원 조회</h6>
+                            <h6 class="my-0"><a th:href="@{/customer/custSelect}">회원 조회</a></h6>
                             <small class="text-muted">모든 회원들의 데이터를 조건에 맞게 조회하는 페이지 입니다.</small>
                         </div>
                     </li>
                     <li class="list-group-item d-flex justify-content-between lh-condensed">
                         <div>
-                            <h6 class="my-0">회원 등록</h6>
-                            <small class="text-muted">임의의 회원 정보를 등록하는 페이지입니다.</small>
-                        </div>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between lh-condensed">
-                        <div>
-                            <h6 class="my-0">회원정보 수정</h6>
-                            <small class="text-muted">특정회원의 정보를 수정하기 위한 페이지입니다.</small>
+                            <h6 class="my-0"><a th:href="@{/customer/custInsert}">회원등록</a></h6>
+                            <small class="text-muted">회원 정보를 등록하는 페이지입니다.</small>
                         </div>
                     </li>
                 </ul>
@@ -83,15 +77,18 @@
                             <td>거주지역</td>
                             <td>총 소비금액</td>
                             <td>적립포인트</td>
+                            <td></td>
                         </tr>
-                        <tr th:each="list:${customer}">
-                            <th scope="row" th:text="${list.customerId}">hanjy20129@gmail.com</th>
-                            <td th:text="${list.c_Name}">한정엽</td>
-                            <td th:text="${list.c_Nikname}">최단퇴</td>
-                            <td th:text="${list.c_Phone}">010-0000-0000</td>
-                            <td th:text="${list.c_Address}">경기도 시흥시 목감중앙로36 803동 1501호</td>
-                            <td th:text="${list.c_Total}">120,3000원</td>
-                            <td th:text="${list.c_Point}">17092p</td>
+                        <tr th:each="cust:${customer}">
+                            <th scope="row" th:text="${cust.customerId}">hanjy20129@gmail.com</th>
+                            <td th:text="${cust.c_Name}">한정엽</td>
+                            <td th:text="${cust.c_Nikname}">최단퇴</td>
+                            <td th:text="${cust.c_Phone}">010-0000-0000</td>
+                            <td th:text="${cust.c_Address}">경기도 시흥시 목감중앙로36 803동 1501호</td>
+                            <td th:text="${cust.c_Total}">120,3000원</td>
+                            <td th:text="${cust.c_Point}">17092p</td>
+                            <td><a class="btn btn-primary" th:text="수정" 
+                                th:href="@{/customer/custInsert(customerId=${cust.customerId})}"></a></td>
                         </tr>
                     </table>
                 </div>

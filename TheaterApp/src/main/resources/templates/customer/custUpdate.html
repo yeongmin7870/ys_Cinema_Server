@@ -33,21 +33,22 @@
                 <ul class="list-group mb-3">
                     <li class="list-group-item d-flex justify-content-between lh-condensed">
                         <div>
-                            <h6 class="my-0">회원 조회</h6>
+                            <h6 class="my-0"><a th:href="@{/customer/custSelect}">회원 조회</a></h6>
                             <small class="text-muted">모든 회원들의 데이터를 조건에 맞게 조회하는 페이지 입니다.</small>
                         </div>
                     </li>
                     <li class="list-group-item d-flex justify-content-between lh-condensed">
                         <div>
-                            <h6 class="my-0">회원 등록</h6>
+                            <h6 class="my-0"><a th:href="@{/customer/custInsert}">회원 등록</a></h6>
                             <small class="text-muted">임의의 회원 정보를 등록하는 페이지입니다.</small>
                         </div>
                     </li>
                     <li class="list-group-item d-flex justify-content-between lh-condensed">
                         <div>
-                            <h6 class="my-0">회원정보 수정</h6>
+                            <h6 class="my-0"><a th:href="@{/customer/custUpdate}">회원정보 수정</a></h6>
                             <small class="text-muted">특정회원의 정보를 수정하기 위한 페이지입니다.</small>
                         </div>
+                    </li>
                 </ul>
             </div>
 
@@ -58,12 +59,12 @@
                 <div class="form-inline">
                     <select class="form-control" name="keyword" id="SearchKeyword">
                         <option value="" selected>--수정 정보--</option>
-                        <option name="userName" value="userName">이름</option>
-                        <option name="nickName" value="nickName">닉네임</option>
-                        <option name="phoneNumber" value="phoneNumber">전화번호</option>
-                        <option name="location" value="location">거주지역</option>
+                        <option name="userName" value="c_Name">이름</option>
+                        <option name="nickName" value="c_Nikname">닉네임</option>
+                        <option name="phoneNumber" value="c_Phone">전화번호</option>
+                        <option name="location" value="c_Address">거주지역</option>
                     </select>
-                    <input type="text" id="idSearch" placeholder="아이디 입력" class="form-control">
+                    <input type="text" id="customerId" placeholder="아이디 입력" class="form-control">
                     <input type="text" id="updateInfo" placeholder="수정할 정보 입력" class="form-control">
                     <input type="button" value="수정" class="form-control" />
                 </div>
