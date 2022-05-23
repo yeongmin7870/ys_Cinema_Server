@@ -27,14 +27,11 @@ public class MovieReviewDaoService {
     @Autowired
     private WritedReviewRepository writedReviewRepository;
 
+    //내가 적은 리뷰 조인해서 찾기
 
-
-    // WrittedReview에 집어넣기
-//    public void insertWR(MovieReview movieReview, String cId){
-//         reviewDaoService.save(cId,movieReview.getMovieReviewId());
-//    }
-
-
+    public List<Object> retrieveMyReview(String cId){
+        return movieReviewRepository.retrieveMyReview(cId);
+    }
 
 
     // 누가 어떤 영화에 리뷰를 작성했는지 판단여부
