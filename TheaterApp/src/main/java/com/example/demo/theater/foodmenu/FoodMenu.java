@@ -23,8 +23,8 @@ public class FoodMenu {
     @GeneratedValue
     @Column(name="food_No",columnDefinition = "number", unique = true)
     private Integer foodMenuId;
-    @Column(columnDefinition = "varchar2(30)")
-    private String food_Name;
+    @Column(name = "food_Name" , columnDefinition = "varchar2(30)")
+    private String foodName;
     @Column(columnDefinition = "varchar2(55)")
     private String food_Component;
     @Column(columnDefinition = "varchar2(30)")

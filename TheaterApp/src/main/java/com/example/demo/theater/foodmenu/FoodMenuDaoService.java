@@ -37,10 +37,10 @@ public class FoodMenuDaoService {
         Date today = new Date();
 
         FoodMenu newFoodMenu2= new FoodMenu();
-        newFoodMenu2.setFood_Name(newFoodMenu.getFood_Name());
+        newFoodMenu2.setFoodName(newFoodMenu.getFoodName());
         newFoodMenu2.setFood_Component(newFoodMenu.getFood_Component());
         newFoodMenu2.setFood_Limit(newFoodMenu.getFood_Limit());
-        newFoodMenu2.setFood_Date(newFoodMenu.getFood_Date());
+        newFoodMenu2.setFood_Date(today);
         newFoodMenu2.setFood_Price(newFoodMenu.getFood_Price());
 
 
@@ -49,8 +49,11 @@ public class FoodMenuDaoService {
         foodKind.setFoodKindName(newFoodKind);
         FoodKind foodKind1 = foodKindRepository.save(foodKind);  // 새로운 foodkind
 
+
         newFoodMenu2.setFood_Kind_No(foodKind1.getFoodKindId());
-        result.add(foodMenuRepository.save(newFoodMenu2));
+
+        FoodMenu foodMenu = foodMenuRepository.save(newFoodMenu2);
+        result.add(foodMenu);
         result.add(foodKind1);
         return result;
     }
