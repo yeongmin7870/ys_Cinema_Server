@@ -24,11 +24,9 @@ public class FoodMenuDaoService {
     private FoodKindRepository foodKindRepository;
 
 
-    public List<FoodKind> findALlKind(){
+    public List<FoodKind> findALlKind() {
         return foodKindRepository.findAll();
     }
-
-
 
 
     public List<Object> findAll() {
@@ -58,7 +56,7 @@ public class FoodMenuDaoService {
         FoodKind foodKind1;
         foodKind1 = foodKindRepository.findByFoodKindName(newFoodKind);
 
-        if(foodKind1 == null){ //만약 기존에 입력한 음식 종류가 없는 경우
+        if (foodKind1 == null) { //만약 기존에 입력한 음식 종류가 없는 경우
             foodKind1 = foodKindRepository.save(foodKind);  // 새로운 foodKind
         }
 
@@ -74,5 +72,7 @@ public class FoodMenuDaoService {
     FoodMenu FoodMenuSave(FoodMenu foodMenu) {
         return foodMenuRepository.save(foodMenu);
     }
+
+
 
 }

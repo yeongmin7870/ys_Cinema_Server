@@ -20,6 +20,7 @@ public class foodMenuController {
     @Autowired
     private FoodMenuDaoService foodMenuDaoService;
 
+
     @GetMapping("/foodMenu/kindList")
     @ApiOperation("음식 종류 리스트로 가져오기")
     public List<FoodKind> retrieveFoodKind() {
