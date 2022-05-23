@@ -63,7 +63,7 @@ public class FoodMenuDaoService {
         newFoodMenu2.setFood_Kind_No(foodKind1.getFoodKindId());
 
         FoodMenu foodMenu = FoodMenuSave(newFoodMenu2);
-        logger.info("foodMenu " + foodMenu.toString());
+
         result.add(foodMenu);
         result.add(foodKind1);
         return result;

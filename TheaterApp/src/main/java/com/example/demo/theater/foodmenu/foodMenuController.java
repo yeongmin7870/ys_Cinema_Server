@@ -30,7 +30,8 @@ public class foodMenuController {
     @GetMapping("/foodMenu")
     @ApiOperation("음식메뉴와 종류 조인해서 전체 출력")
     public List<Object> retrieveAll() {
-        return foodMenuDaoService.findAll();
+        List<Object> all = foodMenuDaoService.findAll();
+        return all;
     }
 
     @GetMapping("/foodMenu/kind")
