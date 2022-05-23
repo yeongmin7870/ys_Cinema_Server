@@ -2,14 +2,14 @@ package com.example.demo.theater.foodmenu;
 
 import com.example.demo.theater.foodkind.FoodKind;
 import com.example.demo.theater.foodkind.FoodKindRepository;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class FoodMenuDaoService {
@@ -29,11 +29,18 @@ public class FoodMenuDaoService {
     }
 
 
-    public List<Object> findAll() {
-        return foodMenuRepository.findFoodMenu();
+    public List<FoodMenu> findAll() {
+
+        List<FoodMenu> result = foodMenuRepository.findFoodMenu();
+        List<FoodKind> resultKind = foodMenuRepository.findFoodKind();
+        for(int i=0; i<result.size();i++){
+            result.get(i).setFoodKindName(resultKind.get(i).getFoodKindName());
+        }
+
+        return result;
     }
 
-    public List<Object> findOneKind(String foodKindName) {
+    public Object[] findOneKind(String foodKindName) {
         return foodMenuRepository.findOneKind(foodKindName);
     }
 
@@ -60,7 +67,7 @@ public class FoodMenuDaoService {
             foodKind1 = foodKindRepository.save(foodKind);  // 새로운 foodKind
         }
 
-        newFoodMenu2.setFood_Kind_No(foodKind1.getFoodKindId());
+        newFoodMenu2.setFoodKindNo(foodKind1.getFoodKindId());
 
         FoodMenu foodMenu = FoodMenuSave(newFoodMenu2);
 
@@ -72,7 +79,6 @@ public class FoodMenuDaoService {
     FoodMenu FoodMenuSave(FoodMenu foodMenu) {
         return foodMenuRepository.save(foodMenu);
     }
-
 
 
 }

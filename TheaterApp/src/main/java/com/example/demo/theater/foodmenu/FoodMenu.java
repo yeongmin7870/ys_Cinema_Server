@@ -1,17 +1,17 @@
 package com.example.demo.theater.foodmenu;
 
 
+import com.example.demo.theater.foodkind.FoodKind;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Blob;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -21,9 +21,9 @@ public class FoodMenu {
     @Id
     @NotNull
     @GeneratedValue
-    @Column(name="food_No",columnDefinition = "number", unique = true)
+    @Column(name = "food_No", columnDefinition = "number", unique = true)
     private Integer foodMenuId;
-    @Column(name = "food_Name" , columnDefinition = "varchar2(30)")
+    @Column(name = "food_Name", columnDefinition = "varchar2(30)")
     private String foodName;
     @Column(columnDefinition = "varchar2(55)")
     private String food_Component;
@@ -35,6 +35,9 @@ public class FoodMenu {
     private Integer food_Price;
     @Column(columnDefinition = "varchar2(70) default './src/main/resources/serverImage/foodImage/food_none.png'")
     private String food_Img;
-    @Column(columnDefinition = "number")
-    private Integer food_Kind_No;
+    @Column(name = "foodKindNo", columnDefinition = "number")
+    private Integer foodKindNo;
+
+    @Transient //디비에는 들어가지 않는 변수
+    private String foodKindName;
 }

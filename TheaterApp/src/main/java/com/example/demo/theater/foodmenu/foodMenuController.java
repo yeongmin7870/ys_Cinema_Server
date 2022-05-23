@@ -1,13 +1,19 @@
 package com.example.demo.theater.foodmenu;
 
 import com.example.demo.theater.foodkind.FoodKind;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import io.swagger.annotations.ApiOperation;
+import net.minidev.json.JSONArray;
+import net.minidev.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin
@@ -29,15 +35,20 @@ public class foodMenuController {
 
     @GetMapping("/foodMenu")
     @ApiOperation("음식메뉴와 종류 조인해서 전체 출력")
-    public List<Object> retrieveAll() {
-        List<Object> all = foodMenuDaoService.findAll();
+    public  List<FoodMenu> retrieveAll() {
+        List<FoodMenu> all = foodMenuDaoService.findAll();
+        logger.info(all.getClass().getSimpleName());
+
         return all;
     }
 
     @GetMapping("/foodMenu/kind")
     @ApiOperation("한 종류만 출력")
-    public List<Object> retrieveOneKind(@RequestParam String foodKindName) {
-        return foodMenuDaoService.findOneKind(foodKindName);
+    public Object[] retrieveOneKind(@RequestParam String foodKindName) {
+
+        Object[] oneKind = foodMenuDaoService.findOneKind(foodKindName);
+
+        return oneKind;
     }
 
     @PostMapping("/foodMenu")

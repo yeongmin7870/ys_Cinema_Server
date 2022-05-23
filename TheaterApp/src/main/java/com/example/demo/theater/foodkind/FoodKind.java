@@ -1,6 +1,7 @@
 package com.example.demo.theater.foodkind;
 
 
+import com.example.demo.theater.foodmenu.FoodMenu;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,6 +9,8 @@ import lombok.NoArgsConstructor;
 
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
@@ -22,4 +25,5 @@ public class FoodKind {
     private Integer foodKindId;
     @Column(name = "food_Kind_Name", columnDefinition = "varchar2(16)")
     private String foodKindName;
+
 }
