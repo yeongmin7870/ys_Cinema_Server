@@ -20,6 +20,7 @@ import java.util.Date;
 public class FoodMenu {
     @Id
     @NotNull
+    @GeneratedValue
     @Column(name="food_No",columnDefinition = "number", unique = true)
     private Integer foodMenuId;
     @Column(columnDefinition = "varchar2(30)")
