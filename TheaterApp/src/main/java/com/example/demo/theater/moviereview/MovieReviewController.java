@@ -35,7 +35,7 @@ public class MovieReviewController {
 
 
     @GetMapping("/movieRetrieve/myReview")
-    @ApiOperation(value = "내가 적은 리뷰보기",notes = "사용자 아이디를 Parameter로 받고 Object타입인 jSON형태로 보내줍니다 따라서 VO를 이용해 값을 받아야합니다")
+    @ApiOperation(value = "내가 적은 리뷰보기",notes = "사용자 아이디를 Parameter로 받고 List object 타입인 jSON형태로 보내줍니다 따라서 VO를 이용해 값을 받아야합니다")
     public List<Object> retrieveMyReivew(@RequestParam  String cId){
         return service.retrieveMyReview(cId);
     }
