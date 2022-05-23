@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.management.Query;
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
@@ -42,14 +43,14 @@ public class MovieReviewController {
 
     @GetMapping("/MovieReview")
     @ApiOperation(value = "영화 전체 리뷰 보여주기")
-    public List<MovieReview> retrieveAllMovieReview() {
+    public List<Object> retrieveAllMovieReview() {
         return service.findAll();
     }
 
     @GetMapping("/MovieReview/{movieId}")
     @ApiOperation(value = "해당 영화 리뷰만 보여주기")
-    public List<MovieReview> retrieveMovieReview(@PathVariable Integer movieId) {
-        List<MovieReview> movieReview = service.retrieveMovieReview(movieId);
+    public List<Object> retrieveMovieReview(@PathVariable Integer movieId) {
+        List<Object> movieReview = service.retrieveMovieReview(movieId);
 
         if (movieReview == null) {
             throw new MovieNotFoundException(String.format("ID [%s] Not Found", movieId));
@@ -70,29 +71,28 @@ public class MovieReviewController {
         } else {
             Date today = new Date();
             newMovieReview.setMrUptime(today);  // 서버 시간
-            service.insertWR(newMovieReview,id);
-            service.save(newMovieReview);
-
+            MovieReview movieReview = service.save(newMovieReview);
+            writedReviewDaoService.save(id, movieReview);
         }
         return "finish";
     }
 
     @PutMapping("/MovieReview")
     @ApiOperation(value = "영화 리뷰 수정")
-    public MovieReview replaceMovieReview(@RequestBody MovieReview newMovieReview, String id) {
-        MovieReview updateMovieReview = service.updateMovieReview(newMovieReview, id);
+    public MovieReview replaceMovieReview(@RequestBody MovieReview newMovieReview, Integer movieReviewId) {
+        MovieReview updateMovieReview = service.updateMovieReview(newMovieReview, movieReviewId);
 
 
         if (updateMovieReview == null) {
-            throw new CustomerNotFoundException(String.format("ID [%s] Not Found", newMovieReview.getMovieReviewId()));
+            throw new CustomerNotFoundException(String.format("ID [%s] Not Found", movieReviewId));
         }
 
         return updateMovieReview;
     }
 
-    @DeleteMapping("/MovieReview/{id}")
+    @DeleteMapping("/MovieReview}")
     @ApiOperation(value = "리뷰 삭제하기")
-    public void deleteMovieReview(@PathVariable Integer id) {
-        service.deleteMovieReview(id);
+    public void deleteMovieReview(@RequestParam Integer mrNo) {
+        service.deleteMovieReview(mrNo);
     }
 }

@@ -1,14 +1,14 @@
 package com.example.demo.theater.moviereview;
 
-import com.example.demo.theater.customer.Customer;
-import com.example.demo.theater.movie.Movie;
 import com.example.demo.theater.writedReview.WritedReview;
 import com.example.demo.theater.writedReview.WritedReviewDaoService;
+import com.example.demo.theater.writedReview.WritedReviewRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.management.Query;
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
@@ -24,11 +24,15 @@ public class MovieReviewDaoService {
     @Autowired
     private WritedReviewDaoService reviewDaoService;
 
-    // WrittedReview에 집어넣기
-    public void insertWR(MovieReview movieReview, String cId){
+    @Autowired
+    private WritedReviewRepository writedReviewRepository;
 
-         reviewDaoService.save(cId,movieReview.getMovieId());
-    }
+
+
+    // WrittedReview에 집어넣기
+//    public void insertWR(MovieReview movieReview, String cId){
+//         reviewDaoService.save(cId,movieReview.getMovieReviewId());
+//    }
 
 
 
@@ -53,9 +57,8 @@ public class MovieReviewDaoService {
     }
 
     //영화아이디로 리뷰 찾기
-    public List<MovieReview> retrieveMovieReview(Integer movieId) {
-        List<MovieReview> movieReviews = movieReviewRepository.findByMovieId(movieId);
-
+    public List<Object> retrieveMovieReview(Integer movieId) {
+        List<Object> movieReviews = movieReviewRepository.retrieveFindOne(movieId);
         return movieReviews;
     }
 
@@ -72,8 +75,8 @@ public class MovieReviewDaoService {
     }
 
 
-    public List<MovieReview> findAll() {
-        return movieReviewRepository.findAll();
+    public List<Object> findAll() {
+        return movieReviewRepository.retrieveFindAll();
     }
 
     public MovieReview findById(Integer movieReviewId) {
@@ -82,15 +85,13 @@ public class MovieReviewDaoService {
     }
 
     public MovieReview save(MovieReview movieReview) {
-        movieReviewRepository.save(movieReview);
-
-        return movieReview;
+        return movieReviewRepository.save(movieReview);
     }
 
-    public MovieReview updateMovieReview(MovieReview newMovieReview, String id) {
+    public MovieReview updateMovieReview(MovieReview newMovieReview, Integer movieReviewId) {
 
 
-        MovieReview movieReview = movieReviewRepository.retrieveReview(newMovieReview.getMovieReviewId());
+        MovieReview movieReview = movieReviewRepository.retrieveReview(movieReviewId);
 
 
         Date today = new Date();
@@ -109,7 +110,10 @@ public class MovieReviewDaoService {
         return updateMovieReview;
     }
 
-    public void deleteMovieReview(Integer id) {
-        movieReviewRepository.deleteById(id);
+    public void deleteMovieReview(Integer mrNo) {
+
+        writedReviewRepository.removeMrNo(mrNo);
+        movieReviewRepository.deleteById(mrNo);
+
     }
 }

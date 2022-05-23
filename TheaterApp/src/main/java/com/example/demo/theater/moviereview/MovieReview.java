@@ -21,7 +21,7 @@ public class MovieReview {
     @Id
     @NotNull
     @GeneratedValue
-    @Column(name = "mr_No", columnDefinition = "number", unique = true)
+    @Column(name = "mr_No", columnDefinition = "number")
     private Integer movieReviewId;
 
 /*    @ManyToOne(cascade = {CascadeType.DETACH,

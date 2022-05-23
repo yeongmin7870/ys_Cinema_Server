@@ -17,7 +17,4 @@ public class TheaterAppApplication  {
 		SpringApplication.run(TheaterAppApplication.class, args);
 	}
 
-
-
-
 }
