@@ -49,12 +49,17 @@ public class FoodMenuDaoService {
         foodKind.setFoodKindName(newFoodKind);
         FoodKind foodKind1 = foodKindRepository.save(foodKind);  // 새로운 foodkind
 
-
         newFoodMenu2.setFood_Kind_No(foodKind1.getFoodKindId());
 
-        FoodMenu foodMenu = foodMenuRepository.save(newFoodMenu2);
-        result.add(foodMenu);
+        FoodMenu foodMenu = FoodMenuSave(newFoodMenu2);
+        logger.info("foodMenu "+foodMenu.toString());
+//        result.add(foodMenu);
         result.add(foodKind1);
         return result;
     }
+
+    FoodMenu FoodMenuSave(FoodMenu foodMenu){
+        return foodMenuRepository.save(foodMenu);
+    }
+
 }

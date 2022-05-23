@@ -35,8 +35,8 @@ public class foodMenuController {
     @PostMapping("/foodMenu")
     @ApiOperation("음식 메뉴 추가")
     public List<Object> addFoodMenu(@RequestBody FoodMenu newFoodMenu,@RequestParam String newFoodKindName){
-
-        return foodMenuDaoService.addFoodMenu(newFoodMenu,newFoodKindName);
+        List<Object> objects = foodMenuDaoService.addFoodMenu(newFoodMenu, newFoodKindName);
+        return objects;
     }
 
 }
