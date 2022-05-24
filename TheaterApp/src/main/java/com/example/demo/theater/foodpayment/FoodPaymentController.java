@@ -21,13 +21,19 @@ public class FoodPaymentController {
 
     @GetMapping("/foodPayment")
     @ApiOperation(value = "음식주문한거 전체 보기", notes = "who 는 1. 회원 2. 비회원 둘 중 한가지만 판별함")
-    public List<Object> retrieveFoodPayment(@RequestParam String who){
+    public List<Object> retrieveFoodPayment(@RequestParam String who) {
         return foodPaymentDaoService.findCustomerPayment(who);
     }
 
     @PostMapping("/foodPaymet")
     @ApiOperation("음식주문하기")
-    public List<Object> orderFood(@RequestBody FoodPayment foodPayment, @RequestParam String cId){
-        return foodPaymentDaoService.orderFood(foodPayment,cId);
+    public List<Object> orderFood(@RequestBody FoodPayment foodPayment, @RequestParam String cId) {
+        return foodPaymentDaoService.orderFood(foodPayment, cId);
+    }
+
+    @GetMapping("/foodPayment/retrieveFood")
+    @ApiOperation("비회원 or 회원 자신의 음식주문 정보 가져오기")
+    public List<Object> retrieveFoodOrderList(String who, String id) {
+        return foodPaymentDaoService.retrieveFoodOrderList(who, id);
     }
 }

@@ -1,3 +1,4 @@
+ALTER SESSION SET NLS_DATE_FORMAT = 'YYYY-MM-DD-HH24:MI:SS';
 --fk 작성
 
 --내가쓴 리뷰의 내역

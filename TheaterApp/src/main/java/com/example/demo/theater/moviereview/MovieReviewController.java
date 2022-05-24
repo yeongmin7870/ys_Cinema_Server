@@ -72,16 +72,16 @@ public class MovieReviewController {
     @ApiOperation(value = "영화 리뷰 작성 삽입")
     public String newReview(@RequestBody MovieReview newMovieReview, @RequestParam String id) {
 
-        // 해당 영화 리뷰 작성을 했니? : true  작성을 안했다면 : false
-        boolean result = service.searchMovieReivew(id,newMovieReview);
+        WritedReview result = service.searchMovieReivew(id,newMovieReview.getMovieId());
 
-        if (result == true) {
+        if (result != null) {
             return "리뷰를 이미 작성했습니다";
         } else {
             Date today = new Date();
             newMovieReview.setMrUptime(today);  // 서버 시간
             MovieReview movieReview = service.save(newMovieReview);
-            writedReviewDaoService.save(id, movieReview);
+            WritedReview a = writedReviewDaoService.save(id, movieReview);
+            System.out.println("확인" + a);
         }
         return "finish";
     }

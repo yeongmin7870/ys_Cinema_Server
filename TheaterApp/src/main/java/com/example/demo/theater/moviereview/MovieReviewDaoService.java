@@ -35,22 +35,12 @@ public class MovieReviewDaoService {
 
 
     // 누가 어떤 영화에 리뷰를 작성했는지 판단여부
-    public boolean searchMovieReivew(String cId,MovieReview movieReview) {
+    public WritedReview searchMovieReivew(String cId,Integer movieId) {
 
-        try {
-            Integer mrNo = movieReview.getMovieId();
-            WritedReview result = movieReviewRepository.oneReview(cId,mrNo);
-            if (result != null) {
-                return true;
-            } else {
-                return false;
-
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
-
+            System.out.println("MovieReviewDao" + movieId);
+            WritedReview result = movieReviewRepository.oneReview(cId,movieId);
+            System.out.println(result);
+            return result;
     }
 
     //영화아이디로 리뷰 찾기

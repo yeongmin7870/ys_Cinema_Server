@@ -24,6 +24,18 @@ public class FoodPaymentDaoService {
     @Autowired
     private OrderListRepository orderListRepository;
 
+
+    public List<Object> retrieveFoodOrderList(String who, String id) {
+        if (who.equals("회원")) {
+            return foodPaymentRepository.findCustomerPaymentOrderList2(id);
+        } else if (who.equals("비회원")) {
+            return foodPaymentRepository.findNonCustPaymentOrderList2(id);
+        }
+        return null;
+    }
+
+
+
     public List<Object> findCustomerPayment(String who) {
         if (who.equals("회원")) {
             return foodPaymentRepository.findCustomerPaymentOrderList();
@@ -39,6 +51,7 @@ public class FoodPaymentDaoService {
         List<Object> result = new ArrayList<>();
 
         newFoodPayment.setFood_No(foodPayment.getFood_No());
+        logger.info(foodPayment.getFood_No().toString());
         newFoodPayment.setFp_Count(foodPayment.getFp_Count());
         newFoodPayment.setFp_Price(foodPayment.getFp_Price());
 
