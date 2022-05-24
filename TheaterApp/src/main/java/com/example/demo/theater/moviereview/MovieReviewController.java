@@ -56,9 +56,9 @@ public class MovieReviewController {
         return service.findAll();
     }
 
-    @GetMapping("/MovieReview/{movieId}")
+    @GetMapping("/MovieReview/oneMovie")
     @ApiOperation(value = "해당 영화 리뷰만 보여주기")
-    public List<MovieReview> retrieveMovieReview(@PathVariable Integer movieId) {
+    public List<MovieReview> retrieveMovieReview(@RequestParam Integer movieId) {
         List<MovieReview> movieReview = service.retrieveMovieReview(movieId);
 
         if (movieReview == null) {
