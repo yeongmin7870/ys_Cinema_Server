@@ -26,7 +26,6 @@ public class MovieSchedule {
     @Column(columnDefinition = "number")
     private Integer store_No; //storeaddress에서 받아온다
 
-
     @Column(columnDefinition = "date")
     private Date mS_StarTime;
 
@@ -35,4 +34,5 @@ public class MovieSchedule {
 
     @Column(columnDefinition = "number")
     private Integer m_No;
+
 }
