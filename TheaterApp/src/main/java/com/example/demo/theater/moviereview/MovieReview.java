@@ -49,4 +49,10 @@ public class MovieReview {
     private String cId;
     @Transient
     private Integer rcNo;
+
+
+    @Transient
+    private String imageUri;  // 리뷰단 사람 프로필 가져오기
+    @Transient
+    private String c_Nikname; // 리뷰 단 사람 닉네임 가져오기
 }

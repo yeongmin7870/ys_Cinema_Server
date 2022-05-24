@@ -1,5 +1,6 @@
 package com.example.demo.theater.moviereview;
 
+import com.example.demo.theater.customer.Customer;
 import com.example.demo.theater.foodkind.FoodKind;
 import com.example.demo.theater.foodmenu.FoodMenu;
 import com.example.demo.theater.writedReview.WritedReview;
@@ -50,12 +51,17 @@ public class MovieReviewDaoService {
     public List<MovieReview> retrieveMovieReview(Integer movieId) {
         List<MovieReview> movieReview = movieReviewRepository.retrieveFindOne(movieId);
         List<WritedReview> movieWrited = movieReviewRepository.retrieveFindOne2(movieId);
+        List<Customer> moviCust = movieReviewRepository.retrieveFindOne3(movieId);
 
         for(int i=0; i<movieReview.size();i++){
             movieReview.get(i).setCId(movieWrited.get(i).getCId());
             movieReview.get(i).setRcNo(movieWrited.get(i).getRcNo());
+            movieReview.get(i).setC_Nikname(moviCust.get(i).getC_Nikname());
+            movieReview.get(i).setImageUri("http://caramels.kro.kr:9632/theater/customer/image/display?id="+movieWrited.get(i).getCId());
         }
-        logger.info(movieReview.toString());
+        // customer 프로필 가져오기
+
+
         return movieReview;
     }
 

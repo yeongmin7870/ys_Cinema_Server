@@ -1,5 +1,6 @@
 package com.example.demo.theater.moviereview;
 
+import com.example.demo.theater.customer.Customer;
 import com.example.demo.theater.writedReview.WritedReview;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -37,6 +38,9 @@ public interface MovieReviewRepository extends JpaRepository<MovieReview, Intege
 
     @Query(value = "SELECT  w FROM MovieReview m, WritedReview w WHERE m.movieReviewId = w.mrNo AND m.movieId = :movieId")
     List<WritedReview> retrieveFindOne2(@Param("movieId") Integer movieId);   // 해당 영화 리뷰 WritedReview 만 조인해서 출력
+
+    @Query(value = "SELECT c FROM MovieReview m, WritedReview w, Customer c WHERE m.movieReviewId = w.mrNo AND w.cId = c.customerId AND m.movieId = :movieId")
+    List<Customer> retrieveFindOne3(@Param("movieId") Integer movieId);   // 해당 영화 리뷰 WritedReview 만 조인해서 출력
 
 
     @Query(value = "SELECT  m,w FROM MovieReview m, WritedReview w WHERE m.movieReviewId = w.mrNo AND w.cId = :cId")
