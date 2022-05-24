@@ -32,8 +32,11 @@ public interface MovieReviewRepository extends JpaRepository<MovieReview, Intege
     @Query(value = "SELECT  m,w FROM MovieReview m, WritedReview w WHERE m.movieReviewId = w.mrNo")
     List<Object> retrieveFindAll();   // 전체 리뷰 조인해서 출력
 
-    @Query(value = "SELECT  m,w FROM MovieReview m, WritedReview w WHERE m.movieReviewId = w.mrNo AND m.movieId = :movieId")
-    List<Object> retrieveFindOne(@Param("movieId") Integer movieId);   // 해당 영화 리뷰만 조인해서 출력
+    @Query(value = "SELECT  m FROM MovieReview m, WritedReview w WHERE m.movieReviewId = w.mrNo AND m.movieId = :movieId")
+    List<MovieReview> retrieveFindOne(@Param("movieId") Integer movieId);   // 해당 영화 MoviewReivew 만 조인해서 출력
+
+    @Query(value = "SELECT  w FROM MovieReview m, WritedReview w WHERE m.movieReviewId = w.mrNo AND m.movieId = :movieId")
+    List<MovieReview> retrieveFindOne2(@Param("movieId") Integer movieId);   // 해당 영화 리뷰 WritedReview 만 조인해서 출력
 
 
     @Query(value = "SELECT  m,w FROM MovieReview m, WritedReview w WHERE m.movieReviewId = w.mrNo AND w.cId = :cId")

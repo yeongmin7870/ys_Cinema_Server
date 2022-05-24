@@ -58,8 +58,8 @@ public class MovieReviewController {
 
     @GetMapping("/MovieReview/{movieId}")
     @ApiOperation(value = "해당 영화 리뷰만 보여주기")
-    public List<Object> retrieveMovieReview(@PathVariable Integer movieId) {
-        List<Object> movieReview = service.retrieveMovieReview(movieId);
+    public List<MovieReview> retrieveMovieReview(@PathVariable Integer movieId) {
+        List<MovieReview> movieReview = service.retrieveMovieReview(movieId);
 
         if (movieReview == null) {
             throw new MovieNotFoundException(String.format("ID [%s] Not Found", movieId));
@@ -76,7 +76,7 @@ public class MovieReviewController {
 
 
         if (result > 0) {
-            return "리뷰를 이미 작성했습니다";
+            return "fail";
         } else {
             Date today = new Date();
             newMovieReview.setMrUptime(today);  // 서버 시간

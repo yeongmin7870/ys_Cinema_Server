@@ -43,4 +43,10 @@ public class MovieReview {
     @Column(name = "mr_NotGood",columnDefinition = "number default 0")
     private Integer mrNotgood;
 
+
+   // WritedReview VO
+    @Transient
+    private String cId;
+    @Transient
+    private Integer rcNo;
 }

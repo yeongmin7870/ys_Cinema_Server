@@ -1,5 +1,7 @@
 package com.example.demo.theater.moviereview;
 
+import com.example.demo.theater.foodkind.FoodKind;
+import com.example.demo.theater.foodmenu.FoodMenu;
 import com.example.demo.theater.writedReview.WritedReview;
 import com.example.demo.theater.writedReview.WritedReviewDaoService;
 import com.example.demo.theater.writedReview.WritedReviewRepository;
@@ -45,9 +47,16 @@ public class MovieReviewDaoService {
     }
 
     //영화아이디로 리뷰 찾기
-    public List<Object> retrieveMovieReview(Integer movieId) {
-        List<Object> movieReviews = movieReviewRepository.retrieveFindOne(movieId);
-        return movieReviews;
+    public List<MovieReview> retrieveMovieReview(Integer movieId) {
+        List<MovieReview> movieReview = movieReviewRepository.retrieveFindOne(movieId);
+        List<MovieReview> movieWrited = movieReviewRepository.retrieveFindOne2(movieId);
+
+        for(int i=0; i<movieReview.size();i++){
+            movieReview.get(i).setCId(movieWrited.get(i).getCId());
+            movieReview.get(i).setRcNo(movieWrited.get(i).getRcNo());
+        }
+        logger.info(movieReview.toString());
+        return movieWrited;
     }
 
 

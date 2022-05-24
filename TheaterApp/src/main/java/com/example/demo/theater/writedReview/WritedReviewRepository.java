@@ -7,6 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Repository
 public interface WritedReviewRepository extends JpaRepository<WritedReview, Integer> {
@@ -15,6 +16,7 @@ public interface WritedReviewRepository extends JpaRepository<WritedReview, Inte
     @Modifying
     @Query("DELETE FROM WritedReview w Where w.mrNo = :mrNo")
     void removeMrNo(@Param("mrNo") Integer mrNo);   //영화리뷰를 삭제해주는 기능
+
 
 
 }
