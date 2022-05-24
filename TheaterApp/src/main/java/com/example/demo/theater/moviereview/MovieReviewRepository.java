@@ -23,9 +23,8 @@ public interface MovieReviewRepository extends JpaRepository<MovieReview, Intege
 //    @Query(value = "INSERT INTO Writed_Review (WR_NO,c_Id, mr_No) VALUES (WRITED_REVIEW_SEQ_WRNO.NEXTVAL,:c_Id,:mr_No)", nativeQuery = true)
 //    WritedReview insertWR(@Param("c_Id") String cId, @Param("mr_No") Integer mrNo);
 
-    @Query(value = "SELECT w FROM WritedReview w Where w.cId = :cId AND w.mrNo = :mrNo")
-    WritedReview oneReview(@Param("cId") String cId, @Param("mrNo") Integer mrNo);    // 리뷰 쓴적 있는지 판단
-
+    @Query(value = "SELECT count(m.movieReviewId) FROM WritedReview w, MovieReview m WHERE w.mrNo = m.movieReviewId And w.cId = :cId AND m.movieId = :movieId")
+    Integer oneReview(@Param("cId") String cId, @Param("movieId") Integer movieId);
 
     @Query(value = "SELECT m FROM MovieReview m Where m.movieReviewId = :movieReviewId")
     MovieReview retrieveReview(@Param("movieReviewId") Integer movieReviewId);
@@ -39,5 +38,6 @@ public interface MovieReviewRepository extends JpaRepository<MovieReview, Intege
 
     @Query(value = "SELECT  m,w FROM MovieReview m, WritedReview w WHERE m.movieReviewId = w.mrNo AND w.cId = :cId")
     List<Object> retrieveMyReview(@Param("cId") String cId);   // 내가 적은 리뷰 조인해서 출력
+
 
 }

@@ -24,23 +24,24 @@ public class MovieReviewDaoService {
     @Autowired
     private WritedReviewDaoService reviewDaoService;
 
+
     @Autowired
     private WritedReviewRepository writedReviewRepository;
 
     //내가 적은 리뷰 조인해서 찾기
 
-    public List<Object> retrieveMyReview(String cId){
+    public List<Object> retrieveMyReview(String cId) {
         return movieReviewRepository.retrieveMyReview(cId);
     }
 
 
     // 누가 어떤 영화에 리뷰를 작성했는지 판단여부
-    public WritedReview searchMovieReivew(String cId,Integer movieId) {
+    public Integer searchMovieReivew(String cId, MovieReview newMovieReviw) {
 
-            System.out.println("MovieReviewDao" + movieId);
-            WritedReview result = movieReviewRepository.oneReview(cId,movieId);
-            System.out.println(result);
-            return result;
+
+        Integer result = movieReviewRepository.oneReview(cId, newMovieReviw.getMovieId());
+        logger.info(result.toString());
+        return result;
     }
 
     //영화아이디로 리뷰 찾기
@@ -97,10 +98,10 @@ public class MovieReviewDaoService {
         return updateMovieReview;
     }
 
-    public void deleteMovieReview(Integer mrNo) {
+    public void deleteMovieReview(Integer mrno) {
 
-        writedReviewRepository.removeMrNo(mrNo);
-        movieReviewRepository.deleteById(mrNo);
+        writedReviewRepository.removeMrNo(mrno);
+        movieReviewRepository.deleteById(mrno);
 
     }
 }

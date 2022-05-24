@@ -72,9 +72,10 @@ public class MovieReviewController {
     @ApiOperation(value = "영화 리뷰 작성 삽입")
     public String newReview(@RequestBody MovieReview newMovieReview, @RequestParam String id) {
 
-        WritedReview result = service.searchMovieReivew(id,newMovieReview.getMovieId());
+        Integer result = service.searchMovieReivew(id,newMovieReview);
 
-        if (result != null) {
+
+        if (result > 0) {
             return "리뷰를 이미 작성했습니다";
         } else {
             Date today = new Date();
