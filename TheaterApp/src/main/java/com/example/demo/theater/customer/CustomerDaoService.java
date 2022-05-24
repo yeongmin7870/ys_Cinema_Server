@@ -1,5 +1,7 @@
 package com.example.demo.theater.customer;
 
+import com.example.demo.theater.foodpayment.FoodPaymentRepository;
+import com.example.demo.theater.reservation.ReservationRepository;
 import com.google.gson.JsonParser;
 import io.jsonwebtoken.*;
 import org.apache.commons.io.IOUtils;
@@ -27,6 +29,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -40,6 +43,22 @@ public class CustomerDaoService {
 
     @Autowired
     private CustomerRepository repository;
+
+    @Autowired
+    private FoodPaymentRepository foodPaymentRepository;
+
+    @Autowired
+    private ReservationRepository reservationRepository;
+
+    //회원 영수증
+    public List<Object> retrieveCustomerReceipt(String cId) {
+        List<Object> Food = foodPaymentRepository.findCustomerPaymentOrderList2(cId);
+        List<Object> Movie = reservationRepository.retrieveCustomerMovieList(cId);
+        List<Object> result = new ArrayList<>();
+        result.add(Food);
+        result.add(Movie);
+        return result;
+    }
 
 
     public List<Customer> findAll() {
@@ -121,7 +140,7 @@ public class CustomerDaoService {
     public String uploadToLocal(String id, MultipartFile file) {
         try {
             String uploadFolderPath = "./src/main/resources/serverImage/profile/";
-            String imageName = "profile" + id +".jpeg";
+            String imageName = "profile" + id + ".jpeg";
             Customer customer = repository.findByCustomerId(id);
             File checkFile = new File(uploadFolderPath + imageName);
             Path path = Paths.get(uploadFolderPath + imageName);
@@ -131,7 +150,7 @@ public class CustomerDaoService {
                 return "회원정보가 없음";
             }
             // 만약 이미지가 이미 있다면 삭제 하고 다시 넣기
-            if(checkFile.exists()){
+            if (checkFile.exists()) {
                 Files.delete(path);
             }
 
