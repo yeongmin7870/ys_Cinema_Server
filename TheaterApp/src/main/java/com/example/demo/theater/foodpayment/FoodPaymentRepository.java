@@ -24,5 +24,5 @@ public interface FoodPaymentRepository extends JpaRepository<FoodPayment,Integer
 
 
     @Query("SELECT f,o FROM FoodPayment f, NcOrderList o WHERE f.foodPaymentId = o.fp_No AND o.nc_No = :nc_No")
-    public List<Object> findNonCustPaymentOrderList2(@Param("nc_No") String nc_No);   //비회원 조건 조회
+    public List<Object> findNonCustPaymentOrderList2(@Param("nc_No") Integer nc_No);   //비회원 조건 조회
 }
