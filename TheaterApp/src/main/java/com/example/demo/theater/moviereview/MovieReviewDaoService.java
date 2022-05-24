@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import javax.management.Query;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -53,11 +54,14 @@ public class MovieReviewDaoService {
         List<WritedReview> movieWrited = movieReviewRepository.retrieveFindOne2(movieId);
         List<Customer> moviCust = movieReviewRepository.retrieveFindOne3(movieId);
 
-        for(int i=0; i<movieReview.size();i++){
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy.MM.dd.a.HH:mm:ss1");
+
+        for (int i = 0; i < movieReview.size(); i++) {
             movieReview.get(i).setCId(movieWrited.get(i).getCId());
             movieReview.get(i).setRcNo(movieWrited.get(i).getRcNo());
             movieReview.get(i).setC_Nikname(moviCust.get(i).getC_Nikname());
-            movieReview.get(i).setImageUri("http://caramels.kro.kr:9632/theater/customer/image/display?id="+movieWrited.get(i).getCId());
+            movieReview.get(i).setImageUri("http://caramels.kro.kr:9632/theater/customer/image/display?id=" + movieWrited.get(i).getCId());
         }
         // customer 프로필 가져오기
 

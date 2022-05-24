@@ -46,25 +46,21 @@ public class FoodPaymentDaoService {
     }
 
     public List<Object> orderFood(FoodPayment foodPayment, String cId) {
-        FoodPayment newFoodPayment = new FoodPayment();
         OrderList newOrderList = new OrderList();
+
         List<Object> result = new ArrayList<>();
 
-        newFoodPayment.setFood_No(foodPayment.getFood_No());
-        logger.info(foodPayment.getFood_No().toString());
-        newFoodPayment.setFp_Count(foodPayment.getFp_Count());
-        newFoodPayment.setFp_Price(foodPayment.getFp_Price());
-
-        FoodPayment newFoodPayment2 = foodPaymentRepository.save(newFoodPayment);
+        FoodPayment newFoodPayment = foodPaymentRepository.save(foodPayment);
 
         newOrderList.setCId(cId);
-        logger.info("번호"+newFoodPayment2.getFoodPaymentId().toString());
-        newOrderList.setFp_No(newFoodPayment2.getFoodPaymentId());
+        newOrderList.setFp_No(newFoodPayment.getFoodPaymentId());
 
-        OrderList newOrderList2 = orderListRepository.save(newOrderList);
+        System.out.println("문제" + newOrderList.toString());
 
-        result.add(newFoodPayment2);
-        result.add(newOrderList2);
+        OrderList orderList = orderListRepository.save(newOrderList);
+
+        result.add(newFoodPayment);
+        result.add(orderList);
 
         return result;
     }
