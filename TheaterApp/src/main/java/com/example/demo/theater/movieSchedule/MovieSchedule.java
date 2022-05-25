@@ -19,7 +19,6 @@ import java.util.Date;
 public class MovieSchedule {
     @Id
     @NotNull
-    @GeneratedValue
     @Column(name = "ms_No",columnDefinition = "number",unique = true)
     private Integer movieScheduleId;
 

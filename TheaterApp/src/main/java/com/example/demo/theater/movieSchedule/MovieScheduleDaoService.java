@@ -64,9 +64,9 @@ public class MovieScheduleDaoService {
         }
     }
 
-    public String movieHour(MovieSchedule movieSchedule) {
+    public Integer movieHour(MovieSchedule movieSchedule) {
         Integer mNo = movieSchedule.getM_No();
-        String mHour = movieScheduleRepository.movieHour(mNo);
+        Integer mHour = Integer.parseInt(movieScheduleRepository.movieHour(mNo));
 
 
         if (mHour.equals(null)) {
@@ -75,10 +75,16 @@ public class MovieScheduleDaoService {
         return mHour;
     }
 
-    public void updateEndTime(Integer m_Hour, MovieSchedule movieSchedule) {
+    /*public void updateEndTime(Integer m_Hour, MovieSchedule movieSchedule) {
         Integer movieScheduleId = movieSchedule.getMovieScheduleId();
         movieScheduleRepository.endTime(m_Hour, movieScheduleId);
+        Date m_StarTime, Integer m_no, Integer store_No, String m_Hour
+    }*/
 
+    public void insertSchedule(Integer m_Hour, MovieSchedule movieSchedule) {
+        Date m_StarTime = movieSchedule.getMS_StarTime();
+        Integer m_no = movieSchedule.getM_No();
+        Integer store_No = movieSchedule.getStore_No();
+        movieScheduleRepository.insertSchedule(m_StarTime, m_no, store_No, m_Hour);
     }
-
 }

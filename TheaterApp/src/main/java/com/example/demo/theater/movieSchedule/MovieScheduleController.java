@@ -61,16 +61,12 @@ public class MovieScheduleController {
         if(result == false) {
             return "영화, 상영관, 상영기간 중 하나가 없거나 지난기간입니다.";
         }else {
-            /*SimpleDateFormat formatter = new SimpleDateFormat("mm-ss");
-            List<Movie> mHour = movieScheduleDaoService.movieHour(newMovieSchedule);
+            /*movieScheduleDaoService.save(newMovieSchedule);
 
-            newMovieSchedule.setMS_EndTime();*/
-            movieScheduleDaoService.save(newMovieSchedule);
-            String m_Hour = movieScheduleDaoService.movieHour(newMovieSchedule);
-
-            movieScheduleDaoService.updateEndTime(Integer.parseInt(m_Hour), newMovieSchedule);
+            movieScheduleDaoService.updateEndTime(m_Hour, newMovieSchedule);*/
+            Integer m_Hour = movieScheduleDaoService.movieHour(newMovieSchedule);
+            movieScheduleDaoService.insertSchedule(m_Hour, newMovieSchedule);
         }
-
         return "finish";
     }
 

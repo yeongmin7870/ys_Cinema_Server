@@ -27,11 +27,26 @@ public interface movieScheduleRepository extends JpaRepository<MovieSchedule, In
     String movieHour(@Param("movieId") Integer movieId);
 
 
-    //해당 영화의 종료시간 연산
+    /*//해당 영화의 종료시간 연산
     @Transactional
     @Modifying
-    @Query(value = "UPDATE MovieSchedule ms SET ms.mS_EndTime = ms.mS_StarTime + interval ':m_Hour' minute where movieScheduleId = :movieScheduleId", nativeQuery = true)
+    @Query(value = "UPDATE Movie_Schedule ms " +
+            "SET ms.mS_End_Time = to_char(ms.mS_Star_Time + (interval ':m_Hour' MINUTE),'YYYY-MM-DD-HH24:MI:SS')" +
+            "WHERE ms.ms_no = :movieScheduleId", nativeQuery = true)
     void endTime(@Param("m_Hour") Integer m_Hour,@Param("movieScheduleId") Integer movieScheduleId);
+    //여기까지 했음*/
 
+    /*numToDSInterval(*/
 
+    @Transactional
+    @Modifying
+    @Query (value = "insert into movie_schedule ms\n" +
+            "(ms.MS_NO, ms.MS_END_TIME, ms.MS_STAR_TIME, ms.M_NO, ms.STORE_NO)\n" +
+            "VALUES\n" +
+            "(movie_schedule_seq.NEXTVAL," +
+            ":ms_StarTime + (interval '1' day) * :m_Hour," +
+            ":ms_StarTime," +
+            ":m_no," +
+            ":store_No)", nativeQuery = true)
+    void insertSchedule (@Param("ms_StarTime") Date m_StarTime,@Param("m_no") Integer m_no, @Param("store_No") Integer store_No, @Param("m_Hour") Integer m_Hour);
 }
