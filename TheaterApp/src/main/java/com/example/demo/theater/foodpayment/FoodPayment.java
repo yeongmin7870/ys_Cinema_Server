@@ -5,10 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Date;
+
 @Data
 @Entity
 @AllArgsConstructor
@@ -17,7 +16,7 @@ public class FoodPayment {
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name = "fp_No", columnDefinition = "number",unique = true)
+    @Column(name = "fp_No", columnDefinition = "number", unique = true)
     private Integer foodPaymentId;
     @Column(columnDefinition = "number")
     private Integer food_No;
@@ -26,4 +25,28 @@ public class FoodPayment {
     @Column(columnDefinition = "number")
     private Integer fp_Price;
 
+    @Transient
+    private Integer OrderId;
+    @Transient
+    private String id;
+    @Transient
+    private Integer nid;
+
+
+    @Transient
+    private String foodName;
+    @Transient
+    private String food_Component;
+    @Transient
+    private String food_Limit;
+    @Transient
+    private Date food_Date;
+    @Transient
+    private Integer food_Price;
+    @Transient
+    private String food_Img;
+    @Transient
+    private Integer foodKindNo;
+
 }
+

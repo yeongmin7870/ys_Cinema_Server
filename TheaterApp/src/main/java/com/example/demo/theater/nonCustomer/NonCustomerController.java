@@ -13,11 +13,11 @@ public class NonCustomerController {
     @Autowired
     private NonCustomerDaoService service;
 
-    @GetMapping("/nonCustomer/receipt")
-    @ApiOperation("비회원 영수증  음식주문 내역, 영화예매 내역 같이 나옴 ")
-    List<Object> retrieveCustomerReceipt(@RequestParam Integer cId){
-        return service.retrieveNonCustomerReceipt(cId);
-    }
+//    @GetMapping("/nonCustomer/receipt")
+//    @ApiOperation("비회원 영수증  음식주문 내역, 영화예매 내역 같이 나옴 ")
+//    List<Object> retrieveCustomerReceipt(@RequestParam Integer cId){
+//        return service.retrieveNonCustomerReceipt(cId);
+//    }
 
     @PostMapping("/nonCustomer")
     @ApiOperation("비회원 회원가입")

@@ -51,14 +51,14 @@ public class CustomerDaoService {
     private ReservationRepository reservationRepository;
 
     //회원 영수증
-    public List<Object> retrieveCustomerReceipt(String cId) {
-        List<Object> Food = foodPaymentRepository.findCustomerPaymentOrderList2(cId);
-        List<Object> Movie = reservationRepository.retrieveCustomerMovieList(cId);
-        List<Object> result = new ArrayList<>();
-        result.add(Food);
-        result.add(Movie);
-        return result;
-    }
+//    public List<Object> retrieveCustomerReceipt(String cId) {
+//        List<Object> Food = foodPaymentRepository.findCustomerPaymentOrderList2(cId);
+//        List<Object> Movie = reservationRepository.retrieveCustomerMovieList(cId);
+//        List<Object> result = new ArrayList<>();
+//        result.add(Food);
+//        result.add(Movie);
+//        return result;
+//    }
 
 
     public List<Customer> findAll() {

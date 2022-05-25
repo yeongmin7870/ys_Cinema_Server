@@ -39,11 +39,11 @@ public class CustomerController {
     @Autowired
     private CustomerDaoService service;
 
-    @GetMapping("/customer/receipt")
-    @ApiOperation("회원 영수증  음식주문 내역, 영화예매 내역 같이 나옴")
-    List<Object> retrieveCustomerReceipt(@RequestParam String cId){
-        return service.retrieveCustomerReceipt(cId);
-    }
+//    @GetMapping("/customer/receipt")
+//    @ApiOperation("회원 영수증  음식주문 내역, 영화예매 내역 같이 나옴")
+//    List<Object> retrieveCustomerReceipt(@RequestParam String cId){
+//        return service.retrieveCustomerReceipt(cId);
+//    }
 
 
     @GetMapping("/customer/token/parser")

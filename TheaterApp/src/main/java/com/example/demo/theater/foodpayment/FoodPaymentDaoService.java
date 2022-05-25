@@ -1,6 +1,7 @@
 package com.example.demo.theater.foodpayment;
 
 
+import com.example.demo.theater.foodmenu.FoodMenu;
 import com.example.demo.theater.ncOrderList.NcOrderList;
 import com.example.demo.theater.ncOrderList.NcOrderListRepository;
 import com.example.demo.theater.orderList.OrderList;
@@ -30,11 +31,44 @@ public class FoodPaymentDaoService {
     @Autowired
     private NcOrderListRepository ncOrderListRepository;
 
-    public List<Object> retrieveFoodOrderList(String who, String id) {
+    public List<FoodPayment> retrieveFoodOrderList(String who, String id) {
         if (who.equals("회원")) {
-            return foodPaymentRepository.findCustomerPaymentOrderList2(id);
+            List<FoodPayment> foodPayments = foodPaymentRepository.findCustomerPaymentOrderList2F(id);
+            List<OrderList> orderLists = foodPaymentRepository.findCustomerPaymentOrderList2O(id);
+            List<FoodMenu> foodMenus = foodPaymentRepository.findCustomerPaymentOrderList2FM(id);
+
+            for(int i=0; i<foodPayments.size();i++){
+                foodPayments.get(i).setOrderId(orderLists.get(i).getOrderId());
+                foodPayments.get(i).setId(orderLists.get(i).getCId());
+                foodPayments.get(i).setFoodName(foodMenus.get(i).getFoodName());
+                foodPayments.get(i).setFood_Component(foodMenus.get(i).getFood_Component());
+                foodPayments.get(i).setFood_Limit(foodMenus.get(i).getFood_Limit());
+                foodPayments.get(i).setFood_Date(foodMenus.get(i).getFood_Date());
+                foodPayments.get(i).setFood_Price(foodMenus.get(i).getFood_Price());
+                foodPayments.get(i).setFood_Img(foodMenus.get(i).getFood_Img());
+                foodPayments.get(i).setFoodKindNo(foodMenus.get(i).getFoodKindNo());
+            }
+            return foodPayments;
+            
         } else if (who.equals("비회원")) {
-            return foodPaymentRepository.findNonCustPaymentOrderList2(Integer.valueOf(id));
+            Integer id2 = Integer.valueOf(id);
+            List<FoodPayment> foodPayments = foodPaymentRepository.findNonCustPaymentOrderList2F(id2);
+            List<NcOrderList> orderLists = foodPaymentRepository.findNonCustPaymentOrderList2O(id2);
+            List<FoodMenu> foodMenus = foodPaymentRepository.findNonCustPaymentOrderList2FM(id2);
+
+            for(int i=0; i<foodPayments.size();i++){
+                foodPayments.get(i).setOrderId(orderLists.get(i).getNcOrderId());
+                foodPayments.get(i).setNid(orderLists.get(i).getNc_No());
+                foodPayments.get(i).setFoodName(foodMenus.get(i).getFoodName());
+                foodPayments.get(i).setFood_Component(foodMenus.get(i).getFood_Component());
+                foodPayments.get(i).setFood_Limit(foodMenus.get(i).getFood_Limit());
+                foodPayments.get(i).setFood_Date(foodMenus.get(i).getFood_Date());
+                foodPayments.get(i).setFood_Price(foodMenus.get(i).getFood_Price());
+                foodPayments.get(i).setFood_Img(foodMenus.get(i).getFood_Img());
+                foodPayments.get(i).setFoodKindNo(foodMenus.get(i).getFoodKindNo());
+            }
+            return foodPayments;
+
         }
         return null;
     }

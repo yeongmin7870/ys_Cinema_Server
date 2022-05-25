@@ -29,14 +29,14 @@ public class NonCustomerDaoService {
     private CustomerDaoService customerDaoService;
 
     //비회원 영수증
-    public List<Object> retrieveNonCustomerReceipt(Integer cId) {
-        List<Object> Food = foodPaymentRepository.findNonCustPaymentOrderList2(cId);
-        List<Object> Movie = reservationRepository.retrieveCustomerMovieList2(cId);
-        List<Object> result = new ArrayList<>();
-        result.add(Food);
-        result.add(Movie);
-        return result;
-    }
+//    public List<Object> retrieveNonCustomerReceipt(Integer cId) {
+//        List<Object> Food = foodPaymentRepository.findNonCustPaymentOrderList2(cId);
+//        List<Object> Movie = reservationRepository.retrieveCustomerMovieList2(cId);
+//        List<Object> result = new ArrayList<>();
+//        result.add(Food);
+//        result.add(Movie);
+//        return result;
+//    }
 
     //비회원 가입
     String registerNonCustomer(NonCustomer newCustomer) {
