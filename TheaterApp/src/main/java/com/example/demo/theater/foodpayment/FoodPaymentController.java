@@ -26,14 +26,20 @@ public class FoodPaymentController {
     }
 
     @PostMapping("/foodPaymet")
-    @ApiOperation("음식주문하기")
-    public List<Object> orderFood(@RequestBody FoodPayment foodPayment, @RequestParam String cId) {
-        return foodPaymentDaoService.orderFood(foodPayment, cId);
+    @ApiOperation("음식주문하기 1. 회원 2. 비회원  ")
+    public List<Object> orderFood(@RequestBody FoodPayment foodPayment, @RequestParam String cId, @RequestParam String who) {
+        List<Object> list = null;
+        if (who.equals("회원")) {
+            list = foodPaymentDaoService.orderFood(foodPayment, cId);
+        } else if (who.equals("비회원")) {
+            list = foodPaymentDaoService.orderFood2(foodPayment, Integer.parseInt(cId));
+        }
+        return list;
     }
 
     @GetMapping("/foodPayment/retrieveFood")
     @ApiOperation("비회원 or 회원 자신의 음식주문 정보 가져오기")
-    public List<Object> retrieveFoodOrderList(String who, String id) {
+    public List<FoodPayment> retrieveFoodOrderList(String who, String id) {
         return foodPaymentDaoService.retrieveFoodOrderList(who, id);
     }
 }
