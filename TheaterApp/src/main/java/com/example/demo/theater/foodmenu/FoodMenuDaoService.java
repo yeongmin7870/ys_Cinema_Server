@@ -109,7 +109,7 @@ public class FoodMenuDaoService {
         String[] uri = new String[foodMenus.size()];
         System.out.println(foodMenus);
         for (int i = 0; i < foodMenus.size(); i++) {
-            uri[i] = "http://caramels.kro.kr:9632/theater/foodMenu/getImages/" + foodMenus.get(i).getFoodMenuId();
+            uri[i] = "http://caramels.kro.kr:9632/theater/foodMenu/Images/" + foodMenus.get(i).getFoodMenuId();
         }
         return uri;
     }
