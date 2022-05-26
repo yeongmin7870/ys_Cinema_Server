@@ -30,12 +30,8 @@
         <div >
             <div>
                 <h4 class="mb-3">영화등록 페이지</h4>
-                <form th:action="@{/movie/movieInsert}" th:object="${movie}" method="post" class="needs-validation"
-                    enctype="multipart/form-data">
-                    <div class="mb-3">
-                        <label>영화포스터</label><br>
-                        <input type="file" name="m_Img">
-                    </div>
+                <form th:action="@{/movie/movieInsert}" th:object="${movie}" method="post" class="needs-validation">
+                    
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label>영화이름</label>
@@ -90,16 +86,19 @@
                         </div>
                     </div>
                    <input type="hidden" class="form-control" id="m_StarScore"  th:field="*{m_StarScore}" th:value="0">
+                   <input type="hidden" class="form-control" id="movieId"  th:field="*{movieId}" >
+                   
                     <hr class="mb-4">
                     <button class="btn btn-primary btn-lg btn-block" type="submit">회원 등록하기</button>
                 </form>
             </div>
         </div>
 
+
         <footer class="my-5 pt-5 text-muted text-center text-small">
             <p class="mb-1">&copy; 주)캬라멜팝콘</p>
             <ul class="list-inline">
-                <li class="list-inline-item"><a href="#">Privacy</a></li>
+                <li class="list-inline-item"><a href="#">Privacy.</a></li>
                 <li class="list-inline-item"><a href="#">Terms</a></li>
                 <li class="list-inline-item"><a href="#">Support</a></li>
             </ul>
