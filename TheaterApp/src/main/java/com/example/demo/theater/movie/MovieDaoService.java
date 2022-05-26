@@ -158,8 +158,9 @@ public class MovieDaoService {
 
 
     //영화 전체 출력
-    public List<Movie> findAll() {
-        return movieRepository.findAll();
+    public List<Movie> findAll() throws IOException {
+        List<Movie> all = movieRepository.findAll();
+        return all;
     }
 
     //ID값으로 해당 영화 검색

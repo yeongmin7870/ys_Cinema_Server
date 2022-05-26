@@ -66,7 +66,6 @@ public class MovieController {
     @GetMapping(value = "/movies/display")
     @ApiOperation(value = "영화 이미지 전체 uri 뽑아오기")
     public String[] getMoviesImages() throws IOException {
-
         return service.getMoviesImages();
     }
 
@@ -93,14 +92,19 @@ public class MovieController {
 
 
     @GetMapping("/movies")
-    @ApiOperation(value = "영화 전체 정보 리스트", notes = "영화 전체 정보 리스트를 뽑아온다.")
-    public List<Movie> retrieveAllMovies() {
-        return service.findAll();
+    @ApiOperation(value = "영화 전체 정보 리스트", notes = "영화 전체 정보 리스트를 뽑아온다.   ")
+    public List<Movie> retrieveAllMovies() throws IOException {
+        List<Movie> all = service.findAll();
+        String [] imageUrl = service.getMoviesImages();
+        for(int i=0; i<all.size();i++){
+            all.get(i).setImageUrl(imageUrl[i]);
+        }
+        return all;
     }
 
     @GetMapping("/movie/{movieId}")
     @ApiOperation(value = "영화 한개 정보 가져오기", notes = "영화 한개 정보 가져온다.")
-    public Movie retrieveMovies(@PathVariable Integer movieId) {
+    public Movie retrieveMovies(@PathVariable Integer movieId) throws IOException {
         Movie movie = service.findById(movieId);
 
         if (movie == null) {
@@ -112,7 +116,7 @@ public class MovieController {
 
 
     @PostMapping("/movies")
-    @ApiOperation(value = "영화 정보 삽입", notes = "영화 정보 삽입하는 기능이다.")
+    @ApiOperation(value = "영화 정보 삽입", notes = "영화 정보 삽입하는 기능이다.   imageUrl은 insert하지 않음")
     public ResponseEntity<Movie> newMovies(@RequestBody Movie newMovie) {
 
             Movie movie = service.save(newMovie);

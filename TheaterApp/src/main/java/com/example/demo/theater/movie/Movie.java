@@ -63,6 +63,8 @@ public class Movie {
     private String m_tier;
 
 
+    @Transient
+    private String imageUrl;
 
 
 }
