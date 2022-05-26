@@ -42,6 +42,7 @@ public class NonCustomerDaoService {
     String registerNonCustomer(NonCustomer newCustomer) {
 
         NonCustomer nonCustomer = nonCustomerRepository.retrieveNonCustomer(newCustomer.getNcPhone());
+        System.out.println(nonCustomer);
 
         if (nonCustomer == null) {
             nonCustomerRepository.save(newCustomer);
