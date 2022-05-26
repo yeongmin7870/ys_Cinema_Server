@@ -2,13 +2,22 @@ package com.example.demo.theater.foodmenu;
 
 import com.example.demo.theater.foodkind.FoodKind;
 import com.example.demo.theater.foodkind.FoodKindRepository;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 
 @Service
@@ -81,4 +90,16 @@ public class FoodMenuDaoService {
     }
 
 
+    ResponseEntity<Resource> retrieveFoodImage  (Integer id) throws IOException {
+        FoodMenu foodMenu = foodMenuRepository.findByFoodMenuId(id);
+        String path = foodMenu.getFood_Img();
+        HttpHeaders headers = new HttpHeaders();
+        Path filePath = Paths.get(path);
+        Resource resource = new FileSystemResource(path);
+        if(path == null){
+            return new ResponseEntity<Resource>(HttpStatus.NOT_FOUND);
+        }
+        headers.add("Content-Type", Files.probeContentType(filePath));
+        return new ResponseEntity<Resource>(resource,headers,HttpStatus.OK);
+    }
 }

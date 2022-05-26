@@ -9,8 +9,12 @@ import net.minidev.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -56,6 +60,12 @@ public class foodMenuController {
     public List<Object> addFoodMenu(@RequestBody FoodMenu newFoodMenu, @RequestParam String newFoodKindName) {
         List<Object> objects = foodMenuDaoService.addFoodMenu(newFoodMenu, newFoodKindName);
         return objects;
+    }
+
+    @GetMapping("/foodMenu/Images/{id}")
+    @ApiOperation("음식 이미지 보여주기")
+    public ResponseEntity<Resource> retrieveFoodImage(@PathVariable ("id") String id) throws IOException {
+        return foodMenuDaoService.retrieveFoodImage(Integer.valueOf(id));
     }
 
 }

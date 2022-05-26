@@ -30,4 +30,6 @@ public interface FoodMenuRepository extends JpaRepository<FoodMenu, Integer> {
     Object[] findOneKind(@Param("foodKindName") String foodKindName);  // 한종류에 음식 리스트 뽑아내기
 
 
+    FoodMenu findByFoodMenuId(Integer id);
+
 }
