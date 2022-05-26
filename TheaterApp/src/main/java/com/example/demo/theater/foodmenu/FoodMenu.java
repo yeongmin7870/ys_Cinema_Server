@@ -33,7 +33,7 @@ public class FoodMenu {
     private Date food_Date;
     @Column(columnDefinition = "number")
     private Integer food_Price;
-    @Column(columnDefinition = "varchar2(70) default './src/main/resources/serverImage/foodImage/food_none.png'")
+    @Column(columnDefinition = "varchar2(70) default './src/main/resources/serverImage/foodImage/food_none.jpeg'")
     private String food_Img;
     @Column(name = "foodKindNo", columnDefinition = "number")
     private Integer foodKindNo;
