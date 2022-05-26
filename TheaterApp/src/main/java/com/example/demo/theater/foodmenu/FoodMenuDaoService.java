@@ -42,7 +42,7 @@ public class FoodMenuDaoService {
 
         List<FoodMenu> result = foodMenuRepository.findFoodMenu();
         List<FoodKind> resultKind = foodMenuRepository.findFoodKind();
-        for(int i=0; i<result.size();i++){
+        for (int i = 0; i < result.size(); i++) {
             result.get(i).setFoodKindName(resultKind.get(i).getFoodKindName());
         }
 
@@ -90,17 +90,27 @@ public class FoodMenuDaoService {
     }
 
 
-    ResponseEntity<Resource> retrieveFoodImage (Integer id) throws IOException {
+    ResponseEntity<Resource> retrieveFoodImage(Integer id) throws IOException {
         FoodMenu foodMenu = foodMenuRepository.findByFoodMenuId(id);
         logger.info(foodMenu.toString());
         String path = foodMenu.getFood_Img();
         HttpHeaders headers = new HttpHeaders();
         Path filePath = Paths.get(path);
         Resource resource = new FileSystemResource(path);
-        if(path == null){
+        if (path == null) {
             return new ResponseEntity<Resource>(HttpStatus.NOT_FOUND);
         }
         headers.add("Content-Type", Files.probeContentType(filePath));
-        return new ResponseEntity<Resource>(resource,headers,HttpStatus.OK);
+        return new ResponseEntity<Resource>(resource, headers, HttpStatus.OK);
+    }
+
+    String[] getFoodImages() {
+        List<FoodMenu> foodMenus = foodMenuRepository.findAll();
+        String[] uri = new String[foodMenus.size()];
+        System.out.println(foodMenus);
+        for (int i = 0; i < foodMenus.size(); i++) {
+            uri[i] = "http://caramels.kro.kr:9632/theater/foodMenu/getImages/" + foodMenus.get(i).getFoodMenuId();
+        }
+        return uri;
     }
 }

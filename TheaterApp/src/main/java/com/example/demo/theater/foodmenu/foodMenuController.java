@@ -30,6 +30,12 @@ public class foodMenuController {
     @Autowired
     private FoodMenuDaoService foodMenuDaoService;
 
+    @GetMapping("/foodMenu/getImages")
+    @ApiOperation("음식 이미지 주소 리스트로 가져오기")
+    public String[] getImageList() {
+        return foodMenuDaoService.getFoodImages();
+    }
+
 
     @GetMapping("/foodMenu/kindList")
     @ApiOperation("음식 종류 리스트로 가져오기")
