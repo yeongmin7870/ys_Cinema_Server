@@ -164,6 +164,9 @@ public class MovieDaoService {
 
     //영화 입력
     public Movie save(Movie movie) {
+        Integer id = movieRepository.findMovieIdMax();
+        movie.setMovieId(id + 1);
+        System.out.println("테스트" + id);
         movieRepository.save(movie);
         return movie;
     }

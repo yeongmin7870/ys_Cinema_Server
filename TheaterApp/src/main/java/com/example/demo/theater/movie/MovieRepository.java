@@ -11,6 +11,8 @@ public interface MovieRepository extends JpaRepository<Movie,Integer> {
 
     Movie findByMovieId(Integer id);
 
+    @Query("SELECT MAX(movieId) FROM Movie")
+    Integer findMovieIdMax();
 
     @Query(value = "SELECT sum(m_Rating) FROM Movie")
     public Integer sumRating();  // 평저 합계

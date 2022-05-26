@@ -115,18 +115,13 @@ public class MovieController {
     @ApiOperation(value = "영화 정보 삽입", notes = "영화 정보 삽입하는 기능이다.")
     public ResponseEntity<Movie> newMovies(@RequestBody Movie newMovie) {
 
-        Movie insertMovie = service.findById(newMovie.getMovieId());
+            Movie movie = service.save(newMovie);
 
-        if (insertMovie == null) {
-            service.save(newMovie);
             URI location = ServletUriComponentsBuilder.fromCurrentRequest()
                     .path("/{id}")
                     .buildAndExpand(newMovie.getMovieId())
                     .toUri();
             return ResponseEntity.created(location).build();
-        } else {
-            throw new MovieNotFoundException(String.format("ID [%s] already exist", insertMovie.getMovieId()));
-        }
     }
 
     @DeleteMapping("/movies/{id}")

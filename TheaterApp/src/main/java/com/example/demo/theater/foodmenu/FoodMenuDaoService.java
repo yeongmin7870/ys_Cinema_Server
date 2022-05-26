@@ -90,8 +90,9 @@ public class FoodMenuDaoService {
     }
 
 
-    ResponseEntity<Resource> retrieveFoodImage  (Integer id) throws IOException {
+    ResponseEntity<Resource> retrieveFoodImage (Integer id) throws IOException {
         FoodMenu foodMenu = foodMenuRepository.findByFoodMenuId(id);
+        logger.info(foodMenu.toString());
         String path = foodMenu.getFood_Img();
         HttpHeaders headers = new HttpHeaders();
         Path filePath = Paths.get(path);
