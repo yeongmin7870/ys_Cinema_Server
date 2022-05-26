@@ -61,6 +61,12 @@ public class CustomerDaoService {
 //    }
 
 
+
+    public void tests(){
+        logger.info("테스트입니다.");
+    }
+
+
     public List<Customer> findAll() {
         return repository.findAll();
     }

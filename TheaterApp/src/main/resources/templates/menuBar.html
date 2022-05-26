@@ -21,7 +21,6 @@
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
                         <a class="dropdown-item" th:href="@{/customer/custSelect}">회원 조회</a>
                         <a class="dropdown-item" th:href="@{/customer/custInsert}">회원 등록</a>
-                        <a class="dropdown-item" th:href="@{/customer/custUpdate}">회원 수정</a>
                     </div>
                 </li>
 
@@ -29,10 +28,8 @@
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"
                         aria-expanded="false">영화관리</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
-                        <a class="dropdown-item" href="#">영화 조회</a>
-                        <a class="dropdown-item" href="#">영화 등록</a>
-                        <a class="dropdown-item" href="#">영화 수정</a>
-                        <a class="dropdown-item" href="#">영화 삭제</a>
+                        <a class="dropdown-item" th:href="@{/movie/movieSelect}">영화 조회</a>
+                        <a class="dropdown-item" th:href="@{/movie/movieInsert}">영화 등록</a>
                     </div>
                 </li>
 

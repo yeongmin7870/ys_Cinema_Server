@@ -12,7 +12,7 @@
 
     <link href="starter-template.css" th:href="@{/starter-template.css}" rel="stylesheet">
 
-    <title>회원등록 페이지</title>
+    <title>영화등록 페이지</title>
 
 </head>
 
@@ -27,71 +27,70 @@
             <p class="lead">관리자가 애플리케이션의 서버에 접근하는 웹 페이지입니다.</p>
         </div>
 
-        <div class="row">
-            <div class="col-md-2 mb-4">
-                <h4 class="d-flex justify-content-between align-items-center mb-3">
-                    <span class="text-muted">회원관리</span>
-                </h4>
-                <ul class="list-group mb-3">
-                    <li class="list-group-item d-flex justify-content-between lh-condensed">
-                        <div>
-                            <h6 class="my-0"><a th:href="@{/customer/custSelect}">회원 조회</a></h6>
-                            <small class="text-muted">모든 회원들의 데이터를 조건에 맞게 조회하는 페이지 입니다.</small>
-                        </div>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between lh-condensed">
-                        <div>
-                            <h6 class="my-0"><a th:href="@{/customer/custInsert}">회원등록</a></h6>
-                            <small class="text-muted">회원 정보를 등록하는 페이지입니다.</small>
-                        </div>
-                    </li>
-                </ul>
-
-            </div>
-            <div class="col-md-10 ">
-                <h4 class="mb-3">회원등록 페이지</h4>
-                <form th:action="@{/customer/custInsert}" th:object="${customer}" method="post" class="needs-validation"
-                    novalidate>
+        <div >
+            <div>
+                <h4 class="mb-3">영화등록 페이지</h4>
+                <form th:action="@{/movie/movieInsert}" th:object="${movie}" method="post" class="needs-validation"
+                    enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label>영화포스터</label><br>
+                        <input type="file" name="m_Img">
+                    </div>
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label>이름</label>
-                            <input type="text" id="c_Name" class="form-control" placeholder="이름 입력" th:field="*{c_Name}">
+                            <label>영화이름</label>
+                            <input type="text" id="m_Name" class="form-control" placeholder="영화이름 입력" th:field="*{m_Name}">
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label>닉네임</label>
-                            <input type="text" id="c_Nikname" class="form-control" placeholder="닉네임 입력" th:field="*{c_Nikname}">
+                            <label>영화장르</label>
+                            <input type="text" id="m_Categories" class="form-control" placeholder="장르 입력" th:field="*{m_Categories}">
                         </div>
                     </div>
 
 
-                    <div class="mb-3">
-                        <label>Email <span class="text-muted">(Optional)</span></label>
-                        <input type="text" class="form-control" id="customerId" placeholder="you@example.com" th:field="*{customerId}">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label>감독</label>
+                            <input type="text" class="form-control" id="m_Director"  th:field="*{m_Director}">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label>시청등급</label>
+                            <input type="text" id="m_Rating" class="form-control" th:field="*{m_Rating}">
+                        </div>
                     </div>
 
-                    <div class="mb-3">
-                        <label>비밀번호</label>
-                        <input type="password" class="form-control" id="c_Pw" th:field="*{c_Pw}" required>
-                        <div class="invalid-feedback">
-                            비밀번호를 입력하세요.
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label>출연진1</label>
+                            <input type="text" id="m_Actors" class="form-control" th:field="*{m_Actors}">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label>출연진2</label>
+                            <input type="text" id="m_Actor2" class="form-control" th:field="*{m_Actor2}">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label>출연진3</label>
+                            <input type="text" id="m_Actor3" class="form-control" th:field="*{m_Actor3}">
                         </div>
                     </div>
 
                     <div class="mb-3">
-                        <label>집 주소</label>
-                        <input type="text" class="form-control" id="c_Address" placeholder="서울특별시 은평구 은평대로12 123-123 101호"
-                            th:field="*{c_Address}" required>
+                        <label>줄거리</label>
+                        <input type="text" class="form-control" id="m_Content" th:field="*{m_Content}" required>
                     </div>
 
-                    <div class="mb-3">
-                        <label>전화번호</label>
-                        <input type="text" class="form-control" id="c_Phone " placeholder="'-'는 제외하고 입력"
-                               th:field="*{c_Phone}">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label>개봉일</label>
+                            <input type="date" class="form-control" id="m_StartDate"  th:field="*{m_StartDate}" placeholder="yyyy-mm-dd hh:mm:ss.0">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label>상영마감일</label>
+                            <input type="date" id="m_EndDate" class="form-control" th:field="*{m_EndDate}" placeholder="yyyy-mm-dd hh:mm:ss.0">
+                        </div>
                     </div>
-
+                   <input type="hidden" class="form-control" id="m_StarScore"  th:field="*{m_StarScore}" th:value="0">
                     <hr class="mb-4">
-                    <input type="hidden" id="c_Total" th:value="0" th:field="*{c_Total}">
-                    <input type="hidden" id="c_Point" th:value="0" th:field="*{c_Point}">
                     <button class="btn btn-primary btn-lg btn-block" type="submit">회원 등록하기</button>
                 </form>
             </div>
