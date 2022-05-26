@@ -5,6 +5,7 @@ import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -46,8 +47,10 @@ public class Movie {
     private String m_Img;
     @Column(columnDefinition = "varchar2(70) default './src/main/resources/serverImage/movieImage/'")  // 이미지 경로컬럼
     private String m_ImagePath;
+    @DateTimeFormat(pattern = "yyyy-mm-dd")
     @Column(columnDefinition = "date")
     private Date m_StartDate;
+    @DateTimeFormat(pattern = "yyyy-mm-dd")
     @Column(columnDefinition = "date")
     private Date m_EndDate;
 

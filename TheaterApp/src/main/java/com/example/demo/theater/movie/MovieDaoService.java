@@ -16,8 +16,10 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Date;
 import java.util.List;
 
 
@@ -178,9 +180,6 @@ public class MovieDaoService {
     public Movie updateMovie(Movie newMovie, Integer id) {
         Movie movie = movieRepository.findByMovieId(id);
 
-        if (movie == null) {
-            return null;
-        }
         movie.setM_Actors(newMovie.getM_Actors());
         movie.setM_Actor2(newMovie.getM_Actor2());
         movie.setM_Actor3(newMovie.getM_Actor3());
@@ -190,7 +189,7 @@ public class MovieDaoService {
         movie.setM_Name(newMovie.getM_Name());
         movie.setM_Content(newMovie.getM_Content());
         movie.setM_Director(newMovie.getM_Director());
-        movie.setM_StarScore(newMovie.getM_StarScore());
+//        movie.setM_StarScore(newMovie.getM_StarScore());
         movie.setM_Rating(newMovie.getM_Rating());
         movie.setM_Hour(newMovie.getM_Hour());
         movie.setM_StartDate(newMovie.getM_StartDate());

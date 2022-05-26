@@ -1,0 +1,128 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+    <link href="starter-template.css" th:href="@{/starter-template.css}" rel="stylesheet">
+
+    <title>영화등록 페이지</title>
+
+</head>
+
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" th:replace="menuBar::menu"></nav>
+
+
+    <div class="container">
+        <div class="py-5 text-center">
+            <h2>관리자페이지</h2>
+            <p class="lead">관리자가 애플리케이션의 서버에 접근하는 웹 페이지입니다.</p>
+        </div>
+
+        <div >
+            <div>
+                <h4 class="mb-3">영화등록 페이지</h4>
+                <form th:action="@{/movie/movieInsert}" th:object="${movie}" method="post" class="needs-validation"
+                    enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label>영화포스터</label><br>
+                        <input type="file" name="m_Img">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label>영화이름</label>
+                            <input type="text" id="m_Name" class="form-control" placeholder="영화이름 입력" th:field="*{m_Name}">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label>영화장르</label>
+                            <input type="text" id="m_Categories" class="form-control" placeholder="장르 입력" th:field="*{m_Categories}">
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label>감독</label>
+                            <input type="text" class="form-control" id="m_Director"  th:field="*{m_Director}">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label>시청등급</label>
+                            <input type="text" id="m_Rating" class="form-control" th:field="*{m_Rating}">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label>출연진1</label>
+                            <input type="text" id="m_Actors" class="form-control" th:field="*{m_Actors}">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label>출연진2</label>
+                            <input type="text" id="m_Actor2" class="form-control" th:field="*{m_Actor2}">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label>출연진3</label>
+                            <input type="text" id="m_Actor3" class="form-control" th:field="*{m_Actor3}">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label>줄거리</label>
+                        <input type="text" class="form-control" id="m_Content" th:field="*{m_Content}" required>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label>개봉일</label>
+                            <input type="date" class="form-control" id="m_StartDate"  th:field="*{m_StartDate}" placeholder="yyyy-mm-dd hh:mm:ss.0">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label>상영마감일</label>
+                            <input type="date" id="m_EndDate" class="form-control" th:field="*{m_EndDate}" placeholder="yyyy-mm-dd hh:mm:ss.0">
+                        </div>
+                    </div>
+                   <input type="hidden" class="form-control" id="m_StarScore"  th:field="*{m_StarScore}" th:value="0">
+                    <hr class="mb-4">
+                    <button class="btn btn-primary btn-lg btn-block" type="submit">회원 등록하기</button>
+                </form>
+            </div>
+        </div>
+
+        <footer class="my-5 pt-5 text-muted text-center text-small">
+            <p class="mb-1">&copy; 주)캬라멜팝콘</p>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#">Privacy</a></li>
+                <li class="list-inline-item"><a href="#">Terms</a></li>
+                <li class="list-inline-item"><a href="#">Support</a></li>
+            </ul>
+        </footer>
+    </div>
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>
