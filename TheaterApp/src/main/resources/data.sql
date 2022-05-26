@@ -1,6 +1,11 @@
 ALTER SESSION SET NLS_DATE_FORMAT = 'YYYY-MM-DD-HH24:MI:SS';
 
+
+drop sequence movie_schedule_seq;
+
 CREATE SEQUENCE movie_schedule_seq INCREMENT BY 1 START WITH 1 MINVALUE 1 MAXVALUE 9999999999 NOCYCLE NOCACHE NOORDER;
+
+
 --fk 작성
 
 --내가쓴 리뷰의 내역

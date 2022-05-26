@@ -34,7 +34,7 @@ public class Customer {
     private Integer c_Total; // 총소비금액
     @Column(columnDefinition = "number default 0")
     private Integer c_Point; // 적립포인트
-    @Column(columnDefinition = "varchar2(70) default 'None'")
+    @Column(columnDefinition = "varchar2(70) default 'profile.jpeg'")
     private String c_Profile; // 프로필이미지
     @Column(columnDefinition = "varchar2(70) default './src/main/resources/serverImage/profile/'")
     private String c_Profile_Path;

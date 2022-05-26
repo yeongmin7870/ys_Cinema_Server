@@ -42,7 +42,7 @@ public class Movie {
     private String m_Hour;
     //위의 상영시간 부분은 ~~~분이라고 출력이 되어야 하는데 그것이 DATE 타입으론 불편하여서 varchar2(7) 로 수정했습니다.
 
-    @Column(columnDefinition = "varchar2(70)")
+    @Column(columnDefinition = "varchar2(70) default 'movie.jpeg' ")
     private String m_Img;
     @Column(columnDefinition = "varchar2(70) default './src/main/resources/serverImage/movieImage/'")  // 이미지 경로컬럼
     private String m_ImagePath;
@@ -53,11 +53,13 @@ public class Movie {
 
     @Column(columnDefinition = "varchar2(70) default './src/main/resources/movieVideo/'")
     private String movieVideoPath;     // 영화 비디오 경로
-    @Column(columnDefinition = "varchar2(70)")
+    @Column(columnDefinition = "varchar2(70) default 'Iwannagosea' ")
     private String movieVideoName; // 영화 비디오 드름
 
     @Column(columnDefinition = "varchar2(18)")
     private String m_tier;
+
+
 
 
 }
