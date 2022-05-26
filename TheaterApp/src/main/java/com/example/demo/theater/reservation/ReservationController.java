@@ -14,7 +14,10 @@ public class ReservationController {
     private ReservationDaoService daoService;
 
     @PostMapping("reserve")
-    @ApiOperation("영화예매하기 삽입 1. 회원   2. 비회원 ")
+    @ApiOperation(value = "영화예매하기 삽입 1. 회원   2. 비회원 ", notes = "m_No : 영화 id " +
+            "msNo : 상영시간표 id " +
+            "r_Seat : 좌석 " +
+            "r_TotalPrice : 총액 " )
     public Reservation reserveMovie(@RequestBody Reservation reservation, @RequestParam String cId, @RequestParam String who) {
         Reservation result = null;
         if (who.equals("회원")) {

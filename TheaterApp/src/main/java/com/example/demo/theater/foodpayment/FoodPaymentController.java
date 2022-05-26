@@ -26,7 +26,9 @@ public class FoodPaymentController {
     }
 
     @PostMapping("/foodPaymet")
-    @ApiOperation("음식주문하기 1. 회원 2. 비회원  ")
+    @ApiOperation(value = "음식주문하기 1. 회원 2. 비회원  ",notes = "food_No : 음식 id " +
+            "fp_Count : 개수 " +
+            "fp_Price : 음식 가격 ")
     public List<Object> orderFood(@RequestBody FoodPayment foodPayment, @RequestParam String cId, @RequestParam String who) {
         List<Object> list = null;
         if (who.equals("회원")) {
