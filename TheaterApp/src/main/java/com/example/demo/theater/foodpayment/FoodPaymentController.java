@@ -45,4 +45,20 @@ public class FoodPaymentController {
         return foodPaymentDaoService.retrieveFoodOrderList(who, id);
     }
 
+
+    @PutMapping("/foodPaymet")
+    @ApiOperation(value = "결제내역 수정(환불, 수정 요청시) 1. 회원 2. 비회원  ",notes = "food_No : 음식 id " +
+            "fp_Count : 개수 " +
+            "fp_Price : 음식 가격 " +
+            "foodPaymentId : 주문내역 ID ")
+    public List<Object> replaceFoodPayment(@RequestBody FoodPayment foodPayment, @RequestParam String cId, @RequestParam String who) {
+        List<Object> list = null;
+        if (who.equals("회원")) {
+            list = foodPaymentDaoService.orderReplace(foodPayment, cId);
+        } else if (who.equals("비회원")) {
+            list = foodPaymentDaoService.NcOrderReplace(foodPayment, Integer.parseInt(cId));
+        }
+        return list;
+    }
+
 }
