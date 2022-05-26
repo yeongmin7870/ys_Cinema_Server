@@ -127,11 +127,13 @@ public class MovieDaoService {
 
             // 회원정보가 없을떄
             if (movie == null) {
+                logger.info("회원정보가 없습니다");
                 return "fail";
             }
 
             // 이미지를 변경할떄 기존이미지 삭제
             if (checkFile.exists()) {
+                logger.info("기존에 이미지가 존재하여 삭제합니다");
                 Files.delete(path);
             }
 
@@ -145,8 +147,10 @@ public class MovieDaoService {
             movie.setM_ImagePath(uploadFolderPath);
             movieRepository.save(movie);
             // 여기까지 디비에 이미지 이름과 경로 저장
+            logger.info("정상적으로 이미지를 등록합니다");
             return "finish";
         } catch (IOException e) {
+            logger.info("이미지 등록에 실패했습니다.");
             e.printStackTrace();
             return "fail";
         }

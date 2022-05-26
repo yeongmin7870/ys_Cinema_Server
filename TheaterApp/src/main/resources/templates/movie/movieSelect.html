@@ -57,7 +57,9 @@
                             <td th:text="${movie.m_StarScore}">평점</td>
                             <td th:text="${movie.m_Rating}">시청등급</td>
                             <td><a class="btn btn-primary" th:text="수정" 
-                                th:href="@{/movie/movieInsert(movieId=${movie.movieId})}"></a></td>
+                                th:href="@{/movie/movieInsert(movieId=${movie.movieId})}"></a>
+                                <a class="btn btn-primary" th:text="이미지등록" 
+                                th:href="@{/movie/movieImage(movieId=${movie.movieId})}"></a></td>
                         </tr>
                     </table>
                 </div>
