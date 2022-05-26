@@ -3,6 +3,7 @@ ALTER SESSION SET NLS_DATE_FORMAT = 'YYYY-MM-DD-HH24:MI:SS';
 
 drop sequence movie_schedule_seq;
 
+
 CREATE SEQUENCE movie_schedule_seq INCREMENT BY 1 START WITH 1 MINVALUE 1 MAXVALUE 9999999999 NOCYCLE NOCACHE NOORDER;
 
 
@@ -92,11 +93,11 @@ INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_N
 INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(36, '핫도그 1개 + 음료 1컵 ',sysdate,'./src/main/resources/serverImage/foodImage/food_none.png', 300, '제한 없음', '핫도그 콤보', 8500);
 
 --고객 기본정보
-INSERT INTO CUSTOMER (c_id, c_address, c_name,c_nikname, c_phone, c_point, c_profile, c_profile_path, c_pw, c_total) values ('PYM', 'ANSAN','박영민','왼손에 청룡이','01011112222', 0, '이미지명', './src/main/resources/serverImage/profile/','1234',0);
-INSERT INTO CUSTOMER (c_id, c_address, c_name,c_nikname, c_phone, c_point, c_profile, c_profile_path, c_pw, c_total) values ('LSG', 'ANYANG','이상기','오른손에 주작이','01033334444', 0, '이미지명', './src/main/resources/serverImage/profile/','1234',0);
-INSERT INTO CUSTOMER (c_id, c_address, c_name,c_nikname, c_phone, c_point, c_profile, c_profile_path, c_pw, c_total) values ('YSJ', 'ANYANG','양석준','머리에 탈모가...','01055556666', 0, '이미지명', './src/main/resources/serverImage/profile/','1234',0);
-INSERT INTO CUSTOMER (c_id, c_address, c_name,c_nikname, c_phone, c_point, c_profile, c_profile_path, c_pw, c_total) values ('HJY', 'SIHEUNG','한정엽','왼발에 백호가','01077778888', 0, '이미지명', './src/main/resources/serverImage/profile/','1234',0);
-INSERT INTO CUSTOMER (c_id, c_address, c_name,c_nikname, c_phone, c_point, c_profile, c_profile_path, c_pw, c_total) values ('BSH', 'GWANGJU','박영민','오른발에 현무가','01099990000', 0, '이미지명', './src/main/resources/serverImage/profile/','1234',0);
+INSERT INTO CUSTOMER (c_id, c_address, c_name,c_nikname, c_phone, c_point, c_profile, c_profile_path, c_pw, c_total) values ('PYM', 'ANSAN','박영민','왼손에 청룡이','01011112222', 0, 'profile.jpeg', './src/main/resources/serverImage/profile/','1234',0);
+INSERT INTO CUSTOMER (c_id, c_address, c_name,c_nikname, c_phone, c_point, c_profile, c_profile_path, c_pw, c_total) values ('LSG', 'ANYANG','이상기','오른손에 주작이','01033334444', 0, 'profile.jpeg', './src/main/resources/serverImage/profile/','1234',0);
+INSERT INTO CUSTOMER (c_id, c_address, c_name,c_nikname, c_phone, c_point, c_profile, c_profile_path, c_pw, c_total) values ('YSJ', 'ANYANG','양석준','머리에 탈모가...','01055556666', 0, 'profile.jpeg', './src/main/resources/serverImage/profile/','1234',0);
+INSERT INTO CUSTOMER (c_id, c_address, c_name,c_nikname, c_phone, c_point, c_profile, c_profile_path, c_pw, c_total) values ('HJY', 'SIHEUNG','한정엽','왼발에 백호가','01077778888', 0, 'profile.jpeg', './src/main/resources/serverImage/profile/','1234',0);
+INSERT INTO CUSTOMER (c_id, c_address, c_name,c_nikname, c_phone, c_point, c_profile, c_profile_path, c_pw, c_total) values ('BSH', 'GWANGJU','박영민','오른발에 현무가','01099990000', 0, 'profile.jpeg', './src/main/resources/serverImage/profile/','1234',0);
 
 --자주찾는질문
 INSERT INTO often_question (often_id, often_answer, often_content, often_subject)
