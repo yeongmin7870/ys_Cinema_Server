@@ -12,7 +12,7 @@
 
     <link href="starter-template.css" th:href="@{/starter-template.css}" rel="stylesheet">
 
-    <title>포스터등록 페이지</title>
+    <title>비디오등록 페이지</title>
 
 </head>
 
@@ -29,16 +29,16 @@
 
         <div >
             <div>
-                <h4 class="mb-3">영화 이미지등록 페이지</h4>
-                <form th:action="@{/movie/movieImage}" th:object="${movie}" method="post" enctype="multipart/form-data">
+                <h4 class="mb-3">비디오 등록 페이지</h4>
+                <form th:action="@{/movie/movieVideo}" th:object="${movie}" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
-                        <label>영화포스터</label><br>
+                        <label>첨부할 비디오</label><br>
                         <input type="file" th:id="file" th:name="file"><br>
                         <label>영화번호</label><br>
                         <input type="text" th:field="*{movieId}">
                     </div>
                     <hr class="mb-4">
-                    <button class="btn btn-primary btn-lg btn-block" type="submit">이미지 등록하기</button>
+                    <button class="btn btn-primary btn-lg btn-block" type="submit">비디오 등록하기</button>
                 </form>
             </div>
         </div>

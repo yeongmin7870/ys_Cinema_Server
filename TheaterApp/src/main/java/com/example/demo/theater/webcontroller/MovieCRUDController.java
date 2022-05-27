@@ -77,7 +77,7 @@ public class MovieCRUDController {
 
     @PostMapping("/movieImage")
     @ApiOperation("영화 이미지 등록")
-    public RedirectView upload(@ModelAttribute Movie movie, @RequestParam("file") MultipartFile file) {
+    public RedirectView uploadImage(@ModelAttribute Movie movie, @RequestParam("file") MultipartFile file) {
         if (movie.getMovieId() == null) {
             logger.info("값: " + movie.getMovieId() + ", " + file);
             return  new RedirectView("movie/movieSelect");
@@ -87,5 +87,31 @@ public class MovieCRUDController {
         }
         return new RedirectView("/");
     }
-    //
+    @GetMapping("/movieVideo")
+    @ApiOperation("영화 비디오 등록 페이지")
+    public String video(Model model, @RequestParam(required = false) Integer movieId){
+        if (movieId == null) {
+            model.addAttribute("movie", new Movie());
+            logger.info("아이디 값이 null입니다.");
+        } else {
+            logger.info("아이디 값이 null이 아닙니다.");
+            Movie movie = repository.findById(movieId).orElse(null);
+            model.addAttribute("movie", movie);
+        }
+        return "movie/movieVideo";
+    }
+
+    @PostMapping("/movieVideo")
+    @ApiOperation("영화 비디오 등록")
+    public RedirectView uploadVideo(@ModelAttribute Movie movie, @RequestParam("file") MultipartFile file) {
+        if (movie.getMovieId() == null) {
+            logger.info("값: " + movie.getMovieId() + ", " + file);
+            return  new RedirectView("movie/movieSelect");
+        } else {
+            logger.info("아이디 값이 정확하게 전달 되었습니다.");
+            service.saveMovieVideo(movie.getMovieId(), file);
+        }
+        return new RedirectView("/");
+    }
+
 }

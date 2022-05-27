@@ -46,6 +46,8 @@
                             <td>평점</td>
                             <td>시청등급</td>
                             <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <tr th:each="movie:${movie}">
                             <th scope="row" th:text="${movie.m_Name}">영화이름</th>
@@ -57,9 +59,11 @@
                             <td th:text="${movie.m_StarScore}">평점</td>
                             <td th:text="${movie.m_Rating}">시청등급</td>
                             <td><a class="btn btn-primary" th:text="수정" 
-                                th:href="@{/movie/movieInsert(movieId=${movie.movieId})}"></a>
-                                <a class="btn btn-primary" th:text="이미지등록" 
+                                th:href="@{/movie/movieInsert(movieId=${movie.movieId})}"></a></td>
+                            <td><a class="btn btn-primary" th:text="이미지등록" 
                                 th:href="@{/movie/movieImage(movieId=${movie.movieId})}"></a></td>
+                            <td><a class="btn btn-primary" th:text="비디오등록" 
+                                th:href="@{/movie/movieVideo(movieId=${movie.movieId})}"></a></td>
                         </tr>
                     </table>
                 </div>
