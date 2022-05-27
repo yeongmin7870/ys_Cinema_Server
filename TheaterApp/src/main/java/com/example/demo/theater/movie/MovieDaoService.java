@@ -59,6 +59,7 @@ public class MovieDaoService {
             Movie movie = movieRepository.findByMovieId(id);
             String videoName = "video"+id+".mp4";
             File checkVideo = new File(uploadFolderPath + videoName);
+
             Path path = Paths.get(uploadFolderPath + videoName);
 
             // 영화정보가 없을떄
@@ -76,9 +77,9 @@ public class MovieDaoService {
             Files.write(path, data);
             // 여기까지는 이미지를 폴더에 저장함
 
-
+            String videoPath = uploadFolderPath + videoName;
             movie.setMovieVideoName(videoName);
-            movie.setMovieVideoPath(uploadFolderPath);
+            movie.setMovieVideoPath(videoPath);
             movieRepository.save(movie);
             // 여기까지 디비에 영상 이름과 경로 저장
             return "finish";
@@ -142,9 +143,9 @@ public class MovieDaoService {
             Files.write(path, data);
             // 여기까지는 이미지를 폴더에 저장함
 
-
+            String imagePath = uploadFolderPath + imageName;
             movie.setM_Img(imageName);
-            movie.setM_ImagePath(uploadFolderPath);
+            movie.setM_ImagePath(imagePath);
             movieRepository.save(movie);
             // 여기까지 디비에 이미지 이름과 경로 저장
             logger.info("정상적으로 이미지를 등록합니다");

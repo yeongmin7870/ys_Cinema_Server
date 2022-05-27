@@ -37,7 +37,8 @@
                     <table class="table table-striped">
 
                         <tr>
-                            <th scope="row">영화이름</th>
+                            <th scope="row">영화포스터</th>
+                            <td>영화이름</td>
                             <td>장르</td>
                             <td>감독</td>
                             <td>출연진1</td>
@@ -50,7 +51,8 @@
                             <td></td>
                         </tr>
                         <tr th:each="movie:${movie}">
-                            <th scope="row" th:text="${movie.m_Name}">영화이름</th>
+                            <th scope="row"><img th:src="@{./src/main/resources/serverImage/movieImage/} + ${movie.m_img}" ></th>
+                            <td th:text="${movie.m_Name}">영화이름</td>
                             <td th:text="${movie.m_Categories}">장르</td>
                             <td th:text="${movie.m_Director}">감독</td>
                             <td th:text="${movie.m_Actors}">출연진1</td>
