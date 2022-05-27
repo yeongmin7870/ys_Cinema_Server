@@ -29,7 +29,13 @@ public class ReservationController {
     }
 
     @GetMapping("reserve")
-    @ApiOperation("영화 예매한거 보여주기 1. 회원 2. 비회원")
+    @ApiOperation(value = "영화 예매한거 보여주기 1. 회원 2. 비회원" , notes = "" +
+            "m_No : 영화번호 " +
+            "mS_No : 상영시간표넘버 " +
+            "normal_SID : 상영관과 좌석 " +
+            "r_Date : 예매일 " +
+            "normalScreenId : 상영관 아이디" +
+            " normalSeatId : 좌석 아이디")
     public List<Object> reserveOrderList(@RequestParam String who, @RequestParam String cId){
         List<Object> result = null;
         if (who.equals("회원")) {

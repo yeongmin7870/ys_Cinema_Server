@@ -8,7 +8,7 @@ spring:
     username: admin
     password: Cloudoracle123
     driver-class-name: oracle.jdbc.OracleDriver
-    initialization-mode: always
+    initialization-mode: never
 
 
   jpa:
@@ -16,7 +16,7 @@ spring:
     show-sql: true
     database-platform: org.hibernate.dialect.Oracle10gDialect
     hibernate:
-      ddl-auto: create
+      ddl-auto: none
       format-sql: true
 
   thymeleaf:
