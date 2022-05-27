@@ -36,10 +36,10 @@ public class Reservation {
     @Column(columnDefinition = "varchar2(70)")
     private String c_Photo;
 
-    @Column(name = "normalSeat_Id", columnDefinition = "VARCHAR2(7)")
+    @Column(columnDefinition = "VARCHAR2(7)")
     private String normalSeatId;
 
-    @Column(name = "normal_SId", columnDefinition = "VARCHAR2(10)")
+    @Column(columnDefinition = "VARCHAR2(10)")
     private String normalScreenId;
 
 
