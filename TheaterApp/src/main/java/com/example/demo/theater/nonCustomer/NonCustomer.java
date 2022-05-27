@@ -24,4 +24,8 @@ public class NonCustomer {
     private String nc_Name;
     @Column(columnDefinition = "VARCHAR2(11)")
     private String ncPhone;
+    @Column(columnDefinition = "varchar2(70) default 'profile.png'")
+    private String c_Profile; // 프로필이미지
+    @Column(columnDefinition = "varchar2(70) default './src/main/resources/serverImage/profile/'")
+    private String c_Profile_Path;
 }
