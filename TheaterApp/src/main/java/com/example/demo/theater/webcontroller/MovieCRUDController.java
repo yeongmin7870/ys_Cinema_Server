@@ -51,7 +51,7 @@ public class MovieCRUDController {
     @ApiOperation("영화등록")
     public RedirectView insertForm(@ModelAttribute Movie movie) {
         if(movie.getMovieId() == null) {
-            repository.save(movie);
+            service.save(movie);
         } else {
             logger.info("영화를 수정합니다.");
             service.updateMovie(movie, movie.getMovieId());
@@ -63,7 +63,7 @@ public class MovieCRUDController {
 
     @GetMapping("/movieImage")
     @ApiOperation("영화 이미지 등록 페이지")
-    public String image(Model model, @RequestParam(required = true) Integer movieId){
+    public String image(Model model, @RequestParam(required = false) Integer movieId){
         if (movieId == null) {
             model.addAttribute("movie", new Movie());
             logger.info("아이디 값이 null입니다.");
@@ -78,9 +78,14 @@ public class MovieCRUDController {
     @PostMapping("/movieImage")
     @ApiOperation("영화 이미지 등록")
     public RedirectView upload(@ModelAttribute Movie movie, @RequestParam("file") MultipartFile file) {
-        logger.info("값: " + movie.getMovieId() + ", " + file);
-        service.uploadToLocal(movie.getMovieId(), file);
-        return new RedirectView("movie/movieSelect");
+        if (movie.getMovieId() == null) {
+            logger.info("값: " + movie.getMovieId() + ", " + file);
+            return  new RedirectView("movie/movieSelect");
+        } else {
+            logger.info("아이디 값이 정확하게 전달 되었습니다.");
+            service.uploadToLocal(movie.getMovieId(), file);
+        }
+        return new RedirectView("/");
     }
     //
 }
