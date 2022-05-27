@@ -17,7 +17,7 @@ public class NormalTheater {
     @Id
     @NotNull
     @GeneratedValue
-    @Column(name = "normal_Id",columnDefinition = "VARCHAR2(10)",unique = true)
+    @Column(name = "normalSeat_Id",columnDefinition = "VARCHAR2(10)",unique = true)
     private String normalTheaterId;
     @Column(columnDefinition = "char(1)")
     private String normal_state;

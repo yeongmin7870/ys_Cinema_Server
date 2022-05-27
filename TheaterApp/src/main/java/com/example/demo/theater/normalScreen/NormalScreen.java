@@ -19,7 +19,7 @@ import javax.persistence.Id;
 public class NormalScreen {
     @Id
     @NotNull
-    @Column(name = "normal_SID", columnDefinition = "VARCHAR2(4)", unique = true)
+    @Column(name = "normal_SId", columnDefinition = "VARCHAR2(4)", unique = true)
     private String normalScreenId;
 
     @Column(name = "normal_Screen", columnDefinition = "VARCHAR2(5)")
