@@ -75,16 +75,31 @@ public class MovieScheduleDaoService {
         return mHour;
     }
 
-    /*public void updateEndTime(Integer m_Hour, MovieSchedule movieSchedule) {
-        Integer movieScheduleId = movieSchedule.getMovieScheduleId();
-        movieScheduleRepository.endTime(m_Hour, movieScheduleId);
-        Date m_StarTime, Integer m_no, Integer store_No, String m_Hour
-    }*/
-
     public void insertSchedule(Integer m_Hour, MovieSchedule movieSchedule) {
         Date m_StarTime = movieSchedule.getMS_StarTime();
         Integer m_no = movieSchedule.getM_No();
         Integer store_No = movieSchedule.getStore_No();
         movieScheduleRepository.insertSchedule(m_StarTime, m_no, store_No, m_Hour);
     }
+
+    public void deleteSchedule(Integer id) {movieScheduleRepository.deleteById(id);}
+
+    public void updateMovieSchedule (Integer m_Hour,
+                                     MovieSchedule newMovieSchedule,
+                                     Integer ms_no) {
+
+        MovieSchedule movieSchedule = movieScheduleRepository.findByMovieScheduleId(newMovieSchedule.getMovieScheduleId());
+
+        if (movieSchedule != null) {
+
+            Date ms_StarTime = newMovieSchedule.getMS_StarTime();
+            Integer m_no = newMovieSchedule.getM_No();
+            Integer store_No = newMovieSchedule.getStore_No();
+
+            movieScheduleRepository.updateSchedule(ms_StarTime, m_no, store_No, m_Hour, ms_no);
+        }
+
+
+    }
+
 }

@@ -4,5 +4,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface NormalTheaterRepository extends JpaRepository<NormalTheater,Integer> {
+public interface NormalTheaterRepository extends JpaRepository<NormalTheater,String> {
+
+    NormalTheater findByNormalTheaterId(String id);
+
 }

@@ -63,26 +63,26 @@ INSERT INTO Food_Kind VALUES (200, '음료');
 INSERT INTO Food_Kind VALUES (300, '콤보');
 
 --음식 메뉴 100번 대분류에 속함
-INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(11, '팝콘 단품',sysdate,'./src/main/resources/serverImage/foodImage/popcorn.png', 100, '제한 없음', '오리지널 팝콘', 5000);
-INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(12, '팝콘 단품',sysdate,'./src/main/resources/serverImage/foodImage/Caramelpopcorn.jpg', 100, '제한 없음', '캬라멜 팝콘', 5500);
-INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(13, '팝콘 단품',sysdate,'./src/main/resources/serverImage/foodImage/ButterPopCorn.png', 100, '제한 없음', '버터갈릭 팝콘', 5500);
-INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(14, '나초+소스',sysdate,'./src/main/resources/serverImage/foodImage/nacho.png', 100, '제한 없음', '오리지날 나쵸', 6000);
-INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(15, '나초샐러드',sysdate,'./src/main/resources/serverImage/foodImage/NachoSalad.jpg', 100, '제한 없음', '나초 샐러드', 7000);
-INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(16, '감자 튀김',sysdate,'./src/main/resources/serverImage/foodImage/Potato.jpg', 100, '제한 없음', '감자 튀김', 6000);
-INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(17, '감자튀김+치즈스틱',sysdate,'./src/main/resources/serverImage/foodImage/CheeseSticks.jpg', 100, '제한 없음', '감자 튀김+치즈 스틱', 8000);
-INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(18, '버터 오징어',sysdate,'./src/main/resources/serverImage/foodImage/Butter_Squid.jpg', 100, '제한 없음', '버터 오징어', 6000);
-INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(19, 'BBQ 핫도그',sysdate,'./src/main/resources/serverImage/foodImage/HotDog.jpg', 100, '제한 없음', 'BBQ 핫도그', 6000);
+INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(11, '팝콘 단품',sysdate,'./src/main/resources/serverImage/foodImage/food_none.png', 100, '제한 없음', '오리지널 팝콘', 5000);
+INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(12, '팝콘 단품',sysdate,'./src/main/resources/serverImage/foodImage/food_none.png', 100, '제한 없음', '캬라멜 팝콘', 5500);
+INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(13, '팝콘 단품',sysdate,'./src/main/resources/serverImage/foodImage/food_none.png', 100, '제한 없음', '버터갈릭 팝콘', 5500);
+INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(14, '나초+소스',sysdate,'./src/main/resources/serverImage/foodImage/food_none.png', 100, '제한 없음', '오리지날 나쵸', 6000);
+INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(15, '나초샐러드',sysdate,'./src/main/resources/serverImage/foodImage/food_none.png', 100, '제한 없음', '나초 샐러드', 7000);
+INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(16, '감자 튀김',sysdate,'./src/main/resources/serverImage/foodImage/food_none.png', 100, '제한 없음', '감자 튀김', 6000);
+INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(17, '감자튀김+치즈스틱',sysdate,'./src/main/resources/serverImage/foodImage/food_none.png', 100, '제한 없음', '감자 튀김+치즈 스틱', 8000);
+INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(18, '버터 오징어',sysdate,'./src/main/resources/serverImage/foodImage/food_none.png', 100, '제한 없음', '버터 오징어', 6000);
+INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(19, 'BBQ 핫도그',sysdate,'./src/main/resources/serverImage/foodImage/food_none.png', 100, '제한 없음', 'BBQ 핫도그', 6000);
 
 --음식 메뉴 200번 대분류에 속함
-INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(21, '탄산 음료',sysdate,'./src/main/resources/serverImage/foodImage/Coke.jpg', 200, '제한 없음', '콜라', 3500);
-INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(22, '탄산 음료',sysdate,'./src/main/resources/serverImage/foodImage/Sprite.jpg', 200, '제한 없음', '사이다(스프라이트)', 3500);
-INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(23, '탄산 음료',sysdate,'./src/main/resources/serverImage/foodImage/Fanta.jpg', 200, '제한 없음', '환타', 3500);
-INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(24, '에이드',sysdate,'./src/main/resources/serverImage/foodImage/Lemonade.jpg', 200, '제한 없음', '레몬 에이드', 5000);
-INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(25, '에이드',sysdate,'./src/main/resources/serverImage/foodImage/PeachIcedTea.jpg', 200, '제한 없음', '복숭아 에이드', 5000);
-INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(26, '에이드',sysdate,'./src/main/resources/serverImage/foodImage/GreenGrapeAde.jpg', 200, '제한 없음', '청포도 에이드', 5000);
-INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(27, '주류',sysdate,'./src/main/resources/serverImage/foodImage/Beer.jpg', 200, '19세 미만 판매 금지', '생맥주 500cc', 6000);
-INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(28, '주류',sysdate,'./src/main/resources/serverImage/foodImage/HighBall.jpg', 200, '19세 미만 판매 금지', '하이볼', 6500);
-INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(29, '커피',sysdate,'./src/main/resources/serverImage/foodImage/Americano.jpg', 200, '제한 없음', '아메리카노', 4500);
+INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(21, '탄산 음료',sysdate,'./src/main/resources/serverImage/foodImage/food_none.png', 200, '제한 없음', '콜라', 3500);
+INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(22, '탄산 음료',sysdate,'./src/main/resources/serverImage/foodImage/food_none.png', 200, '제한 없음', '사이다(스프라이트)', 3500);
+INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(23, '탄산 음료',sysdate,'./src/main/resources/serverImage/foodImage/food_none.png', 200, '제한 없음', '환타', 3500);
+INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(24, '에이드',sysdate,'./src/main/resources/serverImage/foodImage/food_none.png', 200, '제한 없음', '레몬 에이드', 5000);
+INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(25, '에이드',sysdate,'./src/main/resources/serverImage/foodImage/food_none.png', 200, '제한 없음', '복숭아 에이드', 5000);
+INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(26, '에이드',sysdate,'./src/main/resources/serverImage/foodImage/food_none.png', 200, '제한 없음', '청포도 에이드', 5000);
+INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(27, '주류',sysdate,'./src/main/resources/serverImage/foodImage/food_none.png', 200, '19세 미만 판매 금지', '생맥주 500cc', 6000);
+INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(28, '주류',sysdate,'./src/main/resources/serverImage/foodImage/food_none.png', 200, '19세 미만 판매 금지', '하이볼', 6500);
+INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(29, '커피',sysdate,'./src/main/resources/serverImage/foodImage/food_none.png', 200, '제한 없음', '아메리카노', 4500);
 
 --음식 메뉴 300번 대분류에 속함
 INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(31, '팝콘 1개 + 음료 1 컵',sysdate,'./src/main/resources/serverImage/foodImage/SingleCombo.jpg', 300, '제한 없음', '싱글콤보', 8000);
@@ -113,498 +113,121 @@ values (5,'소지물품을 분실하신 경우에는 통합콜센터 1234-1234�
 
 
 --영화
-insert into movie (m_no,m_Actor2, m_Actor3,m_Actors,m_categories,m_content,m_director,m_end_date,m_hour,m_image_path,m_img,m_name,m_rating,m_star_score,m_start_date,movie_video_path,movie_video_name,m_tier) values (1,'필립 느와레','자끄 페렝','마르코 레오나르디','드라마','영화가 세상의 전부였던 소년 토토는 영사 기사의 친구로 지내며 영사기술을 배운다.','쥬세페 토르나토레','20220601','124','./src/main/resources/serverImage/movieImage/', 'CinemaParadiso.jpg', '시네마 천국',0,0.0,'20200504','./src/main/resources/movieVideo/','Iwannagosea.mp4','전체이용가');
-insert into movie (m_no,m_Actor2, m_Actor3,m_Actors,m_categories,m_content,m_director,m_end_date,m_hour,m_image_path,m_img,m_name,m_rating,m_star_score,m_start_date,movie_video_path,movie_video_name,m_tier) values (2,'엠마 스톤','존 레전드','라이언 고슬링','드라마','별들의 도시 라라랜드. 두 사람은 미완성인 서로의 무대를 만들어가기 시작한다.','데이미언 셔젤','20220601','127','./src/main/resources/serverImage/movieImage/', 'LaLaLand.jpg', '라라랜드',0,0.0,'20201231','./src/main/resources/movieVideo/','Iwannagosea.mp4','12세 관람가');
-insert into movie (m_no,m_Actor2, m_Actor3,m_Actors,m_categories,m_content,m_director,m_end_date,m_hour,m_image_path,m_img,m_name,m_rating,m_star_score,m_start_date,movie_video_path,movie_video_name,m_tier) values (3,'로버트 패틴슨','엘리자베스 데비키','존 데이비드 워싱턴','액션','현재와 미래를 오가며 세상을 파괴하려는 사토르에 맞서 제 3차 대전을 막아야 한다.','크리스토퍼 놀란','20220601','150','./src/main/resources/serverImage/movieImage/', 'tenet.jpg', '테넷',0,0.0,'20200826','./src/main/resources/movieVideo/','Iwannagosea.mp4','12세 관람가');
-insert into movie (m_no,m_Actor2, m_Actor3,m_Actors,m_categories,m_content,m_director,m_end_date,m_hour,m_image_path,m_img,m_name,m_rating,m_star_score,m_start_date,movie_video_path,movie_video_name,m_tier) values (4,'케빈 스페이시','릴리 제임스','안셀 엘고트','액션','탈출 전문 드라이버 베이비. 어느 날,  데보라를 만나 베이비는 새 인생을 살려 하는데...','에드가 라이트','20220601','113','./src/main/resources/serverImage/movieImage/', 'BabyDriver.jpg', '베이비 드라이버',0,0.0,'20170913','./src/main/resources/movieVideo/','Iwannagosea.mp4','15세 관람가');
-insert into movie (m_no,m_Actor2, m_Actor3,m_Actors,m_categories,m_content,m_director,m_end_date,m_hour,m_image_path,m_img,m_name,m_rating,m_star_score,m_start_date,movie_video_path,movie_video_name,m_tier) values (5,'폴 다노','조 크라비츠','로버트 패틴슨','액션','2년간 고담시에서 활동한 브루스웨인. 범인의 수사를 하며 숨겨진 진실이 드러나는데','맷 리브스','20220601','176','./src/main/resources/serverImage/movieImage/', 'TheBatMan.jpg', '더 배트맨',0,0.0,'20220301','./src/main/resources/movieVideo/','Iwannagosea.mp4','15세 관람가');
-insert into movie (m_no,m_Actor2, m_Actor3,m_Actors,m_categories,m_content,m_director,m_end_date,m_hour,m_image_path,m_img,m_name,m_rating,m_star_score,m_start_date,movie_video_path,movie_video_name,m_tier) values (6,'재지 비츠','로버트 드니로','호아킨 피닉스','스릴러','고담시의 광대 아서 플렉은 모두 미쳐가는 세상 속에서 그가 설 자리가 없음을 깨닫는데...','토드 필립스','20220601','123','./src/main/resources/serverImage/movieImage/', 'joker.jpg', '조커',0,0.0,'20191002','./src/main/resources/movieVideo/','Iwannagosea.mp4','15세 관람가');
-insert into movie (m_no,m_Actor2, m_Actor3,m_Actors,m_categories,m_content,m_director,m_end_date,m_hour,m_image_path,m_img,m_name,m_rating,m_star_score,m_start_date,movie_video_path,movie_video_name,m_tier) values (7,'테렌스 하워드','제프 브리지스','로버트 다우니 주니어','SF','천재적인 두뇌와 재능으로 세계 최강의 무기업체를 이끄는 CEO. 어느 날 납치를 당하는데...','존 파브로','20220601','125','./src/main/resources/serverImage/movieImage/', 'IronMan.jpg', '아이언맨 1',0,0.0,'20080430','./src/main/resources/movieVideo/','Iwannagosea.mp4','12세 관람가');
-insert into movie (m_no,m_Actor2, m_Actor3,m_Actors,m_categories,m_content,m_director,m_end_date,m_hour,m_image_path,m_img,m_name,m_rating,m_star_score,m_start_date,movie_video_path,movie_video_name,m_tier) values (8,'밀리 샤피로','알렉스 울프','토니 콜렛','공포','애니의 엄마로부터 시작돼 딸 와 아들에게까지 이어진 저주의 정체를 드러내는데···','아리 애스터','20220601','127','./src/main/resources/serverImage/movieImage/', 'Hereditary.jpg', '유전',0,0.0,'20180607','./src/main/resources/movieVideo/','Iwannagosea.mp4','15세 관람가');
-insert into movie (m_no,m_Actor2, m_Actor3,m_Actors,m_categories,m_content,m_director,m_end_date,m_hour,m_image_path,m_img,m_name,m_rating,m_star_score,m_start_date,movie_video_path,movie_video_name,m_tier) values (9,'에밀리 블런트','빌 팩스본','톰 크루즈','액션','근 미래 외계 종족의 침략으로 주인공은 전쟁에 참전하게 되어 죽고 타임 루프에 갇히는데...','더그 라이만','20220601','113','./src/main/resources/serverImage/movieImage/', 'EdgeOfTomorrow.jpg', '엣지 오브 투모로우',0,0.0,'20140604','./src/main/resources/movieVideo/','Iwannagosea.mp4','12세 관람가');
-insert into movie (m_no,m_Actor2, m_Actor3,m_Actors,m_categories,m_content,m_director,m_end_date,m_hour,m_image_path,m_img,m_name,m_rating,m_star_score,m_start_date,movie_video_path,movie_video_name,m_tier) values (10,'마크 러팔러','애덤 리바인','키이라 나이틀리','드라마','스타 음반프도듀서에서 해고된 댄은 뮤직바에서 그레타의 자작곡을 듣고 다시 한 번 재개하는데','존 카니','20220601','104','./src/main/resources/serverImage/movieImage/', 'BeginAgain.jpg', '비긴 어게인',0,0.0,'20201231','./src/main/resources/movieVideo/','Iwannagosea.mp4','15세 관람가');
+insert into movie (m_no,m_Actor2, m_Actor3,m_Actors,m_categories,m_content,m_director,m_end_date,m_hour,m_image_path,m_img,m_name,m_rating,m_star_score,m_start_date,movie_video_name,movie_video_path,m_tier) values (1,'필립 느와레','자끄 페렝','마르코 레오나르디','드라마','영화가 세상의 전부였던 소년 토토는 영사 기사의 친구로 지내며 영사기술을 배운다.','쥬세페 토르나토레','20220601','124','./src/main/resources/serverImage/movieImage/', 'movie.jpeg', '시네마 천국',0,0.0,'20200504','./src/main/resources/movieVideo/','Iwannagosea.mp4','전체이용가');
+insert into movie (m_no,m_Actor2, m_Actor3,m_Actors,m_categories,m_content,m_director,m_end_date,m_hour,m_image_path,m_img,m_name,m_rating,m_star_score,m_start_date,movie_video_name,movie_video_path,m_tier) values (2,'엠마 스톤','존 레전드','라이언 고슬링','드라마','별들의 도시 라라랜드. 두 사람은 미완성인 서로의 무대를 만들어가기 시작한다.','데이미언 셔젤','20220601','127','./src/main/resources/serverImage/movieImage/', 'movie.jpeg', '라라랜드',0,0.0,'20201231','./src/main/resources/movieVideo/','Iwannagosea.mp4','12세 관람가');
+insert into movie (m_no,m_Actor2, m_Actor3,m_Actors,m_categories,m_content,m_director,m_end_date,m_hour,m_image_path,m_img,m_name,m_rating,m_star_score,m_start_date,movie_video_name,movie_video_path,m_tier) values (3,'로버트 패틴슨','엘리자베스 데비키','존 데이비드 워싱턴','액션','현재와 미래를 오가며 세상을 파괴하려는 사토르에 맞서 제 3차 대전을 막아야 한다.','크리스토퍼 놀란','20220601','150','./src/main/resources/serverImage/movieImage/', 'movie.jpeg', '테넷',0,0.0,'20200826','./src/main/resources/movieVideo/','Iwannagosea.mp4','12세 관람가');
+insert into movie (m_no,m_Actor2, m_Actor3,m_Actors,m_categories,m_content,m_director,m_end_date,m_hour,m_image_path,m_img,m_name,m_rating,m_star_score,m_start_date,movie_video_name,movie_video_path,m_tier) values (4,'케빈 스페이시','릴리 제임스','안셀 엘고트','액션','탈출 전문 드라이버 베이비. 어느 날,  데보라를 만나 베이비는 새 인생을 살려 하는데...','에드가 라이트','20220601','113','./src/main/resources/serverImage/movieImage/', 'movie.jpeg', '베이비 드라이버',0,0.0,'20170913','./src/main/resources/movieVideo/','Iwannagosea.mp4','15세 관람가');
+insert into movie (m_no,m_Actor2, m_Actor3,m_Actors,m_categories,m_content,m_director,m_end_date,m_hour,m_image_path,m_img,m_name,m_rating,m_star_score,m_start_date,movie_video_name,movie_video_path,m_tier) values (5,'폴 다노','조 크라비츠','로버트 패틴슨','액션','2년간 고담시에서 활동한 브루스웨인. 범인의 수사를 하며 숨겨진 진실이 드러나는데','맷 리브스','20220601','176','./src/main/resources/serverImage/movieImage/', 'movie.jpeg', '더 배트맨',0,0.0,'20220301','./src/main/resources/movieVideo/','Iwannagosea.mp4','15세 관람가');
+insert into movie (m_no,m_Actor2, m_Actor3,m_Actors,m_categories,m_content,m_director,m_end_date,m_hour,m_image_path,m_img,m_name,m_rating,m_star_score,m_start_date,movie_video_name,movie_video_path,m_tier) values (6,'재지 비츠','로버트 드니로','호아킨 피닉스','스릴러','고담시의 광대 아서 플렉은 모두 미쳐가는 세상 속에서 그가 설 자리가 없음을 깨닫는데...','토드 필립스','20220601','123','./src/main/resources/serverImage/movieImage/', 'movie.jpeg', '조커',0,0.0,'20191002','./src/main/resources/movieVideo/','Iwannagosea.mp4','15세 관람가');
+insert into movie (m_no,m_Actor2, m_Actor3,m_Actors,m_categories,m_content,m_director,m_end_date,m_hour,m_image_path,m_img,m_name,m_rating,m_star_score,m_start_date,movie_video_name,movie_video_path,m_tier) values (7,'테렌스 하워드','제프 브리지스','로버트 다우니 주니어','SF','천재적인 두뇌와 재능으로 세계 최강의 무기업체를 이끄는 CEO. 어느 날 납치를 당하는데...','존 파브로','20220601','125','./src/main/resources/serverImage/movieImage/', 'movie.jpeg', '아이언맨 1',0,0.0,'20080430','./src/main/resources/movieVideo/','Iwannagosea.mp4','12세 관람가');
+insert into movie (m_no,m_Actor2, m_Actor3,m_Actors,m_categories,m_content,m_director,m_end_date,m_hour,m_image_path,m_img,m_name,m_rating,m_star_score,m_start_date,movie_video_name,movie_video_path,m_tier) values (8,'밀리 샤피로','알렉스 울프','토니 콜렛','공포','애니의 엄마로부터 시작돼 딸 와 아들에게까지 이어진 저주의 정체를 드러내는데···','아리 애스터','20220601','127','./src/main/resources/serverImage/movieImage/', 'movie.jpeg', '유전',0,0.0,'20180607','./src/main/resources/movieVideo/','Iwannagosea.mp4','15세 관람가');
+insert into movie (m_no,m_Actor2, m_Actor3,m_Actors,m_categories,m_content,m_director,m_end_date,m_hour,m_image_path,m_img,m_name,m_rating,m_star_score,m_start_date,movie_video_name,movie_video_path,m_tier) values (9,'에밀리 블런트','빌 팩스본','톰 크루즈','액션','근 미래 외계 종족의 침략으로 주인공은 전쟁에 참전하게 되어 죽고 타임 루프에 갇히는데...','더그 라이만','20220601','113','./src/main/resources/serverImage/movieImage/', 'movie.jpeg', '엣지 오브 투모로우',0,0.0,'20140604','./src/main/resources/movieVideo/','Iwannagosea.mp4','12세 관람가');
+insert into movie (m_no,m_Actor2, m_Actor3,m_Actors,m_categories,m_content,m_director,m_end_date,m_hour,m_image_path,m_img,m_name,m_rating,m_star_score,m_start_date,movie_video_name,movie_video_path,m_tier) values (10,'마크 러팔러','애덤 리바인','키이라 나이틀리','드라마','스타 음반프도듀서에서 해고된 댄은 뮤직바에서 그레타의 자작곡을 듣고 다시 한 번 재개하는데','존 카니','20220601','104','./src/main/resources/serverImage/movieImage/', 'movie.jpeg', '비긴 어게인',0,0.0,'20201231','./src/main/resources/movieVideo/','Iwannagosea.mp4','15세 관람가');
 
 --좌석
-insert into normal_theater (normal_Id, normal_state) values ('1관 A01','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 A02','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 A03','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 A04','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 A05','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 A06','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 A07','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 A08','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 B01','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 B02','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 B03','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 B04','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 B05','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 B06','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 B07','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 B08','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 C01','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 C02','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 C03','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 C04','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 C05','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 C06','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 C07','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 C08','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 D01','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 D02','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 D03','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 D04','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 D05','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 D06','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 D07','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 D08','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 E01','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 E02','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 E03','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 E04','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 E05','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 E06','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 E07','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 E08','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 F01','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 F02','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 F03','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 F04','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 F05','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 F06','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 F07','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 F08','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 G01','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 G02','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 G03','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 G04','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 G05','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 G06','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 G07','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 G08','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 H01','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 H02','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 H03','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 H04','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 H05','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 H06','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 H07','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 H08','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 I01','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 I02','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 I03','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 I04','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 I05','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 I06','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 I07','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 I08','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 J01','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 J02','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 J03','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 J04','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 J05','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 J06','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 J07','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 J08','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 K01','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 K02','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 K03','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 K04','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 K05','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 K06','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 K07','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 K08','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 L01','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 L02','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 L03','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 L04','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 L05','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 L06','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 L07','0');
-insert into normal_theater (normal_Id, normal_state) values ('1관 L08','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 A01','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 A02','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 A03','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 A04','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 A05','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 A06','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 A07','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 A08','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 B01','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 B02','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 B03','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 B04','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 B05','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 B06','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 B07','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 B08','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 C01','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 C02','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 C03','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 C04','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 C05','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 C06','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 C07','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 C08','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 D01','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 D02','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 D03','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 D04','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 D05','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 D06','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 D07','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 D08','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 E01','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 E02','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 E03','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 E04','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 E05','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 E06','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 E07','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 E08','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 F01','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 F02','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 F03','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 F04','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 F05','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 F06','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 F07','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 F08','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 G01','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 G02','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 G03','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 G04','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 G05','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 G06','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 G07','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 G08','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 H01','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 H02','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 H03','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 H04','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 H05','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 H06','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 H07','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 H08','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 I01','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 I02','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 I03','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 I04','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 I05','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 I06','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 I07','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 I08','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 J01','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 J02','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 J03','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 J04','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 J05','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 J06','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 J07','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 J08','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 K01','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 K02','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 K03','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 K04','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 K05','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 K06','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 K07','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 K08','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 L01','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 L02','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 L03','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 L04','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 L05','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 L06','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 L07','0');
-insert into normal_theater (normal_Id, normal_state) values ('2관 L08','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 A01','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 A02','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 A03','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 A04','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 A05','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 A06','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 A07','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 A08','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 B01','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 B02','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 B03','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 B04','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 B05','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 B06','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 B07','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 B08','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 C01','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 C02','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 C03','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 C04','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 C05','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 C06','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 C07','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 C08','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 D01','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 D02','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 D03','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 D04','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 D05','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 D06','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 D07','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 D08','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 E01','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 E02','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 E03','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 E04','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 E05','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 E06','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 E07','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 E08','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 F01','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 F02','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 F03','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 F04','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 F05','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 F06','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 F07','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 F08','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 G01','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 G02','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 G03','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 G04','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 G05','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 G06','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 G07','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 G08','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 H01','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 H02','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 H03','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 H04','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 H05','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 H06','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 H07','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 H08','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 I01','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 I02','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 I03','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 I04','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 I05','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 I06','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 I07','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 I08','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 J01','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 J02','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 J03','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 J04','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 J05','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 J06','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 J07','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 J08','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 K01','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 K02','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 K03','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 K04','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 K05','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 K06','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 K07','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 K08','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 L01','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 L02','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 L03','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 L04','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 L05','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 L06','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 L07','0');
-insert into normal_theater (normal_Id, normal_state) values ('3관 L08','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 A01','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 A02','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 A03','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 A04','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 A05','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 A06','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 A07','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 A08','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 B01','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 B02','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 B03','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 B04','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 B05','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 B06','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 B07','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 B08','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 C01','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 C02','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 C03','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 C04','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 C05','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 C06','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 C07','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 C08','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 D01','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 D02','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 D03','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 D04','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 D05','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 D06','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 D07','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 D08','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 E01','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 E02','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 E03','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 E04','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 E05','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 E06','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 E07','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 E08','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 F01','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 F02','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 F03','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 F04','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 F05','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 F06','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 F07','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 F08','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 G01','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 G02','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 G03','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 G04','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 G05','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 G06','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 G07','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 G08','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 H01','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 H02','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 H03','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 H04','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 H05','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 H06','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 H07','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 H08','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 I01','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 I02','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 I03','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 I04','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 I05','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 I06','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 I07','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 I08','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 J01','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 J02','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 J03','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 J04','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 J05','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 J06','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 J07','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 J08','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 K01','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 K02','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 K03','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 K04','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 K05','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 K06','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 K07','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 K08','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 L01','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 L02','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 L03','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 L04','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 L05','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 L06','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 L07','0');
-insert into normal_theater (normal_Id, normal_state) values ('4관 L08','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 A01','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 A02','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 A03','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 A04','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 A05','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 A06','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 A07','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 A08','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 B01','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 B02','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 B03','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 B04','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 B05','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 B06','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 B07','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 B08','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 C01','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 C02','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 C03','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 C04','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 C05','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 C06','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 C07','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 C08','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 D01','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 D02','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 D03','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 D04','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 D05','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 D06','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 D07','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 D08','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 E01','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 E02','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 E03','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 E04','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 E05','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 E06','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 E07','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 E08','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 F01','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 F02','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 F03','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 F04','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 F05','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 F06','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 F07','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 F08','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 G01','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 G02','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 G03','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 G04','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 G05','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 G06','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 G07','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 G08','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 H01','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 H02','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 H03','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 H04','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 H05','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 H06','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 H07','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 H08','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 I01','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 I02','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 I03','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 I04','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 I05','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 I06','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 I07','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 I08','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 J01','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 J02','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 J03','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 J04','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 J05','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 J06','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 J07','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 J08','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 K01','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 K02','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 K03','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 K04','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 K05','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 K06','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 K07','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 K08','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 L01','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 L02','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 L03','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 L04','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 L05','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 L06','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 L07','0');
-insert into normal_theater (normal_Id, normal_state) values ('5관 L08','0');
+insert into normal_theater (normal_Id, normal_state) values ('A01','0');
+insert into normal_theater (normal_Id, normal_state) values ('A02','0');
+insert into normal_theater (normal_Id, normal_state) values ('A03','0');
+insert into normal_theater (normal_Id, normal_state) values ('A04','0');
+insert into normal_theater (normal_Id, normal_state) values ('A05','0');
+insert into normal_theater (normal_Id, normal_state) values ('A06','0');
+insert into normal_theater (normal_Id, normal_state) values ('A07','0');
+insert into normal_theater (normal_Id, normal_state) values ('A08','0');
+insert into normal_theater (normal_Id, normal_state) values ('B01','0');
+insert into normal_theater (normal_Id, normal_state) values ('B02','0');
+insert into normal_theater (normal_Id, normal_state) values ('B03','0');
+insert into normal_theater (normal_Id, normal_state) values ('B04','0');
+insert into normal_theater (normal_Id, normal_state) values ('B05','0');
+insert into normal_theater (normal_Id, normal_state) values ('B06','0');
+insert into normal_theater (normal_Id, normal_state) values ('B07','0');
+insert into normal_theater (normal_Id, normal_state) values ('B08','0');
+insert into normal_theater (normal_Id, normal_state) values ('C01','0');
+insert into normal_theater (normal_Id, normal_state) values ('C02','0');
+insert into normal_theater (normal_Id, normal_state) values ('C03','0');
+insert into normal_theater (normal_Id, normal_state) values ('C04','0');
+insert into normal_theater (normal_Id, normal_state) values ('C05','0');
+insert into normal_theater (normal_Id, normal_state) values ('C06','0');
+insert into normal_theater (normal_Id, normal_state) values ('C07','0');
+insert into normal_theater (normal_Id, normal_state) values ('C08','0');
+insert into normal_theater (normal_Id, normal_state) values ('D01','0');
+insert into normal_theater (normal_Id, normal_state) values ('D02','0');
+insert into normal_theater (normal_Id, normal_state) values ('D03','0');
+insert into normal_theater (normal_Id, normal_state) values ('D04','0');
+insert into normal_theater (normal_Id, normal_state) values ('D05','0');
+insert into normal_theater (normal_Id, normal_state) values ('D06','0');
+insert into normal_theater (normal_Id, normal_state) values ('D07','0');
+insert into normal_theater (normal_Id, normal_state) values ('D08','0');
+insert into normal_theater (normal_Id, normal_state) values ('E01','0');
+insert into normal_theater (normal_Id, normal_state) values ('E02','0');
+insert into normal_theater (normal_Id, normal_state) values ('E03','0');
+insert into normal_theater (normal_Id, normal_state) values ('E04','0');
+insert into normal_theater (normal_Id, normal_state) values ('E05','0');
+insert into normal_theater (normal_Id, normal_state) values ('E06','0');
+insert into normal_theater (normal_Id, normal_state) values ('E07','0');
+insert into normal_theater (normal_Id, normal_state) values ('E08','0');
+insert into normal_theater (normal_Id, normal_state) values ('F01','0');
+insert into normal_theater (normal_Id, normal_state) values ('F02','0');
+insert into normal_theater (normal_Id, normal_state) values ('F03','0');
+insert into normal_theater (normal_Id, normal_state) values ('F04','0');
+insert into normal_theater (normal_Id, normal_state) values ('F05','0');
+insert into normal_theater (normal_Id, normal_state) values ('F06','0');
+insert into normal_theater (normal_Id, normal_state) values ('F07','0');
+insert into normal_theater (normal_Id, normal_state) values ('F08','0');
+insert into normal_theater (normal_Id, normal_state) values ('G01','0');
+insert into normal_theater (normal_Id, normal_state) values ('G02','0');
+insert into normal_theater (normal_Id, normal_state) values ('G03','0');
+insert into normal_theater (normal_Id, normal_state) values ('G04','0');
+insert into normal_theater (normal_Id, normal_state) values ('G05','0');
+insert into normal_theater (normal_Id, normal_state) values ('G06','0');
+insert into normal_theater (normal_Id, normal_state) values ('G07','0');
+insert into normal_theater (normal_Id, normal_state) values ('G08','0');
+insert into normal_theater (normal_Id, normal_state) values ('H01','0');
+insert into normal_theater (normal_Id, normal_state) values ('H02','0');
+insert into normal_theater (normal_Id, normal_state) values ('H03','0');
+insert into normal_theater (normal_Id, normal_state) values ('H04','0');
+insert into normal_theater (normal_Id, normal_state) values ('H05','0');
+insert into normal_theater (normal_Id, normal_state) values ('H06','0');
+insert into normal_theater (normal_Id, normal_state) values ('H07','0');
+insert into normal_theater (normal_Id, normal_state) values ('H08','0');
+insert into normal_theater (normal_Id, normal_state) values ('I01','0');
+insert into normal_theater (normal_Id, normal_state) values ('I02','0');
+insert into normal_theater (normal_Id, normal_state) values ('I03','0');
+insert into normal_theater (normal_Id, normal_state) values ('I04','0');
+insert into normal_theater (normal_Id, normal_state) values ('I05','0');
+insert into normal_theater (normal_Id, normal_state) values ('I06','0');
+insert into normal_theater (normal_Id, normal_state) values ('I07','0');
+insert into normal_theater (normal_Id, normal_state) values ('I08','0');
+insert into normal_theater (normal_Id, normal_state) values ('J01','0');
+insert into normal_theater (normal_Id, normal_state) values ('J02','0');
+insert into normal_theater (normal_Id, normal_state) values ('J03','0');
+insert into normal_theater (normal_Id, normal_state) values ('J04','0');
+insert into normal_theater (normal_Id, normal_state) values ('J05','0');
+insert into normal_theater (normal_Id, normal_state) values ('J06','0');
+insert into normal_theater (normal_Id, normal_state) values ('J07','0');
+insert into normal_theater (normal_Id, normal_state) values ('J08','0');
+insert into normal_theater (normal_Id, normal_state) values ('K01','0');
+insert into normal_theater (normal_Id, normal_state) values ('K02','0');
+insert into normal_theater (normal_Id, normal_state) values ('K03','0');
+insert into normal_theater (normal_Id, normal_state) values ('K04','0');
+insert into normal_theater (normal_Id, normal_state) values ('K05','0');
+insert into normal_theater (normal_Id, normal_state) values ('K06','0');
+insert into normal_theater (normal_Id, normal_state) values ('K07','0');
+insert into normal_theater (normal_Id, normal_state) values ('K08','0');
+insert into normal_theater (normal_Id, normal_state) values ('L01','0');
+insert into normal_theater (normal_Id, normal_state) values ('L02','0');
+insert into normal_theater (normal_Id, normal_state) values ('L03','0');
+insert into normal_theater (normal_Id, normal_state) values ('L04','0');
+insert into normal_theater (normal_Id, normal_state) values ('L05','0');
+insert into normal_theater (normal_Id, normal_state) values ('L06','0');
+insert into normal_theater (normal_Id, normal_state) values ('L07','0');
+insert into normal_theater (normal_Id, normal_state) values ('L08','0');
+
+insert into normal_Screen (normal_SID, normal_Screen) values ('S1', '1관')
+insert into normal_Screen (normal_SID, normal_Screen) values ('S2', '2관')
+insert into normal_Screen (normal_SID, normal_Screen) values ('S3', '3관')
+insert into normal_Screen (normal_SID, normal_Screen) values ('S4', '4관')
+insert into normal_Screen (normal_SID, normal_Screen) values ('S5', '5관')
+
 
 insert into Store_Address (store_No, store_Address, store_Owner) values (1, '서울시 강남구', '금강선');
 insert into Store_Address (store_No, store_Address, store_Owner) values (2, '안산시 단원구', '박영민');
@@ -612,3 +235,221 @@ insert into Store_Address (store_No, store_Address, store_Owner) values (3, '안
 insert into Store_Address (store_No, store_Address, store_Owner) values (4, '부신시 서구', '사나인');
 insert into Store_Address (store_No, store_Address, store_Owner) values (5, '청주시 청원구', '정시원');
 
+insert into movie_schedule
+(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
+select movie_schedule_seq.NEXTVAL,
+to_date(sysdate + (interval '1' minute) * mv.m_hour,'YYYY-MM-DD-HH24:MI:SS'),
+sysdate,
+1,
+1
+from movie mv
+where mv.m_no = 1;
+
+
+insert into movie_schedule
+(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
+select movie_schedule_seq.NEXTVAL,
+to_date(sysdate + (interval '1' minute) * mv.m_hour,'YYYY-MM-DD-HH24:MI:SS'),
+sysdate,
+1,
+1
+from movie mv
+where mv.m_no = 2;
+
+
+insert into movie_schedule
+(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
+select movie_schedule_seq.NEXTVAL,
+to_date(sysdate + (interval '1' minute) * mv.m_hour,'YYYY-MM-DD-HH24:MI:SS'),
+sysdate,
+1,
+1
+from movie mv
+where mv.m_no = 3;
+
+
+insert into movie_schedule
+(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
+select movie_schedule_seq.NEXTVAL,
+to_date(sysdate + (interval '1' minute) * mv.m_hour,'YYYY-MM-DD-HH24:MI:SS'),
+sysdate,
+1,
+1
+from movie mv
+where mv.m_no = 4;
+
+
+insert into movie_schedule
+(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
+select movie_schedule_seq.NEXTVAL,
+to_date(sysdate + (interval '1' minute) * mv.m_hour,'YYYY-MM-DD-HH24:MI:SS'),
+sysdate,
+1,
+1
+from movie mv
+where mv.m_no = 5;
+
+
+insert into movie_schedule
+(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
+select movie_schedule_seq.NEXTVAL,
+to_date(sysdate + (interval '1' minute) * mv.m_hour,'YYYY-MM-DD-HH24:MI:SS'),
+sysdate,
+1,
+1
+from movie mv
+where mv.m_no = 6;
+
+
+insert into movie_schedule
+(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
+select movie_schedule_seq.NEXTVAL,
+to_date(sysdate + (interval '1' minute) * mv.m_hour,'YYYY-MM-DD-HH24:MI:SS'),
+sysdate,
+1,
+1
+from movie mv
+where mv.m_no = 7;
+
+
+insert into movie_schedule
+(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
+select movie_schedule_seq.NEXTVAL,
+to_date(sysdate + (interval '1' minute) * mv.m_hour,'YYYY-MM-DD-HH24:MI:SS'),
+sysdate,
+1,
+1
+from movie mv
+where mv.m_no = 8;
+
+
+insert into movie_schedule
+(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
+select movie_schedule_seq.NEXTVAL,
+to_date(sysdate + (interval '1' minute) * mv.m_hour,'YYYY-MM-DD-HH24:MI:SS'),
+sysdate,
+1,
+1
+from movie mv
+where mv.m_no = 9;
+
+
+insert into movie_schedule
+(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
+select movie_schedule_seq.NEXTVAL,
+to_date(sysdate + (interval '1' minute) * mv.m_hour,'YYYY-MM-DD-HH24:MI:SS'),
+sysdate,
+1,
+1
+from movie mv
+where mv.m_no = 10;
+
+
+insert into movie_schedule
+(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
+select movie_schedule_seq.NEXTVAL,
+to_date(sysdate + sysdate + (interval '1' hour) + (interval '1' hour) + (interval '1' minute) * mv.m_hour,'YYYY-MM-DD-HH24:MI:SS'),
+sysdate + (interval '1' hour),
+1,
+1
+from movie mv
+where mv.m_no = 11;
+
+
+insert into movie_schedule
+(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
+select movie_schedule_seq.NEXTVAL,
+to_date(sysdate + sysdate + (interval '1' hour) + (interval '1' minute) * mv.m_hour,'YYYY-MM-DD-HH24:MI:SS'),
+sysdate + (interval '1' hour),
+1,
+1
+from movie mv
+where mv.m_no = 12;
+
+
+insert into movie_schedule
+(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
+select movie_schedule_seq.NEXTVAL,
+to_date(sysdate + sysdate + (interval '1' hour) + (interval '1' minute) * mv.m_hour,'YYYY-MM-DD-HH24:MI:SS'),
+sysdate + (interval '1' hour),
+1,
+1
+from movie mv
+where mv.m_no = 13;
+
+
+insert into movie_schedule
+(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
+select movie_schedule_seq.NEXTVAL,
+to_date(sysdate + sysdate + (interval '1' hour) + (interval '1' minute) * mv.m_hour,'YYYY-MM-DD-HH24:MI:SS'),
+sysdate + (interval '1' hour),
+1,
+1
+from movie mv
+where mv.m_no = 14;
+
+
+insert into movie_schedule
+(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
+select movie_schedule_seq.NEXTVAL,
+to_date(sysdate + sysdate + (interval '1' hour) + (interval '1' minute) * mv.m_hour,'YYYY-MM-DD-HH24:MI:SS'),
+sysdate + (interval '1' hour),
+1,
+1
+from movie mv
+where mv.m_no = 15;
+
+
+insert into movie_schedule
+(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
+select movie_schedule_seq.NEXTVAL,
+to_date(sysdate + sysdate + (interval '1' hour) + (interval '1' minute) * mv.m_hour,'YYYY-MM-DD-HH24:MI:SS'),
+sysdate + (interval '1' hour),
+1,
+1
+from movie mv
+where mv.m_no = 16;
+
+
+insert into movie_schedule
+(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
+select movie_schedule_seq.NEXTVAL,
+to_date(sysdate + sysdate + (interval '1' hour) + (interval '1' minute) * mv.m_hour,'YYYY-MM-DD-HH24:MI:SS'),
+sysdate + (interval '1' hour),
+1,
+1
+from movie mv
+where mv.m_no = 17;
+
+
+insert into movie_schedule
+(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
+select movie_schedule_seq.NEXTVAL,
+to_date(sysdate + sysdate + (interval '1' hour) + (interval '1' minute) * mv.m_hour,'YYYY-MM-DD-HH24:MI:SS'),
+sysdate + (interval '1' hour),
+1,
+1
+from movie mv
+where mv.m_no = 18;
+
+
+insert into movie_schedule
+(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
+select movie_schedule_seq.NEXTVAL,
+to_date(sysdate + sysdate + (interval '1' hour) + (interval '1' minute) * mv.m_hour,'YYYY-MM-DD-HH24:MI:SS'),
+sysdate + (interval '1' hour),
+1,
+1
+from movie mv
+where mv.m_no = 19;
+
+
+insert into movie_schedule
+(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
+select movie_schedule_seq.NEXTVAL,
+to_date(sysdate + sysdate + (interval '1' hour) + (interval '1' minute) * mv.m_hour,'YYYY-MM-DD-HH24:MI:SS'),
+sysdate + (interval '1' hour),
+1,
+1
+from movie mv
+where mv.m_no = 20;

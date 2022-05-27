@@ -1,4 +1,5 @@
-package com.example.demo.theater.normaltheater;
+package com.example.demo.theater.normalScreen;
+
 
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
@@ -9,17 +10,18 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
 @Data
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class NormalTheater {
+
+public class NormalScreen {
     @Id
     @NotNull
-    @GeneratedValue
-    @Column(name = "normal_Id",columnDefinition = "VARCHAR2(10)",unique = true)
-    private String normalTheaterId;
-    @Column(columnDefinition = "char(1)")
-    private String normal_state;
+    @Column(name = "normal_SID", columnDefinition = "VARCHAR2(4)", unique = true)
+    private String normalScreenId;
 
+    @Column(name = "normal_Screen", columnDefinition = "VARCHAR2(5)")
+    private String normalScreen;
 }

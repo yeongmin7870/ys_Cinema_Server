@@ -44,9 +44,26 @@ public interface movieScheduleRepository extends JpaRepository<MovieSchedule, In
             "(ms.MS_NO, ms.MS_END_TIME, ms.MS_STAR_TIME, ms.M_NO, ms.STORE_NO)\n" +
             "VALUES\n" +
             "(movie_schedule_seq.NEXTVAL," +
-            ":ms_StarTime + (interval '1' day) * :m_Hour," +
+            ":ms_StarTime + (interval '1' minute) * :m_Hour," +
             ":ms_StarTime," +
             ":m_no," +
             ":store_No)", nativeQuery = true)
-    void insertSchedule (@Param("ms_StarTime") Date m_StarTime,@Param("m_no") Integer m_no, @Param("store_No") Integer store_No, @Param("m_Hour") Integer m_Hour);
+    void insertSchedule (@Param("ms_StarTime") Date m_StarTime,
+                         @Param("m_no") Integer m_no,
+                         @Param("store_No") Integer store_No,
+                         @Param("m_Hour") Integer m_Hour);
+
+    @Transactional
+    @Modifying
+    @Query (value = "update movie_schedule ms" +
+            "set ms.MS_END_TIME = :ms_StarTime + (interval '1' minute) * :m_Hour," +
+            "ms.MS_STAR_TIME = :ms_StarTime," +
+            "ms.M_NO = :m_no," +
+            "ms.STORE_NO = :store_No" +
+            "WHERE ms.MS_NO = :ms_No",nativeQuery = true)
+    void updateSchedule (@Param("ms_StarTime") Date ms_StarTime,
+                         @Param("m_no") Integer m_no,
+                         @Param("store_No") Integer store_No,
+                         @Param("m_Hour") Integer m_Hour,
+                         @Param("ms_No") Integer ms_No);
 }

@@ -56,16 +56,34 @@ public class MovieScheduleController {
 
         boolean result = movieScheduleDaoService.scheduleProcess(newMovieSchedule);
 
-
-
         if(result == false) {
             return "영화, 상영관, 상영기간 중 하나가 없거나 지난기간입니다.";
         }else {
-            /*movieScheduleDaoService.save(newMovieSchedule);
-
-            movieScheduleDaoService.updateEndTime(m_Hour, newMovieSchedule);*/
             Integer m_Hour = movieScheduleDaoService.movieHour(newMovieSchedule);
             movieScheduleDaoService.insertSchedule(m_Hour, newMovieSchedule);
+        }
+        return "finish";
+    }
+
+    @DeleteMapping("/MovieSchedule/{id}")
+    @ApiOperation(value = "영화 상영시간 삭제")
+    public void deleteSchedule(@PathVariable Integer movieScheduleId) {
+        movieScheduleDaoService.deleteSchedule(movieScheduleId);
+    }
+
+    @PutMapping("/MovieSchedule")
+    @ApiOperation(value = "영화 상영시간 수정")
+    public String replaceSchedule(@RequestBody MovieSchedule newMovieSchedule,
+                                         @RequestParam Integer movieScheduleId) {
+
+        boolean result = movieScheduleDaoService.scheduleProcess(newMovieSchedule);
+
+        if(result == false) {
+            return "업데이트 불가.";
+        }else {
+            Integer m_Hour = movieScheduleDaoService.movieHour(newMovieSchedule);
+            Integer ms_no = newMovieSchedule.getMovieScheduleId();
+            movieScheduleDaoService.updateMovieSchedule(m_Hour, newMovieSchedule, ms_no);
         }
         return "finish";
     }
