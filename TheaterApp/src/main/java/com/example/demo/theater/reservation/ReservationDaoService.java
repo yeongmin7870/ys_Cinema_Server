@@ -71,15 +71,30 @@ public class ReservationDaoService {
     }
 
     // 비회원 예매하기 삽입
-    public Reservation reserveMovie2(Reservation reservation, Integer cId) {
-        Date today = new Date();
-        reservation.setR_Date(today);
-        Reservation newReservation = repository.save(reservation);
-        NcOrderList ncOrderList = new NcOrderList();
-        ncOrderList.setNc_No(cId);
+    public void reserveMovie2(Reservation reservation, Integer NcNo) {
+        Date today = new Date(); //값이 넘어오는 순간 서버 시간 생성 이것은 for문안에 들어가면 안됨.
+
+
+        String str = reservation.getNormalSeatId();
+        String[] strArray = str.split(",");
+
+        for (int i = 0 ; i < strArray.length ; i++) {
+            reservation.setR_Date(today);
+            reservation.setNormalSeatId(strArray[i]);
+            repository.save(reservation);
+            NcOrderList ncOrderList = new NcOrderList();
+            ncOrderList.setNc_No(NcNo);
+            ncOrderList.setR_No(repository.findMaxId());
+            ncOrderListRepository.save(ncOrderList);
+        }
+        /*Date today = new Date();
+        reservation.setR_Date(today);*/
+        /*Reservation newReservation = repository.save(reservation);*/
+        /*NcOrderList ncOrderList = new NcOrderList();
+        ncOrderList.setNc_No(NcNo);
         ncOrderList.setR_No(repository.findMaxId());
-        ncOrderListRepository.save(ncOrderList);
-        return newReservation;
+        ncOrderListRepository.save(ncOrderList);*/
+
     }
 
     public List<Reservation> reserveOrderList(String cId) {
