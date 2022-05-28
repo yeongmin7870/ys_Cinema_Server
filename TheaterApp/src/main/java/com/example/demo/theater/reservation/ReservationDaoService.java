@@ -27,9 +27,6 @@ public class ReservationDaoService {
     // 영화 예매하기 삽입
     public Reservation reserveMovie(Reservation reservation, String cId) {
 
-
-
-
         Date today = new Date();
         reservation.setR_Date(today);
         Reservation newReservation = repository.save(reservation);

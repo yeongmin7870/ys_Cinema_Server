@@ -16,9 +16,8 @@ public class NormalSeat {
     @Id
     @NotNull
     @GeneratedValue
+    @Column(columnDefinition = "number()")
+    private Integer normalId;
     @Column(columnDefinition = "VARCHAR2(10)",unique = true)
     private String normalSeatId;
-    @Column(columnDefinition = "char(1)")
-    private String normal_state;
-
 }
