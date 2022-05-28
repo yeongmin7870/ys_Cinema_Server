@@ -1,5 +1,6 @@
 package com.example.demo.theater.reservation;
 
+import com.example.demo.theater.movie.Movie;
 import com.example.demo.theater.ncOrderList.NcOrderList;
 import com.example.demo.theater.ncOrderList.NcOrderListRepository;
 import com.example.demo.theater.orderList.OrderList;
@@ -44,17 +45,41 @@ public class ReservationDaoService {
         Reservation newReservation = repository.save(reservation);
         NcOrderList ncOrderList = new NcOrderList();
         ncOrderList.setNc_No(cId);
-        ncOrderList.setR_No(reservation.getReservationId());
+        ncOrderList.setR_No(repository.findMaxId());
         ncOrderListRepository.save(ncOrderList);
         return newReservation;
     }
 
-    public List<Object> reserveOrderList(String cId) {
-        return repository.retrieveCustomerMovieList(cId);
+    public List<Reservation> reserveOrderList(String cId) {
+        List<Reservation> reservations = repository.retrieveCustomerMovieListR(cId);
+        List<OrderList> orderLists = repository.retrieveCustomerMovieListO(cId);
+        List<Movie> movies = repository.retrieveCustomerMovieListM(cId);
+
+        for (int i = 0; i < reservations.size(); i++) {
+            reservations.get(i).setOrderId(orderLists.get(i).getOrderId());
+            reservations.get(i).setCId(orderLists.get(i).getCId());
+            reservations.get(i).setM_Name(movies.get(i).getM_Name());
+            reservations.get(i).setM_Categories(movies.get(i).getM_Categories());
+            reservations.get(i).setM_Director(movies.get(i).getM_Director());
+            reservations.get(i).setM_Hour(movies.get(i).getM_Hour());
+        }
+        return reservations;
     }
 
-    public List<Object> reserveOrderList2(Integer cId) {
-        return repository.retrieveCustomerMovieList2(cId);
+    public List<Reservation> reserveOrderList2(Integer cId) {
+        List<Reservation> reservations = repository.retrieveCustomerMovieList2R(cId);
+        List<NcOrderList> orderLists = repository.retrieveCustomerMovieList2O(cId);
+        List<Movie> movies = repository.retrieveCustomerMovieList2M(cId);
+
+        for (int i = 0; i < reservations.size(); i++) {
+            reservations.get(i).setOrderId(orderLists.get(i).getNcOrderId());
+            reservations.get(i).setNId(orderLists.get(i).getNc_No());
+            reservations.get(i).setM_Name(movies.get(i).getM_Name());
+            reservations.get(i).setM_Categories(movies.get(i).getM_Categories());
+            reservations.get(i).setM_Director(movies.get(i).getM_Director());
+            reservations.get(i).setM_Hour(movies.get(i).getM_Hour());
+        }
+        return reservations;
     }
 
 }

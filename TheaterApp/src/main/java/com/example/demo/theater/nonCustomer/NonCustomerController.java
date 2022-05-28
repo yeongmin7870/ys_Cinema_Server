@@ -20,7 +20,7 @@ public class NonCustomerController {
 //    }
 
     @PostMapping("/nonCustomer")
-    @ApiOperation("비회원 회원가입")
+    @ApiOperation(value = "비회원 회원가입", notes = "이름, 핸드폰만")
     String registerNonCustomer(@RequestBody NonCustomer nonCustomer) {
         return service.registerNonCustomer(nonCustomer);
     }
@@ -32,7 +32,7 @@ public class NonCustomerController {
     }
 
     @DeleteMapping("/nonCustomer/{id}")
-    @ApiOperation("비회원 수정")
+    @ApiOperation("비회원 삭제")
     void deleteCustomer (@PathVariable Integer id){
          service.deleteCustomer(id);
     }

@@ -16,7 +16,6 @@ public class ReservationController {
     @PostMapping("reserve")
     @ApiOperation(value = "영화예매하기 삽입 1. 회원   2. 비회원 ", notes = "m_No : 영화 id " +
             "msNo : 상영시간표 id " +
-            "r_Seat : 좌석 " +
             "r_TotalPrice : 총액 "+
             "normalScreenId : 상영관 아이디" +
             " normalSeatId : 좌석 아이디")
@@ -31,14 +30,14 @@ public class ReservationController {
     }
 
     @GetMapping("reserve")
-    @ApiOperation(value = "영화 예매한거 보여주기 1. 회원 2. 비회원" , notes = "" +
+    @ApiOperation(value = "영화 예매한거 보여주기 1. 회원 2. 비회원" , notes = "쓸만한 값만 가져가도 됨" +
             "m_No : 영화번호 " +
             "mS_No : 상영시간표넘버 " +
             "normal_SID : 상영관과 좌석 " +
             "r_Date : 예매일 "
         )
-    public List<Object> reserveOrderList(@RequestParam String who, @RequestParam String cId){
-        List<Object> result = null;
+    public List<Reservation> reserveOrderList(@RequestParam String who, @RequestParam String cId){
+        List<Reservation> result = null;
         if (who.equals("회원")) {
             result = daoService.reserveOrderList(cId);
         } else if (who.equals("비회원")) {

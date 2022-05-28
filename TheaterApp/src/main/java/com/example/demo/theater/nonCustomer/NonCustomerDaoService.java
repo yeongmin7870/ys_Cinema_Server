@@ -45,6 +45,8 @@ public class NonCustomerDaoService {
         System.out.println(nonCustomer);
 
         if (nonCustomer == null) {
+            newCustomer.setC_Profile_Path("./src/main/resources/serverImage/profile/");
+            newCustomer.setC_Profile("profile.png");
             nonCustomerRepository.save(newCustomer);
             return "finish";
         } else {
