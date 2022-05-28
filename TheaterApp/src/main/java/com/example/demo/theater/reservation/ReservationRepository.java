@@ -14,7 +14,15 @@ import javax.persistence.criteria.Order;
 import java.util.List;
 
 @Repository
-public interface ReservationRepository extends JpaRepository<Reservation,Integer> {
+public interface ReservationRepository extends JpaRepository<Reservation, Integer> {
+
+
+    @Query("select 0 " +
+            "from reservation rv " +
+            "where rv.normal_screen_Id = :screenId" +
+            "and rv.normal_seat_Id = :seatId " +
+            "and rv.ms_no = :ms_no")
+    Boolean IsThereSeat(@Param("screenId") String screenId, @Param("seatId") String seatId, @Param("ms_no") Integer ms_no);
 
 
     @Query("SELECT o,r,m FROM OrderList o, Reservation r, Movie m WHERE o.r_No = r.reservationId AND o.cId = :cId " +
@@ -24,17 +32,17 @@ public interface ReservationRepository extends JpaRepository<Reservation,Integer
 
     @Query("SELECT o FROM OrderList o, Reservation r, Movie m WHERE o.r_No = r.reservationId AND o.cId = :cId " +
             "AND r.m_No = m.movieId")
-    List<OrderList> retrieveCustomerMovieListO (@Param("cId") String cId);
+    List<OrderList> retrieveCustomerMovieListO(@Param("cId") String cId);
 
 
     @Query("SELECT r FROM OrderList o, Reservation r, Movie m WHERE o.r_No = r.reservationId AND o.cId = :cId " +
             "AND r.m_No = m.movieId")
-    List<Reservation> retrieveCustomerMovieListR (@Param("cId") String cId);
+    List<Reservation> retrieveCustomerMovieListR(@Param("cId") String cId);
 
 
     @Query("SELECT m FROM OrderList o, Reservation r, Movie m WHERE o.r_No = r.reservationId AND o.cId = :cId " +
             "AND r.m_No = m.movieId")
-    List<Movie> retrieveCustomerMovieListM (@Param("cId") String cId);
+    List<Movie> retrieveCustomerMovieListM(@Param("cId") String cId);
 
 
     @Query("SELECT max(re.reservationId) FROM Reservation re ")

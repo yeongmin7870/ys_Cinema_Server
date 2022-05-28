@@ -30,41 +30,40 @@ public class ReservationDaoService {
     private NormalSeatRepository normalSeatRepository;
 
     // 영화 예매하기 삽입
-    public String reserveMovie(Reservation reservation, String cId) {
-        NormalSeat normalSeat = new NormalSeat();
+    public void reserveMovie(Reservation newReservation, String cId) {
+
+        Reservation reservation= new Reservation();
         Date today = new Date();
-        String str = reservation.getNormalSeatId();
+        String str = newReservation.getNormalSeatId();
         String[] strArray = str.split(",");
-        NormalSeat control = null;
 
-        System.out.println("배열값 확인 " + str );
+        Boolean isThereSeat = repository.IsThereSeat(newReservation.getNormalScreenId(),newReservation.getNormalSeatId(),newReservation.getMsNo());
 
-        if (strArray.length == 1) { // 만약 좌석 값 배열의 길이가 1개라면
-            control = normalSeatRepository.findNormalSeatId(reservation.getNormalSeatId()); // 좌석 존재여부를 검색한다
-            System.out.println("오류확인 " + control);
-            if (control != null) { // 만약 예약한 좌석이 있다면
-                return "fail";
-            }
+        if(isThereSeat == true){
+            return;
         }
 
-        reservation.setR_Date(today);  // 예약 테이블에 구매 날짜를 넣어준다 .
-        Reservation newReservation = repository.save(reservation); // 가져온 값들을 넣어준다.
+        for (int i = 0 ; i < strArray.length ; i++) {
+            reservation.setR_Date(today);
+            reservation.setNormalSeatId(strArray[i]);
+            repository.save(reservation);
+            OrderList orderList = new OrderList();
+            orderList.setCId(cId);
+            orderList.setR_No(repository.findMaxId());
+            orderListRepository.save(orderList);
+        }
 
-        OrderList orderList = new OrderList();
-        orderList.setCId(cId);
-        orderList.setR_No(repository.findMaxId());
 
-        orderListRepository.save(orderList);
-        return "finish";
+
     }
 
     // 비회원 예매하기 삽입
     public void reserveMovie2(Reservation reservation, Integer NcNo) {
         Date today = new Date(); //값이 넘어오는 순간 서버 시간 생성 이것은 for문안에 들어가면 안됨.
 
+
         String str = reservation.getNormalSeatId();
         String[] strArray = str.split(",");
-
 
         for (int i = 0 ; i < strArray.length ; i++) {
             reservation.setR_Date(today);
