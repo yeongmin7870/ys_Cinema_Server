@@ -19,14 +19,14 @@ public class ReservationController {
             "r_TotalPrice : 총액 "+
             "normalScreenId : 상영관 아이디" +
             " normalSeatId : 좌석 아이디")
-    public Reservation reserveMovie(@RequestBody Reservation reservation, @RequestParam String cId, @RequestParam String who) {
-        Reservation result = null;
+    public String reserveMovie(@RequestBody Reservation reservation, @RequestParam String cId, @RequestParam String who) {
+
         if (who.equals("회원")) {
-            result = daoService.reserveMovie(reservation, cId);
+           daoService.reserveMovie(reservation, cId);
         } else if (who.equals("비회원")) {
-            result = daoService.reserveMovie2(reservation, Integer.parseInt(cId));
+            daoService.reserveMovie2(reservation, Integer.parseInt(cId));
         }
-        return result;
+        return "finish";
     }
 
     @GetMapping("reserve")

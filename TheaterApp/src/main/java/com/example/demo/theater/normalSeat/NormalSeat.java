@@ -16,8 +16,8 @@ public class NormalSeat {
     @Id
     @NotNull
     @GeneratedValue
-    @Column(columnDefinition = "number()")
+    @Column(columnDefinition = "number",unique = true)
     private Integer normalId;
-    @Column(columnDefinition = "VARCHAR2(10)",unique = true)
+    @Column(columnDefinition = "VARCHAR2(10)")
     private String normalSeatId;
 }
