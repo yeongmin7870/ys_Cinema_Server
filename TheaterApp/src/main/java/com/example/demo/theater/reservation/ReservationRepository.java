@@ -17,6 +17,11 @@ public interface ReservationRepository extends JpaRepository<Reservation,Integer
             "AND r.m_No = m.movieId")
     List<Object> retrieveCustomerMovieList(@Param("cId") String cId);
 
+
+    @Query("SELECT max(re.reservationId) FROM Reservation re ")
+    Integer findMaxId();
+
+
     @Query("SELECT o,r,m FROM NcOrderList o, Reservation r, Movie m WHERE o.r_No = r.reservationId AND o.nc_No = :nc_No " +
             "AND r.m_No = m.movieId")
     List<Object> retrieveCustomerMovieList2(@Param("nc_No") Integer nc_No);

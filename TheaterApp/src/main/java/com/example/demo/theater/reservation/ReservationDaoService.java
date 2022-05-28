@@ -30,7 +30,9 @@ public class ReservationDaoService {
         Reservation newReservation = repository.save(reservation);
         OrderList orderList = new OrderList();
         orderList.setCId(cId);
-        orderList.setR_No(reservation.getReservationId());
+        orderList.setR_No(repository.findMaxId());
+
+        System.out.println("aasdf" + reservation.getReservationId());
         orderListRepository.save(orderList);
         return newReservation;
     }
