@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.criteria.Order;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -138,10 +139,11 @@ public class FoodPaymentDaoService {
 
     // 회원일떄 음식주문
     public List<Object> orderFood(FoodPayment foodPayment, String cId) {
+        Date today = new Date();
         OrderList newOrderList = new OrderList();
-
         List<Object> result = new ArrayList<>();
 
+        foodPayment.setF_Date(today);
         FoodPayment newFoodPayment = foodPaymentRepository.save(foodPayment);
 
         newOrderList.setCId(cId);
@@ -158,9 +160,11 @@ public class FoodPaymentDaoService {
 
     // 비회원일때 음식주문
     public List<Object> orderFood2(FoodPayment foodPayment, Integer cId) {
+        Date today = new Date();
         NcOrderList newOrderList = new NcOrderList();
-
         List<Object> result = new ArrayList<>();
+
+        foodPayment.setF_Date(today);
 
         FoodPayment newFoodPayment = foodPaymentRepository.save(foodPayment);
 

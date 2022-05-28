@@ -24,6 +24,9 @@ public class FoodPayment {
     private Integer fp_Count;
     @Column(columnDefinition = "number")
     private Integer fp_Price;
+    @Column(columnDefinition = "date")
+    private Date f_Date;
+
 
     @Transient
     private Integer OrderId;

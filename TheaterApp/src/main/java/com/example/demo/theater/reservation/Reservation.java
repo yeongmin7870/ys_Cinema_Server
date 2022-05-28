@@ -27,7 +27,7 @@ public class Reservation {
     private Date r_Date;
     //@Column(columnDefinition = "varchar2(10)")
     //private String r_Hour;
-    @Column(columnDefinition = "varchar2(4)")
+    @Column(columnDefinition = "varchar2(6)")
     private String r_Seat;
     @Column(columnDefinition = "varchar2(7)")
     private String r_TotalPrice;

@@ -57,4 +57,5 @@ public interface ReservationRepository extends JpaRepository<Reservation,Integer
             "AND r.m_No = m.movieId")
     List<Movie> retrieveCustomerMovieList2M(@Param("nc_No") Integer nc_No);
 
+
 }

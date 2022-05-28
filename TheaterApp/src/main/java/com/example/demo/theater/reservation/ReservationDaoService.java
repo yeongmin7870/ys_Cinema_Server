@@ -26,6 +26,10 @@ public class ReservationDaoService {
 
     // 영화 예매하기 삽입
     public Reservation reserveMovie(Reservation reservation, String cId) {
+
+
+
+
         Date today = new Date();
         reservation.setR_Date(today);
         Reservation newReservation = repository.save(reservation);
@@ -33,7 +37,6 @@ public class ReservationDaoService {
         orderList.setCId(cId);
         orderList.setR_No(repository.findMaxId());
 
-        System.out.println("aasdf" + reservation.getReservationId());
         orderListRepository.save(orderList);
         return newReservation;
     }

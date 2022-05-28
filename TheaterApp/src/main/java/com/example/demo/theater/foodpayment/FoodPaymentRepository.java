@@ -14,6 +14,10 @@ import java.util.List;
 @Repository
 public interface FoodPaymentRepository extends JpaRepository<FoodPayment, Integer> {
 
+
+    @Query("SELECT  max(o) FROM OrderList o")
+    Integer FoodOrderListMax();
+
     @Query("SELECT f,o FROM FoodPayment f, OrderList o WHERE f.foodPaymentId = o.fp_No")
     public List<Object> findCustomerPaymentOrderList();   //회원 일때 조회
 
