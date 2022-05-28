@@ -47,10 +47,10 @@ ALTER TABLE review_comment ADD CONSTRAINT mr_mo_mrNo FOREIGN KEY (mr_no) REFEREN
 ALTER TABLE movie_review ADD CONSTRAINT mo_mo_mNo FOREIGN KEY (m_no) REFERENCES movie(m_no);
 
 --예매
---ALTER TABLE reservation ADD CONSTRAINT re_mo_mNo FOREIGN KEY (m_no) REFERENCES movie(m_no);
---ALTER TABLE reservation ADD CONSTRAINT re_mos_msNo FOREIGN KEY (ms_no) REFERENCES movie_schedule(ms_no);
+ALTER TABLE reservation ADD CONSTRAINT re_mo_mNo FOREIGN KEY (m_no) REFERENCES movie(m_no);
+ALTER TABLE reservation ADD CONSTRAINT re_mos_msNo FOREIGN KEY (ms_no) REFERENCES movie_schedule(ms_no);
 --ALTER TABLE reservation ADD CONSTRAINT re_nos_normalSeatId FOREIGN KEY (normal_Seat_Id)REFERENCES normal_Seat(normal_Seat_Id);
---ALTER TABLE reservation ADD CONSTRAINT re_nos_normalId FOREIGN KEY (normal_Screen_Id) REFERENCES normal_Screen(normal_Screen_Id);
+ALTER TABLE reservation ADD CONSTRAINT re_nos_normalId FOREIGN KEY (normal_Screen_Id) REFERENCES normal_Screen(normal_Screen_Id);
 
 --상영시간표
 ALTER TABLE movie_schedule ADD CONSTRAINT mos_st_storeNo FOREIGN KEY (store_no) REFERENCES store_address(store_no);

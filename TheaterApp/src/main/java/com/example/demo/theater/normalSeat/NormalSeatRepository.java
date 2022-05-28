@@ -4,8 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface NormalSeatRepository extends JpaRepository<NormalSeat,String> {
+public interface NormalSeatRepository extends JpaRepository<NormalSeat,Integer> {
 
-    NormalSeat findByNormalSeatId(String id);
 
 }

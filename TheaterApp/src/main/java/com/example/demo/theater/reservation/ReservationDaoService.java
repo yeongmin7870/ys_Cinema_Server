@@ -3,6 +3,8 @@ package com.example.demo.theater.reservation;
 import com.example.demo.theater.movie.Movie;
 import com.example.demo.theater.ncOrderList.NcOrderList;
 import com.example.demo.theater.ncOrderList.NcOrderListRepository;
+import com.example.demo.theater.normalSeat.NormalSeat;
+import com.example.demo.theater.normalSeat.NormalSeatRepository;
 import com.example.demo.theater.orderList.OrderList;
 import com.example.demo.theater.orderList.OrderListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +26,18 @@ public class ReservationDaoService {
     @Autowired
     private NcOrderListRepository ncOrderListRepository;
 
+    @Autowired
+    private NormalSeatRepository normalSeatRepository;
+
     // 영화 예매하기 삽입
     public Reservation reserveMovie(Reservation reservation, String cId) {
+
+        NormalSeat normalSeat = new NormalSeat();
+
+
+        normalSeat.setNormalSeatId(reservation.getNormalSeatId());
+        normalSeatRepository.save(normalSeat);
+
 
         Date today = new Date();
         reservation.setR_Date(today);
