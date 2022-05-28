@@ -32,19 +32,28 @@ public class ReservationDaoService {
     // 영화 예매하기 삽입
     public void reserveMovie(Reservation newReservation, String cId) {
 
-        Reservation reservation= new Reservation();
+
         Date today = new Date();
         String str = newReservation.getNormalSeatId();
         String[] strArray = str.split(",");
 
         Boolean isThereSeat = repository.IsThereSeat(newReservation.getNormalScreenId(),newReservation.getNormalSeatId(),newReservation.getMsNo());
 
-        if(isThereSeat == true){
+        if(isThereSeat != null){
             return;
         }
 
         for (int i = 0 ; i < strArray.length ; i++) {
+            Reservation reservation= new Reservation();
             reservation.setR_Date(today);
+            reservation.setC_Photo("안씀");
+            reservation.setM_No(newReservation.getM_No());
+            reservation.setNormalScreenId(newReservation.getNormalScreenId());
+            reservation.setR_Coupon(0);
+            reservation.setMsNo(newReservation.getMsNo());
+            reservation.setR_TotalPrice(newReservation.getR_TotalPrice());
+
+
             reservation.setNormalSeatId(strArray[i]);
             repository.save(reservation);
             OrderList orderList = new OrderList();

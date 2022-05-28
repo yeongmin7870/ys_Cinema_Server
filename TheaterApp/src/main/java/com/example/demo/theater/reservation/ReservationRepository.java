@@ -17,11 +17,11 @@ import java.util.List;
 public interface ReservationRepository extends JpaRepository<Reservation, Integer> {
 
 
-    @Query("select 0 " +
+    @Query(value = "select 0 " +
             "from reservation rv " +
-            "where rv.normal_screen_Id = :screenId" +
+            "where rv.normal_screen_Id = :screenId " +
             "and rv.normal_seat_Id = :seatId " +
-            "and rv.ms_no = :ms_no")
+            "and rv.ms_no = :ms_no" , nativeQuery = true)
     Boolean IsThereSeat(@Param("screenId") String screenId, @Param("seatId") String seatId, @Param("ms_no") Integer ms_no);
 
 
