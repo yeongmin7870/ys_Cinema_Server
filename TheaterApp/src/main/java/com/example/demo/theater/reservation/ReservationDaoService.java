@@ -47,18 +47,6 @@ public class ReservationDaoService {
             }
         }
 
-        for (int i = 0; i < strArray.length; i++) { // 여러 좌석으로 왔다면 for문을 돌린다
-            if (control == null) { // 초기값을 null로해서 시작!     or 여부의 좌석이 있다면
-                control = normalSeatRepository.findNormalSeatId(strArray[i]); //그 좌석들을 하나씩 찾아본다
-            } else { // 여부의 좌석이 없다면
-                return "fail";
-            }
-            normalSeat.setNormalId(normalSeatRepository.findNormalMax() + 1);
-            normalSeat.setNormalSeatId(strArray[i]);
-            normalSeatRepository.save(normalSeat);
-        }
-
-
         reservation.setR_Date(today);  // 예약 테이블에 구매 날짜를 넣어준다 .
         Reservation newReservation = repository.save(reservation); // 가져온 값들을 넣어준다.
 
@@ -74,9 +62,9 @@ public class ReservationDaoService {
     public void reserveMovie2(Reservation reservation, Integer NcNo) {
         Date today = new Date(); //값이 넘어오는 순간 서버 시간 생성 이것은 for문안에 들어가면 안됨.
 
-
         String str = reservation.getNormalSeatId();
         String[] strArray = str.split(",");
+
 
         for (int i = 0 ; i < strArray.length ; i++) {
             reservation.setR_Date(today);

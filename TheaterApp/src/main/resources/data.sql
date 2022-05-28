@@ -49,7 +49,7 @@ ALTER TABLE movie_review ADD CONSTRAINT mo_mo_mNo FOREIGN KEY (m_no) REFERENCES 
 --예매
 ALTER TABLE reservation ADD CONSTRAINT re_mo_mNo FOREIGN KEY (m_no) REFERENCES movie(m_no);
 ALTER TABLE reservation ADD CONSTRAINT re_mos_msNo FOREIGN KEY (ms_no) REFERENCES movie_schedule(ms_no);
---ALTER TABLE reservation ADD CONSTRAINT re_nos_normalSeatId FOREIGN KEY (normal_Seat_Id)REFERENCES normal_Seat(normal_Seat_Id);
+ALTER TABLE reservation ADD CONSTRAINT re_nos_normalSeatId FOREIGN KEY (normal_Seat_Id)REFERENCES normal_Seat(normal_Seat_Id);
 ALTER TABLE reservation ADD CONSTRAINT re_nos_normalId FOREIGN KEY (normal_Screen_Id) REFERENCES normal_Screen(normal_Screen_Id);
 
 --상영시간표
@@ -99,7 +99,7 @@ INSERT INTO CUSTOMER (c_id, c_address, c_name,c_nikname, c_phone, c_point, c_pro
 INSERT INTO CUSTOMER (c_id, c_address, c_name,c_nikname, c_phone, c_point, c_profile, c_profile_path, c_pw, c_total) values ('LSG', 'ANYANG','이상기','오른손에 주작이','01033334444', 0, 'profile.png', './src/main/resources/serverImage/profile/','1234',0);
 INSERT INTO CUSTOMER (c_id, c_address, c_name,c_nikname, c_phone, c_point, c_profile, c_profile_path, c_pw, c_total) values ('YSJ', 'ANYANG','양석준','머리에 탈모가...','01055556666', 0, 'profile.png', './src/main/resources/serverImage/profile/','1234',0);
 INSERT INTO CUSTOMER (c_id, c_address, c_name,c_nikname, c_phone, c_point, c_profile, c_profile_path, c_pw, c_total) values ('HJY', 'SIHEUNG','한정엽','왼발에 백호가','01077778888', 0, 'profile.png', './src/main/resources/serverImage/profile/','1234',0);
-INSERT INTO CUSTOMER (c_id, c_address, c_name,c_nikname, c_phone, c_point, c_profile, c_profile_path, c_pw, c_total) values ('BSH', 'GWANGJU','박영민','오른발에 현무가','01099990000', 0, 'profile.png', './src/main/resources/serverImage/profile/','1234',0);
+INSERT INTO CUSTOMER (c_id, c_address, c_name,c_nikname, c_phone, c_point, c_profile, c_profile_path, c_pw, c_total) values ('BSH', 'GWANGJU','방성환','성환아 미안해','01099990000', 0, 'profile.png', './src/main/resources/serverImage/profile/','1234',0);
 
 --자주찾는질문
 INSERT INTO often_question (often_id, often_answer, often_content, often_subject)
@@ -127,103 +127,103 @@ insert into movie (m_no,m_Actor2, m_Actor3,m_Actors,m_categories,m_content,m_dir
 insert into movie (m_no,m_Actor2, m_Actor3,m_Actors,m_categories,m_content,m_director,m_end_date,m_hour,m_image_path,m_img,m_name,m_rating,m_star_score,m_start_date,movie_video_name,movie_video_path,m_tier) values (10,'마크 러팔러','애덤 리바인','키이라 나이틀리','드라마','스타 음반프도듀서에서 해고된 댄은 뮤직바에서 그레타의 자작곡을 듣고 다시 한 번 재개하는데','존 카니','20220601','104','./src/main/resources/serverImage/movieImage/', 'BeginAgain.jpg', '비긴 어게인',0,0.0,'20201231','./src/main/resources/movieVideo/','Iwannagosea.mp4','15세 관람가');
 
 --좌석
---insert into normal_seat (normal_seat_id, normal_state) values ('A01','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('A02','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('A03','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('A04','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('A05','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('A06','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('A07','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('A08','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('B01','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('B02','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('B03','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('B04','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('B05','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('B06','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('B07','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('B08','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('C01','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('C02','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('C03','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('C04','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('C05','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('C06','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('C07','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('C08','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('D01','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('D02','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('D03','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('D04','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('D05','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('D06','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('D07','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('D08','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('E01','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('E02','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('E03','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('E04','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('E05','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('E06','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('E07','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('E08','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('F01','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('F02','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('F03','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('F04','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('F05','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('F06','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('F07','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('F08','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('G01','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('G02','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('G03','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('G04','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('G05','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('G06','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('G07','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('G08','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('H01','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('H02','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('H03','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('H04','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('H05','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('H06','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('H07','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('H08','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('I01','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('I02','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('I03','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('I04','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('I05','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('I06','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('I07','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('I08','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('J01','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('J02','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('J03','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('J04','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('J05','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('J06','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('J07','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('J08','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('K01','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('K02','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('K03','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('K04','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('K05','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('K06','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('K07','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('K08','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('L01','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('L02','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('L03','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('L04','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('L05','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('L06','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('L07','0');
---insert into normal_seat (normal_seat_id, normal_state) values ('L08','0');
---
+insert into normal_seat (normal_seat_id) values ('A01');
+insert into normal_seat (normal_seat_id) values ('A02');
+insert into normal_seat (normal_seat_id) values ('A03');
+insert into normal_seat (normal_seat_id) values ('A04');
+insert into normal_seat (normal_seat_id) values ('A05');
+insert into normal_seat (normal_seat_id) values ('A06');
+insert into normal_seat (normal_seat_id) values ('A07');
+insert into normal_seat (normal_seat_id) values ('A08');
+insert into normal_seat (normal_seat_id) values ('B01');
+insert into normal_seat (normal_seat_id) values ('B02');
+insert into normal_seat (normal_seat_id) values ('B03');
+insert into normal_seat (normal_seat_id) values ('B04');
+insert into normal_seat (normal_seat_id) values ('B05');
+insert into normal_seat (normal_seat_id) values ('B06');
+insert into normal_seat (normal_seat_id) values ('B07');
+insert into normal_seat (normal_seat_id) values ('B08');
+insert into normal_seat (normal_seat_id) values ('C01');
+insert into normal_seat (normal_seat_id) values ('C02');
+insert into normal_seat (normal_seat_id) values ('C03');
+insert into normal_seat (normal_seat_id) values ('C04');
+insert into normal_seat (normal_seat_id) values ('C05');
+insert into normal_seat (normal_seat_id) values ('C06');
+insert into normal_seat (normal_seat_id) values ('C07');
+insert into normal_seat (normal_seat_id) values ('C08');
+insert into normal_seat (normal_seat_id) values ('D01');
+insert into normal_seat (normal_seat_id) values ('D02');
+insert into normal_seat (normal_seat_id) values ('D03');
+insert into normal_seat (normal_seat_id) values ('D04');
+insert into normal_seat (normal_seat_id) values ('D05');
+insert into normal_seat (normal_seat_id) values ('D06');
+insert into normal_seat (normal_seat_id) values ('D07');
+insert into normal_seat (normal_seat_id) values ('D08');
+insert into normal_seat (normal_seat_id) values ('E01');
+insert into normal_seat (normal_seat_id) values ('E02');
+insert into normal_seat (normal_seat_id) values ('E03');
+insert into normal_seat (normal_seat_id) values ('E04');
+insert into normal_seat (normal_seat_id) values ('E05');
+insert into normal_seat (normal_seat_id) values ('E06');
+insert into normal_seat (normal_seat_id) values ('E07');
+insert into normal_seat (normal_seat_id) values ('E08');
+insert into normal_seat (normal_seat_id) values ('F01');
+insert into normal_seat (normal_seat_id) values ('F02');
+insert into normal_seat (normal_seat_id) values ('F03');
+insert into normal_seat (normal_seat_id) values ('F04');
+insert into normal_seat (normal_seat_id) values ('F05');
+insert into normal_seat (normal_seat_id) values ('F06');
+insert into normal_seat (normal_seat_id) values ('F07');
+insert into normal_seat (normal_seat_id) values ('F08');
+insert into normal_seat (normal_seat_id) values ('G01');
+insert into normal_seat (normal_seat_id) values ('G02');
+insert into normal_seat (normal_seat_id) values ('G03');
+insert into normal_seat (normal_seat_id) values ('G04');
+insert into normal_seat (normal_seat_id) values ('G05');
+insert into normal_seat (normal_seat_id) values ('G06');
+insert into normal_seat (normal_seat_id) values ('G07');
+insert into normal_seat (normal_seat_id) values ('G08');
+insert into normal_seat (normal_seat_id) values ('H01');
+insert into normal_seat (normal_seat_id) values ('H02');
+insert into normal_seat (normal_seat_id) values ('H03');
+insert into normal_seat (normal_seat_id) values ('H04');
+insert into normal_seat (normal_seat_id) values ('H05');
+insert into normal_seat (normal_seat_id) values ('H06');
+insert into normal_seat (normal_seat_id) values ('H07');
+insert into normal_seat (normal_seat_id) values ('H08');
+insert into normal_seat (normal_seat_id) values ('I01');
+insert into normal_seat (normal_seat_id) values ('I02');
+insert into normal_seat (normal_seat_id) values ('I03');
+insert into normal_seat (normal_seat_id) values ('I04');
+insert into normal_seat (normal_seat_id) values ('I05');
+insert into normal_seat (normal_seat_id) values ('I06');
+insert into normal_seat (normal_seat_id) values ('I07');
+insert into normal_seat (normal_seat_id) values ('I08');
+insert into normal_seat (normal_seat_id) values ('J01');
+insert into normal_seat (normal_seat_id) values ('J02');
+insert into normal_seat (normal_seat_id) values ('J03');
+insert into normal_seat (normal_seat_id) values ('J04');
+insert into normal_seat (normal_seat_id) values ('J05');
+insert into normal_seat (normal_seat_id) values ('J06');
+insert into normal_seat (normal_seat_id) values ('J07');
+insert into normal_seat (normal_seat_id) values ('J08');
+insert into normal_seat (normal_seat_id) values ('K01');
+insert into normal_seat (normal_seat_id) values ('K02');
+insert into normal_seat (normal_seat_id) values ('K03');
+insert into normal_seat (normal_seat_id) values ('K04');
+insert into normal_seat (normal_seat_id) values ('K05');
+insert into normal_seat (normal_seat_id) values ('K06');
+insert into normal_seat (normal_seat_id) values ('K07');
+insert into normal_seat (normal_seat_id) values ('K08');
+insert into normal_seat (normal_seat_id) values ('L01');
+insert into normal_seat (normal_seat_id) values ('L02');
+insert into normal_seat (normal_seat_id) values ('L03');
+insert into normal_seat (normal_seat_id) values ('L04');
+insert into normal_seat (normal_seat_id) values ('L05');
+insert into normal_seat (normal_seat_id) values ('L06');
+insert into normal_seat (normal_seat_id) values ('L07');
+insert into normal_seat (normal_seat_id) values ('L08');
+
 insert into normal_Screen (normal_Screen_Id, normal_Screen) values ('S1', '1관');
 insert into normal_Screen (normal_Screen_Id, normal_Screen) values ('S2', '2관');
 insert into normal_Screen (normal_Screen_Id, normal_Screen) values ('S3', '3관');
@@ -234,7 +234,7 @@ insert into normal_Screen (normal_Screen_Id, normal_Screen) values ('S5', '5관'
 insert into Store_Address (store_No, store_Address, store_Owner) values (1, '서울시 강남구', '금강선');
 insert into Store_Address (store_No, store_Address, store_Owner) values (2, '안산시 단원구', '박영민');
 insert into Store_Address (store_No, store_Address, store_Owner) values (3, '안양시 동안구', '연성머');
-insert into Store_Address (store_No, store_Address, store_Owner) values (4, '부신시 서구', '사나인');
+insert into Store_Address (store_No, store_Address, store_Owner) values (4, '부산시 서구', '사나인');
 insert into Store_Address (store_No, store_Address, store_Owner) values (5, '청주시 청원구', '정시원');
 
 insert into movie_schedule
@@ -242,7 +242,7 @@ insert into movie_schedule
 select movie_schedule_seq.NEXTVAL,
 sysdate + (interval '1' minute) * mv.m_hour,
 sysdate,
-1,
+mv.m_no,
 1
 from movie mv
 where mv.m_no = 1;
@@ -251,9 +251,74 @@ where mv.m_no = 1;
 insert into movie_schedule
 (ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
 select movie_schedule_seq.NEXTVAL,
+(sysdate + (interval '4' hour))+ (interval '1' minute) * mv.m_hour,
+sysdate + (interval '4' hour),
+mv.m_no,
+1
+from movie mv
+where mv.m_no = 1;
+
+
+insert into movie_schedule
+(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
+select movie_schedule_seq.NEXTVAL,
+(sysdate + (interval '8' hour))+ (interval '1' minute) * mv.m_hour,
+sysdate + (interval '8' hour),
+mv.m_no,
+1
+from movie mv
+where mv.m_no = 1;
+
+
+insert into movie_schedule
+(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
+select movie_schedule_seq.NEXTVAL,
+(sysdate + (interval '12' hour))+ (interval '1' minute) * mv.m_hour,
+sysdate + (interval '12' hour),
+mv.m_no,
+1
+from movie mv
+where mv.m_no = 1;
+
+insert into movie_schedule
+(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
+select movie_schedule_seq.NEXTVAL,
 sysdate + (interval '1' minute) * mv.m_hour,
 sysdate,
-1,
+mv.m_no,
+1
+from movie mv
+where mv.m_no = 2;
+
+
+insert into movie_schedule
+(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
+select movie_schedule_seq.NEXTVAL,
+(sysdate + (interval '4' hour))+ (interval '1' minute) * mv.m_hour,
+sysdate + (interval '4' hour),
+mv.m_no,
+1
+from movie mv
+where mv.m_no = 2;
+
+
+insert into movie_schedule
+(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
+select movie_schedule_seq.NEXTVAL,
+(sysdate + (interval '8' hour))+ (interval '1' minute) * mv.m_hour,
+sysdate + (interval '8' hour),
+mv.m_no,
+1
+from movie mv
+where mv.m_no = 2;
+
+
+insert into movie_schedule
+(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
+select movie_schedule_seq.NEXTVAL,
+(sysdate + (interval '12' hour))+ (interval '1' minute) * mv.m_hour,
+sysdate + (interval '12' hour),
+mv.m_no,
 1
 from movie mv
 where mv.m_no = 2;
@@ -264,7 +329,7 @@ insert into movie_schedule
 select movie_schedule_seq.NEXTVAL,
 sysdate + (interval '1' minute) * mv.m_hour,
 sysdate,
-1,
+mv.m_no,
 1
 from movie mv
 where mv.m_no = 3;
@@ -273,9 +338,41 @@ where mv.m_no = 3;
 insert into movie_schedule
 (ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
 select movie_schedule_seq.NEXTVAL,
+(sysdate + (interval '4' hour))+ (interval '1' minute) * mv.m_hour,
+sysdate + (interval '4' hour),
+mv.m_no,
+1
+from movie mv
+where mv.m_no = 3;
+
+
+insert into movie_schedule
+(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
+select movie_schedule_seq.NEXTVAL,
+(sysdate + (interval '8' hour))+ (interval '1' minute) * mv.m_hour,
+sysdate + (interval '8' hour),
+mv.m_no,
+1
+from movie mv
+where mv.m_no = 3;
+
+
+insert into movie_schedule
+(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
+select movie_schedule_seq.NEXTVAL,
+(sysdate + (interval '12' hour))+ (interval '1' minute) * mv.m_hour,
+sysdate + (interval '12' hour),
+mv.m_no,
+1
+from movie mv
+where mv.m_no = 3;
+
+insert into movie_schedule
+(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
+select movie_schedule_seq.NEXTVAL,
 sysdate + (interval '1' minute) * mv.m_hour,
 sysdate,
-1,
+mv.m_no,
 1
 from movie mv
 where mv.m_no = 4;
@@ -284,9 +381,51 @@ where mv.m_no = 4;
 insert into movie_schedule
 (ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
 select movie_schedule_seq.NEXTVAL,
+(sysdate + (interval '4' hour))+ (interval '1' minute) * mv.m_hour,
+sysdate + (interval '4' hour),
+mv.m_no,
+1
+from movie mv
+where mv.m_no = 4;
+
+
+insert into movie_schedule
+(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
+select movie_schedule_seq.NEXTVAL,
+(sysdate + (interval '8' hour))+ (interval '1' minute) * mv.m_hour,
+sysdate + (interval '8' hour),
+mv.m_no,
+1
+from movie mv
+where mv.m_no = 4;
+
+
+insert into movie_schedule
+(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
+select movie_schedule_seq.NEXTVAL,
+(sysdate + (interval '12' hour))+ (interval '1' minute) * mv.m_hour,
+sysdate + (interval '12' hour),
+mv.m_no,
+1
+from movie mv
+where mv.m_no = 4;
+
+insert into movie_schedule
+(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
+select movie_schedule_seq.NEXTVAL,
 sysdate + (interval '1' minute) * mv.m_hour,
 sysdate,
-1,
+mv.m_no,
+1
+from movie mv
+where mv.m_no = 5;
+
+insert into movie_schedule
+(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
+select movie_schedule_seq.NEXTVAL,
+(sysdate + (interval '4' hour))+ (interval '1' minute) * mv.m_hour,
+sysdate + (interval '4' hour),
+mv.m_no,
 1
 from movie mv
 where mv.m_no = 5;
@@ -295,163 +434,20 @@ where mv.m_no = 5;
 insert into movie_schedule
 (ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
 select movie_schedule_seq.NEXTVAL,
-sysdate + (interval '1' minute) * mv.m_hour,
-sysdate,
-1,
+(sysdate + (interval '8' hour))+ (interval '1' minute) * mv.m_hour,
+sysdate + (interval '8' hour),
+mv.m_no,
 1
 from movie mv
-where mv.m_no = 6;
+where mv.m_no = 5;
 
 
 insert into movie_schedule
 (ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
 select movie_schedule_seq.NEXTVAL,
-sysdate + (interval '1' minute) * mv.m_hour,
-sysdate,
-1,
+(sysdate + (interval '12' hour))+ (interval '1' minute) * mv.m_hour,
+sysdate + (interval '12' hour),
+mv.m_no,
 1
 from movie mv
-where mv.m_no = 7;
-
-
-insert into movie_schedule
-(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
-select movie_schedule_seq.NEXTVAL,
-sysdate + (interval '1' minute) * mv.m_hour,
-sysdate,
-1,
-1
-from movie mv
-where mv.m_no = 8;
-
-
-insert into movie_schedule
-(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
-select movie_schedule_seq.NEXTVAL,
-sysdate + (interval '1' minute) * mv.m_hour,
-sysdate,
-1,
-1
-from movie mv
-where mv.m_no = 9;
-
-
-insert into movie_schedule
-(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
-select movie_schedule_seq.NEXTVAL,
-sysdate + (interval '1' minute) * mv.m_hour,
-sysdate,
-1,
-1
-from movie mv
-where mv.m_no = 10;
-
-
-insert into movie_schedule
-(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
-select movie_schedule_seq.NEXTVAL,
-(sysdate + (interval '2' hour)) + ((interval '1' minute) * mv.m_hour),
-sysdate + (interval '1' hour),
-1,
-1
-from movie mv
-where mv.m_no = 11;
-
-
-insert into movie_schedule
-(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
-select movie_schedule_seq.NEXTVAL,
-(sysdate + (interval '2' hour)) + ((interval '1' minute) * mv.m_hour),
-sysdate + (interval '1' hour),
-1,
-1
-from movie mv
-where mv.m_no = 12;
-
-
-insert into movie_schedule
-(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
-select movie_schedule_seq.NEXTVAL,
-(sysdate + (interval '2' hour)) + ((interval '1' minute) * mv.m_hour),
-sysdate + (interval '1' hour),
-1,
-1
-from movie mv
-where mv.m_no = 13;
-
-
-insert into movie_schedule
-(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
-select movie_schedule_seq.NEXTVAL,
-(sysdate + (interval '2' hour)) + ((interval '1' minute) * mv.m_hour),
-sysdate + (interval '1' hour),
-1,
-1
-from movie mv
-where mv.m_no = 14;
-
-
-insert into movie_schedule
-(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
-select movie_schedule_seq.NEXTVAL,
-(sysdate + (interval '2' hour)) + ((interval '1' minute) * mv.m_hour),
-sysdate + (interval '1' hour),
-1,
-1
-from movie mv
-where mv.m_no = 15;
-
-
-insert into movie_schedule
-(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
-select movie_schedule_seq.NEXTVAL,
-(sysdate + (interval '2' hour)) + ((interval '1' minute) * mv.m_hour),
-sysdate + (interval '1' hour),
-1,
-1
-from movie mv
-where mv.m_no = 16;
-
-
-insert into movie_schedule
-(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
-select movie_schedule_seq.NEXTVAL,
-(sysdate + (interval '2' hour)) + ((interval '1' minute) * mv.m_hour),
-sysdate + (interval '1' hour),
-1,
-1
-from movie mv
-where mv.m_no = 17;
-
-
-insert into movie_schedule
-(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
-select movie_schedule_seq.NEXTVAL,
-(sysdate + (interval '2' hour)) + ((interval '1' minute) * mv.m_hour),
-sysdate + (interval '1' hour),
-1,
-1
-from movie mv
-where mv.m_no = 18;
-
-
-insert into movie_schedule
-(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
-select movie_schedule_seq.NEXTVAL,
-(sysdate + (interval '2' hour)) + ((interval '1' minute) * mv.m_hour),
-sysdate + (interval '1' hour),
-1,
-1
-from movie mv
-where mv.m_no = 19;
-
-
-insert into movie_schedule
-(ms_no, ms_End_Time, ms_Star_Time, m_no, store_no)
-select movie_schedule_seq.NEXTVAL,
-(sysdate + (interval '2' hour)) + ((interval '1' minute) * mv.m_hour),
-sysdate + (interval '1' hour),
-1,
-1
-from movie mv
-where mv.m_no = 20;
+where mv.m_no = 5;

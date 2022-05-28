@@ -15,9 +15,6 @@ import javax.persistence.*;
 public class NormalSeat {
     @Id
     @NotNull
-    @GeneratedValue
-    @Column(columnDefinition = "number",unique = true)
-    private Integer normalId;
-    @Column(columnDefinition = "VARCHAR2(10)")
-    private String normalSeatId;
+    @Column(columnDefinition = "varchar2(10)",unique = true)
+    private Integer normalSeatId;
 }
