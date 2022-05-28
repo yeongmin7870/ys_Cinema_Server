@@ -65,26 +65,26 @@ INSERT INTO Food_Kind VALUES (200, '음료');
 INSERT INTO Food_Kind VALUES (300, '콤보');
 
 --음식 메뉴 100번 대분류에 속함
-INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(11, '팝콘 단품',sysdate,'./src/main/resources/serverImage/foodImage/food_none.png', 100, '제한 없음', '오리지널 팝콘', 5000);
-INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(12, '팝콘 단품',sysdate,'./src/main/resources/serverImage/foodImage/food_none.png', 100, '제한 없음', '캬라멜 팝콘', 5500);
-INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(13, '팝콘 단품',sysdate,'./src/main/resources/serverImage/foodImage/food_none.png', 100, '제한 없음', '버터갈릭 팝콘', 5500);
-INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(14, '나초+소스',sysdate,'./src/main/resources/serverImage/foodImage/food_none.png', 100, '제한 없음', '오리지날 나쵸', 6000);
-INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(15, '나초샐러드',sysdate,'./src/main/resources/serverImage/foodImage/food_none.png', 100, '제한 없음', '나초 샐러드', 7000);
-INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(16, '감자 튀김',sysdate,'./src/main/resources/serverImage/foodImage/food_none.png', 100, '제한 없음', '감자 튀김', 6000);
-INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(17, '감자튀김+치즈스틱',sysdate,'./src/main/resources/serverImage/foodImage/food_none.png', 100, '제한 없음', '감자 튀김+치즈 스틱', 8000);
-INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(18, '버터 오징어',sysdate,'./src/main/resources/serverImage/foodImage/food_none.png', 100, '제한 없음', '버터 오징어', 6000);
-INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(19, 'BBQ 핫도그',sysdate,'./src/main/resources/serverImage/foodImage/food_none.png', 100, '제한 없음', 'BBQ 핫도그', 6000);
+INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(11, '팝콘 단품',sysdate,'./src/main/resources/serverImage/foodImage/popcorn.png', 100, '제한 없음', '오리지널 팝콘', 5000);
+INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(12, '팝콘 단품',sysdate,'./src/main/resources/serverImage/foodImage/Caramelpopcorn.jpg', 100, '제한 없음', '캬라멜 팝콘', 5500);
+INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(13, '팝콘 단품',sysdate,'./src/main/resources/serverImage/foodImage/ButterPopCorn.png', 100, '제한 없음', '버터갈릭 팝콘', 5500);
+INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(14, '나초+소스',sysdate,'./src/main/resources/serverImage/foodImage/nacho.png', 100, '제한 없음', '오리지날 나쵸', 6000);
+INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(15, '나초샐러드',sysdate,'./src/main/resources/serverImage/foodImage/NachoSalad.jpg', 100, '제한 없음', '나초 샐러드', 7000);
+INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(16, '감자 튀김',sysdate,'./src/main/resources/serverImage/foodImage/Potato.jpg', 100, '제한 없음', '감자 튀김', 6000);
+INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(17, '감자튀김+치즈스틱',sysdate,'./src/main/resources/serverImage/foodImage/CheeseSticks.jpg', 100, '제한 없음', '감자 튀김+치즈 스틱', 8000);
+INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(18, '버터 오징어',sysdate,'./src/main/resources/serverImage/foodImage/Butter_Squid.jpg', 100, '제한 없음', '버터 오징어', 6000);
+INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(19, 'BBQ 핫도그',sysdate,'./src/main/resources/serverImage/foodImage/HotDog.jpg', 100, '제한 없음', 'BBQ 핫도그', 6000);
 
 --음식 메뉴 200번 대분류에 속함
-INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(21, '탄산 음료',sysdate,'./src/main/resources/serverImage/foodImage/food_none.png', 200, '제한 없음', '콜라', 3500);
-INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(22, '탄산 음료',sysdate,'./src/main/resources/serverImage/foodImage/food_none.png', 200, '제한 없음', '사이다(스프라이트)', 3500);
-INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(23, '탄산 음료',sysdate,'./src/main/resources/serverImage/foodImage/food_none.png', 200, '제한 없음', '환타', 3500);
-INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(24, '에이드',sysdate,'./src/main/resources/serverImage/foodImage/food_none.png', 200, '제한 없음', '레몬 에이드', 5000);
-INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(25, '에이드',sysdate,'./src/main/resources/serverImage/foodImage/food_none.png', 200, '제한 없음', '복숭아 에이드', 5000);
-INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(26, '에이드',sysdate,'./src/main/resources/serverImage/foodImage/food_none.png', 200, '제한 없음', '청포도 에이드', 5000);
-INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(27, '주류',sysdate,'./src/main/resources/serverImage/foodImage/food_none.png', 200, '19세 미만 판매 금지', '생맥주 500cc', 6000);
-INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(28, '주류',sysdate,'./src/main/resources/serverImage/foodImage/food_none.png', 200, '19세 미만 판매 금지', '하이볼', 6500);
-INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(29, '커피',sysdate,'./src/main/resources/serverImage/foodImage/food_none.png', 200, '제한 없음', '아메리카노', 4500);
+INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(21, '탄산 음료',sysdate,'./src/main/resources/serverImage/foodImage/Coke.jpg', 200, '제한 없음', '콜라', 3500);
+INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(22, '탄산 음료',sysdate,'./src/main/resources/serverImage/foodImage/Sprite.jpg', 200, '제한 없음', '사이다(스프라이트)', 3500);
+INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(23, '탄산 음료',sysdate,'./src/main/resources/serverImage/foodImage/Fanta.jpg', 200, '제한 없음', '환타', 3500);
+INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(24, '에이드',sysdate,'./src/main/resources/serverImage/foodImage/Lemonade.jpg', 200, '제한 없음', '레몬 에이드', 5000);
+INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(25, '에이드',sysdate,'./src/main/resources/serverImage/foodImage/PeachIcedTea.jpg', 200, '제한 없음', '복숭아 에이드', 5000);
+INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(26, '에이드',sysdate,'./src/main/resources/serverImage/foodImage/GreenGrapeAde.jpg', 200, '제한 없음', '청포도 에이드', 5000);
+INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(27, '주류',sysdate,'./src/main/resources/serverImage/foodImage/Beer.jpg', 200, '19세 미만 판매 금지', '생맥주 500cc', 6000);
+INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(28, '주류',sysdate,'./src/main/resources/serverImage/foodImage/HighBall.jpg', 200, '19세 미만 판매 금지', '하이볼', 6500);
+INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(29, '커피',sysdate,'./src/main/resources/serverImage/foodImage/Americano.jpg', 200, '제한 없음', '아메리카노', 4500);
 
 --음식 메뉴 300번 대분류에 속함
 INSERT INTO FOOD_MENU (FOOD_NO, FOOD_COMPONENT, FOOD_DATE, FOOD_IMG, FOOD_KIND_NO,FOOD_LIMIT,FOOD_NAME,FOOD_PRICE) values(31, '팝콘 1개 + 음료 1 컵',sysdate,'./src/main/resources/serverImage/foodImage/SingleCombo.jpg', 300, '제한 없음', '싱글콤보', 8000);
