@@ -85,9 +85,9 @@ public class CustomerController {
     public Customer retrieveCustomers(@PathVariable String customerId) {
         Customer customer = service.findById(customerId);
 
-        if (customer == null) {
-            throw new CustomerNotFoundException(String.format("ID [%s] not found", customerId));
-        }
+//        if (customer == null) {
+//            throw new CustomerNotFoundException(String.format("ID [%s] not found", customerId));
+//        }
 
         return customer;
 
@@ -146,9 +146,11 @@ public class CustomerController {
                     .toUri();
             return ResponseEntity.created(location).build();
 
-        } else {
-            throw new CustomerNotFoundException(String.format("ID [%s] already exist", customer.getCustomerId()));
         }
+//        else {
+//            throw new CustomerNotFoundException(String.format("ID [%s] already exist", customer.getCustomerId()));
+//        }
+        return null;
     }
 
 
@@ -158,9 +160,9 @@ public class CustomerController {
                                      @PathVariable String id) {
 
         Customer updateCustomer = service.updateCustomer(newCustomer, id);
-        if (updateCustomer == null) {
-            throw new CustomerNotFoundException(String.format("ID [%s] Not Found ", id));
-        }
+//        if (updateCustomer == null) {
+//            throw new CustomerNotFoundException(String.format("ID [%s] Not Found ", id));
+//        }
 
         return updateCustomer;
     }

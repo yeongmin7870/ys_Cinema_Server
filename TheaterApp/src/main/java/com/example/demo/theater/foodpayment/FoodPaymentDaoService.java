@@ -138,7 +138,7 @@ public class FoodPaymentDaoService {
     }
 
     // 회원일떄 음식주문
-    public List<Object> orderFood(FoodPayment foodPayment, String cId) {
+    public void orderFood(FoodPayment foodPayment, String cId) {
         Date today = new Date();
         OrderList newOrderList = new OrderList();
         List<Object> result = new ArrayList<>();
@@ -155,7 +155,6 @@ public class FoodPaymentDaoService {
         result.add(newFoodPayment);
         result.add(orderList);
 
-        return result;
     }
 
     // 비회원일때 음식주문

@@ -1,6 +1,5 @@
 package com.example.demo.theater.exception;
 
-import com.example.demo.theater.customer.CustomerNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -24,11 +23,11 @@ public class CustomizeResponseEntityExceptionHandler extends ResponseEntityExcep
     }
 
 
-    @ExceptionHandler(CustomerNotFoundException.class)
-    public final ResponseEntity<Object> handleUserNotFound(Exception ex, WebRequest request) {
-        ExceptionResponse exceptionResponse =
-                new ExceptionResponse(new Date(), ex.getMessage(), request.getDescription(false));
-
-        return new ResponseEntity(exceptionResponse, HttpStatus.NOT_FOUND);
-    }
+//    @ExceptionHandler(CustomerNotFoundException.class)
+//    public final ResponseEntity<Object> handleUserNotFound(Exception ex, WebRequest request) {
+//        ExceptionResponse exceptionResponse =
+//                new ExceptionResponse(new Date(), ex.getMessage(), request.getDescription(false));
+//
+//        return new ResponseEntity(exceptionResponse, HttpStatus.NOT_FOUND);
+//    }
 }

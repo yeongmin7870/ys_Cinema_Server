@@ -1,14 +1,10 @@
 package com.example.demo.theater.reviewcomment;
 
-import com.example.demo.theater.customer.CustomerNotFoundException;
 import com.example.demo.theater.movie.MovieNotFoundException;
-import com.example.demo.theater.moviereview.MovieReview;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.IOException;
-import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -52,9 +48,9 @@ public class ReviewCommentController {
         ReviewComment updateMovieReview = service.updateComment(comment);
 
 
-        if (updateMovieReview == null) {
-            throw new CustomerNotFoundException(String.format("ID [%s] Not Found", comment.getReviewCommentId()));
-        }
+//        if (updateMovieReview == null) {
+//            throw new CustomerNotFoundException(String.format("ID [%s] Not Found", comment.getReviewCommentId()));
+//        }
 
         return updateMovieReview;
     }

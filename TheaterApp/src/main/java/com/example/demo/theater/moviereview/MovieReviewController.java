@@ -1,20 +1,16 @@
 package com.example.demo.theater.moviereview;
 
 import com.example.demo.logControll.LogController;
-import com.example.demo.theater.customer.CustomerNotFoundException;
 import com.example.demo.theater.movie.MovieNotFoundException;
 import com.example.demo.theater.writedReview.WritedReview;
 import com.example.demo.theater.writedReview.WritedReviewDaoService;
-import com.example.demo.theater.writedReview.WritedReviewRepository;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.management.Query;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -93,9 +89,9 @@ public class MovieReviewController {
         MovieReview updateMovieReview = service.updateMovieReview(newMovieReview, movieReviewId);
 
 
-        if (updateMovieReview == null) {
-            throw new CustomerNotFoundException(String.format("ID [%s] Not Found", movieReviewId));
-        }
+//        if (updateMovieReview == null) {
+//            throw new CustomerNotFoundException(String.format("ID [%s] Not Found", movieReviewId));
+//        }
 
         return updateMovieReview;
     }
