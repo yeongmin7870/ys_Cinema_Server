@@ -22,16 +22,20 @@ Server</p>
       <li>Maven</li>
       <li>Thymeleaf</li>
    </ul>
+   <br>
    <h3>3. ERD 설계</h3>
    <hr>
    <img width="461" src="https://user-images.githubusercontent.com/73753121/210053968-7ac4cd2f-a388-4a1c-a46f-0e998ab7f760.png">
 </p>
+<br>
 <h3>4. 핵심 기능</h3>
 <hr>
 <p></p>
+<br>
 <h3>5. 맞닥 뜨린 문제점</h3>
 <hr>
 <p></p>
+<br>
 <h3>6. 느낀 점</h3>
 <hr>
 <p></p>
