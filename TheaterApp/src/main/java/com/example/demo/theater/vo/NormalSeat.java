@@ -15,6 +15,6 @@ import javax.persistence.*;
 public class NormalSeat {
     @Id
     @NotNull
-    @Column(columnDefinition = "varchar2(10)",unique = true)
+    @Column(columnDefinition = "varchar2(10)", unique = true)
     private Integer normalSeatId;
 }

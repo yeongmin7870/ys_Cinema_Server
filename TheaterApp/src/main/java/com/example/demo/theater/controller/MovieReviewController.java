@@ -32,13 +32,11 @@ public class MovieReviewController {
     @Autowired
     private WritedReviewDaoService writedReviewDaoService;
 
-
     @GetMapping("/movieRetrieve/myReview")
     @ApiOperation(value = "내가 적은 리뷰보기", notes = "사용자 아이디를 Parameter로 받고 List object 타입인 jSON형태로 보내줍니다 따라서 VO를 이용해 값을 받아야합니다")
     public List<Object> retrieveMyReivew(@RequestParam String cId) {
         return service.retrieveMyReview(cId);
     }
-
 
     // 사용자가 영화 평점 입력 후 계산해서 현재 해당 영화 평점 출력
     @GetMapping("/movie/rating/{id}")
@@ -46,7 +44,6 @@ public class MovieReviewController {
     public Integer ratingScore(@RequestParam Integer movieId) throws IOException {
         return service.ratingScore(movieId);
     }
-
 
     @GetMapping("/MovieReview")
     @ApiOperation(value = "영화 전체 리뷰 보여주기")
@@ -72,12 +69,11 @@ public class MovieReviewController {
 
         Integer result = service.searchMovieReivew(id, newMovieReview);
 
-
         if (result > 0) {
             return "fail";
         } else {
             Date today = new Date();
-            newMovieReview.setMrUptime(today);  // 서버 시간
+            newMovieReview.setMrUptime(today); // 서버 시간
             MovieReview movieReview = service.save(newMovieReview);
             WritedReview a = writedReviewDaoService.save(id, movieReview);
             System.out.println("확인" + a);
@@ -90,10 +86,10 @@ public class MovieReviewController {
     public MovieReview replaceMovieReview(@RequestBody MovieReview newMovieReview, Integer movieReviewId) {
         MovieReview updateMovieReview = service.updateMovieReview(newMovieReview, movieReviewId);
 
-
-//        if (updateMovieReview == null) {
-//            throw new CustomerNotFoundException(String.format("ID [%s] Not Found", movieReviewId));
-//        }
+        // if (updateMovieReview == null) {
+        // throw new CustomerNotFoundException(String.format("ID [%s] Not Found",
+        // movieReviewId));
+        // }
 
         return updateMovieReview;
     }

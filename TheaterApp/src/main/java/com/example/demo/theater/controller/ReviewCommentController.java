@@ -14,17 +14,14 @@ import java.util.List;
 @RequestMapping("/theater")
 public class ReviewCommentController {
 
-
     @Autowired
     private ReviewCommentDaoService service;
-
 
     @GetMapping("/ReviewComment")
     @ApiOperation(value = "영화 전체 대댓글 보여주기")
     public List<ReviewComment> retrieveAllMovieComment() {
         return service.findAll();
     }
-
 
     @GetMapping("/ReviewComment/{movieId}/{rcId}")
     @ApiOperation(value = "해당 영화 리뷰의 대댓글만 보여주기")
@@ -49,11 +46,6 @@ public class ReviewCommentController {
     @ApiOperation(value = "영화 리뷰 수정")
     public ReviewComment replaceMovieReview(@RequestBody ReviewComment comment) {
         ReviewComment updateMovieReview = service.updateComment(comment);
-
-
-//        if (updateMovieReview == null) {
-//            throw new CustomerNotFoundException(String.format("ID [%s] Not Found", comment.getReviewCommentId()));
-//        }
 
         return updateMovieReview;
     }

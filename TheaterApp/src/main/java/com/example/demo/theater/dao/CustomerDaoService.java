@@ -41,7 +41,6 @@ public class CustomerDaoService {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     private static final String secretKey = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoaSJ9.GY_JamNllFTbrZ1qd2LVM1CcKp45bHKYFnHkWELr__U";
 
-
     @Autowired
     private CustomerRepository repository;
 
@@ -51,34 +50,20 @@ public class CustomerDaoService {
     @Autowired
     private ReservationRepository reservationRepository;
 
-    //회원 영수증
-//    public List<Object> retrieveCustomerReceipt(String cId) {
-//        List<Object> Food = foodPaymentRepository.findCustomerPaymentOrderList2(cId);
-//        List<Object> Movie = reservationRepository.retrieveCustomerMovieList(cId);
-//        List<Object> result = new ArrayList<>();
-//        result.add(Food);
-//        result.add(Movie);
-//        return result;
-//    }
-
-
-
-    public void tests(){
+    public void tests() {
         logger.info("테스트입니다.");
     }
-
 
     public List<Customer> findAll() {
         return repository.findAll();
     }
-
 
     public Customer findById(String customerId) {
         Customer customer = repository.findByCustomerId(customerId);
         return customer;
     }
 
-    //    로그인 하기위한 메소드
+    // 로그인 하기위한 메소드
     public String checkedCustomer(String id, String passwd, HttpServletRequest request) {
         Customer customer1 = repository.findByCustomerId(id);
 
@@ -93,10 +78,9 @@ public class CustomerDaoService {
     // 토큰생성
     public static String makeJwtToken(String id, String passwd) {
 
-
         Date ext = new Date();
 
-        Long expiredTime = 1000 * 60L * 60L * 2L; //2시간
+        Long expiredTime = 1000 * 60L * 60L * 2L; // 2시간
         ext.setTime(ext.getTime() + expiredTime);
 
         Claims claims = Jwts.claims()
@@ -132,7 +116,6 @@ public class CustomerDaoService {
 
     }
 
-
     // 아이디 삭제
     public void deleteCustomer(String id) {
         repository.deleteById(id);
@@ -143,7 +126,7 @@ public class CustomerDaoService {
         return customer;
     }
 
-    //이미지 업로드
+    // 이미지 업로드
     public String uploadToLocal(String id, MultipartFile file) {
         try {
             String uploadFolderPath = "./src/main/resources/serverImage/profile/";
@@ -161,10 +144,8 @@ public class CustomerDaoService {
                 Files.delete(path);
             }
 
-
             byte[] data = file.getBytes();
             Files.write(path, data);
-
 
             // 여기까지는 이미지를 폴더에 저장함
 
@@ -183,8 +164,8 @@ public class CustomerDaoService {
 
     public ResponseEntity<Resource> getImage(String id) throws IOException {
 
-        Customer customer = repository.findByCustomerId(id);  // 회원 정보 가져오기
-        String path = customer.getC_Profile_Path() + customer.getC_Profile(); //경로
+        Customer customer = repository.findByCustomerId(id); // 회원 정보 가져오기
+        String path = customer.getC_Profile_Path() + customer.getC_Profile(); // 경로
         HttpHeaders headers = new HttpHeaders();
         Path filePath = Paths.get(path);
         Resource resource = (Resource) new FileSystemResource(path);
@@ -195,7 +176,6 @@ public class CustomerDaoService {
         return new ResponseEntity<Resource>(resource, headers, HttpStatus.OK);
 
     }
-
 
     public Customer updateCustomer(Customer newCustomer, String id) {
         Customer customer = repository.findByCustomerId(id);

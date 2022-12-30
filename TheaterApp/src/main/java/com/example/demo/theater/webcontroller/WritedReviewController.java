@@ -21,6 +21,8 @@ public class WritedReviewController {
 
     @GetMapping("/WritedReview")
     @ApiOperation(value = "현재 리뷰를 작성한 사람들의 정보")
-    public List<WritedReview> retrieveAllMovieReview() { return daoService.findAll();}
+    public List<WritedReview> retrieveAllMovieReview() {
+        return daoService.findAll();
+    }
 
 }

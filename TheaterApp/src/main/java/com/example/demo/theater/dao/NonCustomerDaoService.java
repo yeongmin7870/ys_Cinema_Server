@@ -14,7 +14,6 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-
 @Service
 public class NonCustomerDaoService {
 
@@ -30,17 +29,7 @@ public class NonCustomerDaoService {
     @Autowired
     private CustomerDaoService customerDaoService;
 
-    //비회원 영수증
-//    public List<Object> retrieveNonCustomerReceipt(Integer cId) {
-//        List<Object> Food = foodPaymentRepository.findNonCustPaymentOrderList2(cId);
-//        List<Object> Movie = reservationRepository.retrieveCustomerMovieList2(cId);
-//        List<Object> result = new ArrayList<>();
-//        result.add(Food);
-//        result.add(Movie);
-//        return result;
-//    }
-
-    //비회원 가입
+    // 비회원 가입
     String registerNonCustomer(NonCustomer newCustomer) {
 
         NonCustomer nonCustomer = nonCustomerRepository.retrieveNonCustomer(newCustomer.getNcPhone());
@@ -57,7 +46,7 @@ public class NonCustomerDaoService {
 
     }
 
-    //전체리스트 보기
+    // 전체리스트 보기
     List<NonCustomer> findAll() {
         return nonCustomerRepository.findAll();
     }
@@ -72,8 +61,7 @@ public class NonCustomerDaoService {
         return nonCustomerRepository.retrieveNonCustomer(ncPhone);
     }
 
-
-    //로그인
+    // 로그인
     String loginNonCustomer(String name, String phone) {
         NonCustomer nonCustomer = nonCustomerRepository.retrieveNonCustomer(phone);
         logger.info(nonCustomer.toString());

@@ -9,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
 @Data
 @Entity
 @AllArgsConstructor
@@ -17,7 +18,7 @@ public class OftenQuestion {
     @Id
     @NotNull
     @GeneratedValue
-    @Column(name = "often_ID", columnDefinition = "number",unique = true)
+    @Column(name = "often_ID", columnDefinition = "number", unique = true)
     private Integer oftenID;
 
     @Column(columnDefinition = "varchar2(60)")

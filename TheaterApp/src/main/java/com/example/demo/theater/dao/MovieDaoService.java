@@ -25,16 +25,14 @@ import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
 
-
 @Service
 public class MovieDaoService {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
-//    private static final
+    // private static final
 
     @Autowired
     private MovieRepository movieRepository;
-
 
     // 영화 비디오 url 가져오기
     public ResponseEntity<Resource> getMovieVideo(Integer id) throws IOException {
@@ -48,7 +46,6 @@ public class MovieDaoService {
             return new ResponseEntity<Resource>(HttpStatus.NOT_FOUND);
         }
 
-
         headers.add("Content-Type", Files.probeContentType(filePath));
         return new ResponseEntity<Resource>(resource, headers, HttpStatus.OK);
     }
@@ -60,7 +57,7 @@ public class MovieDaoService {
             String uploadFolderPath = "./src/main/resources/movieVideo/";
 
             Movie movie = movieRepository.findByMovieId(id);
-            String videoName = "video"+id+".mp4";
+            String videoName = "video" + id + ".mp4";
             File checkVideo = new File(uploadFolderPath + videoName);
 
             Path path = Paths.get(uploadFolderPath + videoName);
@@ -71,10 +68,9 @@ public class MovieDaoService {
             }
 
             // 비디오 변경할떄 기존비디오 삭제
-            if(checkVideo.exists()){
+            if (checkVideo.exists()) {
                 Files.delete(path);
             }
-
 
             byte[] data = multipartFile.getBytes();
             Files.write(path, data);
@@ -92,7 +88,6 @@ public class MovieDaoService {
         }
     }
 
-
     // 영화 이미지 전체 uri 뽑아오기
     public String[] getMoviesImages() throws IOException {
         List<Movie> movies = movieRepository.findAll();
@@ -104,12 +99,11 @@ public class MovieDaoService {
         return address;
     }
 
-
     // 영화 이미지 한개만 가져오기
     public ResponseEntity<Resource> getMovieImage(Integer id) throws IOException {
 
-        Movie movie = movieRepository.findByMovieId(Integer.valueOf(id));  // 회원 정보 가져오기
-        String path = movie.getM_ImagePath() + movie.getM_Img(); //경로
+        Movie movie = movieRepository.findByMovieId(Integer.valueOf(id)); // 회원 정보 가져오기
+        String path = movie.getM_ImagePath() + movie.getM_Img(); // 경로
         HttpHeaders headers = new HttpHeaders();
         Path filePath = Paths.get(path);
         Resource resource = (Resource) new FileSystemResource(path);
@@ -120,7 +114,7 @@ public class MovieDaoService {
         return new ResponseEntity<Resource>(resource, headers, HttpStatus.OK);
     }
 
-    //현재 상영작 이미지 업로드
+    // 현재 상영작 이미지 업로드
     public String uploadToLocal(Integer id, MultipartFile file) {
         try {
             String uploadFolderPath = "./src/main/resources/serverImage/movieImage/";
@@ -160,20 +154,19 @@ public class MovieDaoService {
         }
     }
 
-
-    //영화 전체 출력
+    // 영화 전체 출력
     public List<Movie> findAll() throws IOException {
         List<Movie> all = movieRepository.findAll();
         return all;
     }
 
-    //ID값으로 해당 영화 검색
+    // ID값으로 해당 영화 검색
     public Movie findById(Integer movieId) {
         Movie movie = movieRepository.findByMovieId(movieId);
         return movie;
     }
 
-    //영화 입력
+    // 영화 입력
     public Movie save(Movie movie) {
         Integer id = movieRepository.findMovieIdMax();
         movie.setMovieId(id + 1);
@@ -182,13 +175,12 @@ public class MovieDaoService {
         return movie;
     }
 
-    //영화 삭제
+    // 영화 삭제
     public void deleteMovie(Integer id) {
         movieRepository.deleteById(id);
     }
 
-
-    //영화 수정
+    // 영화 수정
     public Movie updateMovie(Movie newMovie, Integer id) {
         Movie movie = movieRepository.findByMovieId(id);
 
@@ -201,7 +193,7 @@ public class MovieDaoService {
         movie.setM_Name(newMovie.getM_Name());
         movie.setM_Content(newMovie.getM_Content());
         movie.setM_Director(newMovie.getM_Director());
-//        movie.setM_StarScore(newMovie.getM_StarScore());
+        // movie.setM_StarScore(newMovie.getM_StarScore());
         movie.setM_Rating(newMovie.getM_Rating());
         movie.setM_Hour(newMovie.getM_Hour());
         movie.setM_StartDate(newMovie.getM_StartDate());

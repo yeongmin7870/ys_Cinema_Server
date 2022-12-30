@@ -27,14 +27,12 @@ public class FoodPayment {
     @Column(columnDefinition = "date")
     private Date f_Date;
 
-
     @Transient
     private Integer OrderId;
     @Transient
     private String id;
     @Transient
     private Integer nid;
-
 
     @Transient
     private String foodName;
@@ -52,4 +50,3 @@ public class FoodPayment {
     private Integer foodKindNo;
 
 }
-

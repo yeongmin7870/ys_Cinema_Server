@@ -19,7 +19,7 @@ public class SpecialTheater {
     @NotNull
     @GeneratedValue
     @Column(name = "special_Id", columnDefinition = "varchar2(10)", unique = true)
-    private  Integer specialId;
+    private Integer specialId;
     @Column(columnDefinition = "char(1)")
     private String special_state;
 }

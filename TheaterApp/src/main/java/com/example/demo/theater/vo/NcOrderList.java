@@ -16,9 +16,9 @@ import javax.persistence.Id;
 public class NcOrderList {
     @Id
     @GeneratedValue
-    @Column(name = "ncOrderId" , columnDefinition = "number", unique = true, nullable = false)
+    @Column(name = "ncOrderId", columnDefinition = "number", unique = true, nullable = false)
     private Integer ncOrderId;
-    private Integer nc_No;        // nc id
+    private Integer nc_No; // nc id
     private Integer fp_No;
     private Integer r_No;
 }

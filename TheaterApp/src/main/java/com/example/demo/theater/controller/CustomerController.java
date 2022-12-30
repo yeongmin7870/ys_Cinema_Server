@@ -38,12 +38,6 @@ public class CustomerController {
     @Autowired
     private CustomerDaoService service;
 
-    // @GetMapping("/customer/receipt")
-    // @ApiOperation("회원 영수증 음식주문 내역, 영화예매 내역 같이 나옴")
-    // List<Object> retrieveCustomerReceipt(@RequestParam String cId){
-    // return service.retrieveCustomerReceipt(cId);
-    // }
-
     @GetMapping("/customer/token/parser")
     @ApiOperation(value = "고객 토큰 해독")
     public String decodeToken(@RequestParam String token) {
@@ -54,11 +48,6 @@ public class CustomerController {
     @PutMapping(value = "/customer/image/upload")
     @ApiOperation(value = "고객 프로필 사진 업로드 update")
     public String uploadLocal(@RequestParam String id, @RequestParam("file") MultipartFile multipartFile) {
-        // methodName = new Object() {
-        // }.getClass().getEnclosingMethod().getName(); //메소드 명 가져오기
-
-        // logger.info(methodName + " 서비스를 실행하였고 " + "IP는 " +
-        // logController.clientIp(request));
 
         return service.uploadToLocal(id, multipartFile);
     }
@@ -81,11 +70,6 @@ public class CustomerController {
     @ApiOperation(value = "한명의 고객 정보 가져오기")
     public Customer retrieveCustomers(@PathVariable String customerId) {
         Customer customer = service.findById(customerId);
-
-        // if (customer == null) {
-        // throw new CustomerNotFoundException(String.format("ID [%s] not found",
-        // customerId));
-        // }
 
         return customer;
 
@@ -143,10 +127,7 @@ public class CustomerController {
             return ResponseEntity.created(location).build();
 
         }
-        // else {
-        // throw new CustomerNotFoundException(String.format("ID [%s] already exist",
-        // customer.getCustomerId()));
-        // }
+
         return null;
     }
 
@@ -156,9 +137,6 @@ public class CustomerController {
             @PathVariable String id) {
 
         Customer updateCustomer = service.updateCustomer(newCustomer, id);
-        // if (updateCustomer == null) {
-        // throw new CustomerNotFoundException(String.format("ID [%s] Not Found ", id));
-        // }
 
         return updateCustomer;
     }

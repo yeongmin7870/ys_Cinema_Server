@@ -1,6 +1,5 @@
 package com.example.demo.theater.controller;
 
-
 import com.example.demo.theater.dao.MovieScheduleDaoService;
 import com.example.demo.theater.dao.WritedReviewDaoService;
 import com.example.demo.theater.exception.MovieNotFoundException;
@@ -55,13 +54,13 @@ public class MovieScheduleController {
 
     @PostMapping("/MovieSchedule")
     @ApiOperation(value = "상영 시간 등록")
-    public String newSchedule(@RequestBody MovieSchedule newMovieSchedule){
+    public String newSchedule(@RequestBody MovieSchedule newMovieSchedule) {
 
         boolean result = movieScheduleDaoService.scheduleProcess(newMovieSchedule);
 
-        if(result == false) {
+        if (result == false) {
             return "영화, 상영관, 상영기간 중 하나가 없거나 지난기간입니다.";
-        }else {
+        } else {
             Integer m_Hour = movieScheduleDaoService.movieHour(newMovieSchedule);
             movieScheduleDaoService.insertSchedule(m_Hour, newMovieSchedule);
         }
@@ -77,13 +76,13 @@ public class MovieScheduleController {
     @PutMapping("/MovieSchedule")
     @ApiOperation(value = "영화 상영시간 수정")
     public String replaceSchedule(@RequestBody MovieSchedule newMovieSchedule,
-                                         @RequestParam Integer movieScheduleId) {
+            @RequestParam Integer movieScheduleId) {
 
         boolean result = movieScheduleDaoService.scheduleProcess(newMovieSchedule);
 
-        if(result == false) {
+        if (result == false) {
             return "업데이트 불가.";
-        }else {
+        } else {
             Integer m_Hour = movieScheduleDaoService.movieHour(newMovieSchedule);
             Integer ms_no = newMovieSchedule.getMovieScheduleId();
             movieScheduleDaoService.updateMovieSchedule(m_Hour, newMovieSchedule, ms_no);

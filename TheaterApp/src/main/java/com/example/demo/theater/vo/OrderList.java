@@ -17,9 +17,9 @@ import javax.persistence.Id;
 public class OrderList {
     @Id
     @GeneratedValue
-    @Column(name = "orderId" , columnDefinition = "number", unique = true, nullable = false)
+    @Column(name = "orderId", columnDefinition = "number", unique = true, nullable = false)
     private Integer orderId;
-    @Column(name = "c_Id",columnDefinition = "VARCHAR2(10)")
+    @Column(name = "c_Id", columnDefinition = "VARCHAR2(10)")
     private String cId;
     private Integer fp_No;
     private Integer r_No;

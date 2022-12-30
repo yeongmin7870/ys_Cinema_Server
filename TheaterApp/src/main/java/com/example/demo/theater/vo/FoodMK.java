@@ -22,7 +22,6 @@ public class FoodMK {
     private String food_Img;
     private Integer food_Kind_No;
 
-
     private Integer foodKindId;
     private String foodKindName;
 }

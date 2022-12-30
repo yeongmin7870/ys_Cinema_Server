@@ -1,6 +1,5 @@
 package com.example.demo.theater.controller;
 
-
 import com.example.demo.theater.dao.MovieDaoService;
 import com.example.demo.theater.exception.MovieNotFoundException;
 import com.example.demo.theater.vo.Movie;
@@ -31,7 +30,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-
 @RestController
 @RequestMapping("/theater")
 @CrossOrigin
@@ -39,30 +37,26 @@ public class MovieController {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-
     private String methodName; // 메소드명 가져오기위한 변수
 
     private LogController logController;
     // 찍는 이유는 여러가지 1. 악용자가 누군지 알기위한 방책, 2. 로그인 시 누가 어디서 로그인 했는지 알기위한 방책
 
-
     @Autowired
     private MovieDaoService service;
-
 
     // 영화 비디오 저장
     @PutMapping("/movie/video")
     @ApiOperation(value = "영화 비디오 저장")
     public String saveMovieVideo(Integer id, MultipartFile multipartFile) {
-        return service.saveMovieVideo(id,multipartFile);
+        return service.saveMovieVideo(id, multipartFile);
     }
 
     @GetMapping("/movie/video/display/{id}")
     @ApiOperation(value = "영화 비디오 한개만 불러오기")
-    public ResponseEntity<Resource> getMovieVideo(@PathVariable Integer id) throws  IOException{
+    public ResponseEntity<Resource> getMovieVideo(@PathVariable Integer id) throws IOException {
         return service.getMovieVideo(id);
     }
-
 
     // 영화 이미지 전체 uri 뽑아오기
     @GetMapping(value = "/movies/display")
@@ -71,8 +65,7 @@ public class MovieController {
         return service.getMoviesImages();
     }
 
-
-    //영화 이미지 한개만 가져오기
+    // 영화 이미지 한개만 가져오기
     @GetMapping("/movie/display/{id}")
     @ApiOperation(value = "영화 이미지 한개 출력", notes = "영화 이미지 한개만 출력하는 기능이다.")
     // 이걸 써주면 클라이언트 측에서 swagger-ui.html 문서로 확인할떄 편함
@@ -80,25 +73,25 @@ public class MovieController {
         return service.getMovieImage(id);
     }
 
-    //영화 이미지 업로드
+    // 영화 이미지 업로드
     @PutMapping("/movies/images/upload")
     @ApiOperation(value = "영화 이미지 업로드", notes = "영화 이미지 업로드 기능이다.")
-    public String movieIMageUpload(@RequestParam Integer id, @RequestParam("file") MultipartFile multipartFile, HttpServletRequest request) {
+    public String movieIMageUpload(@RequestParam Integer id, @RequestParam("file") MultipartFile multipartFile,
+            HttpServletRequest request) {
         methodName = new Object() {
-        }.getClass().getEnclosingMethod().getName(); //메소드 명 가져오기
+        }.getClass().getEnclosingMethod().getName(); // 메소드 명 가져오기
 
         logger.info(methodName + " 서비스를 실행하였고 " + "IP는 " + logController.clientIp(request));
 
         return service.uploadToLocal(id, multipartFile);
     }
 
-
     @GetMapping("/movies")
     @ApiOperation(value = "영화 전체 정보 리스트", notes = "영화 전체 정보 리스트를 뽑아온다.   ")
     public List<Movie> retrieveAllMovies() throws IOException {
         List<Movie> all = service.findAll();
-        String [] imageUrl = service.getMoviesImages();
-        for(int i=0; i<all.size();i++){
+        String[] imageUrl = service.getMoviesImages();
+        for (int i = 0; i < all.size(); i++) {
             all.get(i).setImageUrl(imageUrl[i]);
         }
         return all;
@@ -116,18 +109,17 @@ public class MovieController {
         return movie;
     }
 
-
     @PostMapping("/movies")
     @ApiOperation(value = "영화 정보 삽입", notes = "영화 정보 삽입하는 기능이다.   imageUrl은 insert하지 않음")
     public ResponseEntity<Movie> newMovies(@RequestBody Movie newMovie) {
 
-            Movie movie = service.save(newMovie);
+        Movie movie = service.save(newMovie);
 
-            URI location = ServletUriComponentsBuilder.fromCurrentRequest()
-                    .path("/{id}")
-                    .buildAndExpand(newMovie.getMovieId())
-                    .toUri();
-            return ResponseEntity.created(location).build();
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(newMovie.getMovieId())
+                .toUri();
+        return ResponseEntity.created(location).build();
     }
 
     @DeleteMapping("/movies/{id}")
@@ -139,7 +131,7 @@ public class MovieController {
     @PutMapping("/movies/{id}")
     @ApiOperation(value = "영화 정보 수정하기")
     public Movie replaceMovies(@RequestBody Movie newMovie,
-                               @PathVariable Integer id) {
+            @PathVariable Integer id) {
 
         Movie updateMovie = service.updateMovie(newMovie, id);
 

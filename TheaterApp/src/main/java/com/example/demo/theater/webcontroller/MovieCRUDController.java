@@ -31,7 +31,8 @@ public class MovieCRUDController {
     @GetMapping("/movieSelect")
     @ApiOperation("회원정보검색 페이지")
     public String select(Model model) {
-        List<Movie> movie = repository.findAll();;
+        List<Movie> movie = repository.findAll();
+        ;
         model.addAttribute("movie", movie);
         return "movie/movieSelect";
     }
@@ -51,20 +52,20 @@ public class MovieCRUDController {
     @PostMapping("/movieInsert")
     @ApiOperation("영화등록")
     public RedirectView insertForm(@ModelAttribute Movie movie) {
-        if(movie.getMovieId() == null) {
+        if (movie.getMovieId() == null) {
             service.save(movie);
         } else {
             logger.info("영화를 수정합니다.");
             service.updateMovie(movie, movie.getMovieId());
         }
 
-        return new RedirectView( "/movie/movieSelect");
+        return new RedirectView("/movie/movieSelect");
 
     }
 
     @GetMapping("/movieImage")
     @ApiOperation("영화 이미지 등록 페이지")
-    public String image(Model model, @RequestParam(required = false) Integer movieId){
+    public String image(Model model, @RequestParam(required = false) Integer movieId) {
         if (movieId == null) {
             model.addAttribute("movie", new Movie());
             logger.info("아이디 값이 null입니다.");
@@ -81,16 +82,17 @@ public class MovieCRUDController {
     public RedirectView uploadImage(@ModelAttribute Movie movie, @RequestParam("file") MultipartFile file) {
         if (movie.getMovieId() == null) {
             logger.info("값: " + movie.getMovieId() + ", " + file);
-            return  new RedirectView("movie/movieSelect");
+            return new RedirectView("movie/movieSelect");
         } else {
             logger.info("아이디 값이 정확하게 전달 되었습니다.");
             service.uploadToLocal(movie.getMovieId(), file);
         }
         return new RedirectView("/");
     }
+
     @GetMapping("/movieVideo")
     @ApiOperation("영화 비디오 등록 페이지")
-    public String video(Model model, @RequestParam(required = false) Integer movieId){
+    public String video(Model model, @RequestParam(required = false) Integer movieId) {
         if (movieId == null) {
             model.addAttribute("movie", new Movie());
             logger.info("아이디 값이 null입니다.");
@@ -107,7 +109,7 @@ public class MovieCRUDController {
     public RedirectView uploadVideo(@ModelAttribute Movie movie, @RequestParam("file") MultipartFile file) {
         if (movie.getMovieId() == null) {
             logger.info("값: " + movie.getMovieId() + ", " + file);
-            return  new RedirectView("movie/movieSelect");
+            return new RedirectView("movie/movieSelect");
         } else {
             logger.info("아이디 값이 정확하게 전달 되었습니다.");
             service.saveMovieVideo(movie.getMovieId(), file);

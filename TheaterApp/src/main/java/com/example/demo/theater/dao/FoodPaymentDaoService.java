@@ -1,6 +1,5 @@
 package com.example.demo.theater.dao;
 
-
 import com.example.demo.theater.ncOrderList.NcOrderList;
 import com.example.demo.theater.repository.FoodPaymentRepository;
 import com.example.demo.theater.repository.NcOrderListRepository;
@@ -25,7 +24,6 @@ public class FoodPaymentDaoService {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-
     @Autowired
     private FoodPaymentRepository foodPaymentRepository;
 
@@ -35,11 +33,9 @@ public class FoodPaymentDaoService {
     @Autowired
     private NcOrderListRepository ncOrderListRepository;
 
-
-
     // 회원일떄 음식주문 수정
     public List<Object> orderReplace(FoodPayment newfoodPayment, String cId) {
-        FoodPayment foodPayment = foodPaymentRepository.findOneFoodHistory(cId,newfoodPayment.getFoodPaymentId());
+        FoodPayment foodPayment = foodPaymentRepository.findOneFoodHistory(cId, newfoodPayment.getFoodPaymentId());
 
         List<Object> result = new ArrayList<>();
 
@@ -56,19 +52,15 @@ public class FoodPaymentDaoService {
         foodPaymentRepository.save(foodPayment);
 
         result.add(newfoodPayment);
-
 
         return result;
     }
 
     // 비회원일떄 음식주문 수정
-    public List<Object> NcOrderReplace (FoodPayment newfoodPayment, Integer cId) {
-        FoodPayment foodPayment = foodPaymentRepository.findOneFoodNcHistory(cId,newfoodPayment.getFoodPaymentId());
+    public List<Object> NcOrderReplace(FoodPayment newfoodPayment, Integer cId) {
+        FoodPayment foodPayment = foodPaymentRepository.findOneFoodNcHistory(cId, newfoodPayment.getFoodPaymentId());
 
         List<Object> result = new ArrayList<>();
-
-
-
 
         if (newfoodPayment.getFood_No() != 0) { // 음식을 수정하고 싶다면
             foodPayment.setFood_No(newfoodPayment.getFood_No());
@@ -83,7 +75,6 @@ public class FoodPaymentDaoService {
         foodPaymentRepository.save(foodPayment);
 
         result.add(newfoodPayment);
-
 
         return result;
     }
@@ -130,7 +121,6 @@ public class FoodPaymentDaoService {
         return null;
     }
 
-
     public List<Object> findCustomerPayment(String who) {
         if (who.equals("회원")) {
             return foodPaymentRepository.findCustomerPaymentOrderList();
@@ -152,7 +142,6 @@ public class FoodPaymentDaoService {
         newOrderList.setCId(cId);
         newOrderList.setFp_No(newFoodPayment.getFoodPaymentId());
 
-
         OrderList orderList = orderListRepository.save(newOrderList);
 
         result.add(newFoodPayment);
@@ -172,7 +161,6 @@ public class FoodPaymentDaoService {
 
         newOrderList.setNc_No(cId);
         newOrderList.setFp_No(newFoodPayment.getFoodPaymentId());
-
 
         NcOrderList orderList = ncOrderListRepository.save(newOrderList);
 

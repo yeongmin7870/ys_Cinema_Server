@@ -6,8 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.example.demo.theater.vo.FoodKind;
 
 @Repository
-public interface FoodKindRepository extends JpaRepository<FoodKind,Integer> {
-
+public interface FoodKindRepository extends JpaRepository<FoodKind, Integer> {
 
     public FoodKind findByFoodKindName(String foodKindName);
 }

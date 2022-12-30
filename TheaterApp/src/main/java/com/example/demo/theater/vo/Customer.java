@@ -1,6 +1,5 @@
 package com.example.demo.theater.customer;
 
-
 import com.google.gson.annotations.SerializedName;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
@@ -18,18 +17,18 @@ public class Customer {
 
     @Id
     @NotNull
-    @Column(name = "c_Id",columnDefinition = "varchar2(10)", unique = true)
-    private String customerId; //회원아이디
+    @Column(name = "c_Id", columnDefinition = "varchar2(10)", unique = true)
+    private String customerId; // 회원아이디
     @Column(columnDefinition = "varchar2(16)")
-    private String c_Pw; //회원 비밀번호
+    private String c_Pw; // 회원 비밀번호
     @Column(columnDefinition = "varchar2(51)")
-    private String c_Name; //회원명
+    private String c_Name; // 회원명
     @Column(columnDefinition = "varchar2(24)")
     private String c_Nikname;
     @Column(columnDefinition = "varchar2(11)")
     private String c_Phone; // 회원 전화번호
     @Column(columnDefinition = "varchar2(105)")
-    private String c_Address; //회원 주소
+    private String c_Address; // 회원 주소
     @Column(columnDefinition = "number default 0")
     private Integer c_Total; // 총소비금액
     @Column(columnDefinition = "number default 0")

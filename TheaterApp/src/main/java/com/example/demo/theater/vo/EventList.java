@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.sql.Blob;
 import java.util.Date;
+
 @Data
 @Entity
 @AllArgsConstructor
@@ -19,7 +20,7 @@ public class EventList {
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name="event_No", columnDefinition="number", unique = true)
+    @Column(name = "event_No", columnDefinition = "number", unique = true)
     private Integer eventId;
     @Column(columnDefinition = "VARCHAR2(10)")
     private String ad_ID;

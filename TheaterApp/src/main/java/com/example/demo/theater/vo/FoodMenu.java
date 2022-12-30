@@ -1,6 +1,5 @@
 package com.example.demo.theater.foodmenu;
 
-
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -37,6 +36,6 @@ public class FoodMenu {
     @Column(name = "foodKindNo", columnDefinition = "number")
     private Integer foodKindNo;
 
-    @Transient //디비에는 들어가지 않는 변수
+    @Transient // 디비에는 들어가지 않는 변수
     private String foodKindName;
 }

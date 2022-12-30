@@ -18,7 +18,7 @@ public class NonCustomer {
     @Id
     @NotNull
     @GeneratedValue
-    @Column(name = "nc_No",columnDefinition = "number",unique = true)
+    @Column(name = "nc_No", columnDefinition = "number", unique = true)
     private Integer nonCustomerId;
     @Column(columnDefinition = "VARCHAR2(51)")
     private String nc_Name;

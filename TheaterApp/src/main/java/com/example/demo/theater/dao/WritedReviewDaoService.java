@@ -21,17 +21,14 @@ public class WritedReviewDaoService {
     @Autowired
     private WritedReviewRepository repository;
 
-
-
-    public WritedReview save(String cId, MovieReview newMoviReview){
+    public WritedReview save(String cId, MovieReview newMoviReview) {
         WritedReview writedReview = new WritedReview();
         writedReview.setCId(cId);
         writedReview.setMrNo(newMoviReview.getMovieReviewId());
         return repository.save(writedReview);
     }
 
-
-    public List<WritedReview> findAll(){
+    public List<WritedReview> findAll() {
         return repository.findAll();
     }
 }
