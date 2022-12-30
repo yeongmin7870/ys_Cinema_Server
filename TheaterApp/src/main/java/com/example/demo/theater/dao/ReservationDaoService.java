@@ -36,15 +36,8 @@ public class ReservationDaoService {
     public void reserveMovie(Reservation newReservation, String cId) {
 
         Date today = new Date();
-        String str = newReservation.getNormalSeatId();
-        String[] strArray = str.split(",");
-
-        Boolean isThereSeat = repository.IsThereSeat(newReservation.getNormalScreenId(),
-                newReservation.getNormalSeatId(), newReservation.getMsNo());
-
-        if (isThereSeat != null) {
-            return;
-        }
+        String str = newReservation.getNormalSeatId(); // 받아온 좌석 번호 가져오기
+        String[] strArray = str.split(","); // 여러 좌석 예약일 수도 있으니 자름
 
         for (int i = 0; i < strArray.length; i++) {
             Reservation reservation = new Reservation();
@@ -63,7 +56,6 @@ public class ReservationDaoService {
             orderList.setR_No(repository.findMaxId());
             orderListRepository.save(orderList);
         }
-
     }
 
     // 비회원 예매하기 삽입

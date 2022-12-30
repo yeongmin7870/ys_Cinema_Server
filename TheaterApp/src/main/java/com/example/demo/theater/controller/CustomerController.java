@@ -134,7 +134,7 @@ public class CustomerController {
     @PutMapping("/customers/{id}")
     @ApiOperation(value = "고객정보 수정")
     public Customer replaceCustomers(@RequestBody Customer newCustomer,
-            @PathVariable String id) {
+                                     @PathVariable String id) {
 
         Customer updateCustomer = service.updateCustomer(newCustomer, id);
 
