@@ -25,12 +25,12 @@ Server</p>
    <br>
    <h3>3. ERD 설계</h3>
    <hr>
-   <img width="461" src="https://user-images.githubusercontent.com/73753121/210053968-7ac4cd2f-a388-4a1c-a46f-0e998ab7f760.png">
+   <img width="461" src="https://user-images.githubusercontent.com/73753121/210053968-7ac4cd2f-a388-4a1c-a46f-0e998ab7f760.png"/>
 </p>
 <br>
     <h3>4. Swagger Api 문서</h3>
     <hr>
-    <img width="461" src="https://user-images.githubusercontent.com/73753121/210088205-9a3a0ce3-4e18-47db-bbfc-83cf117d37cb.png">    
+    <img width="461" src="https://user-images.githubusercontent.com/73753121/210088205-9a3a0ce3-4e18-47db-bbfc-83cf117d37cb.png"/>    
 <h3>5. 핵심 기능</h3>
 <hr>
 <p>이 어플 서비스 핵심 기능은 영화 예매 기능 입니다. <br>
@@ -38,20 +38,27 @@ Server</p>
 </p>
 <details>
     <summary>핵심 기능 설명 보기</summary><br>
-  <h4>5.1 전체 흐름</h4> <a href="">:heavy_check_mark: 코드보기</a>
-    <img width="461" src="https://user-images.githubusercontent.com/73753121/210095351-dd3ab35a-c23c-4a67-ab2e-f1d35c36de5e.png">   
+  <h4>5.1 전체 흐름</h4> 
+    <img width="461" src="https://user-images.githubusercontent.com/73753121/210095351-dd3ab35a-c23c-4a67-ab2e-f1d35c36de5e.png"/>   
     <br>
-  <h4>5.2 Controller</h4>
-    <img width="461" src="https://user-images.githubusercontent.com/73753121/210096934-6573bb7d-0c1e-47e7-b16d-fd89503f223c.png">   
+  <h4>5.2 Controller</h4> 
+    <img width="461" src="https://user-images.githubusercontent.com/73753121/210096934-6573bb7d-0c1e-47e7-b16d-fd89503f223c.png"/><br>
+    ResponseEntity를 사용하였습니다.
+   <ul>
+      <li>     
+       HttpStatus를 200으로 응답하게 하였습니다.
+        <a href="https://github.com/yeongmin7870/ys_Cinema_Server/blob/e598e5dab0b38d1478db86b35c204b23c92f35a5/TheaterApp/src/main/java/com/example/demo/theater/controller/ReservationController.java#L14">:white_check_mark: 코드보기</a>
+      </li>
+    </ul>
    <br>
    <h4>5.3 Dao</h4>
-    <img width="461" src="https://user-images.githubusercontent.com/73753121/210096264-d35fd57e-4311-40b9-8924-46654dc2a627.png">   
+    <img width="461" src="https://user-images.githubusercontent.com/73753121/210096264-d35fd57e-4311-40b9-8924-46654dc2a627.png"/>   
    <br>
    <h4>5.4 Repository</h4>
-    <img width="461" src="https://user-images.githubusercontent.com/73753121/210096593-8c106337-bded-4ee7-b739-6b9d12ccd39d.png">   
+    <img width="461" src="https://user-images.githubusercontent.com/73753121/210096593-8c106337-bded-4ee7-b739-6b9d12ccd39d.png"/>   
    <br>
    <h4>5.5 Vo</h4>
-    <img width="461" src="https://user-images.githubusercontent.com/73753121/210096693-a8d24143-0766-4f64-98c7-52d70f2f2f6a.png">   
+    <img width="461" src="https://user-images.githubusercontent.com/73753121/210096693-a8d24143-0766-4f64-98c7-52d70f2f2f6a.png"/>   
    <br>
 </details>
 <h3>6. 맞닥 뜨린 문제점</h3>
