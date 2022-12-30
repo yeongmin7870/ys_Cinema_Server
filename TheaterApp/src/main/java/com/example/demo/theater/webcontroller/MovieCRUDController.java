@@ -1,9 +1,10 @@
 package com.example.demo.theater.webcontroller;
 
 import com.example.demo.theater.customer.Customer;
-import com.example.demo.theater.movie.Movie;
-import com.example.demo.theater.movie.MovieDaoService;
-import com.example.demo.theater.movie.MovieRepository;
+import com.example.demo.theater.dao.MovieDaoService;
+import com.example.demo.theater.repository.MovieRepository;
+import com.example.demo.theater.vo.Movie;
+
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
