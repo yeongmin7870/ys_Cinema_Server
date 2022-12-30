@@ -1,12 +1,12 @@
 package com.example.demo.theater.dao;
 
-import com.example.demo.theater.ncOrderList.NcOrderList;
+import com.example.demo.theater.vo.NcOrderList;
 import com.example.demo.theater.repository.FoodPaymentRepository;
 import com.example.demo.theater.repository.NcOrderListRepository;
 import com.example.demo.theater.repository.OrderListRepository;
+import com.example.demo.theater.vo.FoodMenu;
 import com.example.demo.theater.vo.FoodPayment;
 import com.example.demo.theater.vo.OrderList;
-import com.example.demo.theater.vo.foodmenu.FoodMenu;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

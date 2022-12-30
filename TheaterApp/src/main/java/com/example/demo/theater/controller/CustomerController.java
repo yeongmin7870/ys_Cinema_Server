@@ -1,6 +1,6 @@
 package com.example.demo.theater.controller;
 
-import com.example.demo.theater.customer.Customer;
+import com.example.demo.theater.vo.Customer;
 import com.example.demo.theater.dao.CustomerDaoService;
 
 import io.swagger.annotations.ApiOperation;

@@ -1,6 +1,6 @@
 package com.example.demo.theater.dao;
 
-import com.example.demo.theater.ncOrderList.NcOrderList;
+import com.example.demo.theater.vo.NcOrderList;
 import com.example.demo.theater.repository.NcOrderListRepository;
 import com.example.demo.theater.repository.NormalSeatRepository;
 import com.example.demo.theater.repository.OrderListRepository;

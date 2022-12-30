@@ -1,6 +1,6 @@
 package com.example.demo.theater.webcontroller;
 
-import com.example.demo.theater.customer.Customer;
+import com.example.demo.theater.vo.Customer;
 import com.example.demo.theater.dao.MovieDaoService;
 import com.example.demo.theater.repository.MovieRepository;
 import com.example.demo.theater.vo.Movie;

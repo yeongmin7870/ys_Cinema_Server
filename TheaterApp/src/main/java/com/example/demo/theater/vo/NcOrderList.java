@@ -1,4 +1,4 @@
-package com.example.demo.theater.ncOrderList;
+package com.example.demo.theater.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

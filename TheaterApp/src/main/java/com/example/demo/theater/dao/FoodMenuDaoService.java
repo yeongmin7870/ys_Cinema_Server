@@ -4,6 +4,7 @@ import com.example.demo.theater.repository.FoodKindRepository;
 import com.example.demo.theater.repository.FoodMenuRepository;
 import com.example.demo.theater.vo.FoodKind;
 
+import com.example.demo.theater.vo.FoodMenu;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -87,7 +88,7 @@ public class FoodMenuDaoService {
         return foodMenuRepository.save(foodMenu);
     }
 
-    ResponseEntity<Resource> retrieveFoodImage(Integer id) throws IOException {
+    public ResponseEntity<Resource> retrieveFoodImage(Integer id) throws IOException {
         FoodMenu foodMenu = foodMenuRepository.findByFoodMenuId(id);
         logger.info(foodMenu.toString());
         String path = foodMenu.getFood_Img();
@@ -101,7 +102,7 @@ public class FoodMenuDaoService {
         return new ResponseEntity<Resource>(resource, headers, HttpStatus.OK);
     }
 
-    String[] getFoodImages() {
+    public String[] getFoodImages() {
         List<FoodMenu> foodMenus = foodMenuRepository.findAll();
         String[] uri = new String[foodMenus.size()];
         System.out.println(foodMenus);

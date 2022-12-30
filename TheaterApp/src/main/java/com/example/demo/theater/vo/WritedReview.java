@@ -1,6 +1,6 @@
 package com.example.demo.theater.vo;
 
-import com.example.demo.theater.customer.Customer;
+import com.example.demo.theater.vo.Customer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

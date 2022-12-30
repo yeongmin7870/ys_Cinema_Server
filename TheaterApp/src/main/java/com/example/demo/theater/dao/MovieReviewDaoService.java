@@ -1,12 +1,13 @@
 package com.example.demo.theater.dao;
 
-import com.example.demo.theater.customer.Customer;
+import com.example.demo.theater.vo.Customer;
 import com.example.demo.theater.repository.MovieReviewRepository;
 import com.example.demo.theater.repository.WritedReviewRepository;
+import com.example.demo.theater.vo.Customer;
 import com.example.demo.theater.vo.FoodKind;
 import com.example.demo.theater.vo.MovieReview;
 import com.example.demo.theater.vo.WritedReview;
-import com.example.demo.theater.vo.foodmenu.FoodMenu;
+import com.example.demo.theater.vo.FoodMenu;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

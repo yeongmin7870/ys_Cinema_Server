@@ -1,6 +1,7 @@
 package com.example.demo.theater.repository;
 
 import com.example.demo.theater.vo.FoodKind;
+import com.example.demo.theater.vo.FoodMenu;
 import com.google.gson.JsonObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;

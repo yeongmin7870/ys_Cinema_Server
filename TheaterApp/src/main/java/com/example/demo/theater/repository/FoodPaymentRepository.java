@@ -1,9 +1,9 @@
 package com.example.demo.theater.repository;
 
-import com.example.demo.theater.ncOrderList.NcOrderList;
+import com.example.demo.theater.vo.NcOrderList;
 import com.example.demo.theater.vo.FoodPayment;
 import com.example.demo.theater.vo.OrderList;
-import com.example.demo.theater.vo.foodmenu.FoodMenu;
+import com.example.demo.theater.vo.FoodMenu;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

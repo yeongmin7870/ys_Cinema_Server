@@ -1,4 +1,4 @@
-package com.example.demo.theater.admin;
+package com.example.demo.theater.vo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

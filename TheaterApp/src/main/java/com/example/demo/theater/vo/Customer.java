@@ -1,4 +1,4 @@
-package com.example.demo.theater.customer;
+package com.example.demo.theater.vo;
 
 import com.google.gson.annotations.SerializedName;
 import com.sun.istack.NotNull;

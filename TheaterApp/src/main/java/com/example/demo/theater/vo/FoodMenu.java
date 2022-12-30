@@ -1,4 +1,4 @@
-package com.example.demo.theater.foodmenu;
+package com.example.demo.theater.vo;
 
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;

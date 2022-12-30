@@ -30,7 +30,7 @@ public class NonCustomerDaoService {
     private CustomerDaoService customerDaoService;
 
     // 비회원 가입
-    String registerNonCustomer(NonCustomer newCustomer) {
+    public String registerNonCustomer(NonCustomer newCustomer) {
 
         NonCustomer nonCustomer = nonCustomerRepository.retrieveNonCustomer(newCustomer.getNcPhone());
         System.out.println(nonCustomer);
@@ -47,22 +47,22 @@ public class NonCustomerDaoService {
     }
 
     // 전체리스트 보기
-    List<NonCustomer> findAll() {
+    public List<NonCustomer> findAll() {
         return nonCustomerRepository.findAll();
     }
 
     // 비회원 수정
-    void deleteCustomer(Integer id) {
+    public void deleteCustomer(Integer id) {
         nonCustomerRepository.deleteById(id);
     }
 
     // 핸드폰 번호로 한명 검색하기
-    NonCustomer retrieveCustomer(String ncPhone) {
+    public NonCustomer retrieveCustomer(String ncPhone) {
         return nonCustomerRepository.retrieveNonCustomer(ncPhone);
     }
 
     // 로그인
-    String loginNonCustomer(String name, String phone) {
+    public String loginNonCustomer(String name, String phone) {
         NonCustomer nonCustomer = nonCustomerRepository.retrieveNonCustomer(phone);
         logger.info(nonCustomer.toString());
         if (nonCustomer.getNc_Name().equals(name)) {
@@ -75,7 +75,7 @@ public class NonCustomerDaoService {
 
     // 토큰 해독
 
-    String decodeToken(String token) {
+    public String decodeToken(String token) {
         return customerDaoService.decodeToken(token);
     }
 }

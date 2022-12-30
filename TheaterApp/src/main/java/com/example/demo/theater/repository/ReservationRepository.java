@@ -1,6 +1,6 @@
 package com.example.demo.theater.repository;
 
-import com.example.demo.theater.ncOrderList.NcOrderList;
+import com.example.demo.theater.vo.NcOrderList;
 import com.example.demo.theater.vo.Movie;
 import com.example.demo.theater.vo.OrderList;
 import com.example.demo.theater.vo.Reservation;

@@ -3,6 +3,7 @@ package com.example.demo.theater.dao;
 import com.example.demo.theater.repository.CustomerRepository;
 import com.example.demo.theater.repository.FoodPaymentRepository;
 import com.example.demo.theater.repository.ReservationRepository;
+import com.example.demo.theater.vo.Customer;
 import com.google.gson.JsonParser;
 import io.jsonwebtoken.*;
 import org.apache.commons.io.IOUtils;

@@ -1,4 +1,4 @@
-package com.example.demo.theater.answer;
+package com.example.demo.theater.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -2,6 +2,7 @@ package com.example.demo.theater.controller;
 
 import com.example.demo.theater.dao.FoodMenuDaoService;
 import com.example.demo.theater.vo.FoodKind;
+import com.example.demo.theater.vo.FoodMenu;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import io.swagger.annotations.ApiOperation;
