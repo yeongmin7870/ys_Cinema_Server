@@ -30,7 +30,18 @@ Server</p>
 <br>
 <h3>4. 핵심 기능</h3>
 <hr>
-<p></p>
+<p>이 어플 서비스 핵심 기능은 영화 예매 기능 입니다. <br>
+   그 외 음식 주문, 회원, 비회원, 상영 영화 정보, 댓글 기능들이 있습니다.
+</p>
+<details>
+    <summary>핵심 기능 설명 보기</summary><br>
+    <h4>4.1 전체 흐름</h4>
+    
+    <h4>4. Swagger Api 문서</h4>
+    <img width="461" src="https://user-images.githubusercontent.com/73753121/210087777-ea9cc107-8c68-4a0d-8b14-1f1d3002ea9e.png">
+
+
+</details>
 <br>
 <h3>5. 맞닥 뜨린 문제점</h3>
 <hr>
