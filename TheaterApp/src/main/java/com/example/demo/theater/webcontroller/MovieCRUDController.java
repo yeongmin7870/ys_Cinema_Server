@@ -1,6 +1,5 @@
 package com.example.demo.theater.webcontroller;
 
-import com.example.demo.theater.vo.Customer;
 import com.example.demo.theater.dao.MovieDaoService;
 import com.example.demo.theater.repository.MovieRepository;
 import com.example.demo.theater.vo.Movie;
@@ -90,7 +89,7 @@ public class MovieCRUDController {
         return new RedirectView("/");
     }
 
-    @GetMapping("/movieVideo")
+    @GetMapping("/static/movieVideo")
     @ApiOperation("영화 비디오 등록 페이지")
     public String video(Model model, @RequestParam(required = false) Integer movieId) {
         if (movieId == null) {
@@ -104,7 +103,7 @@ public class MovieCRUDController {
         return "movie/movieVideo";
     }
 
-    @PostMapping("/movieVideo")
+    @PostMapping("/static/movieVideo")
     @ApiOperation("영화 비디오 등록")
     public RedirectView uploadVideo(@ModelAttribute Movie movie, @RequestParam("file") MultipartFile file) {
         if (movie.getMovieId() == null) {
