@@ -60,18 +60,34 @@ Server</p>
    <h4>5.3 Dao</h4>
     <img width="461" src="https://user-images.githubusercontent.com/73753121/210123301-01363266-8853-48d7-a9e9-8a3f3ff7b7cd.png"/>   
    <br>
-   <p>Repository를 이용했습니다.  <a href="https://github.com/yeongmin7870/ys_Cinema_Server/blob/e598e5dab0b38d1478db86b35c204b23c92f35a5/TheaterApp/src/main/java/com/example/demo/theater/controller/ReservationController.java#L22">:white_check_mark: 코드보기</a>   
+   <p>Repository가 제공하는 메소드를 이용했습니다.  <a href="https://github.com/yeongmin7870/ys_Cinema_Server/blob/a15e337322b181487579431220702265b7b3f72c/TheaterApp/src/main/java/com/example/demo/theater/dao/ReservationDaoService.java#L49">:white_check_mark: 코드보기</a>   
     </p>  
    <ul>
       <li> 반복적인 Insert문 쿼리를 써야 했던 것을 Repository 인터페이스가 대신 작성해주어 코드양이 줄었습니다.</li>
-      <li> Query method를 사용하면 되지만 구현할때 max 쿼리 메소드가 없는 줄 알고 JPQL을 사용했습니다.</li>
    </ul>
+   <p>JPQL을 사용했습니다.  <a href="https://github.com/yeongmin7870/ys_Cinema_Server/blob/a15e337322b181487579431220702265b7b3f72c/TheaterApp/src/main/java/com/example/demo/theater/dao/ReservationDaoService.java#L53">:white_check_mark: 코드보기</a>   
+    </p>  
+   <ul>
+      <li> Query method를 사용하면 되지만 구현할때 JPA에 대한 공부가 부족했고 대안으로 JPQL을 사용했습니다.</li>
+   </ul>
+  <br>
    <h4>5.4 Repository</h4>
-    <img width="461" src="https://user-images.githubusercontent.com/73753121/210096593-8c106337-bded-4ee7-b739-6b9d12ccd39d.png"/>   
+    <img width="461" src="https://user-images.githubusercontent.com/73753121/210124139-30746983-039e-4ab2-8a53-af01c8e635ed.png"/>   
    <br>
+   <p>JPQL을 사용했습니다.  <a href="https://github.com/yeongmin7870/ys_Cinema_Server/blob/71e7922715ca475df26a467c42f68340245fa682/TheaterApp/src/main/java/com/example/demo/theater/repository/ReservationRepository.java#L17">:white_check_mark: 코드보기</a>   
+    </p>  
+   <ul>
+      <li> 조인같은 경우에는 Query method가 힘들기 때문에 JPQL를 사용했습니다.</li>
+   </ul>
    <h4>5.5 Vo</h4>
     <img width="461" src="https://user-images.githubusercontent.com/73753121/210123261-5672a9ab-e73f-46ec-a2b6-187a73524583.png"/>   
    <br>
+   <p>엔티티 설정을 해줬습니다.  <a href="https://github.com/yeongmin7870/ys_Cinema_Server/blob/71e7922715ca475df26a467c42f68340245fa682/TheaterApp/src/main/java/com/example/demo/theater/repository/ReservationRepository.java#L17">:white_check_mark: 코드보기</a>   
+    </p>  
+   <ul>
+      <li> 조인같은 경우에는 Query method가 힘들기 때문에 JPQL를 사용했습니다.</li>
+   </ul>
+  </details>
 <h3>6. 맞닥 뜨린 문제점</h3>
 <hr>
 <p></p>
