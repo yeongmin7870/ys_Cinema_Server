@@ -92,15 +92,16 @@ Server</p>
   </details>
 <h3>6. 맞닥 뜨린 문제점</h3>
 <hr>
-<h4>6.1 이미지를 여러장 안드로이드에 보내줘야 할때</h4>
-<p>
-  이미지를 
-</p>
-<details>
-    <summary>핵심 기능 설명 보기</summary><br>
-  <h4>5.1 전체 흐름</h4> 
-<p></p>
-<br>
+<h4>6.1 이미지를 여러장 안드로이드에 보내줘야 할때  <a href="https://github.com/yeongmin7870/ys_Cinema_Server/blob/09825d06179aa61fc490ddc25b5583d74f271262/TheaterApp/src/main/java/com/example/demo/theater/dao/MovieDaoService.java#L97">:white_check_mark: 코드보기</a></h4>   
+  <ul>
+    <li> 이미지를 그냥 한 장만 보내 줄때는 Resource 객체를 사용해서</li>
+    <li> 경로에 있는 파일을 읽어 온 다음 Response body에 담아서 보내줘도</li>
+    <li> 문제가 없지만 영화 포스터, 음식 이미지를 여러장 보내줄 때는</li>
+    <li> 클라이언트가 받기 쉽지 않아 보였습니다.</li>
+  </ul>
+  <details>
+    <summary>해결 보기</summary><br>
+  </details>
 <h3>7. 느낀 점</h3>
 <hr>
 <p></p>
