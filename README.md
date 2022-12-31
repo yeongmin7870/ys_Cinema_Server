@@ -106,7 +106,7 @@ Server</p>
   </p>
   <img src="https://user-images.githubusercontent.com/73753121/210133867-38786953-23bf-444b-bebd-d96c84c529e0.png">
    <ul>
-      <li>한 장만 가져오는 URI를 리스트에 담아서</li>
+      <li>한 장만 가져오는 URI를 배열에 담아서</li>
       <li>안드로이에 이미지를 여러장 출력할 수 있게 해결 했습니다.</li>
    </ul>
   </details>
