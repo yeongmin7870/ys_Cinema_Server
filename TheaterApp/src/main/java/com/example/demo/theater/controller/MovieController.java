@@ -24,11 +24,6 @@ public class MovieController {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    private String methodName; // 메소드명 가져오기위한 변수
-
-    private LogController logController;
-    // 찍는 이유는 여러가지 1. 악용자가 누군지 알기위한 방책, 2. 로그인 시 누가 어디서 로그인 했는지 알기위한 방책
-
     @Autowired
     private MovieDaoService service;
 
@@ -65,11 +60,6 @@ public class MovieController {
     @ApiOperation(value = "영화 이미지 업로드", notes = "영화 이미지 업로드 기능이다.")
     public String movieIMageUpload(@RequestParam Integer id, @RequestParam("file") MultipartFile multipartFile,
             HttpServletRequest request) {
-        methodName = new Object() {
-        }.getClass().getEnclosingMethod().getName(); // 메소드 명 가져오기
-
-        logger.info(methodName + " 서비스를 실행하였고 " + "IP는 " + logController.clientIp(request));
-
         return service.uploadToLocal(id, multipartFile);
     }
 

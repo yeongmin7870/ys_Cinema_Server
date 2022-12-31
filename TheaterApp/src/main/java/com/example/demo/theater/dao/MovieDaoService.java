@@ -111,7 +111,7 @@ public class MovieDaoService {
     // 현재 상영작 이미지 업로드
     public String uploadToLocal(Integer id, MultipartFile file) {
         try {
-            String uploadFolderPath = "./src/main/resources/serverImage/movieImage/";
+            String uploadFolderPath = "./src/main/resources/static/serverImage/movieImage/";
             Movie movie = movieRepository.findByMovieId(id);
             String imageName = id + "movie" + movie.getM_Name() + ".jpeg";
             File checkFile = new File(uploadFolderPath + imageName);
