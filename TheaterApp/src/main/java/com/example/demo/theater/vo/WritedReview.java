@@ -1,16 +1,10 @@
 package com.example.demo.theater.vo;
 
-import com.example.demo.theater.vo.Customer;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 
 @Data
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
 public class WritedReview {
     @Id
     @GeneratedValue

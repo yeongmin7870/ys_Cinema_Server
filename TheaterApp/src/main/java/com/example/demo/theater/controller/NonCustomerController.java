@@ -3,10 +3,8 @@ package com.example.demo.theater.controller;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import com.example.demo.theater.dao.NonCustomerDaoService;
 import com.example.demo.theater.vo.NonCustomer;
-
 import java.util.List;
 
 @RestController

@@ -1,21 +1,12 @@
 package com.example.demo.theater.vo;
 
-import com.example.demo.theater.vo.Customer;
 import com.sun.istack.NotNull;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import oracle.sql.TIMESTAMP;
-
 import javax.persistence.*;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.Date;
 
 @Data
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
 @Table(name = "Movie_Review")
 public class MovieReview {
     @Id

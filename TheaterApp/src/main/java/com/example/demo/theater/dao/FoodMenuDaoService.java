@@ -3,7 +3,6 @@ package com.example.demo.theater.dao;
 import com.example.demo.theater.repository.FoodKindRepository;
 import com.example.demo.theater.repository.FoodMenuRepository;
 import com.example.demo.theater.vo.FoodKind;
-
 import com.example.demo.theater.vo.FoodMenu;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,9 +13,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
-
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;

@@ -3,31 +3,18 @@ package com.example.demo.theater.controller;
 import com.example.demo.theater.dao.MovieDaoService;
 import com.example.demo.theater.exception.MovieNotFoundException;
 import com.example.demo.theater.vo.Movie;
-import com.google.gson.JsonObject;
 import io.swagger.annotations.ApiOperation;
-import net.minidev.json.JSONObject;
-import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
-import javax.print.attribute.standard.Media;
 import javax.servlet.http.HttpServletRequest;
-import java.awt.*;
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URI;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 
 @RestController

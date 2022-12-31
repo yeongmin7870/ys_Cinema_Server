@@ -1,10 +1,6 @@
 package com.example.demo.theater.repository;
 
-import com.example.demo.theater.vo.Movie;
 import com.example.demo.theater.vo.MovieSchedule;
-import com.example.demo.theater.vo.StoreAddress;
-
-import oracle.sql.DATE;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -14,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
+
 
 @Repository
 public interface movieScheduleRepository extends JpaRepository<MovieSchedule, Integer> {

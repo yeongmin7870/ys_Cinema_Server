@@ -1,11 +1,10 @@
 package com.example.demo.theater.repository;
 
+import com.example.demo.theater.vo.NormalSeat;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-
-import com.example.demo.theater.vo.NormalSeat;
 
 @Repository
 public interface NormalSeatRepository extends JpaRepository<NormalSeat,Integer> {

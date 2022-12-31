@@ -1,8 +1,6 @@
 package com.example.demo.theater.vo;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,8 +10,6 @@ import java.util.Date;
 
 @Data
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
 public class Answer {
     @Id
     @GeneratedValue

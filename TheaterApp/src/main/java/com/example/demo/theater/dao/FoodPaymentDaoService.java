@@ -7,14 +7,10 @@ import com.example.demo.theater.repository.OrderListRepository;
 import com.example.demo.theater.vo.FoodMenu;
 import com.example.demo.theater.vo.FoodPayment;
 import com.example.demo.theater.vo.OrderList;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.stereotype.Service;
-
-import javax.persistence.criteria.Order;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;

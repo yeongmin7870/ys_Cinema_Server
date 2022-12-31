@@ -1,12 +1,7 @@
 package com.example.demo.theater.vo;
 
 import com.sun.istack.NotNull;
-import io.swagger.models.auth.In;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import oracle.sql.TIMESTAMP;
-
 import javax.persistence.*;
 import java.util.Date;
 

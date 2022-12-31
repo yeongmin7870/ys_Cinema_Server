@@ -1,6 +1,5 @@
 package com.example.demo.theater.repository;
 
-
 import com.example.demo.theater.vo.NonCustomer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

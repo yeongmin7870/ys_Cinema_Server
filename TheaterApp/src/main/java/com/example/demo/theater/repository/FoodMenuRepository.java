@@ -2,18 +2,11 @@ package com.example.demo.theater.repository;
 
 import com.example.demo.theater.vo.FoodKind;
 import com.example.demo.theater.vo.FoodMenu;
-import com.google.gson.JsonObject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import java.util.List;
-import java.util.Map;
-import java.util.Optional;
 
 @Repository
 public interface FoodMenuRepository extends JpaRepository<FoodMenu, Integer> {

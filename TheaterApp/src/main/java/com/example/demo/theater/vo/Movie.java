@@ -1,18 +1,13 @@
 package com.example.demo.theater.vo;
 
 import com.sun.istack.NotNull;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.*;
 import java.util.Date;
 
 @Data
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
 public class Movie {
 
     @Id

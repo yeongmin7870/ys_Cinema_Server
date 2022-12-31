@@ -2,20 +2,13 @@ package com.example.demo.theater.controller;
 
 import com.example.demo.theater.dao.MovieScheduleDaoService;
 import com.example.demo.theater.dao.WritedReviewDaoService;
-import com.example.demo.theater.exception.MovieNotFoundException;
 import com.example.demo.theater.exception.MovieScheduleNotFoundException;
-import com.example.demo.theater.vo.Movie;
 import com.example.demo.theater.vo.MovieSchedule;
-
 import io.swagger.annotations.ApiOperation;
-import oracle.sql.DATE;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 @RestController

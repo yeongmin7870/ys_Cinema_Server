@@ -1,17 +1,13 @@
 package com.example.demo.theater.dao;
 
-import com.example.demo.theater.exception.CustomizeResponseEntityExceptionHandler;
 import com.example.demo.theater.repository.FoodPaymentRepository;
 import com.example.demo.theater.repository.NonCustomerRepository;
 import com.example.demo.theater.repository.ReservationRepository;
 import com.example.demo.theater.vo.NonCustomer;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @Service

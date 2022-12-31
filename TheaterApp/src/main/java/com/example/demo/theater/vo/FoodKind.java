@@ -1,19 +1,12 @@
 package com.example.demo.theater.vo;
 
-import com.example.demo.theater.vo.FoodMenu;
 import com.sun.istack.NotNull;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+
 
 @Data
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "Food_Kind")
 public class FoodKind {
     @Id

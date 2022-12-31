@@ -1,13 +1,9 @@
 package com.example.demo.theater.dao;
 
 import com.example.demo.theater.repository.ReviewCommentRepository;
-import com.example.demo.theater.vo.MovieReview;
 import com.example.demo.theater.vo.ReviewComment;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 

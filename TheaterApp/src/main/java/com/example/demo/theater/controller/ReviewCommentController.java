@@ -3,11 +3,9 @@ package com.example.demo.theater.controller;
 import com.example.demo.theater.dao.ReviewCommentDaoService;
 import com.example.demo.theater.exception.MovieNotFoundException;
 import com.example.demo.theater.vo.ReviewComment;
-
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController

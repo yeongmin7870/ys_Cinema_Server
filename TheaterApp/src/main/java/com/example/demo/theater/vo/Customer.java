@@ -1,18 +1,12 @@
 package com.example.demo.theater.vo;
 
-import com.google.gson.annotations.SerializedName;
-import com.sun.istack.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
+import com.sun.istack.NotNull;
+import lombok.Data;
 import javax.persistence.*;
-import java.sql.Blob;
 
 @Data
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
 public class Customer {
 
     @Id

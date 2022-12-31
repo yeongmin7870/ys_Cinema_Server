@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
 @Repository
@@ -19,11 +18,7 @@ public interface MovieReviewRepository extends JpaRepository<MovieReview, Intege
     @Query(value = "SELECT SUM(mrReviewStarScore) FROM MovieReview WHERE movieId = :movieId")
     Integer sumRating(@Param("movieId") Integer movieId);  // 평점 합계
 
-
     List<MovieReview> findByMovieId(Integer movieId); // 영화아이디로 리뷰 찾기
-
-//    @Query(value = "INSERT INTO Writed_Review (WR_NO,c_Id, mr_No) VALUES (WRITED_REVIEW_SEQ_WRNO.NEXTVAL,:c_Id,:mr_No)", nativeQuery = true)
-//    WritedReview insertWR(@Param("c_Id") String cId, @Param("mr_No") Integer mrNo);
 
     @Query(value = "SELECT count(m.movieReviewId) FROM WritedReview w, MovieReview m WHERE w.mrNo = m.movieReviewId And w.cId = :cId AND m.movieId = :movieId")
     Integer oneReview(@Param("cId") String cId, @Param("movieId") Integer movieId);

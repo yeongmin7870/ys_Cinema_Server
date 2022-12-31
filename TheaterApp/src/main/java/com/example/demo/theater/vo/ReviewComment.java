@@ -1,11 +1,6 @@
 package com.example.demo.theater.vo;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import oracle.sql.DATE;
-import oracle.sql.TIMESTAMP;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,8 +9,6 @@ import java.util.Date;
 
 @Data
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
 public class ReviewComment {
 
     @Id

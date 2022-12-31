@@ -5,13 +5,11 @@ import com.example.demo.theater.dao.WritedReviewDaoService;
 import com.example.demo.theater.exception.MovieNotFoundException;
 import com.example.demo.theater.vo.MovieReview;
 import com.example.demo.theater.vo.WritedReview;
-
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;

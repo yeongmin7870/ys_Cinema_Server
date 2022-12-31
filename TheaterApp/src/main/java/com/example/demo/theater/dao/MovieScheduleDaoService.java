@@ -3,22 +3,13 @@ package com.example.demo.theater.dao;
 import com.example.demo.theater.repository.MovieRepository;
 import com.example.demo.theater.repository.StoreAddressRepository;
 import com.example.demo.theater.repository.movieScheduleRepository;
-
-import oracle.sql.DATE;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.example.demo.theater.vo.Movie;
 import com.example.demo.theater.vo.MovieSchedule;
-import com.example.demo.theater.vo.StoreAddress;
-
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
-import java.util.Optional;
 
 @Service
 public class MovieScheduleDaoService {
