@@ -78,7 +78,7 @@ Server</p>
    <p>JPQL을 사용했습니다.  <a href="https://github.com/yeongmin7870/ys_Cinema_Server/blob/71e7922715ca475df26a467c42f68340245fa682/TheaterApp/src/main/java/com/example/demo/theater/repository/ReservationRepository.java#L17">:white_check_mark: 코드보기</a>   
     </p>  
    <ul>
-      <li> 조인같은 경우에는 쿼리문이 더 익숙해서 JPQL를 사용했습니다.</li>
+      <li> 조인같은 경우에는 쿼리문 JPQL를 사용했습니다.</li>
    </ul>
    <h4>5.5 Vo</h4>
     <img width="461" src="https://user-images.githubusercontent.com/73753121/210123261-5672a9ab-e73f-46ec-a2b6-187a73524583.png"/>   
