@@ -4,14 +4,10 @@ import com.example.demo.theater.vo.NcOrderList;
 import com.example.demo.theater.vo.Movie;
 import com.example.demo.theater.vo.OrderList;
 import com.example.demo.theater.vo.Reservation;
-
-import org.aspectj.weaver.ast.Or;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-
-import javax.persistence.criteria.Order;
 import java.util.List;
 
 @Repository

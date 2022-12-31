@@ -50,7 +50,7 @@ public class ReservationDaoService {
 
             OrderList orderList = new OrderList();
             orderList.setCId(cId);
-            orderList.setR_No(repository.findMaxId()); //
+            orderList.setR_No(repository.findMaxId()); //최근 예약한 아이디
 
             orderListRepository.save(orderList);
         }
