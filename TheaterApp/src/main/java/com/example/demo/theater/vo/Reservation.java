@@ -12,8 +12,6 @@ import java.util.Date;
 
 @Data
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
 public class Reservation {
     @Id
     @NotNull
