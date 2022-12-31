@@ -42,13 +42,13 @@ Server</p>
     <img width="461" src="https://user-images.githubusercontent.com/73753121/210095351-dd3ab35a-c23c-4a67-ab2e-f1d35c36de5e.png"/>   
     <br>
   <h4>5.2 Controller</h4> 
-    <img width="461" src="https://user-images.githubusercontent.com/73753121/210096934-6573bb7d-0c1e-47e7-b16d-fd89503f223c.png"/><br>
-    ResponseEntity를 사용하였습니다.
+    <img width="461" src="https://user-images.githubusercontent.com/73753121/210096934-6573bb7d-0c1e-47e7-b16d-fd89503f223c.png"/>
+    <p>Rest Api를 사용했습니다. 
+    </p>        <a https://github.com/yeongmin7870/ys_Cinema_Server/blob/e598e5dab0b38d1478db86b35c204b23c92f35a5/TheaterApp/src/main/java/com/example/demo/theater/controller/ReservationController.java#L21 코드보기</a>
    <ul>
-      <li>     
-       HttpStatus를 200으로 응답하게 하였습니다.
-        <a href="https://github.com/yeongmin7870/ys_Cinema_Server/blob/e598e5dab0b38d1478db86b35c204b23c92f35a5/TheaterApp/src/main/java/com/example/demo/theater/controller/ReservationController.java#L14">:white_check_mark: 코드보기</a>
-      </li>
+      <li> 영화 예매는 @PostMapping("reserve")으로 UrI 자원을 만들어 사용하게 했습니다.</li>
+      <li> 안드로이드와 HTTP 통신을 할때 rest api는 URI만 보고 무슨 자원인지 쉽게 판단 가능합니다.</li>
+      <li> 어떤 HTTP method를 사용할 것인지도 알 수 있어 결론적으로 가독성이 좋았습니다.</li>        
     </ul>
    <br>
    <h4>5.3 Dao</h4>
