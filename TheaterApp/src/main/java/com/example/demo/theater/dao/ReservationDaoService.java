@@ -6,14 +6,10 @@ import com.example.demo.theater.repository.NormalSeatRepository;
 import com.example.demo.theater.repository.OrderListRepository;
 import com.example.demo.theater.repository.ReservationRepository;
 import com.example.demo.theater.vo.Movie;
-import com.example.demo.theater.vo.NormalSeat;
 import com.example.demo.theater.vo.OrderList;
 import com.example.demo.theater.vo.Reservation;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.persistence.criteria.Order;
 import java.util.Date;
 import java.util.List;
 
@@ -41,6 +37,7 @@ public class ReservationDaoService {
 
         for (int i = 0; i < strArray.length; i++) {
             Reservation reservation = new Reservation();
+
             reservation.setR_Date(today);
             reservation.setC_Photo("안씀");
             reservation.setM_No(newReservation.getM_No());
@@ -48,12 +45,13 @@ public class ReservationDaoService {
             reservation.setR_Coupon(0);
             reservation.setMsNo(newReservation.getMsNo());
             reservation.setR_TotalPrice(newReservation.getR_TotalPrice());
-
             reservation.setNormalSeatId(strArray[i]);
             repository.save(reservation);
+
             OrderList orderList = new OrderList();
             orderList.setCId(cId);
-            orderList.setR_No(repository.findMaxId());
+            orderList.setR_No(repository.findMaxId()); //
+
             orderListRepository.save(orderList);
         }
     }

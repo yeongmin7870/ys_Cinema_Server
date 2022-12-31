@@ -26,25 +26,18 @@ public class Reservation {
     private Integer msNo;
     @Column(columnDefinition = "date")
     private Date r_Date;
-    // @Column(columnDefinition = "varchar2(10)")
-    // private String r_Hour;
-    // @Column(columnDefinition = "varchar2(6)")
-    // private String r_Seat;
     @Column(columnDefinition = "varchar2(7)")
     private String r_TotalPrice;
     @Column(columnDefinition = "number")
     private Integer r_Coupon;
     @Column(columnDefinition = "varchar2(70)")
     private String c_Photo;
-
     @Column(columnDefinition = "VARCHAR2(7)")
     private String normalSeatId;
-
     @Column(columnDefinition = "VARCHAR2(10)")
     private String normalScreenId;
 
     // vo 를 위한 변수 선언
-
     @Transient
     private Integer orderId;
     @Transient
