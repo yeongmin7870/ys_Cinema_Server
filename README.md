@@ -95,15 +95,29 @@ Server</p>
 <h4>6.1 이미지를 여러장 안드로이드에 보내줘야 할때  <a href="https://github.com/yeongmin7870/ys_Cinema_Server/blob/09825d06179aa61fc490ddc25b5583d74f271262/TheaterApp/src/main/java/com/example/demo/theater/dao/MovieDaoService.java#L97">:white_check_mark: 코드보기</a></h4>   
   <ul>
     <li> 이미지를 그냥 한 장만 보내 줄때는 Resource 객체를 사용해서</li>
-    <li> 경로에 있는 파일을 읽어 온 다음 Response body에 담아서 보내줘도</li>
+    <li> 경로에 있는 파일을 읽어 온 다음 Response body에 담아 보내줘도</li>
     <li> 문제가 없지만 영화 포스터, 음식 이미지를 여러장 보내줄 때는</li>
     <li> 클라이언트가 받기 쉽지 않아 보였습니다.</li>
   </ul>
   <details>
     <summary>해결 보기</summary><br>
+   <p>배열에 URI를 담아 보냈습니다.
+ <a href="https://github.com/yeongmin7870/ys_Cinema_Server/blob/09825d06179aa61fc490ddc25b5583d74f271262/TheaterApp/src/main/java/com/example/demo/theater/dao/MovieDaoService.java#L86"> :white_check_mark: 코드보기</a>
+  </p>
+  <img src="https://user-images.githubusercontent.com/73753121/210133867-38786953-23bf-444b-bebd-d96c84c529e0.png">
+   <ul>
+      <li>한 장만 가져오는 URI를 리스트에 담아서</li>
+      <li>안드로이에 이미지를 여러장 출력할 수 있게 해결 했습니다.</li>
+   </ul>
   </details>
 <h3>7. 느낀 점</h3>
 <hr>
-<p></p>
+<p>혼자 공부해서 JPA 서버를 구축해 보았는데 ORM 이기 때문에 디비에 타입이나 이름만 바꿔줘도 서버 오류가<br>
+   나는 경우가 있었고 바로바로 서버도 수정을 해줘야 하기 때문에 처음 설계를 꼼꼼하게 잘해야 하겠다라는 생각이 들었습니다.<br>
+   의사소통 과정에서 조장으로서 조원들이 서로 의견을 원할하게 할 수 있게 경청하고 조율하려고 노력했고<br>
+   각자 책임감을 부여해서 주도적으로 참여할 수 있게 만들고 싶었지만 그 부분은 쉽지 않았던 것 같습니다.<br>
+   많이 부족했던 프로젝트지만 좋은 공부도 되었던 프로젝트 였습니다.
+</p>
+
 
 
