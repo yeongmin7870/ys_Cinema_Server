@@ -46,7 +46,7 @@ Server</p>
     <p>Rest Api를 사용했습니다.  <a href="https://github.com/yeongmin7870/ys_Cinema_Server/blob/e598e5dab0b38d1478db86b35c204b23c92f35a5/TheaterApp/src/main/java/com/example/demo/theater/controller/ReservationController.java#L21">:white_check_mark: 코드보기</a>   
     </p>       
    <ul>
-      <li> UrI 자원을 만들어 사용하게 했습니다.</li>
+      <li> UrI 자원을 만들어  했습니다.</li>
       <li> 안드로이드와 HTTP 통신을 할때 rest api는 URI만 보고 무슨 자원인지 쉽게 판단 가능합니다.</li>
       <li> 어떤 HTTP method를 사용할 것인지도 알 수 있어 결론적으로 가독성이 좋았습니다.</li>        
    </ul>
