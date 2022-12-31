@@ -77,15 +77,16 @@ Server</p>
    <p>JPQL을 사용했습니다.  <a href="https://github.com/yeongmin7870/ys_Cinema_Server/blob/71e7922715ca475df26a467c42f68340245fa682/TheaterApp/src/main/java/com/example/demo/theater/repository/ReservationRepository.java#L17">:white_check_mark: 코드보기</a>   
     </p>  
    <ul>
-      <li> 조인같은 경우에는 Query method가 힘들기 때문에 JPQL를 사용했습니다.</li>
+      <li> 조인같은 경우에는 쿼리문이 더 익숙해서 JPQL를 사용했습니다.</li>
    </ul>
    <h4>5.5 Vo</h4>
     <img width="461" src="https://user-images.githubusercontent.com/73753121/210123261-5672a9ab-e73f-46ec-a2b6-187a73524583.png"/>   
    <br>
-   <p>엔티티 설정을 해줬습니다.  <a href="https://github.com/yeongmin7870/ys_Cinema_Server/blob/71e7922715ca475df26a467c42f68340245fa682/TheaterApp/src/main/java/com/example/demo/theater/repository/ReservationRepository.java#L17">:white_check_mark: 코드보기</a>   
+   <p>엔티티 설정을 해줬습니다.  <a href="https://github.com/yeongmin7870/ys_Cinema_Server/blob/73d02369f7e475c9dd6bde617d5c8089bc4bd566/TheaterApp/src/main/java/com/example/demo/theater/vo/Reservation.java#L9">:white_check_mark: 코드보기</a>   
     </p>  
    <ul>
-      <li> 조인같은 경우에는 Query method가 힘들기 때문에 JPQL를 사용했습니다.</li>
+      <li>object와 RDB를 Mapping 시켜주어 반복적인 코드를 줄일 수 있었습니다.</li>
+      <li>초기 설계 때 라서 디비가 꼬이면 서버에서 crate,drop을 할 수 있어서 편했습니다.</li>
    </ul>
   </details>
 <h3>6. 맞닥 뜨린 문제점</h3>
