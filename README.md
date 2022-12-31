@@ -51,22 +51,27 @@ Server</p>
       <li> 어떤 HTTP method를 사용할 것인지도 알 수 있어 결론적으로 가독성이 좋았습니다.</li>        
    </ul>
     <p>Api문서를 작성했습니다.  <a href="https://github.com/yeongmin7870/ys_Cinema_Server/blob/e598e5dab0b38d1478db86b35c204b23c92f35a5/TheaterApp/src/main/java/com/example/demo/theater/controller/ReservationController.java#L22">:white_check_mark: 코드보기</a>   
-    </p>       
+    </p>  
    <ul>
       <li> Swagger는 Api 메뉴얼들을 자동생성 할 수 있어 편리했습니다.</li>
       <li> Html 문서화를 해주었기 때문에 클라이언트들과 소통하기도 수월했습니다.</li>
    </ul>
    <br>
    <h4>5.3 Dao</h4>
-    <img width="461" src="https://user-images.githubusercontent.com/73753121/210096264-d35fd57e-4311-40b9-8924-46654dc2a627.png"/>   
+    <img width="461" src="https://user-images.githubusercontent.com/73753121/210123301-01363266-8853-48d7-a9e9-8a3f3ff7b7cd.png"/>   
    <br>
+   <p>Repository를 이용했습니다.  <a href="https://github.com/yeongmin7870/ys_Cinema_Server/blob/e598e5dab0b38d1478db86b35c204b23c92f35a5/TheaterApp/src/main/java/com/example/demo/theater/controller/ReservationController.java#L22">:white_check_mark: 코드보기</a>   
+    </p>  
+   <ul>
+      <li> 반복적인 Insert문 쿼리를 써야 했던 것을 Repository 인터페이스가 대신 작성해주어 코드양이 줄었습니다.</li>
+      <li> Query method를 사용하면 되지만 구현할때 max 쿼리 메소드가 없는 줄 알고 JPQL을 사용했습니다.</li>
+   </ul>
    <h4>5.4 Repository</h4>
     <img width="461" src="https://user-images.githubusercontent.com/73753121/210096593-8c106337-bded-4ee7-b739-6b9d12ccd39d.png"/>   
    <br>
    <h4>5.5 Vo</h4>
-    <img width="461" src="https://user-images.githubusercontent.com/73753121/210096693-a8d24143-0766-4f64-98c7-52d70f2f2f6a.png"/>   
+    <img width="461" src="https://user-images.githubusercontent.com/73753121/210123261-5672a9ab-e73f-46ec-a2b6-187a73524583.png"/>   
    <br>
-</details>
 <h3>6. 맞닥 뜨린 문제점</h3>
 <hr>
 <p></p>
