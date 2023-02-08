@@ -99,17 +99,6 @@ Server</p>
     <li> 문제가 없지만 영화 포스터, 음식 이미지를 여러장 보내줄 때는</li>
     <li> 클라이언트가 받기 쉽지 않아 보였습니다.</li>
   </ul>
-  <details>
-    <summary>해결 보기</summary><br>
-   <p>배열에 URI를 담아 보냈습니다.
- <a href="https://github.com/yeongmin7870/ys_Cinema_Server/blob/09825d06179aa61fc490ddc25b5583d74f271262/TheaterApp/src/main/java/com/example/demo/theater/dao/MovieDaoService.java#L86"> :white_check_mark: 코드보기</a>
-  </p>
-  <img src="https://user-images.githubusercontent.com/73753121/210133867-38786953-23bf-444b-bebd-d96c84c529e0.png">
-   <ul>
-      <li>한 장만 가져오는 URI를 배열에 담아서</li>
-      <li>안드로이드에 이미지를 여러장 출력할 수 있게 해결 했습니다.</li>
-   </ul>
-  </details>
 <h3>7. 느낀 점</h3>
 <hr>
 <p>혼자 공부해서 Spring Boot 프레임워크를 이용한 서버를 구축해 보았는데 ORM 이기 때문에 디비에 타입이나 이름만 바꿔줘도 <br>
